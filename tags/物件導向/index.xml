@@ -1,10 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>All Posts - fnsne&#39;s coding world</title>
-        <link>http://fnsne.github.io/posts/</link>
-        <description>All Posts | fnsne&#39;s coding world</description>
+        <title>物件導向 - Tag - fnsne&#39;s coding world</title>
+        <link>http://fnsne.github.io/tags/%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/</link>
+        <description>物件導向 - Tag - fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>watashiwafnsne@gmail.com (fnsne)</managingEditor>
-            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Tue, 02 Aug 2022 20:01:59 &#43;0800</lastBuildDate><atom:link href="http://fnsne.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Tue, 02 Aug 2022 20:01:59 &#43;0800</lastBuildDate><atom:link href="http://fnsne.github.io/tags/%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/" rel="self" type="application/rss+xml" /><item>
     <title>淺談在Golang上面的物件導向</title>
     <link>http://fnsne.github.io/posts/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/</link>
     <pubDate>Tue, 02 Aug 2022 20:01:59 &#43;0800</pubDate>

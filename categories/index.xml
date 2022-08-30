@@ -4,5 +4,21 @@
         <link>http://fnsne.github.io/categories/</link>
         <description>Categories - Category - fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>watashiwafnsne@gmail.com (fnsne)</managingEditor>
-            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><atom:link href="http://fnsne.github.io/categories/" rel="self" type="application/rss+xml" /></channel>
+            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Tue, 02 Aug 2022 20:01:59 &#43;0800</lastBuildDate><atom:link href="http://fnsne.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>coding</title>
+    <link>http://fnsne.github.io/categories/coding/</link>
+    <pubDate>Tue, 02 Aug 2022 20:01:59 &#43;0800</pubDate>
+    <author>fnsne</author>
+    <guid>http://fnsne.github.io/categories/coding/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>golang</title>
+    <link>http://fnsne.github.io/categories/golang/</link>
+    <pubDate>Tue, 02 Aug 2022 20:01:59 &#43;0800</pubDate>
+    <author>fnsne</author>
+    <guid>http://fnsne.github.io/categories/golang/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
 </rss>

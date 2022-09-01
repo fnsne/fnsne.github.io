@@ -7,7 +7,7 @@
         <title>淺談在Golang上面的物件導向 - fnsne&#39;s coding world</title><meta name="Description" content="fnsne&#39;s coding world"><meta property="og:title" content="淺談在Golang上面的物件導向" />
 <meta property="og:description" content="從物件導向的語言轉到Golang常常會遇到，不知道該怎麼在Golang實作類似多型和繼承的功能。這是因為Golang根本不是物件導向的語言。
 在網路上會看到一些文章，寫說可以使用可以embed來模擬繼承，但事實上embed的用途應該只是用來減少重複的程式碼，增加可讀性。像在io package裡面就很明顯，如intreface ReadWriter就是用Reader和Writer 兩個interface組合起來的。
-使用embed struct的方式來模擬繼承。為了要可以被抽換注入，還是得要同時implement一個interface。這樣還不如直接implement interface就好了。
+type ReadWriter interface { Reader Writer } 使用embed struct的方式來模擬繼承。為了要可以被抽換注入，還是得要同時implement一個interface。這樣還不如直接implement interface就好了。
 在Golang，唯一類似物件導向的東西只有 interface。只要有implement interface，就可以在宣告使用這個interface的地方使用。
 個人的理解，Golang把繼承的概念且分成兩個部分：embed和interface。embed struct (interface) 負責擴增fields (method); interface負責讓不同struct可以有相同的調用方式
 embed struct 的功能只是單純消除struct的field的重用而已。embed interface 也是如此，單純想要減少 method 裡面重複宣告 method 的程式碼。
@@ -22,7 +22,7 @@ embed struct 的功能只是單純消除struct的field的重用而已。embed in
 <meta name="twitter:title" content="淺談在Golang上面的物件導向"/>
 <meta name="twitter:description" content="從物件導向的語言轉到Golang常常會遇到，不知道該怎麼在Golang實作類似多型和繼承的功能。這是因為Golang根本不是物件導向的語言。
 在網路上會看到一些文章，寫說可以使用可以embed來模擬繼承，但事實上embed的用途應該只是用來減少重複的程式碼，增加可讀性。像在io package裡面就很明顯，如intreface ReadWriter就是用Reader和Writer 兩個interface組合起來的。
-使用embed struct的方式來模擬繼承。為了要可以被抽換注入，還是得要同時implement一個interface。這樣還不如直接implement interface就好了。
+type ReadWriter interface { Reader Writer } 使用embed struct的方式來模擬繼承。為了要可以被抽換注入，還是得要同時implement一個interface。這樣還不如直接implement interface就好了。
 在Golang，唯一類似物件導向的東西只有 interface。只要有implement interface，就可以在宣告使用這個interface的地方使用。
 個人的理解，Golang把繼承的概念且分成兩個部分：embed和interface。embed struct (interface) 負責擴增fields (method); interface負責讓不同struct可以有相同的調用方式
 embed struct 的功能只是單純消除struct的field的重用而已。embed interface 也是如此，單純想要減少 method 裡面重複宣告 method 的程式碼。
@@ -40,7 +40,7 @@ embed struct 的功能只是單純消除struct的field的重用而已。embed in
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/coding.fnsne.com\/posts\/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91\/"
-        },"genre": "posts","keywords": "golang, 物件導向, embed","wordcount":  29 ,
+        },"genre": "posts","keywords": "golang, 物件導向, embed","wordcount":  36 ,
         "url": "http:\/\/coding.fnsne.com\/posts\/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91\/","datePublished": "2022-08-02T20:01:59+08:00","dateModified": "2022-08-02T20:01:59+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -116,7 +116,7 @@ embed struct 的功能只是單純消除struct的field的重用而已。embed in
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">淺談在Golang上面的物件導向</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>fnsne</a>
 </span>&nbsp;<span class="post-category">included in <a href="/categories/golang/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>golang</a>&nbsp;<a href="/categories/coding/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>coding</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-02">2022-08-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;29 words&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-02">2022-08-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;36 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -133,15 +133,11 @@ embed struct 的功能只是單純消除struct的field的重用而已。embed in
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
             </div><div class="content" id="content"><p>從物件導向的語言轉到Golang常常會遇到，不知道該怎麼在Golang實作類似多型和繼承的功能。這是因為Golang根本不是物件導向的語言。</p>
 <p>在網路上會看到一些文章，寫說可以使用可以embed來模擬繼承，但事實上embed的用途應該只是用來減少重複的程式碼，增加可讀性。像在io package裡面就很明顯，如intreface ReadWriter就是用Reader和Writer 兩個interface組合起來的。</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/posts/imgs/1-1.png"
-        data-srcset="/posts/imgs/1-1.png, /posts/imgs/1-1.png 1.5x, /posts/imgs/1-1.png 2x"
-        data-sizes="auto"
-        alt="/posts/imgs/1-1.png"
-        title="image info" /></p>
-<p>使用embed struct的方式來模擬繼承。為了要可以被抽換注入，還是得要同時implement一個interface。這樣還不如直接implement interface就好了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-golang" data-lang="golang"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">ReadWriter</span> <span style="color:#66d9ef">interface</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Reader</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Writer</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>使用embed struct的方式來模擬繼承。為了要可以被抽換注入，還是得要同時implement一個interface。這樣還不如直接implement interface就好了。</p>
 <p>在Golang，唯一類似物件導向的東西只有 interface。只要有implement interface，就可以在宣告使用這個interface的地方使用。</p>
 <p>個人的理解，Golang把繼承的概念且分成兩個部分：embed和interface。embed struct (interface) 負責擴增fields (method); interface負責讓不同struct可以有相同的調用方式</p>
 <p>embed struct 的功能只是單純消除struct的field的重用而已。embed interface 也是如此，單純想要減少 method 裡面重複宣告 method 的程式碼。</p>

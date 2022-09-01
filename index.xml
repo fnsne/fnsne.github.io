@@ -20,7 +20,7 @@
     <pubDate>Thu, 01 Sep 2022 17:01:39 &#43;0800</pubDate>
     <author>fnsne</author>
     <guid>http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/</guid>
-    <description><![CDATA[最近在godaddy上面購買網域，然後使用cloudflare來申請ssl並弄成https的連線。結果今天上來看blog卻發現進不去，錯誤訊息是太多的redirect了。 打開F12重整看看，還真的是持續進行著 重複redirect到首頁的情況 經過一段研究，發現只是這個問題很多人有遇到，只是因為CloudFlare的SSL設定設到了Flexible 造成迴圈的ssl設定 正確的設定 ]]></description>
+    <description><![CDATA[內文 最近在godaddy上面購買網域，然後使用cloudflare來申請ssl並弄成https的連線。結果今天上來看blog卻發現進不去，錯誤訊息是太多的redirect了。 打開F12重整看看，還真的是持續進行著 重複redirect到首頁的情況 經過一段研究，發現只是這個問題很多人有遇到，只是因為CloudFlare的SSL設定設到了Flexible 造成迴圈的ssl設定 正確的設定 參考資料 https://community.cloudflare.com/t/error-301-on-dns-and-http-proxy/77699 ]]></description>
 </item>
 <item>
     <title>淺談在Golang上面的物件導向</title>

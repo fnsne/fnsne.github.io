@@ -7,12 +7,20 @@
             <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Thu, 01 Sep 2022 20:21:30 &#43;0800</lastBuildDate>
             <atom:link href="http://coding.fnsne.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>Goland Markdown偵測不到的問題</title>
-    <link>http://coding.fnsne.com/posts/goland-markdown%E5%81%B5%E6%B8%AC%E4%B8%8D%E5%88%B0%E7%9A%84%E5%95%8F%E9%A1%8C/</link>
+    <title>Goland Markdown split editor消失的問題</title>
+    <link>http://coding.fnsne.com/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/</link>
     <pubDate>Thu, 01 Sep 2022 20:21:30 &#43;0800</pubDate>
     <author>fnsne</author>
-    <guid>http://coding.fnsne.com/posts/goland-markdown%E5%81%B5%E6%B8%AC%E4%B8%8D%E5%88%B0%E7%9A%84%E5%95%8F%E9%A1%8C/</guid>
+    <guid>http://coding.fnsne.com/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/</guid>
     <description><![CDATA[最近開始使用Goland來用hugo寫部落格文章，之前markdown的preview分頁都還很正常，但到了今天，突然之間只剩下一般的編輯界面，而且Goland好像還把它識別為html,旁邊會出現在各種瀏覽器上面的按鈕。 偵測成html 而且使用hugo的shortcode還會出現網頁相關的錯誤訊息，在設定裡面查了一陣子才發現到。關於檔案的偵測少了.md的部分，只剩下markdown的部分 settings -&gt; Editor -&gt; File Type 將*.md加上去，一切的紅底線、還有markdown就都全部回來了。]]></description>
+</item>
+<item>
+    <title>CloudFlare SSL in redirect loop</title>
+    <link>http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/</link>
+    <pubDate>Thu, 01 Sep 2022 17:01:39 &#43;0800</pubDate>
+    <author>fnsne</author>
+    <guid>http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/</guid>
+    <description><![CDATA[最近在godaddy上面購買網域，然後使用cloudflare來申請ssl並弄成https的連線。結果今天上來看blog卻發現進不去，錯誤訊息是太多的redirect了。 打開F12重整看看，還真的是持續進行著 重複redirect到首頁的情況 經過一段研究，發現只是這個問題很多人有遇到，只是因為CloudFlare的SSL設定設到了Flexible 造成迴圈的ssl設定 正確的設定 ]]></description>
 </item>
 <item>
     <title>淺談在Golang上面的物件導向</title>

@@ -1,23 +1,23 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Categories - Category - fnsne&#39;s coding world</title>
-        <link>http://fnsne.github.io/categories/</link>
+        <link>http://coding.fnsne.com/categories/</link>
         <description>Categories - Category - fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>watashiwafnsne@gmail.com (fnsne)</managingEditor>
-            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Tue, 02 Aug 2022 20:01:59 &#43;0800</lastBuildDate><atom:link href="http://fnsne.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Tue, 02 Aug 2022 20:01:59 &#43;0800</lastBuildDate><atom:link href="http://coding.fnsne.com/categories/" rel="self" type="application/rss+xml" /><item>
     <title>coding</title>
-    <link>http://fnsne.github.io/categories/coding/</link>
+    <link>http://coding.fnsne.com/categories/coding/</link>
     <pubDate>Tue, 02 Aug 2022 20:01:59 &#43;0800</pubDate>
     <author>fnsne</author>
-    <guid>http://fnsne.github.io/categories/coding/</guid>
+    <guid>http://coding.fnsne.com/categories/coding/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>golang</title>
-    <link>http://fnsne.github.io/categories/golang/</link>
+    <link>http://coding.fnsne.com/categories/golang/</link>
     <pubDate>Tue, 02 Aug 2022 20:01:59 &#43;0800</pubDate>
     <author>fnsne</author>
-    <guid>http://fnsne.github.io/categories/golang/</guid>
+    <guid>http://coding.fnsne.com/categories/golang/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

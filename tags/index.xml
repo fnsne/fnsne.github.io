@@ -1,31 +1,31 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Tags - Tag - fnsne&#39;s coding world</title>
-        <link>http://fnsne.github.io/tags/</link>
+        <link>http://coding.fnsne.com/tags/</link>
         <description>Tags - Tag - fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>watashiwafnsne@gmail.com (fnsne)</managingEditor>
-            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Tue, 02 Aug 2022 20:01:59 &#43;0800</lastBuildDate><atom:link href="http://fnsne.github.io/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Tue, 02 Aug 2022 20:01:59 &#43;0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/" rel="self" type="application/rss+xml" /><item>
     <title>embed</title>
-    <link>http://fnsne.github.io/tags/embed/</link>
+    <link>http://coding.fnsne.com/tags/embed/</link>
     <pubDate>Tue, 02 Aug 2022 20:01:59 &#43;0800</pubDate>
     <author>fnsne</author>
-    <guid>http://fnsne.github.io/tags/embed/</guid>
+    <guid>http://coding.fnsne.com/tags/embed/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>golang</title>
-    <link>http://fnsne.github.io/tags/golang/</link>
+    <link>http://coding.fnsne.com/tags/golang/</link>
     <pubDate>Tue, 02 Aug 2022 20:01:59 &#43;0800</pubDate>
     <author>fnsne</author>
-    <guid>http://fnsne.github.io/tags/golang/</guid>
+    <guid>http://coding.fnsne.com/tags/golang/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
     <title>物件導向</title>
-    <link>http://fnsne.github.io/tags/%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/</link>
+    <link>http://coding.fnsne.com/tags/%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/</link>
     <pubDate>Tue, 02 Aug 2022 20:01:59 &#43;0800</pubDate>
     <author>fnsne</author>
-    <guid>http://fnsne.github.io/tags/%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/</guid>
+    <guid>http://coding.fnsne.com/tags/%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

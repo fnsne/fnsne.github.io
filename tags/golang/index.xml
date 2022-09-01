@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>golang - Tag - fnsne&#39;s coding world</title>
-        <link>http://fnsne.github.io/tags/golang/</link>
+        <link>http://coding.fnsne.com/tags/golang/</link>
         <description>golang - Tag - fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator><language>en-us</language><managingEditor>watashiwafnsne@gmail.com (fnsne)</managingEditor>
-            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Tue, 02 Aug 2022 20:01:59 &#43;0800</lastBuildDate><atom:link href="http://fnsne.github.io/tags/golang/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Tue, 02 Aug 2022 20:01:59 &#43;0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/golang/" rel="self" type="application/rss+xml" /><item>
     <title>淺談在Golang上面的物件導向</title>
-    <link>http://fnsne.github.io/posts/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/</link>
+    <link>http://coding.fnsne.com/posts/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/</link>
     <pubDate>Tue, 02 Aug 2022 20:01:59 &#43;0800</pubDate>
     <author>fnsne</author>
-    <guid>http://fnsne.github.io/posts/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/</guid>
+    <guid>http://coding.fnsne.com/posts/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/posts/imgs/1-1.png" referrerpolicy="no-referrer">
             </div>從物件導向的語言轉到Golang常常會遇到，不知道該怎麼在Golang實作類似多型和繼承的功能。這是因為Golang根本不是物件導向的語言。

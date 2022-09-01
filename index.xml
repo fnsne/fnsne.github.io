@@ -12,9 +12,7 @@
     <pubDate>Tue, 02 Aug 2022 20:01:59 &#43;0800</pubDate>
     <author>fnsne</author>
     <guid>http://coding.fnsne.com/posts/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/posts/imgs/1-1.png" referrerpolicy="no-referrer">
-            </div>從物件導向的語言轉到Golang常常會遇到，不知道該怎麼在Golang實作類似多型和繼承的功能。這是因為Golang根本不是物件導向的語言。
+    <description><![CDATA[從物件導向的語言轉到Golang常常會遇到，不知道該怎麼在Golang實作類似多型和繼承的功能。這是因為Golang根本不是物件導向的語言。
 在網路上會看到一些文章，寫說可以使用可以embed來模擬繼承，但事實上embed的用途應該只是用來減少重複的程式碼，增加可讀性。像在io package裡面就很明顯，如intreface ReadWriter就是用Reader和Writer 兩個interface組合起來的。
 type ReadWriter interface { Reader Writer } 使用embed struct的方式來模擬繼承。為了要可以被抽換注入，還是得要同時implement一個interface。這樣還不如直接implement interface就好了。
 在Golang，唯一類似物件導向的東西只有 interface。只要有implement interface，就可以在宣告使用這個interface的地方使用。

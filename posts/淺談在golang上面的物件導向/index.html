@@ -118,14 +118,7 @@ embed struct 的功能只是單純消除struct的field的重用而已。embed in
 </span>&nbsp;<span class="post-category">included in <a href="/categories/golang/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>golang</a>&nbsp;<a href="/categories/coding/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>coding</a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-02">2022-08-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;36 words&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
-        </div><div class="featured-image"><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="/posts/imgs/1-1.png"
-        data-srcset="/posts/imgs/1-1.png, /posts/imgs/1-1.png 1.5x, /posts/imgs/1-1.png 2x"
-        data-sizes="auto"
-        alt="/posts/imgs/1-1.png"
-        title="/posts/imgs/1-1.png" /></div><div class="details toc" id="toc-static"  data-kept="">
+        </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
                     <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
@@ -152,7 +145,7 @@ embed struct 的功能只是單純消除struct的field的重用而已。embed in
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://coding.fnsne.com/posts/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/" data-title="淺談在Golang上面的物件導向" data-hashtags="golang,物件導向,embed"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://coding.fnsne.com/posts/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/" data-hashtag="golang"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://coding.fnsne.com/posts/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/" data-title="淺談在Golang上面的物件導向"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://coding.fnsne.com/posts/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/" data-title="淺談在Golang上面的物件導向"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://coding.fnsne.com/posts/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/" data-title="淺談在Golang上面的物件導向" data-image="/posts/imgs/1-1.png"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://coding.fnsne.com/posts/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/" data-title="淺談在Golang上面的物件導向" data-hashtags="golang,物件導向,embed"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://coding.fnsne.com/posts/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/" data-hashtag="golang"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://coding.fnsne.com/posts/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/" data-title="淺談在Golang上面的物件導向"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://coding.fnsne.com/posts/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/" data-title="淺談在Golang上面的物件導向"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://coding.fnsne.com/posts/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/" data-title="淺談在Golang上面的物件導向"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>

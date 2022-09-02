@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Hugo  Bundle問題 - fnsne&#39;s coding world</title><meta name="Description" content="fnsne&#39;s coding world"><meta property="og:title" content="Hugo  Bundle問題" />
+<meta property="og:description" content="描述 原本在hugo上面放文章是把所有的文章和圖片都放在content/posts/裡面用文章來分類。
+1 2 3 4 5 6 7 8 9 10 content/posts/ ├── post1 │ └── post1.md │ └── img1.jpg ├── post2 │ └── post2.md │ └── img2.jpg ├── post3 │ └── post3.md │ └── img3.jpg 因為覺得全部文章和圖片都放在一起是在是太過於雜亂，而且害怕未來文章多的時候，markdown和圖片的命名會很痛苦，雖然也是可以利用在前面加上日期前綴來區分，但感覺還是會很亂。所以開始研究page bundle怎麼處理,試著將結構改成這樣。
+1 2 3 4 5 6 7 8 9 10 11 12 content/posts/ ├── 2022-08-02 │ └── post1 │ └── post1.md │ └── img1.jpg │ └── post2 │ └── post2.md │ └── img2." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://coding.fnsne.com/posts/2022-09-02/hugo-bundle%E5%95%8F%E9%A1%8C/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-02T14:36:26+08:00" />
+<meta property="article:modified_time" content="2022-09-02T14:36:26+08:00" /><meta property="og:site_name" content="fnsne&#39;s coding world" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hugo  Bundle問題"/>
+<meta name="twitter:description" content="描述 原本在hugo上面放文章是把所有的文章和圖片都放在content/posts/裡面用文章來分類。
+1 2 3 4 5 6 7 8 9 10 content/posts/ ├── post1 │ └── post1.md │ └── img1.jpg ├── post2 │ └── post2.md │ └── img2.jpg ├── post3 │ └── post3.md │ └── img3.jpg 因為覺得全部文章和圖片都放在一起是在是太過於雜亂，而且害怕未來文章多的時候，markdown和圖片的命名會很痛苦，雖然也是可以利用在前面加上日期前綴來區分，但感覺還是會很亂。所以開始研究page bundle怎麼處理,試著將結構改成這樣。
+1 2 3 4 5 6 7 8 9 10 11 12 content/posts/ ├── 2022-08-02 │ └── post1 │ └── post1.md │ └── img1.jpg │ └── post2 │ └── post2.md │ └── img2."/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://coding.fnsne.com/posts/2022-09-02/hugo-bundle%E5%95%8F%E9%A1%8C/" /><link rel="prev" href="http://coding.fnsne.com/posts/2022-09-01/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/" /><link rel="next" href="http://coding.fnsne.com/posts/2022-09-02/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BA/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Hugo  Bundle問題",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/coding.fnsne.com\/posts\/2022-09-02\/hugo-bundle%E5%95%8F%E9%A1%8C\/"
+        },"genre": "posts","keywords": "hugo, page bundle","wordcount":  142 ,
+        "url": "http:\/\/coding.fnsne.com\/posts\/2022-09-02\/hugo-bundle%E5%95%8F%E9%A1%8C\/","datePublished": "2022-09-02T14:36:26+08:00","dateModified": "2022-09-02T14:36:26+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "fnsne"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="fnsne&#39;s coding world">home</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/" title="About Me"> About Me </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="fnsne&#39;s coding world">home</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="About Me">About Me</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Hugo  Bundle問題</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>fnsne</a>
+</span>&nbsp;<span class="post-category">included in <a href="/categories/hugo/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>hugo</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-09-02">2022-09-02</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;142 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#描述">描述</a></li>
+    <li><a href="#問題">問題</a></li>
+    <li><a href="#解法">解法</a></li>
+    <li><a href="#reference">reference</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="描述">描述</h1>
+<p>原本在hugo上面放文章是把所有的文章和圖片都放在<code>content/posts/</code>裡面用文章來分類。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">content/posts/
+</span></span><span class="line"><span class="cl">├── post1
+</span></span><span class="line"><span class="cl">│    └── post1.md
+</span></span><span class="line"><span class="cl">│    └── img1.jpg   
+</span></span><span class="line"><span class="cl">├── post2
+</span></span><span class="line"><span class="cl">│    └── post2.md
+</span></span><span class="line"><span class="cl">│    └── img2.jpg   
+</span></span><span class="line"><span class="cl">├── post3
+</span></span><span class="line"><span class="cl">│    └── post3.md
+</span></span><span class="line"><span class="cl">│    └── img3.jpg   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>因為覺得全部文章和圖片都放在一起是在是太過於雜亂，而且害怕未來文章多的時候，markdown和圖片的命名會很痛苦，雖然也是可以利用在前面加上日期前綴來區分，但感覺還是會很亂。所以開始研究page bundle怎麼處理,試著將結構改成這樣。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">content/posts/
+</span></span><span class="line"><span class="cl">├── 2022-08-02
+</span></span><span class="line"><span class="cl">│   └── post1         
+</span></span><span class="line"><span class="cl">│       └── post1.md
+</span></span><span class="line"><span class="cl">│       └── img1.jpg   
+</span></span><span class="line"><span class="cl">│   └── post2         
+</span></span><span class="line"><span class="cl">│       └── post2.md
+</span></span><span class="line"><span class="cl">│       └── img2.jpg   
+</span></span><span class="line"><span class="cl">├── 2022-09-02
+</span></span><span class="line"><span class="cl">│   └── post3         
+</span></span><span class="line"><span class="cl">│       └── post3.md
+</span></span><span class="line"><span class="cl">│       └── img3.jpg   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="問題">問題</h1>
+<p>看到跑出來的網頁上，載入圖片404的網址居然是還會增加一個文章名稱的資料夾，然後才存取圖片。以上面的例子來看， 打開網頁 post1頁面，網址會是<code>domain/posts/2022-08-02/post1/post1/</code></p>
+<p>而圖片是呼叫<code>domain/posts/2022-08-02/post1/post1/img1.jpg</code></p>
+<p>可是實際上到build出來的public裡面去看，這一個頁面的結構居然是長這樣</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">├── 2022-08-02
+</span></span><span class="line"><span class="cl">│   └── post1         
+</span></span><span class="line"><span class="cl">│       └── post1.md
+</span></span><span class="line"><span class="cl">│       └── img1.jpg   
+</span></span><span class="line"><span class="cl">│       └── post1         
+</span></span><span class="line"><span class="cl">│           └── index.html         
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="解法">解法</h1>
+<p>因為查到的所有資料，上面寫的md都命名為<code>index</code>，所以試著把<code>post1.md</code>改名為<code>index.md</code>，一切就正常了，而此時<code>public</code>裡面的資料結構變成長這樣。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">├── 2022-08-02
+</span></span><span class="line"><span class="cl">│   └── post1         
+</span></span><span class="line"><span class="cl">│       └── post1.md
+</span></span><span class="line"><span class="cl">│       └── img1.jpg   
+</span></span><span class="line"><span class="cl">│       └── index.html         
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>看起來可能是因為bundle是抓<code>index.md</code>這個關鍵字的來製作頁面，如果沒有這個檔案，會用現有的<code>*.md</code>的檔案，各自建立一個它名稱的資料夾，然後在裡面建立index.html。所以原本的做法才會長成奇怪的結構。</p>
+<h1 id="reference">reference</h1>
+<ul>
+<li><a href="https://github.com/gohugoio/hugo/issues/1240" target="_blank" rel="noopener noreffer">hugo github上面討論bundle的issue</a>
+</li>
+<li><a href="https://blog.darkthread.net/blog/hugo-figures/" target="_blank" rel="noopener noreffer">Markdown 技術文件寫作-處理圖檔&mdash;黑暗執行續</a>
+</li>
+<li><a href="https://gohugo.io/content-management/page-bundles/" target="_blank" rel="noopener noreffer">hugo官網 Page Bundle</a>
+</li>
+</ul>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-09-02</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://coding.fnsne.com/posts/2022-09-02/hugo-bundle%E5%95%8F%E9%A1%8C/" data-title="Hugo  Bundle問題" data-hashtags="hugo,page bundle"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://coding.fnsne.com/posts/2022-09-02/hugo-bundle%E5%95%8F%E9%A1%8C/" data-hashtag="hugo"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://coding.fnsne.com/posts/2022-09-02/hugo-bundle%E5%95%8F%E9%A1%8C/" data-title="Hugo  Bundle問題"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://coding.fnsne.com/posts/2022-09-02/hugo-bundle%E5%95%8F%E9%A1%8C/" data-title="Hugo  Bundle問題"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://coding.fnsne.com/posts/2022-09-02/hugo-bundle%E5%95%8F%E9%A1%8C/" data-title="Hugo  Bundle問題"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/hugo/">Hugo</a>,&nbsp;<a href="/tags/page-bundle/">page bundle</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2022-09-01/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/" class="prev" rel="prev" title="Goland Markdown split editor消失的問題"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Goland Markdown split editor消失的問題</a>
+            <a href="/posts/2022-09-02/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BA/" class="next" rel="next" title="Hugo LoveIt 不會顯示toc">Hugo LoveIt 不會顯示toc<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.103.0-DEV">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">fnsne</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

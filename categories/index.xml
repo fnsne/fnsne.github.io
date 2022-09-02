@@ -4,7 +4,15 @@
         <link>http://coding.fnsne.com/categories/</link>
         <description>Categories - Category - fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>watashiwafnsne@gmail.com (fnsne)</managingEditor>
-            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Thu, 01 Sep 2022 20:21:30 &#43;0800</lastBuildDate><atom:link href="http://coding.fnsne.com/categories/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Fri, 02 Sep 2022 16:06:28 &#43;0800</lastBuildDate><atom:link href="http://coding.fnsne.com/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>hugo</title>
+    <link>http://coding.fnsne.com/categories/hugo/</link>
+    <pubDate>Fri, 02 Sep 2022 16:06:28 &#43;0800</pubDate>
+    <author>fnsne</author>
+    <guid>http://coding.fnsne.com/categories/hugo/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>JetBrains</title>
     <link>http://coding.fnsne.com/categories/jetbrains/</link>
     <pubDate>Thu, 01 Sep 2022 20:21:30 &#43;0800</pubDate>

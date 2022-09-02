@@ -1,0 +1,18 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>page bundle - Tag - fnsne&#39;s coding world</title>
+        <link>http://coding.fnsne.com/tags/page-bundle/</link>
+        <description>page bundle - Tag - fnsne&#39;s coding world</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>watashiwafnsne@gmail.com (fnsne)</managingEditor>
+            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Fri, 02 Sep 2022 14:36:26 &#43;0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/page-bundle/" rel="self" type="application/rss+xml" /><item>
+    <title>Hugo  Bundle問題</title>
+    <link>http://coding.fnsne.com/posts/2022-09-02/hugo-bundle%E5%95%8F%E9%A1%8C/</link>
+    <pubDate>Fri, 02 Sep 2022 14:36:26 &#43;0800</pubDate>
+    <author>fnsne</author>
+    <guid>http://coding.fnsne.com/posts/2022-09-02/hugo-bundle%E5%95%8F%E9%A1%8C/</guid>
+    <description><![CDATA[描述 原本在hugo上面放文章是把所有的文章和圖片都放在content/posts/裡面用文章來分類。
+1 2 3 4 5 6 7 8 9 10 content/posts/ ├── post1 │ └── post1.md │ └── img1.jpg ├── post2 │ └── post2.md │ └── img2.jpg ├── post3 │ └── post3.md │ └── img3.jpg 因為覺得全部文章和圖片都放在一起是在是太過於雜亂，而且害怕未來文章多的時候，markdown和圖片的命名會很痛苦，雖然也是可以利用在前面加上日期前綴來區分，但感覺還是會很亂。所以開始研究page bundle怎麼處理,試著將結構改成這樣。
+1 2 3 4 5 6 7 8 9 10 11 12 content/posts/ ├── 2022-08-02 │ └── post1 │ └── post1.md │ └── img1.jpg │ └── post2 │ └── post2.md │ └── img2.]]></description>
+</item>
+</channel>
+</rss>

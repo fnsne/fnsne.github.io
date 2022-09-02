@@ -4,20 +4,44 @@
         <link>http://coding.fnsne.com/tags/</link>
         <description>Tags - Tag - fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>watashiwafnsne@gmail.com (fnsne)</managingEditor>
-            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Thu, 01 Sep 2022 20:21:30 &#43;0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Fri, 02 Sep 2022 16:06:28 &#43;0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>Hugo</title>
+    <link>http://coding.fnsne.com/tags/hugo/</link>
+    <pubDate>Fri, 02 Sep 2022 16:06:28 &#43;0800</pubDate>
+    <author>fnsne</author>
+    <guid>http://coding.fnsne.com/tags/hugo/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>loveIt</title>
+    <link>http://coding.fnsne.com/tags/loveit/</link>
+    <pubDate>Fri, 02 Sep 2022 16:06:28 &#43;0800</pubDate>
+    <author>fnsne</author>
+    <guid>http://coding.fnsne.com/tags/loveit/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>toc</title>
+    <link>http://coding.fnsne.com/tags/toc/</link>
+    <pubDate>Fri, 02 Sep 2022 16:06:28 &#43;0800</pubDate>
+    <author>fnsne</author>
+    <guid>http://coding.fnsne.com/tags/toc/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>page bundle</title>
+    <link>http://coding.fnsne.com/tags/page-bundle/</link>
+    <pubDate>Fri, 02 Sep 2022 14:36:26 &#43;0800</pubDate>
+    <author>fnsne</author>
+    <guid>http://coding.fnsne.com/tags/page-bundle/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Goland</title>
     <link>http://coding.fnsne.com/tags/goland/</link>
     <pubDate>Thu, 01 Sep 2022 20:21:30 &#43;0800</pubDate>
     <author>fnsne</author>
     <guid>http://coding.fnsne.com/tags/goland/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Hugo</title>
-    <link>http://coding.fnsne.com/tags/hugo/</link>
-    <pubDate>Thu, 01 Sep 2022 20:21:30 &#43;0800</pubDate>
-    <author>fnsne</author>
-    <guid>http://coding.fnsne.com/tags/hugo/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -58,22 +82,6 @@
     <pubDate>Tue, 02 Aug 2022 20:01:59 &#43;0800</pubDate>
     <author>fnsne</author>
     <guid>http://coding.fnsne.com/tags/golang/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>物件導向</title>
-    <link>http://coding.fnsne.com/tags/%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/</link>
-    <pubDate>Tue, 02 Aug 2022 20:01:59 &#43;0800</pubDate>
-    <author>fnsne</author>
-    <guid>http://coding.fnsne.com/tags/%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>SSL/TLS</title>
-    <link>http://coding.fnsne.com/tags/ssl/tls/</link>
-    <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
-    <author>fnsne</author>
-    <guid>http://coding.fnsne.com/tags/ssl/tls/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

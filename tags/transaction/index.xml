@@ -1,0 +1,30 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>transaction - Tag - fnsne&#39;s coding world</title>
+        <link>http://coding.fnsne.com/tags/transaction/</link>
+        <description>transaction - Tag - fnsne&#39;s coding world</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>watashiwafnsne@gmail.com (fnsne)</managingEditor>
+            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Wed, 14 Sep 2022 16:22:17 &#43;0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/transaction/" rel="self" type="application/rss+xml" /><item>
+    <title>資料庫的同步</title>
+    <link>http://coding.fnsne.com/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/</link>
+    <pubDate>Wed, 14 Sep 2022 16:22:17 &#43;0800</pubDate>
+    <author>fnsne</author>
+    <guid>http://coding.fnsne.com/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/</guid>
+    <description><![CDATA[網路上查到簡單說明transaction的例子，常常都是用轉賬來說明，但其實還有很多東西需要注意 帳戶轉賬，因為race condition的緣故，導致操作欄位的值被改錯。
+A有100，B有40。
+A轉100元給B，B轉20元給A，由兩個不同的client來處理操作。
+順序正確時：A會是減掉80
+但是當順序不正確，則數字會錯掉，例如A很早取得現在的餘額（100），但是更新數字0慢了，導致A最終變成0元，因為在B轉完帳後才更新值。
+以上的這個問題很明顯的是race condition。所謂的race condition是結果必須依賴與某種特定的順序，但是順序又並不是固定的，因此偶爾會出現錯誤。
+解決race condition的方法 為了要解決race condition，必須得要讓操作依照我們期望的順序才操作，才能預防不對的順序導致的錯誤。為了要達到這個目標，資料庫本身有提供兩種方法：
+atomic update：資料庫提供的一個，對於單一欄位數值做相依於原本值的操作指令。這個操作過程會是atomic的，也就是不會操作到一半值被改掉而導致結果出錯。
+1 update products set quantity = quantity -1 where id = 1; 優點：因為只是對於欄位做簡單的數字運算並馬上更新上去，所以對於欄位的佔用時間相較下面的select for update較短，且資料庫會將這類atomic操作做優化，所以效能會比較好。
+缺點：只支援對於數值的簡單操作後更新，並不能做太複雜的運算。
+select for update：這個操作被限制在transaction開起來的時候才能使用，使用時實際上就是將指定的欄位上一個更新的lock，此時直到commit之前，沒有其他client可以對這個欄位做任何更新。所以就能夠限制欄位更新的順序了。
+1 2 3 4 Begin; select quantity into $q from products where id = 1 for update; update products set quantity = $q-1; Commit; 優點：因為有上鎖了，所以幾乎可以用各種邏輯運算來更新欄位的值。
+缺點：因為會在欄位上面上鎖，並且持續到commit位置，所以對於效能會有很大的影響。
+version scheme ：在table上面多新增一個欄位叫做version，來確定現在更新時的version，是否從拿值的時候到現在還沒有被更新過。程式可以藉由資料庫回傳的訊息，是否有更改到任何row來判斷是否更新成功。
+1 2 old_ver = `select money, version from bank where name = A` `update bank set money = 30, version = version + 1 where name = A and version = old_ver` 優點：能夠不使用任何鎖的時候實現。（或者還有其他我想不到的優點）]]></description>
+</item>
+</channel>
+</rss>

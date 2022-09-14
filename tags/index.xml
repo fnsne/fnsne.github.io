@@ -4,7 +4,31 @@
         <link>http://coding.fnsne.com/tags/</link>
         <description>Tags - Tag - fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>watashiwafnsne@gmail.com (fnsne)</managingEditor>
-            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Sat, 03 Sep 2022 23:18:17 &#43;0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Wed, 14 Sep 2022 16:22:17 &#43;0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>database</title>
+    <link>http://coding.fnsne.com/tags/database/</link>
+    <pubDate>Wed, 14 Sep 2022 16:22:17 &#43;0800</pubDate>
+    <author>fnsne</author>
+    <guid>http://coding.fnsne.com/tags/database/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>transaction</title>
+    <link>http://coding.fnsne.com/tags/transaction/</link>
+    <pubDate>Wed, 14 Sep 2022 16:22:17 &#43;0800</pubDate>
+    <author>fnsne</author>
+    <guid>http://coding.fnsne.com/tags/transaction/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>同步</title>
+    <link>http://coding.fnsne.com/tags/%E5%90%8C%E6%AD%A5/</link>
+    <pubDate>Wed, 14 Sep 2022 16:22:17 &#43;0800</pubDate>
+    <author>fnsne</author>
+    <guid>http://coding.fnsne.com/tags/%E5%90%8C%E6%AD%A5/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>heptabase</title>
     <link>http://coding.fnsne.com/tags/heptabase/</link>
     <pubDate>Sat, 03 Sep 2022 23:18:17 &#43;0800</pubDate>
@@ -58,30 +82,6 @@
     <pubDate>Thu, 01 Sep 2022 20:21:30 &#43;0800</pubDate>
     <author>fnsne</author>
     <guid>http://coding.fnsne.com/tags/goland/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Jetbrains</title>
-    <link>http://coding.fnsne.com/tags/jetbrains/</link>
-    <pubDate>Thu, 01 Sep 2022 20:21:30 &#43;0800</pubDate>
-    <author>fnsne</author>
-    <guid>http://coding.fnsne.com/tags/jetbrains/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Markdown</title>
-    <link>http://coding.fnsne.com/tags/markdown/</link>
-    <pubDate>Thu, 01 Sep 2022 20:21:30 &#43;0800</pubDate>
-    <author>fnsne</author>
-    <guid>http://coding.fnsne.com/tags/markdown/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>CloudFlare</title>
-    <link>http://coding.fnsne.com/tags/cloudflare/</link>
-    <pubDate>Thu, 01 Sep 2022 17:01:39 &#43;0800</pubDate>
-    <author>fnsne</author>
-    <guid>http://coding.fnsne.com/tags/cloudflare/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>關於鎖 - fnsne&#39;s coding world</title><meta name="Description" content="fnsne&#39;s coding world"><meta property="og:title" content="關於鎖" />
+<meta property="og:description" content="關於鎖(lock) 畢業後，太久沒有用到相關的東西，概念開始有點混淆了，所以拿出恐龍本讀回來。順便做一篇筆記
+一些專有名詞 名稱 說明 cooperation process （協作行程） 會操作到共同資源的不同process critical section 在各種cooperation process 裡面會操作到共同資源的code區塊 鎖想解決的問題 在多核心多執行序問世之前的單核心的時代，是一個核心切換來切換去的做不同事，在時間區間上每個時間點都只有一個process正在被cpu執行，如下圖。
+單核心運作示意圖 而在多核心問世以後開始會出現一些問題，如下圖。
+多核心的運作示意圖 開始會發生圖上，兩個核心會同時執行不同的process ，這個時候可能會發生互相改到資料的問題。例如process B和D是要在印表機上面印出現在電腦的時間，就有可能會發生一下的輸出：
+假設兩個核心在執行processB和D的時間點是15:38和15:40
+1 15:153:840 這是因為兩個核心互相搶著輸出到印表機，但是順序亂掉的緣故。為了解決這個問題，鎖的概念被提了出來。
+鎖的用途 用來保護注critical section（以上面的例子來看，是Process B和Process D裡面，執行輸出資料到印表機的code block）。強制這兩個critical section，在同一個時間裡面，頂多只能有一個執行，另一個想要執行，得要等到另一個結束後，才能開始動作。
+鎖的種類 mutex lock（互斥鎖） 又稱自旋鎖，會讓這個process一直卡在loop裡面，直到能夠存取資料後，才跳出迴圈，開始執行這個critical section。
+因為實際上是一直在執行loop的狀態下做等待資源釋放的，所以它不需要使用到context switch，在獲得資源後的切換速度很快。所以常常被使用在共用資源都只會被佔用短短時間的情境下使用。
+mutex lock的概念是一個被相同mutex lock保護起來的多個critical section，一個時間裡只能有一個被執行，其他都得要等待它mutex lock釋放後，才能繼續搶，搶到的才能執行。
+semaphore lock（號誌鎖） 和mutex lock不同，可以設定資源同一時間下，最多可以有S個process同時執行，當同時執行的critical section數目大於S時，會被停下來，等待到同時執行的critical section小於S時，才能繼續搶進去執行。
+如果要用mutex lock的方式執行，會讓很多process一直在執行loop，對於資源的浪費太大了，所以在semaphore lock的時候，會採用將process 暫停，將address存到lock S 的list裡面。等到有process把S給釋放，此時CPU會將S裡面的list，取出一個process出來執行。
+我混淆的概念釐清 鎖不是鎖住cpu，而是鎖住其他一樣需要這個鎖的process，讓同一個鎖保護的同一個（或者不同個）critical section ，一次最多只能有1（或者semaphore lock設定的數字）個process存取。
+被鎖保護住的critical section，只要裡面有存取某個共用資源的code，就能讓這項資源被鎖給保護，不被濫用。
+結論 鎖的概念就是為了要保護有限的資源，不要被無限的取用。例如可以利用鎖來保護對同一個檔案的更改，讓這個檔案一次只能被一個process更新，防止檔案內資料變得亂七八糟的。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-09-20T16:35:44+08:00" />
+<meta property="article:modified_time" content="2022-09-20T16:35:44+08:00" /><meta property="og:site_name" content="fnsne&#39;s coding world" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="關於鎖"/>
+<meta name="twitter:description" content="關於鎖(lock) 畢業後，太久沒有用到相關的東西，概念開始有點混淆了，所以拿出恐龍本讀回來。順便做一篇筆記
+一些專有名詞 名稱 說明 cooperation process （協作行程） 會操作到共同資源的不同process critical section 在各種cooperation process 裡面會操作到共同資源的code區塊 鎖想解決的問題 在多核心多執行序問世之前的單核心的時代，是一個核心切換來切換去的做不同事，在時間區間上每個時間點都只有一個process正在被cpu執行，如下圖。
+單核心運作示意圖 而在多核心問世以後開始會出現一些問題，如下圖。
+多核心的運作示意圖 開始會發生圖上，兩個核心會同時執行不同的process ，這個時候可能會發生互相改到資料的問題。例如process B和D是要在印表機上面印出現在電腦的時間，就有可能會發生一下的輸出：
+假設兩個核心在執行processB和D的時間點是15:38和15:40
+1 15:153:840 這是因為兩個核心互相搶著輸出到印表機，但是順序亂掉的緣故。為了解決這個問題，鎖的概念被提了出來。
+鎖的用途 用來保護注critical section（以上面的例子來看，是Process B和Process D裡面，執行輸出資料到印表機的code block）。強制這兩個critical section，在同一個時間裡面，頂多只能有一個執行，另一個想要執行，得要等到另一個結束後，才能開始動作。
+鎖的種類 mutex lock（互斥鎖） 又稱自旋鎖，會讓這個process一直卡在loop裡面，直到能夠存取資料後，才跳出迴圈，開始執行這個critical section。
+因為實際上是一直在執行loop的狀態下做等待資源釋放的，所以它不需要使用到context switch，在獲得資源後的切換速度很快。所以常常被使用在共用資源都只會被佔用短短時間的情境下使用。
+mutex lock的概念是一個被相同mutex lock保護起來的多個critical section，一個時間裡只能有一個被執行，其他都得要等待它mutex lock釋放後，才能繼續搶，搶到的才能執行。
+semaphore lock（號誌鎖） 和mutex lock不同，可以設定資源同一時間下，最多可以有S個process同時執行，當同時執行的critical section數目大於S時，會被停下來，等待到同時執行的critical section小於S時，才能繼續搶進去執行。
+如果要用mutex lock的方式執行，會讓很多process一直在執行loop，對於資源的浪費太大了，所以在semaphore lock的時候，會採用將process 暫停，將address存到lock S 的list裡面。等到有process把S給釋放，此時CPU會將S裡面的list，取出一個process出來執行。
+我混淆的概念釐清 鎖不是鎖住cpu，而是鎖住其他一樣需要這個鎖的process，讓同一個鎖保護的同一個（或者不同個）critical section ，一次最多只能有1（或者semaphore lock設定的數字）個process存取。
+被鎖保護住的critical section，只要裡面有存取某個共用資源的code，就能讓這項資源被鎖給保護，不被濫用。
+結論 鎖的概念就是為了要保護有限的資源，不要被無限的取用。例如可以利用鎖來保護對同一個檔案的更改，讓這個檔案一次只能被一個process更新，防止檔案內資料變得亂七八糟的。"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/" /><link rel="prev" href="http://coding.fnsne.com/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "關於鎖",
+        "inLanguage": "zh-TW",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/coding.fnsne.com\/posts\/2022-09-20\/%E9%97%9C%E6%96%BC%E9%8E%96\/"
+        },"genre": "posts","keywords": "lock, 作業系統, 同步","wordcount":  66 ,
+        "url": "http:\/\/coding.fnsne.com\/posts\/2022-09-20\/%E9%97%9C%E6%96%BC%E9%8E%96\/","datePublished": "2022-09-20T16:35:44+08:00","dateModified": "2022-09-20T16:35:44+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "fnsne"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="fnsne&#39;s coding world">home</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/" title="About Me"> About Me </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="fnsne&#39;s coding world">home</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="About Me">About Me</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">關於鎖</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>fnsne</a>
+</span>&nbsp;<span class="post-category">included in <a href="/categories/%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>作業系統</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-09-20">2022-09-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;66 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#關於鎖lock">關於鎖(lock)</a>
+      <ul>
+        <li><a href="#一些專有名詞">一些專有名詞</a></li>
+        <li><a href="#鎖想解決的問題">鎖想解決的問題</a></li>
+        <li><a href="#鎖的用途">鎖的用途</a></li>
+        <li><a href="#鎖的種類">鎖的種類</a>
+          <ul>
+            <li><a href="#mutex-lock互斥鎖">mutex lock（互斥鎖）</a></li>
+            <li><a href="#semaphore-lock號誌鎖">semaphore lock（號誌鎖）</a></li>
+          </ul>
+        </li>
+        <li><a href="#我混淆的概念釐清">我混淆的概念釐清</a></li>
+        <li><a href="#結論">結論</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="關於鎖lock">關於鎖(lock)</h1>
+<p>畢業後，太久沒有用到相關的東西，概念開始有點混淆了，所以拿出恐龍本讀回來。順便做一篇筆記</p>
+<h2 id="一些專有名詞">一些專有名詞</h2>
+<table>
+<thead>
+<tr>
+<th>名稱</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cooperation process （協作行程）</td>
+<td>會操作到共同資源的不同process</td>
+</tr>
+<tr>
+<td>critical section</td>
+<td>在各種cooperation process 裡面會操作到共同資源的code區塊</td>
+</tr>
+</tbody>
+</table>
+<h2 id="鎖想解決的問題">鎖想解決的問題</h2>
+<p>在多核心多執行序問世之前的單核心的時代，是一個核心切換來切換去的做不同事，在時間區間上每個時間點都只有一個process正在被cpu執行，如下圖。</p>
+<figure><img src="single-core.jpg"/><figcaption>
+            <h4>單核心運作示意圖</h4>
+        </figcaption>
+</figure>
+
+<p>而在多核心問世以後開始會出現一些問題，如下圖。</p>
+<figure><img src="multi-core.jpg"/><figcaption>
+            <h4>多核心的運作示意圖</h4>
+        </figcaption>
+</figure>
+
+<p>開始會發生圖上，兩個核心會同時執行不同的process ，這個時候可能會發生互相改到資料的問題。例如process B和D是要在印表機上面印出現在電腦的時間，就有可能會發生一下的輸出：</p>
+<blockquote>
+<p>假設兩個核心在執行processB和D的時間點是<code>15:38</code>和<code>15:40</code></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">15:153:840
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>這是因為兩個核心互相搶著輸出到印表機，但是順序亂掉的緣故。為了解決這個問題，鎖的概念被提了出來。</p>
+<h2 id="鎖的用途">鎖的用途</h2>
+<p>用來保護注critical section（以上面的例子來看，是Process B和Process D裡面，執行輸出資料到印表機的code block）。強制這兩個critical section，在同一個時間裡面，頂多只能有一個執行，另一個想要執行，得要等到另一個結束後，才能開始動作。</p>
+<h2 id="鎖的種類">鎖的種類</h2>
+<h3 id="mutex-lock互斥鎖">mutex lock（互斥鎖）</h3>
+<p>又稱自旋鎖，會讓這個process一直卡在loop裡面，直到能夠存取資料後，才跳出迴圈，開始執行這個critical section。</p>
+<p>因為實際上是一直在執行loop的狀態下做等待資源釋放的，所以它不需要使用到context switch，在獲得資源後的切換速度很快。所以常常被使用在共用資源都只會被佔用短短時間的情境下使用。</p>
+<p>mutex lock的概念是一個被相同mutex lock保護起來的多個critical section，一個時間裡只能有一個被執行，其他都得要等待它mutex lock釋放後，才能繼續搶，搶到的才能執行。</p>
+<h3 id="semaphore-lock號誌鎖">semaphore lock（號誌鎖）</h3>
+<p>和mutex lock不同，可以設定資源同一時間下，最多可以有<code>S</code>個process同時執行，當同時執行的critical section數目大於<code>S</code>時，會被停下來，等待到同時執行的critical section小於S時，才能繼續搶進去執行。</p>
+<p>如果要用mutex lock的方式執行，會讓很多process一直在執行loop，對於資源的浪費太大了，所以在semaphore lock的時候，會採用將process 暫停，將address存到lock <code>S</code> 的list裡面。等到有process把<code>S</code>給釋放，此時CPU會將S裡面的list，取出一個process出來執行。</p>
+<h2 id="我混淆的概念釐清">我混淆的概念釐清</h2>
+<ul>
+<li>
+<p>鎖不是鎖住cpu，而是鎖住其他一樣需要這個鎖的process，讓同一個鎖保護的同一個（或者不同個）critical section ，一次最多只能有1（或者semaphore lock設定的數字）個process存取。</p>
+</li>
+<li>
+<p>被鎖保護住的critical section，只要裡面有存取某個共用資源的code，就能讓這項資源被鎖給保護，不被濫用。</p>
+</li>
+</ul>
+<h2 id="結論">結論</h2>
+<p>鎖的概念就是為了要保護有限的資源，不要被無限的取用。例如可以利用鎖來保護對同一個檔案的更改，讓這個檔案一次只能被一個process更新，防止檔案內資料變得亂七八糟的。</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2022-09-20</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/" data-title="關於鎖" data-hashtags="lock,作業系統,同步"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/" data-hashtag="lock"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/" data-title="關於鎖"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/" data-title="關於鎖"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/line.svg" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/lock/">lock</a>,&nbsp;<a href="/tags/%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1/">作業系統</a>,&nbsp;<a href="/tags/%E5%90%8C%E6%AD%A5/">同步</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/" class="prev" rel="prev" title="資料庫的同步"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>資料庫的同步</a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.103.0-DEV">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">fnsne</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><script type="text/javascript" src="https://fnsnes-coding-world.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

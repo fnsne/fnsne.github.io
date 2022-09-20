@@ -4,7 +4,31 @@
         <link>http://coding.fnsne.com/tags/</link>
         <description>Tags - Tag - fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>watashiwafnsne@gmail.com (fnsne)</managingEditor>
-            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Wed, 14 Sep 2022 16:22:17 &#43;0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Tue, 20 Sep 2022 16:35:44 &#43;0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>lock</title>
+    <link>http://coding.fnsne.com/tags/lock/</link>
+    <pubDate>Tue, 20 Sep 2022 16:35:44 &#43;0800</pubDate>
+    <author>fnsne</author>
+    <guid>http://coding.fnsne.com/tags/lock/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>作業系統</title>
+    <link>http://coding.fnsne.com/tags/%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1/</link>
+    <pubDate>Tue, 20 Sep 2022 16:35:44 &#43;0800</pubDate>
+    <author>fnsne</author>
+    <guid>http://coding.fnsne.com/tags/%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>同步</title>
+    <link>http://coding.fnsne.com/tags/%E5%90%8C%E6%AD%A5/</link>
+    <pubDate>Tue, 20 Sep 2022 16:35:44 &#43;0800</pubDate>
+    <author>fnsne</author>
+    <guid>http://coding.fnsne.com/tags/%E5%90%8C%E6%AD%A5/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>database</title>
     <link>http://coding.fnsne.com/tags/database/</link>
     <pubDate>Wed, 14 Sep 2022 16:22:17 &#43;0800</pubDate>
@@ -18,14 +42,6 @@
     <pubDate>Wed, 14 Sep 2022 16:22:17 &#43;0800</pubDate>
     <author>fnsne</author>
     <guid>http://coding.fnsne.com/tags/transaction/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>同步</title>
-    <link>http://coding.fnsne.com/tags/%E5%90%8C%E6%AD%A5/</link>
-    <pubDate>Wed, 14 Sep 2022 16:22:17 &#43;0800</pubDate>
-    <author>fnsne</author>
-    <guid>http://coding.fnsne.com/tags/%E5%90%8C%E6%AD%A5/</guid>
     <description><![CDATA[]]></description>
 </item>
 <item>
@@ -66,22 +82,6 @@
     <pubDate>Fri, 02 Sep 2022 16:06:28 &#43;0800</pubDate>
     <author>fnsne</author>
     <guid>http://coding.fnsne.com/tags/toc/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>page bundle</title>
-    <link>http://coding.fnsne.com/tags/page-bundle/</link>
-    <pubDate>Fri, 02 Sep 2022 14:36:26 &#43;0800</pubDate>
-    <author>fnsne</author>
-    <guid>http://coding.fnsne.com/tags/page-bundle/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>Goland</title>
-    <link>http://coding.fnsne.com/tags/goland/</link>
-    <pubDate>Thu, 01 Sep 2022 20:21:30 &#43;0800</pubDate>
-    <author>fnsne</author>
-    <guid>http://coding.fnsne.com/tags/goland/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

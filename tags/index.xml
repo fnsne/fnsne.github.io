@@ -4,7 +4,23 @@
         <link>http://coding.fnsne.com/tags/</link>
         <description>Tags - Tag - fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>watashiwafnsne@gmail.com (fnsne)</managingEditor>
-            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Tue, 20 Sep 2022 16:35:44 &#43;0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Thu, 27 Apr 2023 09:30:27 &#43;0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/" rel="self" type="application/rss+xml" /><item>
+    <title>k8s</title>
+    <link>http://coding.fnsne.com/tags/k8s/</link>
+    <pubDate>Thu, 27 Apr 2023 09:30:27 &#43;0800</pubDate>
+    <author>fnsne</author>
+    <guid>http://coding.fnsne.com/tags/k8s/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>kubernetes</title>
+    <link>http://coding.fnsne.com/tags/kubernetes/</link>
+    <pubDate>Thu, 27 Apr 2023 09:30:27 &#43;0800</pubDate>
+    <author>fnsne</author>
+    <guid>http://coding.fnsne.com/tags/kubernetes/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>lock</title>
     <link>http://coding.fnsne.com/tags/lock/</link>
     <pubDate>Tue, 20 Sep 2022 16:35:44 &#43;0800</pubDate>
@@ -66,22 +82,6 @@
     <pubDate>Fri, 02 Sep 2022 16:06:28 &#43;0800</pubDate>
     <author>fnsne</author>
     <guid>http://coding.fnsne.com/tags/hugo/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>loveIt</title>
-    <link>http://coding.fnsne.com/tags/loveit/</link>
-    <pubDate>Fri, 02 Sep 2022 16:06:28 &#43;0800</pubDate>
-    <author>fnsne</author>
-    <guid>http://coding.fnsne.com/tags/loveit/</guid>
-    <description><![CDATA[]]></description>
-</item>
-<item>
-    <title>toc</title>
-    <link>http://coding.fnsne.com/tags/toc/</link>
-    <pubDate>Fri, 02 Sep 2022 16:06:28 &#43;0800</pubDate>
-    <author>fnsne</author>
-    <guid>http://coding.fnsne.com/tags/toc/</guid>
     <description><![CDATA[]]></description>
 </item>
 </channel>

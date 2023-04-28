@@ -1,0 +1,20 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>kubernetes - Tag - fnsne&#39;s coding world</title>
+        <link>http://coding.fnsne.com/tags/kubernetes/</link>
+        <description>kubernetes - Tag - fnsne&#39;s coding world</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>watashiwafnsne@gmail.com (fnsne)</managingEditor>
+            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Thu, 27 Apr 2023 09:30:27 &#43;0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/kubernetes/" rel="self" type="application/rss+xml" /><item>
+    <title>Local Path Provisioner</title>
+    <link>http://coding.fnsne.com/posts/2023-04-27/local-path-provisioner/</link>
+    <pubDate>Thu, 27 Apr 2023 09:30:27 &#43;0800</pubDate>
+    <author>fnsne</author>
+    <guid>http://coding.fnsne.com/posts/2023-04-27/local-path-provisioner/</guid>
+    <description><![CDATA[Local Path Provisioner 是一個 Container Storage Interface (CSI)，也就是用來提供k8s環境下建立Persistent Volume (PV)的插件
+安裝 command
+1 kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/v0.0.24/deploy/local-path-storage.yaml &quot; 會建立local-path-storage這個namespace，要查看運行狀態，可以到裡面看o
+使用configmap來給予設定
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 kind: ConfigMap apiVersion: v1 metadata: name: local-path-config namespace: local-path-storage data: config.]]></description>
+</item>
+</channel>
+</rss>

@@ -1,0 +1,25 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>SSL/TSL - Tag - fnsne&#39;s coding world</title>
+        <link>http://coding.fnsne.com/tags/ssl/tsl/</link>
+        <description>SSL/TSL - Tag - fnsne&#39;s coding world</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>watashiwafnsne@gmail.com (fnsne)</managingEditor>
+            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><atom:link href="http://coding.fnsne.com/tags/ssl/tsl/" rel="self" type="application/rss+xml" /><item>
+    <title>如何用certbot申請 Let’s Encrypt 的憑證</title>
+    <link>http://coding.fnsne.com/posts/2024-07-04/%E7%94%A8certbot%E7%94%B3%E8%AB%8B%E6%86%91%E8%AD%89/</link>
+    <pubDate>Thu, 04 Jul 2024 21:09:08 &#43;0800</pubDate>
+    <author>fnsne</author>
+    <guid>http://coding.fnsne.com/posts/2024-07-04/%E7%94%A8certbot%E7%94%B3%E8%AB%8B%E6%86%91%E8%AD%89/</guid>
+    <description><![CDATA[安裝certbot
+1 sudo apt install certbot 使用certbot申請SSL憑證
+1 sudo certbot certonly -d &lt;DOMAINNAME&gt; --manual certonly：表示只需要申請憑證即可。certbot還有支援一些常見的server替換SSL的功能，如apache、nginx等 --manual：表示要使用互動界面來申請憑證。 注意：使用&ndash;manual的方式申請的憑證，除非有配合使用其它驗證插件，否則無法自動renew。
+這個方式申請的憑證有提供兩種預設方式驗證
+會產生一個challenge檔案，然後讓我們放到要使用這個憑證的機器（至少是這個domain name會連到的機器）的根目錄下指定的資料夾，讓ACME驗證可以使用申請的domain name加上給定的ACME資料夾，拿到申請的檔案。 直接會在目標機器上加上一個短暫的server，做到在指定的網址回傳上述的challenge檔案。 另外certbot其實還提供了其它的驗證方式，例如DNS
+1 sudo certbot certonly -d &lt;DOMAINNAME&gt; --preferred-challenges dns --manual certbot會在申請的互動界面，產生一個申請憑證網域的challenge key和value，申請人要到DNS託管服務，例如GoDaddy、AWS Route53等服務上，對要申請憑證的網域使用certbot產出的key value來建立一筆TXT設定，讓Let’s Encrypt確定要申請的網域是屬於你的。 使用Route53插件驗證 其實就是藉由Route53的API，讓插件替我們做完把ACME Chellenge TXT設定到DNS Server上的這段流程。所以需要設定AWS的access client到申請憑證的機器上。
+安裝certbot-dns-route53
+1 sudo apt install python3-certbot-dns-route53 其它plugin的名稱也是使用相同的pattern: python3-certbot-dns-&lt;PLUGIN&gt; 設定AWS的access client
+到AWS設定一個Policy
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 { &#34;Version&#34;:&#34;2012-10-17&#34;, &#34;Id&#34;: &#34;certbot-dns-route53 sample policy&#34;, &#34;Statement&#34;: [ { &#34;Effect&#34;: &#34;Allow&#34;, &#34;Action&#34;: [ &#34;route53:ListHostedZones&#34;, &#34;route53:GetChange&#34; ], &#34;Resource&#34;: [ &#34;*&#34; ] }, { &#34;Effect&#34; : &#34;Allow&#34;, &#34;Action&#34; : [ &#34;route53:ChangeResourceRecordSets&#34; ], &#34;Resource&#34; : [ &#34;arn:aws:route53:::hostedzone/YOURHOSTEDZONEID&#34; ] } ] } Version的值不能改，這是告訴AWS要用這版的規則來看這個Policy]]></description>
+</item>
+</channel>
+</rss>

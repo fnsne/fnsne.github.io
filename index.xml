@@ -4,9 +4,26 @@
         <link>http://coding.fnsne.com/</link>
         <description>fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>watashiwafnsne@gmail.com (fnsne)</managingEditor>
-            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Thu, 29 Jun 2023 09:34:49 &#43;0800</lastBuildDate>
+            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Thu, 04 Jul 2024 21:09:08 &#43;0800</lastBuildDate>
             <atom:link href="http://coding.fnsne.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>如何用certbot申請 Let’s Encrypt 的憑證</title>
+    <link>http://coding.fnsne.com/posts/2024-07-04/%E7%94%A8certbot%E7%94%B3%E8%AB%8B%E6%86%91%E8%AD%89/</link>
+    <pubDate>Thu, 04 Jul 2024 21:09:08 &#43;0800</pubDate>
+    <author>fnsne</author>
+    <guid>http://coding.fnsne.com/posts/2024-07-04/%E7%94%A8certbot%E7%94%B3%E8%AB%8B%E6%86%91%E8%AD%89/</guid>
+    <description><![CDATA[安裝certbot
+1 sudo apt install certbot 使用certbot申請SSL憑證
+1 sudo certbot certonly -d &lt;DOMAINNAME&gt; --manual certonly：表示只需要申請憑證即可。certbot還有支援一些常見的server替換SSL的功能，如apache、nginx等 --manual：表示要使用互動界面來申請憑證。 注意：使用&ndash;manual的方式申請的憑證，除非有配合使用其它驗證插件，否則無法自動renew。
+這個方式申請的憑證有提供兩種預設方式驗證
+會產生一個challenge檔案，然後讓我們放到要使用這個憑證的機器（至少是這個domain name會連到的機器）的根目錄下指定的資料夾，讓ACME驗證可以使用申請的domain name加上給定的ACME資料夾，拿到申請的檔案。 直接會在目標機器上加上一個短暫的server，做到在指定的網址回傳上述的challenge檔案。 另外certbot其實還提供了其它的驗證方式，例如DNS
+1 sudo certbot certonly -d &lt;DOMAINNAME&gt; --preferred-challenges dns --manual certbot會在申請的互動界面，產生一個申請憑證網域的challenge key和value，申請人要到DNS託管服務，例如GoDaddy、AWS Route53等服務上，對要申請憑證的網域使用certbot產出的key value來建立一筆TXT設定，讓Let’s Encrypt確定要申請的網域是屬於你的。 使用Route53插件驗證 其實就是藉由Route53的API，讓插件替我們做完把ACME Chellenge TXT設定到DNS Server上的這段流程。所以需要設定AWS的access client到申請憑證的機器上。
+安裝certbot-dns-route53
+1 sudo apt install python3-certbot-dns-route53 其它plugin的名稱也是使用相同的pattern: python3-certbot-dns-&lt;PLUGIN&gt; 設定AWS的access client
+到AWS設定一個Policy
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 { &#34;Version&#34;:&#34;2012-10-17&#34;, &#34;Id&#34;: &#34;certbot-dns-route53 sample policy&#34;, &#34;Statement&#34;: [ { &#34;Effect&#34;: &#34;Allow&#34;, &#34;Action&#34;: [ &#34;route53:ListHostedZones&#34;, &#34;route53:GetChange&#34; ], &#34;Resource&#34;: [ &#34;*&#34; ] }, { &#34;Effect&#34; : &#34;Allow&#34;, &#34;Action&#34; : [ &#34;route53:ChangeResourceRecordSets&#34; ], &#34;Resource&#34; : [ &#34;arn:aws:route53:::hostedzone/YOURHOSTEDZONEID&#34; ] } ] } Version的值不能改，這是告訴AWS要用這版的規則來看這個Policy]]></description>
+</item>
+<item>
     <title>在乾淨環境建立k8s環境</title>
     <link>http://coding.fnsne.com/posts/d-%E5%9C%A8%E4%B9%BE%E6%B7%A8%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8Bk8s%E7%92%B0%E5%A2%83/</link>
     <pubDate>Thu, 29 Jun 2023 09:34:49 &#43;0800</pubDate>
@@ -137,21 +154,6 @@ reference LoveIt Github Issue 410 ]]></description>
     <guid>http://coding.fnsne.com/posts/2022-09-01/cloudflare_ssl_in_redirect_loop/</guid>
     <description><![CDATA[內文 最近在godaddy上面購買網域，然後使用cloudflare來申請ssl並弄成https的連線。結果今天上來看blog卻發現進不去，錯誤訊息是太多的redirect了。 打開F12重整看看，還真的是持續進行著 重複redirect到首頁的情況 經過一段研究，發現只是這個問題很sssssssss多人有遇到，只是因為CloudFlare的SSL設定設到了Flexible
 造成迴圈的ssl設定 正確的設定 參考資料 {&lt; link &ldquo;https://community.cloudflare.com/t/error-301-on-dns-and-http-proxy/77699" &gt;}}]]></description>
-</item>
-<item>
-    <title>淺談在Golang上面的物件導向</title>
-    <link>http://coding.fnsne.com/posts/2022-08-02/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/</link>
-    <pubDate>Tue, 02 Aug 2022 20:01:59 &#43;0800</pubDate>
-    <author>fnsne</author>
-    <guid>http://coding.fnsne.com/posts/2022-08-02/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/</guid>
-    <description><![CDATA[從物件導向的語言轉到Golang常常會遇到，不知道該怎麼在Golang實作類似多型和繼承的功能。這是因為Golang根本不是物件導向的語言。
-在網路上會看到一些文章，寫說可以使用可以embed來模擬繼承，但事實上embed的用途應該只是用來減少重複的程式碼，增加可讀性。像在io package裡面就很明顯，如interface ReadWriter就是用Reader和Writer 兩個interface組合起來的。
-1 2 3 4 type ReadWriter interface { Reader Writer } 使用embed struct的方式來模擬繼承。為了要可以被抽換注入，還是得要同時implement一個interface。這樣還不如直接implement interface就好了。
-在Golang，唯一類似物件導向的東西只有 interface。只要有implement interface，就可以在宣告使用這個interface的地方使用。
-個人的理解，Golang把繼承的概念且分成兩個部分：embed和interface。embed struct (interface) 負責擴增fields (method); interface負責讓不同struct可以有相同的調用方式
-embed struct 的功能只是單純消除struct的field的重用而已。embed interface 也是如此，單純想要減少 method 裡面重複宣告 method 的程式碼。
-簡單來說，就是
-想要可以抽換，用interface; 想要減少重複可以用embed的方式包裝組合]]></description>
 </item>
 </channel>
 </rss>

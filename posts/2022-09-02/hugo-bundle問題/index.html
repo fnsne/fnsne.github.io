@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-TW" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="描述 原本在hugo上面放文章是把所有的文章和圖片都放在content/posts/裡面用文章來分類。 content/posts/ ├── post1 │ └── post1.md │ └── img1.jpg ├── post2 │ └── post2.md │ └── img2.jpg ├── post3 │ └── post3.md │ └── img3.jpg 因為覺得全部文章和圖片都放在一起是在是太過於雜亂，而且害怕未來文章多的時候，markdown和圖片的命名會很痛苦，雖然也是可以利用在前面加上日期前綴來區分，但感覺還是會很亂。所以開始研究page bundle怎麼處理,試著將結構改成這樣。 content/posts/ ├── 2022-08-02 │ └── post1 │ └── post1.md │ └── img1.jpg │ └── post2 │ └── post2.md │ └── img2.jpg ├── 2022-09-02 │ └── post3 │ └── post3.md │ └── img3.jpg 問題 看到跑出來的網頁上，載入圖片404的網址居然是還會增加一個文章名稱的資料夾，然後才存取圖片。以上面的例子來看， 打開網頁 post1頁面，網址會是domain/posts/2022-08-02/post1/post1/ 而圖片是呼叫domain/posts/2022-08-02/post1/post1/img1.jpg 可是實際上到build出來的public裡面去看，這一個頁面的結構居然是長這樣 ├── 2022-08-02 │ └── post1 │ └── post1.">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="描述 原本在hugo上面放文章是把所有的文章和圖片都放在content/posts/裡面用文章來分類。 1 2 3 4 5 6 7 8 9 10 content/posts/ ├── post1 │ └── post1.md │ └── img1.jpg ├── post2 │ └── post2.md │ └── img2.jpg ├── post3 │ └── post3.md │ └── img3.jpg 因為覺得全部文章和圖片都放在一起是在是太過於雜亂，而且害怕未來文章多的時候，markdown和圖片的命名會很痛苦，雖然也是可以利用在前面加上日期前綴來區分，但感覺還是會很亂。所以開始研究page bundle怎麼處理,試著將結構改成這樣。 1 2 3 4 5 6 7 8 9 10 11 12 content/posts/ ├── 2022-08-02 │ └── post1 │ └── post1.md │ └── img1.jpg │ └── post2 │ └── post2.md │ └── img2.">
 <title>Hugo  Bundle問題</title>
 
 <link rel='canonical' href='http://coding.fnsne.com/posts/2022-09-02/hugo-bundle%E5%95%8F%E9%A1%8C/'>
 
 <link rel="stylesheet" href="/scss/style.min.0304c6baf04e01a8fe70693791cb744d56a3578a3120a8796cefc66825aa39c7.css"><meta property='og:title' content="Hugo  Bundle問題">
-<meta property='og:description' content="描述 原本在hugo上面放文章是把所有的文章和圖片都放在content/posts/裡面用文章來分類。 content/posts/ ├── post1 │ └── post1.md │ └── img1.jpg ├── post2 │ └── post2.md │ └── img2.jpg ├── post3 │ └── post3.md │ └── img3.jpg 因為覺得全部文章和圖片都放在一起是在是太過於雜亂，而且害怕未來文章多的時候，markdown和圖片的命名會很痛苦，雖然也是可以利用在前面加上日期前綴來區分，但感覺還是會很亂。所以開始研究page bundle怎麼處理,試著將結構改成這樣。 content/posts/ ├── 2022-08-02 │ └── post1 │ └── post1.md │ └── img1.jpg │ └── post2 │ └── post2.md │ └── img2.jpg ├── 2022-09-02 │ └── post3 │ └── post3.md │ └── img3.jpg 問題 看到跑出來的網頁上，載入圖片404的網址居然是還會增加一個文章名稱的資料夾，然後才存取圖片。以上面的例子來看， 打開網頁 post1頁面，網址會是domain/posts/2022-08-02/post1/post1/ 而圖片是呼叫domain/posts/2022-08-02/post1/post1/img1.jpg 可是實際上到build出來的public裡面去看，這一個頁面的結構居然是長這樣 ├── 2022-08-02 │ └── post1 │ └── post1.">
+<meta property='og:description' content="描述 原本在hugo上面放文章是把所有的文章和圖片都放在content/posts/裡面用文章來分類。 1 2 3 4 5 6 7 8 9 10 content/posts/ ├── post1 │ └── post1.md │ └── img1.jpg ├── post2 │ └── post2.md │ └── img2.jpg ├── post3 │ └── post3.md │ └── img3.jpg 因為覺得全部文章和圖片都放在一起是在是太過於雜亂，而且害怕未來文章多的時候，markdown和圖片的命名會很痛苦，雖然也是可以利用在前面加上日期前綴來區分，但感覺還是會很亂。所以開始研究page bundle怎麼處理,試著將結構改成這樣。 1 2 3 4 5 6 7 8 9 10 11 12 content/posts/ ├── 2022-08-02 │ └── post1 │ └── post1.md │ └── img1.jpg │ └── post2 │ └── post2.md │ └── img2.">
 <meta property='og:url' content='http://coding.fnsne.com/posts/2022-09-02/hugo-bundle%E5%95%8F%E9%A1%8C/'>
 <meta property='og:site_name' content='fnsne&#39;s coding world'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='hugo' /><meta property='article:tag' content='page bundle' /><meta property='article:published_time' content='2022-09-02T14:36:26&#43;08:00'/><meta property='article:modified_time' content='2022-09-02T14:36:26&#43;08:00'/>
 <meta name="twitter:title" content="Hugo  Bundle問題">
-<meta name="twitter:description" content="描述 原本在hugo上面放文章是把所有的文章和圖片都放在content/posts/裡面用文章來分類。 content/posts/ ├── post1 │ └── post1.md │ └── img1.jpg ├── post2 │ └── post2.md │ └── img2.jpg ├── post3 │ └── post3.md │ └── img3.jpg 因為覺得全部文章和圖片都放在一起是在是太過於雜亂，而且害怕未來文章多的時候，markdown和圖片的命名會很痛苦，雖然也是可以利用在前面加上日期前綴來區分，但感覺還是會很亂。所以開始研究page bundle怎麼處理,試著將結構改成這樣。 content/posts/ ├── 2022-08-02 │ └── post1 │ └── post1.md │ └── img1.jpg │ └── post2 │ └── post2.md │ └── img2.jpg ├── 2022-09-02 │ └── post3 │ └── post3.md │ └── img3.jpg 問題 看到跑出來的網頁上，載入圖片404的網址居然是還會增加一個文章名稱的資料夾，然後才存取圖片。以上面的例子來看， 打開網頁 post1頁面，網址會是domain/posts/2022-08-02/post1/post1/ 而圖片是呼叫domain/posts/2022-08-02/post1/post1/img1.jpg 可是實際上到build出來的public裡面去看，這一個頁面的結構居然是長這樣 ├── 2022-08-02 │ └── post1 │ └── post1.">
+<meta name="twitter:description" content="描述 原本在hugo上面放文章是把所有的文章和圖片都放在content/posts/裡面用文章來分類。 1 2 3 4 5 6 7 8 9 10 content/posts/ ├── post1 │ └── post1.md │ └── img1.jpg ├── post2 │ └── post2.md │ └── img2.jpg ├── post3 │ └── post3.md │ └── img3.jpg 因為覺得全部文章和圖片都放在一起是在是太過於雜亂，而且害怕未來文章多的時候，markdown和圖片的命名會很痛苦，雖然也是可以利用在前面加上日期前綴來區分，但感覺還是會很亂。所以開始研究page bundle怎麼處理,試著將結構改成這樣。 1 2 3 4 5 6 7 8 9 10 11 12 content/posts/ ├── 2022-08-02 │ └── post1 │ └── post1.md │ └── img1.jpg │ └── post2 │ └── post2.md │ └── img2.">
   
 
 
@@ -91,6 +91,27 @@
 
 
 
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/fnsne/'
+                        target="_blank"
+                        title="LinkedIn"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#00abfb" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+    <path d="M8 11l0 5" />
+    <path d="M8 8l0 .01" />
+    <path d="M12 16l0 -5" />
+    <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
                         
                     </a>
                 </li>
@@ -279,47 +300,104 @@
     
     <h1 id="描述">描述
 </h1><p>原本在hugo上面放文章是把所有的文章和圖片都放在<code>content/posts/</code>裡面用文章來分類。</p>
-<pre tabindex="0"><code>content/posts/
-├── post1
-│    └── post1.md
-│    └── img1.jpg   
-├── post2
-│    └── post2.md
-│    └── img2.jpg   
-├── post3
-│    └── post3.md
-│    └── img3.jpg   
-</code></pre><p>因為覺得全部文章和圖片都放在一起是在是太過於雜亂，而且害怕未來文章多的時候，markdown和圖片的命名會很痛苦，雖然也是可以利用在前面加上日期前綴來區分，但感覺還是會很亂。所以開始研究page bundle怎麼處理,試著將結構改成這樣。</p>
-<pre tabindex="0"><code>content/posts/
-├── 2022-08-02
-│   └── post1         
-│       └── post1.md
-│       └── img1.jpg   
-│   └── post2         
-│       └── post2.md
-│       └── img2.jpg   
-├── 2022-09-02
-│   └── post3         
-│       └── post3.md
-│       └── img3.jpg   
-</code></pre><h1 id="問題">問題
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">content/posts/
+</span></span><span class="line"><span class="cl">├── post1
+</span></span><span class="line"><span class="cl">│    └── post1.md
+</span></span><span class="line"><span class="cl">│    └── img1.jpg   
+</span></span><span class="line"><span class="cl">├── post2
+</span></span><span class="line"><span class="cl">│    └── post2.md
+</span></span><span class="line"><span class="cl">│    └── img2.jpg   
+</span></span><span class="line"><span class="cl">├── post3
+</span></span><span class="line"><span class="cl">│    └── post3.md
+</span></span><span class="line"><span class="cl">│    └── img3.jpg   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>因為覺得全部文章和圖片都放在一起是在是太過於雜亂，而且害怕未來文章多的時候，markdown和圖片的命名會很痛苦，雖然也是可以利用在前面加上日期前綴來區分，但感覺還是會很亂。所以開始研究page bundle怎麼處理,試著將結構改成這樣。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">content/posts/
+</span></span><span class="line"><span class="cl">├── 2022-08-02
+</span></span><span class="line"><span class="cl">│   └── post1         
+</span></span><span class="line"><span class="cl">│       └── post1.md
+</span></span><span class="line"><span class="cl">│       └── img1.jpg   
+</span></span><span class="line"><span class="cl">│   └── post2         
+</span></span><span class="line"><span class="cl">│       └── post2.md
+</span></span><span class="line"><span class="cl">│       └── img2.jpg   
+</span></span><span class="line"><span class="cl">├── 2022-09-02
+</span></span><span class="line"><span class="cl">│   └── post3         
+</span></span><span class="line"><span class="cl">│       └── post3.md
+</span></span><span class="line"><span class="cl">│       └── img3.jpg   
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="問題">問題
 </h1><p>看到跑出來的網頁上，載入圖片404的網址居然是還會增加一個文章名稱的資料夾，然後才存取圖片。以上面的例子來看， 打開網頁 post1頁面，網址會是<code>domain/posts/2022-08-02/post1/post1/</code></p>
 <p>而圖片是呼叫<code>domain/posts/2022-08-02/post1/post1/img1.jpg</code></p>
 <p>可是實際上到build出來的public裡面去看，這一個頁面的結構居然是長這樣</p>
-<pre tabindex="0"><code>├── 2022-08-02
-│   └── post1         
-│       └── post1.md
-│       └── img1.jpg   
-│       └── post1         
-│           └── index.html         
-</code></pre><h1 id="解法">解法
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">├── 2022-08-02
+</span></span><span class="line"><span class="cl">│   └── post1         
+</span></span><span class="line"><span class="cl">│       └── post1.md
+</span></span><span class="line"><span class="cl">│       └── img1.jpg   
+</span></span><span class="line"><span class="cl">│       └── post1         
+</span></span><span class="line"><span class="cl">│           └── index.html         
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="解法">解法
 </h1><p>因為查到的所有資料，上面寫的md都命名為<code>index</code>，所以試著把<code>post1.md</code>改名為<code>index.md</code>，一切就正常了，而此時<code>public</code>裡面的資料結構變成長這樣。</p>
-<pre tabindex="0"><code>├── 2022-08-02
-│   └── post1         
-│       └── post1.md
-│       └── img1.jpg   
-│       └── index.html         
-</code></pre><p>看起來可能是因為bundle是抓<code>index.md</code>這個關鍵字的來製作頁面，如果沒有這個檔案，會用現有的<code>*.md</code>的檔案，各自建立一個它名稱的資料夾，然後在裡面建立index.html。所以原本的做法才會長成奇怪的結構。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">├── 2022-08-02
+</span></span><span class="line"><span class="cl">│   └── post1         
+</span></span><span class="line"><span class="cl">│       └── post1.md
+</span></span><span class="line"><span class="cl">│       └── img1.jpg   
+</span></span><span class="line"><span class="cl">│       └── index.html         
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>看起來可能是因為bundle是抓<code>index.md</code>這個關鍵字的來製作頁面，如果沒有這個檔案，會用現有的<code>*.md</code>的檔案，各自建立一個它名稱的資料夾，然後在裡面建立index.html。所以原本的做法才會長成奇怪的結構。</p>
 <h1 id="reference">reference
 </h1><ul>
 <li><a class="link" href="https://github.com/gohugoio/hugo/issues/1240"  target="_blank" rel="noopener"

@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='http://coding.fnsne.com/posts/2023-04-27/local-path-provisioner/'>
 
-<link rel="stylesheet" href="/scss/style.min.0304c6baf04e01a8fe70693791cb744d56a3578a3120a8796cefc66825aa39c7.css"><meta property='og:title' content="Local Path Provisioner">
+<link rel="stylesheet" href="/scss/style.min.a870e5efd930feffcc7829ad153365ec0c91a5b2d9f68cade99bf73b84db5eef.css"><meta property='og:title' content="Local Path Provisioner">
 <meta property='og:description' content="Local Path Provisioner 是一個 Container Storage Interface (CSI)，也就是用來提供k8s環境下建立Persistent Volume (PV)的插件 安裝 command 1 kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/v0.0.24/deploy/local-path-storage.yaml 會建立local-path-storage這個namespace，要查看運行狀態，可以到裡面看log 1 kubectl -n local-path-storage logs pods/local-path-provisioner-7f8667b75c-hjrrb 使用configmap來給予設定 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 kind: ConfigMap apiVersion: v1 metadata: name: local-path-config namespace: local-path-storage data: config.">
 <meta property='og:url' content='http://coding.fnsne.com/posts/2023-04-27/local-path-provisioner/'>
 <meta property='og:site_name' content='fnsne&#39;s coding world'>

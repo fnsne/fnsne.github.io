@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-TW" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="問題描述 明明有開啟toc功能，但是在旁邊的toc卻完全沒有顯示任何的標題鏈接。 解法 這個問題的原因很簡單，是因為LoveIt預設會抓h2的標題，但我習慣從h1的標題開始寫，所以在toc上面沒有任何的標題存在。 解決的方法很簡單，只要到設定（config.toml）裡面，加上 1 2 3 [markup] [markup.tableOfContents] startLevel = 1 即可讓LoveIt從h1就開始抓到toc上面。 reference LoveIt Github Issue 410">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="問題描述 明明有開啟toc功能，但是在旁邊的toc卻完全沒有顯示任何的標題鏈接。 解法 這個問題的原因很簡單，是因為LoveIt預設會抓h2的標題，但我習慣從h1的標題開始寫，所以在toc上面沒有任何的標題存在。 解決的方法很簡單，只要到設定（config.toml）裡面，加上 [markup] [markup.tableOfContents] startLevel = 1 即可讓LoveIt從h1就開始抓到toc上面。 reference LoveIt Github Issue 410">
 <title>Hugo LoveIt 不會顯示toc</title>
 
 <link rel='canonical' href='http://coding.fnsne.com/posts/2022-09-02/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BA/'>
 
-<link rel="stylesheet" href="/scss/style.min.a870e5efd930feffcc7829ad153365ec0c91a5b2d9f68cade99bf73b84db5eef.css"><meta property='og:title' content="Hugo LoveIt 不會顯示toc">
-<meta property='og:description' content="問題描述 明明有開啟toc功能，但是在旁邊的toc卻完全沒有顯示任何的標題鏈接。 解法 這個問題的原因很簡單，是因為LoveIt預設會抓h2的標題，但我習慣從h1的標題開始寫，所以在toc上面沒有任何的標題存在。 解決的方法很簡單，只要到設定（config.toml）裡面，加上 1 2 3 [markup] [markup.tableOfContents] startLevel = 1 即可讓LoveIt從h1就開始抓到toc上面。 reference LoveIt Github Issue 410">
+<link rel="stylesheet" href="/scss/style.min.019f43d20328dc448a078e45ce0a6f0cf4b41d169e8fced7628c2e067db2a7a8.css"><meta property='og:title' content="Hugo LoveIt 不會顯示toc">
+<meta property='og:description' content="問題描述 明明有開啟toc功能，但是在旁邊的toc卻完全沒有顯示任何的標題鏈接。 解法 這個問題的原因很簡單，是因為LoveIt預設會抓h2的標題，但我習慣從h1的標題開始寫，所以在toc上面沒有任何的標題存在。 解決的方法很簡單，只要到設定（config.toml）裡面，加上 [markup] [markup.tableOfContents] startLevel = 1 即可讓LoveIt從h1就開始抓到toc上面。 reference LoveIt Github Issue 410">
 <meta property='og:url' content='http://coding.fnsne.com/posts/2022-09-02/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BA/'>
 <meta property='og:site_name' content='fnsne&#39;s coding world'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='loveIt' /><meta property='article:tag' content='hugo' /><meta property='article:tag' content='toc' /><meta property='article:published_time' content='2022-09-02T16:06:28&#43;08:00'/><meta property='article:modified_time' content='2022-09-02T16:06:28&#43;08:00'/>
 <meta name="twitter:title" content="Hugo LoveIt 不會顯示toc">
-<meta name="twitter:description" content="問題描述 明明有開啟toc功能，但是在旁邊的toc卻完全沒有顯示任何的標題鏈接。 解法 這個問題的原因很簡單，是因為LoveIt預設會抓h2的標題，但我習慣從h1的標題開始寫，所以在toc上面沒有任何的標題存在。 解決的方法很簡單，只要到設定（config.toml）裡面，加上 1 2 3 [markup] [markup.tableOfContents] startLevel = 1 即可讓LoveIt從h1就開始抓到toc上面。 reference LoveIt Github Issue 410">
+<meta name="twitter:description" content="問題描述 明明有開啟toc功能，但是在旁邊的toc卻完全沒有顯示任何的標題鏈接。 解法 這個問題的原因很簡單，是因為LoveIt預設會抓h2的標題，但我習慣從h1的標題開始寫，所以在toc上面沒有任何的標題存在。 解決的方法很簡單，只要到設定（config.toml）裡面，加上 [markup] [markup.tableOfContents] startLevel = 1 即可讓LoveIt從h1就開始抓到toc上面。 reference LoveIt Github Issue 410">
   
 
 
@@ -303,19 +303,10 @@
 <h1 id="解法">解法
 </h1><p>這個問題的原因很簡單，是因為LoveIt預設會抓h2的標題，但我習慣從h1的標題開始寫，所以在toc上面沒有任何的標題存在。</p>
 <p>解決的方法很簡單，只要到設定（<code>config.toml</code>）裡面，加上</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[markup]
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[markup]
 </span></span><span class="line"><span class="cl">  [markup.tableOfContents]
 </span></span><span class="line"><span class="cl">    startLevel = 1
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>即可讓LoveIt從h1就開始抓到toc上面。</p>
+</span></span></code></pre></div><p>即可讓LoveIt從h1就開始抓到toc上面。</p>
 <h1 id="reference">reference
 </h1><p><a class="link" href="https://github.com/dillonzq/LoveIt/issues/410#issuecomment-647272066"  target="_blank" rel="noopener"
     >LoveIt Github Issue 410</a></p>

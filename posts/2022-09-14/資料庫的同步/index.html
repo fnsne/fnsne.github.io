@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-TW" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="網路上查到簡單說明transaction的例子，常常都是用轉賬來說明，但其實還有很多東西需要注意 帳戶轉賬，因為race condition的緣故，導致操作欄位的值被改錯。 A有100，B有40。 A轉100元給B，B轉20元給A，由兩個不同的client來處理操作。 順序正確時：A會是減掉80 但是當順序不正確，則數字會錯掉，例如A很早取得現在的餘額（100），但是更新數字0慢了，導致A最終變成0元，因為在B轉完帳後才更新值。 以上的這個問題很明顯的是race condition。所謂的race condition是結果必須依賴與某種特定的順序，但是順序又並不是固定的，因此偶爾會出現錯誤。 解決race condition的方法 為了要解決race condition，必須得要讓操作依照我們期望的順序才操作，才能預防不對的順序導致的錯誤。為了要達到這個目標，資料庫本身有提供兩種方法： atomic update：資料庫提供的一個，對於單一欄位數值做相依於原本值的操作指令。這個操作過程會是atomic的，也就是不會操作到一半值被改掉而導致結果出錯。 1 update products set quantity = quantity -1 where id = 1; 優點：因為只是對於欄位做簡單的數字運算並馬上更新上去，所以對於欄位的佔用時間相較下面的select for update較短，且資料庫會將這類atomic操作做優化，所以效能會比較好。 缺點：只支援對於數值的簡單操作後更新，並不能做太複雜的運算。 select for update：這個操作被限制在transaction開起來的時候才能使用，使用時實際上就是將指定的欄位上一個更新的lock，此時直到commit之前，沒有其他client可以對這個欄位做任何更新。所以就能夠限制欄位更新的順序了。 1 2 3 4 Begin; select quantity into $q from products where id = 1 for update; update products set quantity = $q-1; Commit; 優點：因為有上鎖了，所以幾乎可以用各種邏輯運算來更新欄位的值。 缺點：因為會在欄位上面上鎖，並且持續到commit位置，所以對於效能會有很大的影響。 version scheme ：在table上面多新增一個欄位叫做version，來確定現在更新時的version，是否從拿值的時候到現在還沒有被更新過。程式可以藉由資料庫回傳的訊息，是否有更改到任何row來判斷是否更新成功。 1 2 old_ver = `select money, version from bank where name = A` `update bank set money = 30, version = version + 1 where name = A and version = old_ver` 優點：能夠不使用任何鎖的時候實現。（或者還有其他我想不到的優點）">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="網路上查到簡單說明transaction的例子，常常都是用轉賬來說明，但其實還有很多東西需要注意 帳戶轉賬，因為race condition的緣故，導致操作欄位的值被改錯。 A有100，B有40。 A轉100元給B，B轉20元給A，由兩個不同的client來處理操作。 順序正確時：A會是減掉80 但是當順序不正確，則數字會錯掉，例如A很早取得現在的餘額（100），但是更新數字0慢了，導致A最終變成0元，因為在B轉完帳後才更新值。 以上的這個問題很明顯的是race condition。所謂的race condition是結果必須依賴與某種特定的順序，但是順序又並不是固定的，因此偶爾會出現錯誤。 解決race condition的方法 為了要解決race condition，必須得要讓操作依照我們期望的順序才操作，才能預防不對的順序導致的錯誤。為了要達到這個目標，資料庫本身有提供兩種方法： atomic update：資料庫提供的一個，對於單一欄位數值做相依於原本值的操作指令。這個操作過程會是atomic的，也就是不會操作到一半值被改掉而導致結果出錯。 update products set quantity = quantity -1 where id = 1; 優點：因為只是對於欄位做簡單的數字運算並馬上更新上去，所以對於欄位的佔用時間相較下面的select for update較短，且資料庫會將這類atomic操作做優化，所以效能會比較好。 缺點：只支援對於數值的簡單操作後更新，並不能做太複雜的運算。 select for update：這個操作被限制在transaction開起來的時候才能使用，使用時實際上就是將指定的欄位上一個更新的lock，此時直到commit之前，沒有其他client可以對這個欄位做任何更新。所以就能夠限制欄位更新的順序了。 Begin; select quantity into $q from products where id = 1 for update; update products set quantity = $q-1; Commit; 優點：因為有上鎖了，所以幾乎可以用各種邏輯運算來更新欄位的值。 缺點：因為會在欄位上面上鎖，並且持續到commit位置，所以對於效能會有很大的影響。 version scheme ：在table上面多新增一個欄位叫做version，來確定現在更新時的version，是否從拿值的時候到現在還沒有被更新過。程式可以藉由資料庫回傳的訊息，是否有更改到任何row來判斷是否更新成功。 old_ver = `select money, version from bank where name = A` `update bank set money = 30, version = version + 1 where name = A and version = old_ver` 優點：能夠不使用任何鎖的時候實現。（或者還有其他我想不到的優點）">
 <title>資料庫的同步</title>
 
 <link rel='canonical' href='http://coding.fnsne.com/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/'>
 
-<link rel="stylesheet" href="/scss/style.min.a870e5efd930feffcc7829ad153365ec0c91a5b2d9f68cade99bf73b84db5eef.css"><meta property='og:title' content="資料庫的同步">
-<meta property='og:description' content="網路上查到簡單說明transaction的例子，常常都是用轉賬來說明，但其實還有很多東西需要注意 帳戶轉賬，因為race condition的緣故，導致操作欄位的值被改錯。 A有100，B有40。 A轉100元給B，B轉20元給A，由兩個不同的client來處理操作。 順序正確時：A會是減掉80 但是當順序不正確，則數字會錯掉，例如A很早取得現在的餘額（100），但是更新數字0慢了，導致A最終變成0元，因為在B轉完帳後才更新值。 以上的這個問題很明顯的是race condition。所謂的race condition是結果必須依賴與某種特定的順序，但是順序又並不是固定的，因此偶爾會出現錯誤。 解決race condition的方法 為了要解決race condition，必須得要讓操作依照我們期望的順序才操作，才能預防不對的順序導致的錯誤。為了要達到這個目標，資料庫本身有提供兩種方法： atomic update：資料庫提供的一個，對於單一欄位數值做相依於原本值的操作指令。這個操作過程會是atomic的，也就是不會操作到一半值被改掉而導致結果出錯。 1 update products set quantity = quantity -1 where id = 1; 優點：因為只是對於欄位做簡單的數字運算並馬上更新上去，所以對於欄位的佔用時間相較下面的select for update較短，且資料庫會將這類atomic操作做優化，所以效能會比較好。 缺點：只支援對於數值的簡單操作後更新，並不能做太複雜的運算。 select for update：這個操作被限制在transaction開起來的時候才能使用，使用時實際上就是將指定的欄位上一個更新的lock，此時直到commit之前，沒有其他client可以對這個欄位做任何更新。所以就能夠限制欄位更新的順序了。 1 2 3 4 Begin; select quantity into $q from products where id = 1 for update; update products set quantity = $q-1; Commit; 優點：因為有上鎖了，所以幾乎可以用各種邏輯運算來更新欄位的值。 缺點：因為會在欄位上面上鎖，並且持續到commit位置，所以對於效能會有很大的影響。 version scheme ：在table上面多新增一個欄位叫做version，來確定現在更新時的version，是否從拿值的時候到現在還沒有被更新過。程式可以藉由資料庫回傳的訊息，是否有更改到任何row來判斷是否更新成功。 1 2 old_ver = `select money, version from bank where name = A` `update bank set money = 30, version = version + 1 where name = A and version = old_ver` 優點：能夠不使用任何鎖的時候實現。（或者還有其他我想不到的優點）">
+<link rel="stylesheet" href="/scss/style.min.019f43d20328dc448a078e45ce0a6f0cf4b41d169e8fced7628c2e067db2a7a8.css"><meta property='og:title' content="資料庫的同步">
+<meta property='og:description' content="網路上查到簡單說明transaction的例子，常常都是用轉賬來說明，但其實還有很多東西需要注意 帳戶轉賬，因為race condition的緣故，導致操作欄位的值被改錯。 A有100，B有40。 A轉100元給B，B轉20元給A，由兩個不同的client來處理操作。 順序正確時：A會是減掉80 但是當順序不正確，則數字會錯掉，例如A很早取得現在的餘額（100），但是更新數字0慢了，導致A最終變成0元，因為在B轉完帳後才更新值。 以上的這個問題很明顯的是race condition。所謂的race condition是結果必須依賴與某種特定的順序，但是順序又並不是固定的，因此偶爾會出現錯誤。 解決race condition的方法 為了要解決race condition，必須得要讓操作依照我們期望的順序才操作，才能預防不對的順序導致的錯誤。為了要達到這個目標，資料庫本身有提供兩種方法： atomic update：資料庫提供的一個，對於單一欄位數值做相依於原本值的操作指令。這個操作過程會是atomic的，也就是不會操作到一半值被改掉而導致結果出錯。 update products set quantity = quantity -1 where id = 1; 優點：因為只是對於欄位做簡單的數字運算並馬上更新上去，所以對於欄位的佔用時間相較下面的select for update較短，且資料庫會將這類atomic操作做優化，所以效能會比較好。 缺點：只支援對於數值的簡單操作後更新，並不能做太複雜的運算。 select for update：這個操作被限制在transaction開起來的時候才能使用，使用時實際上就是將指定的欄位上一個更新的lock，此時直到commit之前，沒有其他client可以對這個欄位做任何更新。所以就能夠限制欄位更新的順序了。 Begin; select quantity into $q from products where id = 1 for update; update products set quantity = $q-1; Commit; 優點：因為有上鎖了，所以幾乎可以用各種邏輯運算來更新欄位的值。 缺點：因為會在欄位上面上鎖，並且持續到commit位置，所以對於效能會有很大的影響。 version scheme ：在table上面多新增一個欄位叫做version，來確定現在更新時的version，是否從拿值的時候到現在還沒有被更新過。程式可以藉由資料庫回傳的訊息，是否有更改到任何row來判斷是否更新成功。 old_ver = `select money, version from bank where name = A` `update bank set money = 30, version = version + 1 where name = A and version = old_ver` 優點：能夠不使用任何鎖的時候實現。（或者還有其他我想不到的優點）">
 <meta property='og:url' content='http://coding.fnsne.com/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/'>
 <meta property='og:site_name' content='fnsne&#39;s coding world'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='database' /><meta property='article:tag' content='transaction' /><meta property='article:tag' content='同步' /><meta property='article:published_time' content='2022-09-14T16:22:17&#43;08:00'/><meta property='article:modified_time' content='2022-09-14T16:22:17&#43;08:00'/>
 <meta name="twitter:title" content="資料庫的同步">
-<meta name="twitter:description" content="網路上查到簡單說明transaction的例子，常常都是用轉賬來說明，但其實還有很多東西需要注意 帳戶轉賬，因為race condition的緣故，導致操作欄位的值被改錯。 A有100，B有40。 A轉100元給B，B轉20元給A，由兩個不同的client來處理操作。 順序正確時：A會是減掉80 但是當順序不正確，則數字會錯掉，例如A很早取得現在的餘額（100），但是更新數字0慢了，導致A最終變成0元，因為在B轉完帳後才更新值。 以上的這個問題很明顯的是race condition。所謂的race condition是結果必須依賴與某種特定的順序，但是順序又並不是固定的，因此偶爾會出現錯誤。 解決race condition的方法 為了要解決race condition，必須得要讓操作依照我們期望的順序才操作，才能預防不對的順序導致的錯誤。為了要達到這個目標，資料庫本身有提供兩種方法： atomic update：資料庫提供的一個，對於單一欄位數值做相依於原本值的操作指令。這個操作過程會是atomic的，也就是不會操作到一半值被改掉而導致結果出錯。 1 update products set quantity = quantity -1 where id = 1; 優點：因為只是對於欄位做簡單的數字運算並馬上更新上去，所以對於欄位的佔用時間相較下面的select for update較短，且資料庫會將這類atomic操作做優化，所以效能會比較好。 缺點：只支援對於數值的簡單操作後更新，並不能做太複雜的運算。 select for update：這個操作被限制在transaction開起來的時候才能使用，使用時實際上就是將指定的欄位上一個更新的lock，此時直到commit之前，沒有其他client可以對這個欄位做任何更新。所以就能夠限制欄位更新的順序了。 1 2 3 4 Begin; select quantity into $q from products where id = 1 for update; update products set quantity = $q-1; Commit; 優點：因為有上鎖了，所以幾乎可以用各種邏輯運算來更新欄位的值。 缺點：因為會在欄位上面上鎖，並且持續到commit位置，所以對於效能會有很大的影響。 version scheme ：在table上面多新增一個欄位叫做version，來確定現在更新時的version，是否從拿值的時候到現在還沒有被更新過。程式可以藉由資料庫回傳的訊息，是否有更改到任何row來判斷是否更新成功。 1 2 old_ver = `select money, version from bank where name = A` `update bank set money = 30, version = version + 1 where name = A and version = old_ver` 優點：能夠不使用任何鎖的時候實現。（或者還有其他我想不到的優點）">
+<meta name="twitter:description" content="網路上查到簡單說明transaction的例子，常常都是用轉賬來說明，但其實還有很多東西需要注意 帳戶轉賬，因為race condition的緣故，導致操作欄位的值被改錯。 A有100，B有40。 A轉100元給B，B轉20元給A，由兩個不同的client來處理操作。 順序正確時：A會是減掉80 但是當順序不正確，則數字會錯掉，例如A很早取得現在的餘額（100），但是更新數字0慢了，導致A最終變成0元，因為在B轉完帳後才更新值。 以上的這個問題很明顯的是race condition。所謂的race condition是結果必須依賴與某種特定的順序，但是順序又並不是固定的，因此偶爾會出現錯誤。 解決race condition的方法 為了要解決race condition，必須得要讓操作依照我們期望的順序才操作，才能預防不對的順序導致的錯誤。為了要達到這個目標，資料庫本身有提供兩種方法： atomic update：資料庫提供的一個，對於單一欄位數值做相依於原本值的操作指令。這個操作過程會是atomic的，也就是不會操作到一半值被改掉而導致結果出錯。 update products set quantity = quantity -1 where id = 1; 優點：因為只是對於欄位做簡單的數字運算並馬上更新上去，所以對於欄位的佔用時間相較下面的select for update較短，且資料庫會將這類atomic操作做優化，所以效能會比較好。 缺點：只支援對於數值的簡單操作後更新，並不能做太複雜的運算。 select for update：這個操作被限制在transaction開起來的時候才能使用，使用時實際上就是將指定的欄位上一個更新的lock，此時直到commit之前，沒有其他client可以對這個欄位做任何更新。所以就能夠限制欄位更新的順序了。 Begin; select quantity into $q from products where id = 1 for update; update products set quantity = $q-1; Commit; 優點：因為有上鎖了，所以幾乎可以用各種邏輯運算來更新欄位的值。 缺點：因為會在欄位上面上鎖，並且持續到commit位置，所以對於效能會有很大的影響。 version scheme ：在table上面多新增一個欄位叫做version，來確定現在更新時的version，是否從拿值的時候到現在還沒有被更新過。程式可以藉由資料庫回傳的訊息，是否有更改到任何row來判斷是否更新成功。 old_ver = `select money, version from bank where name = A` `update bank set money = 30, version = version + 1 where name = A and version = old_ver` 優點：能夠不使用任何鎖的時候實現。（或者還有其他我想不到的優點）">
   
 
 
@@ -357,15 +357,8 @@
 <ol>
 <li>
 <p>atomic update：資料庫提供的一個，對於單一欄位數值做相依於原本值的操作指令。這個操作過程會是atomic的，也就是不會操作到一半值被改掉而導致結果出錯。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">update</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">update</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><ul>
 <li>
 <p>優點：因為只是對於欄位做簡單的數字運算並馬上更新上去，所以對於欄位的佔用時間相較下面的select for update較短，且資料庫會將這類atomic操作做優化，所以效能會比較好。</p>
 </li>
@@ -376,21 +369,11 @@
 </li>
 <li>
 <p>select for update：這個操作被限制在transaction開起來的時候才能使用，使用時實際上就是將指定的欄位上一個更新的lock，此時直到commit之前，沒有其他client可以對這個欄位做任何更新。所以就能夠限制欄位更新的順序了。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">Begin</span><span class="p">;</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">Begin</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="err">$</span><span class="n">q</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">update</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">$</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">Commit</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+</span></span></span></code></pre></div><ul>
 <li>
 <p>優點：因為有上鎖了，所以幾乎可以用各種邏輯運算來更新欄位的值。</p>
 </li>
@@ -401,17 +384,9 @@
 </li>
 <li>
 <p>version scheme ：在table上面多新增一個欄位叫做version，來確定現在更新時的version，是否從拿值的時候到現在還沒有被更新過。程式可以藉由資料庫回傳的訊息，<code>是否有更改到任何row</code>來判斷是否更新成功。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">old_ver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">`</span><span class="k">select</span><span class="w"> </span><span class="n">money</span><span class="p">,</span><span class="w"> </span><span class="k">version</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">bank</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="o">`</span><span class="w">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">old_ver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">`</span><span class="k">select</span><span class="w"> </span><span class="n">money</span><span class="p">,</span><span class="w"> </span><span class="k">version</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">bank</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="o">`</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">`</span><span class="k">update</span><span class="w"> </span><span class="n">bank</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">money</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="k">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">version</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="k">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">old_ver</span><span class="o">`</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+</span></span></span></code></pre></div><ul>
 <li>
 <p>優點：能夠不使用任何鎖的時候實現。（或者還有其他我想不到的優點）</p>
 </li>

@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='http://coding.fnsne.com/posts/2022-09-01/cloudflare_ssl_in_redirect_loop/'>
 
-<link rel="stylesheet" href="/scss/style.min.a870e5efd930feffcc7829ad153365ec0c91a5b2d9f68cade99bf73b84db5eef.css"><meta property='og:title' content="CloudFlare SSL in redirect loop">
+<link rel="stylesheet" href="/scss/style.min.019f43d20328dc448a078e45ce0a6f0cf4b41d169e8fced7628c2e067db2a7a8.css"><meta property='og:title' content="CloudFlare SSL in redirect loop">
 <meta property='og:description' content="內文 最近在godaddy上面購買網域，然後使用cloudflare來申請ssl並弄成https的連線。結果今天上來看blog卻發現進不去，錯誤訊息是太多的redirect了。 打開F12重整看看，還真的是持續進行著 重複redirect到首頁的情況 經過一段研究，發現只是這個問題很sssssssss多人有遇到，只是因為CloudFlare的SSL設定設到了Flexible 造成迴圈的ssl設定 正確的設定 參考資料 {&lt; link &ldquo;https://community.cloudflare.com/t/error-301-on-dns-and-http-proxy/77699\" &gt;}}">
 <meta property='og:url' content='http://coding.fnsne.com/posts/2022-09-01/cloudflare_ssl_in_redirect_loop/'>
 <meta property='og:site_name' content='fnsne&#39;s coding world'>

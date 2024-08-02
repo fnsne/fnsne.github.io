@@ -1,29 +1,88 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>heptabase - Tag - fnsne&#39;s coding world</title>
+        <title>Heptabase on fnsne&#39;s coding world</title>
         <link>http://coding.fnsne.com/tags/heptabase/</link>
-        <description>heptabase - Tag - fnsne&#39;s coding world</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>watashiwafnsne@gmail.com (fnsne)</managingEditor>
-            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Sat, 03 Sep 2022 23:18:17 &#43;0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/heptabase/" rel="self" type="application/rss+xml" /><item>
-    <title>我用heptabase來實作卡片盒筆記的方式</title>
-    <link>http://coding.fnsne.com/posts/2022-09-03/heptabase-zettelkasten/</link>
-    <pubDate>Sat, 03 Sep 2022 23:18:17 &#43;0800</pubDate>
-    <author>fnsne</author>
-    <guid>http://coding.fnsne.com/posts/2022-09-03/heptabase-zettelkasten/</guid>
-    <description><![CDATA[卡片盒筆記寫作有兩種方式 卡片盒筆記的做法，現在網路上很多影片、文章都有教了，所以我就不贅述了，這篇文章主要是記錄我如何在heptabase上面實作卡片盒筆記的方式。目前理解到的用法大致上有兩種方式。
-闡述延伸自己論點的做法 google搜尋卡片盒筆記最容易找到的是閱讀前哨戰站長瓦基的文章，張永錫老師有一次有和瓦基、朱騏有直播 ，我在這邊大概知道了瓦基使用heptabase的方式 ，大致上就是持續將相同大分類（同board）的卡片做多張卡片凝聚出共通點、複雜卡片切割成多張不需要上下文即可理解的論述、依照因果關係或層級架構為卡片作出連結。最後依照這個的架構輸出成文章。瓦基卡片盒筆記的文章 不同卡片蹦發出新的東西 在張永錫老師在hahow的卡片盒筆記術 中，教導的寫文章方式，則是直接將所有搜尋到有所關聯的卡片複製到whimsical 上面，再來整理排序，變成一張完整的文章。
-對我來說 我使用卡片盒筆記的目的是學習知識、整理思路，對於卡片盒筆記術課程 中教導的用whimsical 配合notion放卡片，對於長期的專案來說，持續分裂、內聚的卡片很難同步。我的結論是，這套流程只比較適合一次結束的專案。
-所以在理清我需要讓專案持續成長，又要能夠視覺化看到因果和層級架構 這件事後，我馬上就花錢訂閱了heptabase。
-我實際的做法 整理卡片（收集、整理材料） white board為一項大項知識的庫，在裡面可以持續新增卡片，並且整理出順序。 持續做以下的流程
-為簡單的卡片查詢資料
-將資料整理成多項能夠獨立闡述內容的卡片（永久卡片）
-看看多張卡片可不可以凝聚出共同性，將其抽出來寫成卡片
-看看有沒有卡片寫了太多項內容，將內容封裝成多張卡片
-如果卡片之間有因果關係、架構層級，為其加上connection。
-在這邊要注意一點是，link和connection感覺很相似，我剛開始很混亂，不知道要怎麼使用。因為同時想要能闡述延伸自己論點的做法 、不同卡片蹦發出新的東西 ，所以會想要讓所有卡片之間的關聯都是用connection來連結。但是這個做法會讓畫面變得很混亂，反而會阻礙思考。後來在釐清了我使用卡片筆記的主要用法是闡述延伸自己論點的做法 後，就決定只讓有因係、層級架構關聯的卡片，使用connection，而其他的關聯則是在卡片內文使用link的方式來關聯。這個是在直播裡面學到的瓦基使用link和connect的時機 寫成文章時 把所有想到和這篇文章相關的卡片用bullet list 來link到entry card
-這個方法是從瓦基學到的，文章/keyword card/entry卡片上面先用link把所有相關的卡片給連結進來。再來在這張卡片下面開始書寫文章。
-entry card 這個方法的完全是利用了heptabase的功能。
-首先heptabase的list可以隨意拖拉，來初步排列出書寫的順序。這個在各大筆記軟體（notion、evernote等）上的bullet list 其實都可以做得到。 Open in new tab → 再點選所有的link，heptabase會在右邊打開所有卡片，這樣可以快速的複製卡片內容過來變成初稿。 這篇文章大致上描述了我現在會在heptabase上面實作的卡片筆記流程，並且這篇文章也是我第一次在heptabase上面使用卡片筆記寫成的。總共花了一個下午和半個晚上研究、半個晚上整理成文章。]]></description>
-</item>
-</channel>
+        <description>Recent content in Heptabase on fnsne&#39;s coding world</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-TW</language>
+        <copyright>fnsne</copyright>
+        <lastBuildDate>Sat, 03 Sep 2022 23:18:17 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/heptabase/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>我用heptabase來實作卡片盒筆記的方式</title>
+        <link>http://coding.fnsne.com/posts/2022-09-03/heptabase-zettelkasten/</link>
+        <pubDate>Sat, 03 Sep 2022 23:18:17 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/posts/2022-09-03/heptabase-zettelkasten/</guid>
+        <description>&lt;h2 id=&#34;卡片盒筆記寫作有兩種方式&#34;&gt;卡片盒筆記寫作有兩種方式
+&lt;/h2&gt;&lt;p&gt;卡片盒筆記的做法，現在網路上很多影片、文章都有教了，所以我就不贅述了，這篇文章主要是記錄我如何在heptabase上面實作卡片盒筆記的方式。目前理解到的用法大致上有兩種方式。&lt;/p&gt;
+&lt;h3 id=&#34;闡述延伸自己論點的做法&#34;&gt;闡述延伸自己論點的做法
+&lt;/h3&gt;&lt;p&gt;google搜尋卡片盒筆記最容易找到的是閱讀前哨戰站長瓦基的文章，張永錫老師有一次有和瓦基、朱騏有&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v%5c=TtuufXfSkXU&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;直播&lt;/a&gt; ，我在這邊大概知道了瓦基使用heptabase的方式 ，大致上就是持續將相同大分類（同board）的卡片做&lt;code&gt;多張卡片凝聚出共通點&lt;/code&gt;、&lt;code&gt;複雜卡片切割成多張不需要上下文即可理解的論述&lt;/code&gt;、&lt;code&gt;依照因果關係或層級架構為卡片作出連結&lt;/code&gt;。最後依照這個的架構輸出成文章。&lt;a class=&#34;link&#34; href=&#34;https://readingoutpost.com/zettelkasten-6-steps/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;瓦基卡片盒筆記的文章&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;不同卡片蹦發出新的東西&#34;&gt;不同卡片蹦發出新的東西
+&lt;/h3&gt;&lt;p&gt;在&lt;a class=&#34;link&#34; href=&#34;https://hahow.in/courses/623156dc32edfc0007190299/main&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;張永錫老師在hahow的卡片盒筆記術&lt;/a&gt; 中，教導的寫文章方式，則是直接將所有搜尋到有所關聯的卡片複製到&lt;a class=&#34;link&#34; href=&#34;http://whimsical.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;whimsical&lt;/a&gt;上面，再來整理排序，變成一張完整的文章。&lt;/p&gt;
+&lt;h2 id=&#34;對我來說&#34;&gt;對我來說
+&lt;/h2&gt;&lt;p&gt;我使用卡片盒筆記的目的是學習知識、整理思路，對於&lt;a class=&#34;link&#34; href=&#34;https://hahow.in/courses/623156dc32edfc0007190299/main&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;卡片盒筆記術課程&lt;/a&gt;中教導的用&lt;a class=&#34;link&#34; href=&#34;http://whimsical.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;whimsical&lt;/a&gt; 配合notion放卡片，對於長期的專案來說，持續分裂、內聚的卡片很難同步。我的結論是，這套流程只比較適合一次結束的專案。&lt;/p&gt;
+&lt;p&gt;所以在理清&lt;code&gt;我需要讓專案持續成長，又要能夠視覺化看到因果和層級架構&lt;/code&gt; 這件事後，我馬上就花錢訂閱了heptabase。&lt;/p&gt;
+&lt;h2 id=&#34;我實際的做法&#34;&gt;我實際的做法
+&lt;/h2&gt;&lt;h3 id=&#34;整理卡片收集整理材料&#34;&gt;整理卡片（收集、整理材料）
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;white board為一項大項知識的庫，在裡面可以持續新增卡片，並且整理出順序。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;持續做以下的流程&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;為簡單的卡片查詢資料&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;將資料整理成多項能夠獨立闡述內容的卡片（永久卡片）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;看看多張卡片可不可以凝聚出共同性，將其抽出來寫成卡片&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;看看有沒有卡片寫了太多項內容，將內容封裝成多張卡片&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果卡片之間有因果關係、架構層級，為其加上connection。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在這邊要注意一點是，link和connection感覺很相似，我剛開始很混亂，不知道要怎麼使用。因為同時想要能&lt;a class=&#34;link&#34; href=&#34;#%E9%97%A1%E8%BF%B0%E5%BB%B6%E4%BC%B8%E8%87%AA%E5%B7%B1%E8%AB%96%E9%BB%9E%E7%9A%84%E5%81%9A%E6%B3%95&#34; &gt;闡述延伸自己論點的做法&lt;/a&gt; 、&lt;a class=&#34;link&#34; href=&#34;#%E4%B8%8D%E5%90%8C%E5%8D%A1%E7%89%87%E8%B9%A6%E7%99%BC%E5%87%BA%E6%96%B0%E7%9A%84%E6%9D%B1%E8%A5%BF&#34; &gt;不同卡片蹦發出新的東西&lt;/a&gt; ，所以會想要讓所有卡片之間的關聯都是用connection來連結。但是這個做法會讓畫面變得很混亂，反而會阻礙思考。後來在釐清了我使用卡片筆記的主要用法是&lt;a class=&#34;link&#34; href=&#34;#%E9%97%A1%E8%BF%B0%E5%BB%B6%E4%BC%B8%E8%87%AA%E5%B7%B1%E8%AB%96%E9%BB%9E%E7%9A%84%E5%81%9A%E6%B3%95&#34; &gt;闡述延伸自己論點的做法&lt;/a&gt; 後，就決定只讓有因係、層級架構關聯的卡片，使用connection，而其他的關聯則是在卡片內文使用link的方式來關聯。這個是在直播裡面學到的&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?t%5C%5c=2672&amp;amp;v%5c=TtuufXfSkXU&amp;amp;feature%5c=youtu.be&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;瓦基使用link和connect的時機&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;寫成文章時&#34;&gt;寫成文章時
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;把所有想到和這篇文章相關的卡片用bullet list 來link到entry card&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;這個方法是從瓦基學到的，文章/keyword card/entry卡片上面先用link把所有相關的卡片給連結進來。再來在這張卡片下面開始書寫文章。&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/2022-09-03/heptabase-zettelkasten/keyword-card.png&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;entry card&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;這個方法的完全是利用了heptabase的功能。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;首先heptabase的list可以隨意拖拉，來初步排列出書寫的順序。這個在各大筆記軟體（notion、evernote等）上的bullet list 其實都可以做得到。
+&lt;figure&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/oR_Vovjx-cbE9xENfmEpSMzZ35_6DC-_K5kTYVO9WHkiJaHMz0QRpg0me-2dXTrh3Hg0NCARJmJAiIoPjEqEOO9unp_ItgyASM6NQ-Ao_DgT2Hg58W2L0-uogI-Sybf1B36gsw-rzx4=w2400&#34;&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Open in new tab → 再點選所有的link，heptabase會在右邊打開所有卡片，這樣可以快速的複製卡片內容過來變成初稿。
+&lt;figure&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/EKz6pTXK0nYgLOuf0DSspDZxVUL-kX7Ql7x8AeaUrSBz4bpbi9ADa-Uu1sgPtsSDS7iDDthbjz1Jt8t7hq7fTfI0H7YtDZj9d5SgPAvd30j_niOwIwQJC5zblwlC-mmCbEcufSQ_xIY=w2400&#34;&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;這篇文章大致上描述了我現在會在heptabase上面實作的卡片筆記流程，並且這篇文章也是我第一次在heptabase上面使用卡片筆記寫成的。總共花了一個下午和半個晚上研究、半個晚上整理成文章。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

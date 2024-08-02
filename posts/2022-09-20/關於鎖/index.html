@@ -1,164 +1,327 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="noodp" />
-        <title>關於鎖 - fnsne&#39;s coding world</title><meta name="Description" content="fnsne&#39;s coding world"><meta property="og:title" content="關於鎖" />
-<meta property="og:description" content="關於鎖(lock) 畢業後，太久沒有用到相關的東西，概念開始有點混淆了，所以拿出恐龍本讀回來。順便做一篇筆記
-一些專有名詞 名稱 說明 cooperation process （協作行程） 會操作到共同資源的不同process critical section 在各種cooperation process 裡面會操作到共同資源的code區塊 鎖想解決的問題 在多核心多執行序問世之前的單核心的時代，是一個核心切換來切換去的做不同事，在時間區間上每個時間點都只有一個process正在被cpu執行，如下圖。
-單核心運作示意圖 而在多核心問世以後開始會出現一些問題，如下圖。
-多核心的運作示意圖 開始會發生圖上，兩個核心會同時執行不同的process ，這個時候可能會發生互相改到資料的問題。例如process B和D是要在印表機上面印出現在電腦的時間，就有可能會發生一下的輸出：
-假設兩個核心在執行processB和D的時間點是15:38和15:40
-1 15:153:840 這是因為兩個核心互相搶著輸出到印表機，但是順序亂掉的緣故。為了解決這個問題，鎖的概念被提了出來。
-鎖的用途 用來保護注critical section（以上面的例子來看，是Process B和Process D裡面，執行輸出資料到印表機的code block）。強制這兩個critical section，在同一個時間裡面，頂多只能有一個執行，另一個想要執行，得要等到另一個結束後，才能開始動作。
-鎖的種類 mutex lock（互斥鎖） 又稱自旋鎖，會讓這個process一直卡在loop裡面，直到能夠存取資料後，才跳出迴圈，開始執行這個critical section。
-因為實際上是一直在執行loop的狀態下做等待資源釋放的，所以它不需要使用到context switch，在獲得資源後的切換速度很快。所以常常被使用在共用資源都只會被佔用短短時間的情境下使用。
-mutex lock的概念是一個被相同mutex lock保護起來的多個critical section，一個時間裡只能有一個被執行，其他都得要等待它mutex lock釋放後，才能繼續搶，搶到的才能執行。
-semaphore lock（號誌鎖） 和mutex lock不同，可以設定資源同一時間下，最多可以有S個process同時執行，當同時執行的critical section數目大於S時，會被停下來，等待到同時執行的critical section小於S時，才能繼續搶進去執行。
-如果要用mutex lock的方式執行，會讓很多process一直在執行loop，對於資源的浪費太大了，所以在semaphore lock的時候，會採用將process 暫停，將address存到lock S 的list裡面。等到有process把S給釋放，此時CPU會將S裡面的list，取出一個process出來執行。
-我混淆的概念釐清 鎖不是鎖住cpu，而是鎖住其他一樣需要這個鎖的process，讓同一個鎖保護的同一個（或者不同個）critical section ，一次最多只能有1（或者semaphore lock設定的數字）個process存取。
-被鎖保護住的critical section，只要裡面有存取某個共用資源的code，就能讓這項資源被鎖給保護，不被濫用。
-結論 鎖的概念就是為了要保護有限的資源，不要被無限的取用。例如可以利用鎖來保護對同一個檔案的更改，讓這個檔案一次只能被一個process更新，防止檔案內資料變得亂七八糟的。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-09-20T16:35:44+08:00" />
-<meta property="article:modified_time" content="2022-09-20T16:35:44+08:00" /><meta property="og:site_name" content="fnsne&#39;s coding world" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="關於鎖"/>
-<meta name="twitter:description" content="關於鎖(lock) 畢業後，太久沒有用到相關的東西，概念開始有點混淆了，所以拿出恐龍本讀回來。順便做一篇筆記
-一些專有名詞 名稱 說明 cooperation process （協作行程） 會操作到共同資源的不同process critical section 在各種cooperation process 裡面會操作到共同資源的code區塊 鎖想解決的問題 在多核心多執行序問世之前的單核心的時代，是一個核心切換來切換去的做不同事，在時間區間上每個時間點都只有一個process正在被cpu執行，如下圖。
-單核心運作示意圖 而在多核心問世以後開始會出現一些問題，如下圖。
-多核心的運作示意圖 開始會發生圖上，兩個核心會同時執行不同的process ，這個時候可能會發生互相改到資料的問題。例如process B和D是要在印表機上面印出現在電腦的時間，就有可能會發生一下的輸出：
-假設兩個核心在執行processB和D的時間點是15:38和15:40
-1 15:153:840 這是因為兩個核心互相搶著輸出到印表機，但是順序亂掉的緣故。為了解決這個問題，鎖的概念被提了出來。
-鎖的用途 用來保護注critical section（以上面的例子來看，是Process B和Process D裡面，執行輸出資料到印表機的code block）。強制這兩個critical section，在同一個時間裡面，頂多只能有一個執行，另一個想要執行，得要等到另一個結束後，才能開始動作。
-鎖的種類 mutex lock（互斥鎖） 又稱自旋鎖，會讓這個process一直卡在loop裡面，直到能夠存取資料後，才跳出迴圈，開始執行這個critical section。
-因為實際上是一直在執行loop的狀態下做等待資源釋放的，所以它不需要使用到context switch，在獲得資源後的切換速度很快。所以常常被使用在共用資源都只會被佔用短短時間的情境下使用。
-mutex lock的概念是一個被相同mutex lock保護起來的多個critical section，一個時間裡只能有一個被執行，其他都得要等待它mutex lock釋放後，才能繼續搶，搶到的才能執行。
-semaphore lock（號誌鎖） 和mutex lock不同，可以設定資源同一時間下，最多可以有S個process同時執行，當同時執行的critical section數目大於S時，會被停下來，等待到同時執行的critical section小於S時，才能繼續搶進去執行。
-如果要用mutex lock的方式執行，會讓很多process一直在執行loop，對於資源的浪費太大了，所以在semaphore lock的時候，會採用將process 暫停，將address存到lock S 的list裡面。等到有process把S給釋放，此時CPU會將S裡面的list，取出一個process出來執行。
-我混淆的概念釐清 鎖不是鎖住cpu，而是鎖住其他一樣需要這個鎖的process，讓同一個鎖保護的同一個（或者不同個）critical section ，一次最多只能有1（或者semaphore lock設定的數字）個process存取。
-被鎖保護住的critical section，只要裡面有存取某個共用資源的code，就能讓這項資源被鎖給保護，不被濫用。
-結論 鎖的概念就是為了要保護有限的資源，不要被無限的取用。例如可以利用鎖來保護對同一個檔案的更改，讓這個檔案一次只能被一個process更新，防止檔案內資料變得亂七八糟的。"/>
-<meta name="application-name" content="My cool site">
-<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/" /><link rel="prev" href="http://coding.fnsne.com/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/" /><link rel="next" href="http://coding.fnsne.com/posts/2023-04-27/local-path-provisioner/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        "headline": "關於鎖",
-        "inLanguage": "zh-TW",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "http:\/\/coding.fnsne.com\/posts\/2022-09-20\/%E9%97%9C%E6%96%BC%E9%8E%96\/"
-        },"genre": "posts","keywords": "lock, 作業系統, 同步","wordcount":  66 ,
-        "url": "http:\/\/coding.fnsne.com\/posts\/2022-09-20\/%E9%97%9C%E6%96%BC%E9%8E%96\/","datePublished": "2022-09-20T16:35:44+08:00","dateModified": "2022-09-20T16:35:44+08:00","publisher": {
-            "@type": "Organization",
-            "name": ""},"author": {
-                "@type": "Person",
-                "name": "fnsne"
-            },"description": ""
-    }
-    </script></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+<html lang="zh-TW" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="關於鎖(lock) 畢業後，太久沒有用到相關的東西，概念開始有點混淆了，所以拿出恐龍本讀回來。順便做一篇筆記 一些專有名詞 名稱 說明 cooperation process （協作行程） 會操作到共同資源的不同process critical section 在各種cooperation process 裡面會操作到共同資源的code區塊 鎖想解決的問題 在多核心多執行序問世之前的單核心的時代，是一個核心切換來切換去的做不同事，在時間區間上每個時間點都只有一個process正在被cpu執行，如下圖。 單核心運作示意圖 而在多核心問世以後開始會出現一些問題，如下圖。 多核心的運作示意圖 開始會發生圖上，兩個核心會同時執行不同的process ，這個時候可能會發生互相改到資料的問題。例如process B和D是要在印表機上面印出現在電腦的時間，就有可能會發生一下的輸出： 假設兩個核心在執行processB和D的時間點是15:38和15:40 15:153:840 這是因為兩個核心互相搶著輸出到印表機，但是順序亂掉的緣故。為了解決這個問題，鎖的概念被提了出來。 鎖的用途 用來保護注critical section（以上面的例子來看，是Process B和Process D裡面，執行輸出資料到印表機的code block）。強制這兩個critical section，在同一個時間裡面，頂多只能有一個執行，另一個想要執行，得要等到另一個結束後，才能開始動作。 鎖的種類 mutex lock（互斥鎖） 又稱自旋鎖，會讓這個process一直卡在loop裡面，直到能夠存取資料後，才跳出迴圈，開始執行這個critical section。 因為實際上是一直在執行loop的狀態下做等待資源釋放的，所以它不需要使用到context switch，在獲得資源後的切換速度很快。所以常常被使用在共用資源都只會被佔用短短時間的情境下使用。 mutex lock的概念是一個被相同mutex lock保護起來的多個critical section，一個時間裡只能有一個被執行，其他都得要等待它mutex lock釋放後，才能繼續搶，搶到的才能執行。 semaphore lock（號誌鎖） 和mutex lock不同，可以設定資源同一時間下，最多可以有S個process同時執行，當同時執行的critical section數目大於S時，會被停下來，等待到同時執行的critical section小於S時，才能繼續搶進去執行。 如果要用mutex lock的方式執行，會讓很多process一直在執行loop，對於資源的浪費太大了，所以在semaphore lock的時候，會採用將process 暫停，將address存到lock S 的list裡面。等到有process把S給釋放，此時CPU會將S裡面的list，取出一個process出來執行。 我混淆的概念釐清 鎖不是鎖住cpu，而是鎖住其他一樣需要這個鎖的process，讓同一個鎖保護的同一個（或者不同個）critical section ，一次最多只能有1（或者semaphore lock設定的數字）個process存取。 被鎖保護住的critical section，只要裡面有存取某個共用資源的code，就能讓這項資源被鎖給保護，不被濫用。 結論 鎖的概念就是為了要保護有限的資源，不要被無限的取用。例如可以利用鎖來保護對同一個檔案的更改，讓這個檔案一次只能被一個process更新，防止檔案內資料變得亂七八糟的。">
+<title>關於鎖</title>
 
-        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
-    <div class="header-wrapper">
-        <div class="header-title">
-            <a href="/" title="fnsne&#39;s coding world">home</a>
-        </div>
-        <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/" title="About Me"> About Me </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
-                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
-                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
-                        </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+<link rel='canonical' href='http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/'>
+
+<link rel="stylesheet" href="/scss/style.min.0304c6baf04e01a8fe70693791cb744d56a3578a3120a8796cefc66825aa39c7.css"><meta property='og:title' content="關於鎖">
+<meta property='og:description' content="關於鎖(lock) 畢業後，太久沒有用到相關的東西，概念開始有點混淆了，所以拿出恐龍本讀回來。順便做一篇筆記 一些專有名詞 名稱 說明 cooperation process （協作行程） 會操作到共同資源的不同process critical section 在各種cooperation process 裡面會操作到共同資源的code區塊 鎖想解決的問題 在多核心多執行序問世之前的單核心的時代，是一個核心切換來切換去的做不同事，在時間區間上每個時間點都只有一個process正在被cpu執行，如下圖。 單核心運作示意圖 而在多核心問世以後開始會出現一些問題，如下圖。 多核心的運作示意圖 開始會發生圖上，兩個核心會同時執行不同的process ，這個時候可能會發生互相改到資料的問題。例如process B和D是要在印表機上面印出現在電腦的時間，就有可能會發生一下的輸出： 假設兩個核心在執行processB和D的時間點是15:38和15:40 15:153:840 這是因為兩個核心互相搶著輸出到印表機，但是順序亂掉的緣故。為了解決這個問題，鎖的概念被提了出來。 鎖的用途 用來保護注critical section（以上面的例子來看，是Process B和Process D裡面，執行輸出資料到印表機的code block）。強制這兩個critical section，在同一個時間裡面，頂多只能有一個執行，另一個想要執行，得要等到另一個結束後，才能開始動作。 鎖的種類 mutex lock（互斥鎖） 又稱自旋鎖，會讓這個process一直卡在loop裡面，直到能夠存取資料後，才跳出迴圈，開始執行這個critical section。 因為實際上是一直在執行loop的狀態下做等待資源釋放的，所以它不需要使用到context switch，在獲得資源後的切換速度很快。所以常常被使用在共用資源都只會被佔用短短時間的情境下使用。 mutex lock的概念是一個被相同mutex lock保護起來的多個critical section，一個時間裡只能有一個被執行，其他都得要等待它mutex lock釋放後，才能繼續搶，搶到的才能執行。 semaphore lock（號誌鎖） 和mutex lock不同，可以設定資源同一時間下，最多可以有S個process同時執行，當同時執行的critical section數目大於S時，會被停下來，等待到同時執行的critical section小於S時，才能繼續搶進去執行。 如果要用mutex lock的方式執行，會讓很多process一直在執行loop，對於資源的浪費太大了，所以在semaphore lock的時候，會採用將process 暫停，將address存到lock S 的list裡面。等到有process把S給釋放，此時CPU會將S裡面的list，取出一個process出來執行。 我混淆的概念釐清 鎖不是鎖住cpu，而是鎖住其他一樣需要這個鎖的process，讓同一個鎖保護的同一個（或者不同個）critical section ，一次最多只能有1（或者semaphore lock設定的數字）個process存取。 被鎖保護住的critical section，只要裡面有存取某個共用資源的code，就能讓這項資源被鎖給保護，不被濫用。 結論 鎖的概念就是為了要保護有限的資源，不要被無限的取用。例如可以利用鎖來保護對同一個檔案的更改，讓這個檔案一次只能被一個process更新，防止檔案內資料變得亂七八糟的。">
+<meta property='og:url' content='http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/'>
+<meta property='og:site_name' content='fnsne&#39;s coding world'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='lock' /><meta property='article:tag' content='作業系統' /><meta property='article:tag' content='同步' /><meta property='article:published_time' content='2022-09-20T16:35:44&#43;08:00'/><meta property='article:modified_time' content='2022-09-20T16:35:44&#43;08:00'/>
+<meta name="twitter:title" content="關於鎖">
+<meta name="twitter:description" content="關於鎖(lock) 畢業後，太久沒有用到相關的東西，概念開始有點混淆了，所以拿出恐龍本讀回來。順便做一篇筆記 一些專有名詞 名稱 說明 cooperation process （協作行程） 會操作到共同資源的不同process critical section 在各種cooperation process 裡面會操作到共同資源的code區塊 鎖想解決的問題 在多核心多執行序問世之前的單核心的時代，是一個核心切換來切換去的做不同事，在時間區間上每個時間點都只有一個process正在被cpu執行，如下圖。 單核心運作示意圖 而在多核心問世以後開始會出現一些問題，如下圖。 多核心的運作示意圖 開始會發生圖上，兩個核心會同時執行不同的process ，這個時候可能會發生互相改到資料的問題。例如process B和D是要在印表機上面印出現在電腦的時間，就有可能會發生一下的輸出： 假設兩個核心在執行processB和D的時間點是15:38和15:40 15:153:840 這是因為兩個核心互相搶著輸出到印表機，但是順序亂掉的緣故。為了解決這個問題，鎖的概念被提了出來。 鎖的用途 用來保護注critical section（以上面的例子來看，是Process B和Process D裡面，執行輸出資料到印表機的code block）。強制這兩個critical section，在同一個時間裡面，頂多只能有一個執行，另一個想要執行，得要等到另一個結束後，才能開始動作。 鎖的種類 mutex lock（互斥鎖） 又稱自旋鎖，會讓這個process一直卡在loop裡面，直到能夠存取資料後，才跳出迴圈，開始執行這個critical section。 因為實際上是一直在執行loop的狀態下做等待資源釋放的，所以它不需要使用到context switch，在獲得資源後的切換速度很快。所以常常被使用在共用資源都只會被佔用短短時間的情境下使用。 mutex lock的概念是一個被相同mutex lock保護起來的多個critical section，一個時間裡只能有一個被執行，其他都得要等待它mutex lock釋放後，才能繼續搶，搶到的才能執行。 semaphore lock（號誌鎖） 和mutex lock不同，可以設定資源同一時間下，最多可以有S個process同時執行，當同時執行的critical section數目大於S時，會被停下來，等待到同時執行的critical section小於S時，才能繼續搶進去執行。 如果要用mutex lock的方式執行，會讓很多process一直在執行loop，對於資源的浪費太大了，所以在semaphore lock的時候，會採用將process 暫停，將address存到lock S 的list裡面。等到有process把S給釋放，此時CPU會將S裡面的list，取出一個process出來執行。 我混淆的概念釐清 鎖不是鎖住cpu，而是鎖住其他一樣需要這個鎖的process，讓同一個鎖保護的同一個（或者不同個）critical section ，一次最多只能有1（或者semaphore lock設定的數字）個process存取。 被鎖保護住的critical section，只要裡面有存取某個共用資源的code，就能讓這項資源被鎖給保護，不被濫用。 結論 鎖的概念就是為了要保護有限的資源，不要被無限的取用。例如可以利用鎖來保護對同一個檔案的更改，讓這個檔案一次只能被一個process更新，防止檔案內資料變得亂七八糟的。">
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
                 </a>
-            </div>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">fnsne&#39;s coding world</a></h1>
+            <h2 class="site-description">this is subtitle</h2>
         </div>
-    </div>
-</header><header class="mobile" id="header-mobile">
-    <div class="header-container">
-        <div class="header-wrapper">
-            <div class="header-title">
-                <a href="/" title="fnsne&#39;s coding world">home</a>
-            </div>
-            <div class="menu-toggle" id="menu-toggle-mobile">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-        <div class="menu" id="menu-mobile"><div class="search-wrapper">
-                    <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
-                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
-                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
-                        </span>
-                    </div>
-                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        Cancel
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/fnsne/'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
                     </a>
-                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="About Me">About Me</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-            </a></div>
-    </div>
-</header><div class="search-dropdown desktop">
-        <div id="search-dropdown-desktop"></div>
-    </div>
-    <div class="search-dropdown mobile">
-        <div id="search-dropdown-mobile"></div>
-    </div><main class="main">
-                <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">Contents</h2>
-            <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">關於鎖</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>fnsne</a>
-</span>&nbsp;<span class="post-category">included in <a href="/categories/%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>作業系統</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-09-20">2022-09-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;66 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
-        </div><div class="details toc" id="toc-static"  data-kept="">
-                <div class="details-summary toc-title">
-                    <span>Contents</span>
-                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
-                </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
-  <ul>
-    <li><a href="#關於鎖lock">關於鎖(lock)</a>
-      <ul>
-        <li><a href="#一些專有名詞">一些專有名詞</a></li>
-        <li><a href="#鎖想解決的問題">鎖想解決的問題</a></li>
-        <li><a href="#鎖的用途">鎖的用途</a></li>
-        <li><a href="#鎖的種類">鎖的種類</a>
-          <ul>
-            <li><a href="#mutex-lock互斥鎖">mutex lock（互斥鎖）</a></li>
-            <li><a href="#semaphore-lock號誌鎖">semaphore lock（號誌鎖）</a></li>
-          </ul>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
         </li>
-        <li><a href="#我混淆的概念釐清">我混淆的概念釐清</a></li>
-        <li><a href="#結論">結論</a></li>
+        
+        
+        <li >
+            <a href='/pages/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/pages/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/pages/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>About Me</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一些專有名詞">一些專有名詞</a></li>
+    <li><a href="#鎖想解決的問題">鎖想解決的問題</a></li>
+    <li><a href="#鎖的用途">鎖的用途</a></li>
+    <li><a href="#鎖的種類">鎖的種類</a>
+      <ul>
+        <li><a href="#mutex-lock互斥鎖">mutex lock（互斥鎖）</a></li>
+        <li><a href="#semaphore-lock號誌鎖">semaphore lock（號誌鎖）</a></li>
       </ul>
     </li>
+    <li><a href="#我混淆的概念釐清">我混淆的概念釐清</a></li>
+    <li><a href="#結論">結論</a></li>
   </ul>
-</nav></div>
-            </div><div class="content" id="content"><h1 id="關於鎖lock">關於鎖(lock)</h1>
-<p>畢業後，太久沒有用到相關的東西，概念開始有點混淆了，所以拿出恐龍本讀回來。順便做一篇筆記</p>
-<h2 id="一些專有名詞">一些專有名詞</h2>
-<table>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1/" >
+                作業系統
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/">關於鎖</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 20, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="關於鎖lock">關於鎖(lock)
+</h1><p>畢業後，太久沒有用到相關的東西，概念開始有點混淆了，所以拿出恐龍本讀回來。順便做一篇筆記</p>
+<h2 id="一些專有名詞">一些專有名詞
+</h2><div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>名稱</th>
@@ -175,45 +338,38 @@ semaphore lock（號誌鎖） 和mutex lock不同，可以設定資源同一時�
 <td>在各種cooperation process 裡面會操作到共同資源的code區塊</td>
 </tr>
 </tbody>
-</table>
-<h2 id="鎖想解決的問題">鎖想解決的問題</h2>
-<p>在多核心多執行序問世之前的單核心的時代，是一個核心切換來切換去的做不同事，在時間區間上每個時間點都只有一個process正在被cpu執行，如下圖。</p>
-<figure><img src="single-core.jpg"/><figcaption>
-            <h4>單核心運作示意圖</h4>
-        </figcaption>
+</table></div>
+<h2 id="鎖想解決的問題">鎖想解決的問題
+</h2><p>在多核心多執行序問世之前的單核心的時代，是一個核心切換來切換去的做不同事，在時間區間上每個時間點都只有一個process正在被cpu執行，如下圖。</p>
+<figure><img src="/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/single-core.jpg"><figcaption>
+      <h4>單核心運作示意圖</h4>
+    </figcaption>
 </figure>
 
 <p>而在多核心問世以後開始會出現一些問題，如下圖。</p>
-<figure><img src="multi-core.jpg"/><figcaption>
-            <h4>多核心的運作示意圖</h4>
-        </figcaption>
+<figure><img src="/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/multi-core.jpg"><figcaption>
+      <h4>多核心的運作示意圖</h4>
+    </figcaption>
 </figure>
 
 <p>開始會發生圖上，兩個核心會同時執行不同的process ，這個時候可能會發生互相改到資料的問題。例如process B和D是要在印表機上面印出現在電腦的時間，就有可能會發生一下的輸出：</p>
 <blockquote>
 <p>假設兩個核心在執行processB和D的時間點是<code>15:38</code>和<code>15:40</code></p>
 </blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">15:153:840
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>這是因為兩個核心互相搶著輸出到印表機，但是順序亂掉的緣故。為了解決這個問題，鎖的概念被提了出來。</p>
-<h2 id="鎖的用途">鎖的用途</h2>
-<p>用來保護注critical section（以上面的例子來看，是Process B和Process D裡面，執行輸出資料到印表機的code block）。強制這兩個critical section，在同一個時間裡面，頂多只能有一個執行，另一個想要執行，得要等到另一個結束後，才能開始動作。</p>
-<h2 id="鎖的種類">鎖的種類</h2>
-<h3 id="mutex-lock互斥鎖">mutex lock（互斥鎖）</h3>
-<p>又稱自旋鎖，會讓這個process一直卡在loop裡面，直到能夠存取資料後，才跳出迴圈，開始執行這個critical section。</p>
+<pre tabindex="0"><code>15:153:840
+</code></pre><p>這是因為兩個核心互相搶著輸出到印表機，但是順序亂掉的緣故。為了解決這個問題，鎖的概念被提了出來。</p>
+<h2 id="鎖的用途">鎖的用途
+</h2><p>用來保護注critical section（以上面的例子來看，是Process B和Process D裡面，執行輸出資料到印表機的code block）。強制這兩個critical section，在同一個時間裡面，頂多只能有一個執行，另一個想要執行，得要等到另一個結束後，才能開始動作。</p>
+<h2 id="鎖的種類">鎖的種類
+</h2><h3 id="mutex-lock互斥鎖">mutex lock（互斥鎖）
+</h3><p>又稱自旋鎖，會讓這個process一直卡在loop裡面，直到能夠存取資料後，才跳出迴圈，開始執行這個critical section。</p>
 <p>因為實際上是一直在執行loop的狀態下做等待資源釋放的，所以它不需要使用到context switch，在獲得資源後的切換速度很快。所以常常被使用在共用資源都只會被佔用短短時間的情境下使用。</p>
 <p>mutex lock的概念是一個被相同mutex lock保護起來的多個critical section，一個時間裡只能有一個被執行，其他都得要等待它mutex lock釋放後，才能繼續搶，搶到的才能執行。</p>
-<h3 id="semaphore-lock號誌鎖">semaphore lock（號誌鎖）</h3>
-<p>和mutex lock不同，可以設定資源同一時間下，最多可以有<code>S</code>個process同時執行，當同時執行的critical section數目大於<code>S</code>時，會被停下來，等待到同時執行的critical section小於S時，才能繼續搶進去執行。</p>
+<h3 id="semaphore-lock號誌鎖">semaphore lock（號誌鎖）
+</h3><p>和mutex lock不同，可以設定資源同一時間下，最多可以有<code>S</code>個process同時執行，當同時執行的critical section數目大於<code>S</code>時，會被停下來，等待到同時執行的critical section小於S時，才能繼續搶進去執行。</p>
 <p>如果要用mutex lock的方式執行，會讓很多process一直在執行loop，對於資源的浪費太大了，所以在semaphore lock的時候，會採用將process 暫停，將address存到lock <code>S</code> 的list裡面。等到有process把<code>S</code>給釋放，此時CPU會將S裡面的list，取出一個process出來執行。</p>
-<h2 id="我混淆的概念釐清">我混淆的概念釐清</h2>
-<ul>
+<h2 id="我混淆的概念釐清">我混淆的概念釐清
+</h2><ul>
 <li>
 <p>鎖不是鎖住cpu，而是鎖住其他一樣需要這個鎖的process，讓同一個鎖保護的同一個（或者不同個）critical section ，一次最多只能有1（或者semaphore lock設定的數字）個process存取。</p>
 </li>
@@ -221,45 +377,252 @@ semaphore lock（號誌鎖） 和mutex lock不同，可以設定資源同一時�
 <p>被鎖保護住的critical section，只要裡面有存取某個共用資源的code，就能讓這項資源被鎖給保護，不被濫用。</p>
 </li>
 </ul>
-<h2 id="結論">結論</h2>
-<p>鎖的概念就是為了要保護有限的資源，不要被無限的取用。例如可以利用鎖來保護對同一個檔案的更改，讓這個檔案一次只能被一個process更新，防止檔案內資料變得亂七八糟的。</p>
-</div><div class="post-footer" id="post-footer">
-    <div class="post-info">
-        <div class="post-info-line">
-            <div class="post-info-mod">
-                <span>Updated on 2022-09-20</span>
-            </div></div>
-        <div class="post-info-line">
-            <div class="post-info-md"></div>
-            <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/" data-title="關於鎖" data-hashtags="lock,作業系統,同步"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/" data-hashtag="lock"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/" data-title="關於鎖"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/" data-title="關於鎖"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/line.svg" aria-hidden="true"></i></a></span>
-            </div>
+<h2 id="結論">結論
+</h2><p>鎖的概念就是為了要保護有限的資源，不要被無限的取用。例如可以利用鎖來保護對同一個檔案的更改，讓這個檔案一次只能被一個process更新，防止檔案內資料變得亂七八糟的。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/lock/">Lock</a>
+        
+            <a href="/tags/%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1/">作業系統</a>
+        
+            <a href="/tags/%E5%90%8C%E6%AD%A5/">同步</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">資料庫的同步</h2>
+        </div>
+    </a>
+</article>
+
+            
         </div>
     </div>
+</aside>
 
-    <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/lock/">lock</a>,&nbsp;<a href="/tags/%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1/">作業系統</a>,&nbsp;<a href="/tags/%E5%90%8C%E6%AD%A5/">同步</a></section>
-        <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
-        </section>
-    </div>
-
-    <div class="post-nav"><a href="/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/" class="prev" rel="prev" title="資料庫的同步"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>資料庫的同步</a>
-            <a href="/posts/2023-04-27/local-path-provisioner/" class="next" rel="next" title="Local Path Provisioner">Local Path Provisioner<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "fnsnes-coding-world" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
-<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
-                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
-            </noscript></div></article></div>
-            </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">fnsne</a></span></div>
-        </div>
-    </footer></div>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
-                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
-                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
-            </a>
-        </div><script type="text/javascript" src="https://fnsnes-coding-world.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2024 fnsne
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
 </html>

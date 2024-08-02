@@ -1,156 +1,319 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="noodp" />
-        <title>資料庫的同步 - fnsne&#39;s coding world</title><meta name="Description" content="fnsne&#39;s coding world"><meta property="og:title" content="資料庫的同步" />
-<meta property="og:description" content="網路上查到簡單說明transaction的例子，常常都是用轉賬來說明，但其實還有很多東西需要注意 帳戶轉賬，因為race condition的緣故，導致操作欄位的值被改錯。
-A有100，B有40。
-A轉100元給B，B轉20元給A，由兩個不同的client來處理操作。
-順序正確時：A會是減掉80
-但是當順序不正確，則數字會錯掉，例如A很早取得現在的餘額（100），但是更新數字0慢了，導致A最終變成0元，因為在B轉完帳後才更新值。
-以上的這個問題很明顯的是race condition。所謂的race condition是結果必須依賴與某種特定的順序，但是順序又並不是固定的，因此偶爾會出現錯誤。
-解決race condition的方法 為了要解決race condition，必須得要讓操作依照我們期望的順序才操作，才能預防不對的順序導致的錯誤。為了要達到這個目標，資料庫本身有提供兩種方法：
-atomic update：資料庫提供的一個，對於單一欄位數值做相依於原本值的操作指令。這個操作過程會是atomic的，也就是不會操作到一半值被改掉而導致結果出錯。
-1 update products set quantity = quantity -1 where id = 1; 優點：因為只是對於欄位做簡單的數字運算並馬上更新上去，所以對於欄位的佔用時間相較下面的select for update較短，且資料庫會將這類atomic操作做優化，所以效能會比較好。
-缺點：只支援對於數值的簡單操作後更新，並不能做太複雜的運算。
-select for update：這個操作被限制在transaction開起來的時候才能使用，使用時實際上就是將指定的欄位上一個更新的lock，此時直到commit之前，沒有其他client可以對這個欄位做任何更新。所以就能夠限制欄位更新的順序了。
-1 2 3 4 Begin; select quantity into $q from products where id = 1 for update; update products set quantity = $q-1; Commit; 優點：因為有上鎖了，所以幾乎可以用各種邏輯運算來更新欄位的值。
-缺點：因為會在欄位上面上鎖，並且持續到commit位置，所以對於效能會有很大的影響。
-version scheme ：在table上面多新增一個欄位叫做version，來確定現在更新時的version，是否從拿值的時候到現在還沒有被更新過。程式可以藉由資料庫回傳的訊息，是否有更改到任何row來判斷是否更新成功。
-1 2 old_ver = `select money, version from bank where name = A` `update bank set money = 30, version = version &#43; 1 where name = A and version = old_ver` 優點：能夠不使用任何鎖的時候實現。（或者還有其他我想不到的優點）" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://coding.fnsne.com/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-09-14T16:22:17+08:00" />
-<meta property="article:modified_time" content="2022-09-14T16:22:17+08:00" /><meta property="og:site_name" content="fnsne&#39;s coding world" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="資料庫的同步"/>
-<meta name="twitter:description" content="網路上查到簡單說明transaction的例子，常常都是用轉賬來說明，但其實還有很多東西需要注意 帳戶轉賬，因為race condition的緣故，導致操作欄位的值被改錯。
-A有100，B有40。
-A轉100元給B，B轉20元給A，由兩個不同的client來處理操作。
-順序正確時：A會是減掉80
-但是當順序不正確，則數字會錯掉，例如A很早取得現在的餘額（100），但是更新數字0慢了，導致A最終變成0元，因為在B轉完帳後才更新值。
-以上的這個問題很明顯的是race condition。所謂的race condition是結果必須依賴與某種特定的順序，但是順序又並不是固定的，因此偶爾會出現錯誤。
-解決race condition的方法 為了要解決race condition，必須得要讓操作依照我們期望的順序才操作，才能預防不對的順序導致的錯誤。為了要達到這個目標，資料庫本身有提供兩種方法：
-atomic update：資料庫提供的一個，對於單一欄位數值做相依於原本值的操作指令。這個操作過程會是atomic的，也就是不會操作到一半值被改掉而導致結果出錯。
-1 update products set quantity = quantity -1 where id = 1; 優點：因為只是對於欄位做簡單的數字運算並馬上更新上去，所以對於欄位的佔用時間相較下面的select for update較短，且資料庫會將這類atomic操作做優化，所以效能會比較好。
-缺點：只支援對於數值的簡單操作後更新，並不能做太複雜的運算。
-select for update：這個操作被限制在transaction開起來的時候才能使用，使用時實際上就是將指定的欄位上一個更新的lock，此時直到commit之前，沒有其他client可以對這個欄位做任何更新。所以就能夠限制欄位更新的順序了。
-1 2 3 4 Begin; select quantity into $q from products where id = 1 for update; update products set quantity = $q-1; Commit; 優點：因為有上鎖了，所以幾乎可以用各種邏輯運算來更新欄位的值。
-缺點：因為會在欄位上面上鎖，並且持續到commit位置，所以對於效能會有很大的影響。
-version scheme ：在table上面多新增一個欄位叫做version，來確定現在更新時的version，是否從拿值的時候到現在還沒有被更新過。程式可以藉由資料庫回傳的訊息，是否有更改到任何row來判斷是否更新成功。
-1 2 old_ver = `select money, version from bank where name = A` `update bank set money = 30, version = version &#43; 1 where name = A and version = old_ver` 優點：能夠不使用任何鎖的時候實現。（或者還有其他我想不到的優點）"/>
-<meta name="application-name" content="My cool site">
-<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://coding.fnsne.com/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/" /><link rel="prev" href="http://coding.fnsne.com/posts/2022-09-03/heptabase-zettelkasten/" /><link rel="next" href="http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        "headline": "資料庫的同步",
-        "inLanguage": "zh-TW",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "http:\/\/coding.fnsne.com\/posts\/2022-09-14\/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5\/"
-        },"genre": "posts","keywords": "database, transaction, 同步","wordcount":  142 ,
-        "url": "http:\/\/coding.fnsne.com\/posts\/2022-09-14\/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5\/","datePublished": "2022-09-14T16:22:17+08:00","dateModified": "2022-09-14T16:22:17+08:00","publisher": {
-            "@type": "Organization",
-            "name": ""},"author": {
-                "@type": "Person",
-                "name": "fnsne"
-            },"description": ""
-    }
-    </script></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+<html lang="zh-TW" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="網路上查到簡單說明transaction的例子，常常都是用轉賬來說明，但其實還有很多東西需要注意 帳戶轉賬，因為race condition的緣故，導致操作欄位的值被改錯。 A有100，B有40。 A轉100元給B，B轉20元給A，由兩個不同的client來處理操作。 順序正確時：A會是減掉80 但是當順序不正確，則數字會錯掉，例如A很早取得現在的餘額（100），但是更新數字0慢了，導致A最終變成0元，因為在B轉完帳後才更新值。 以上的這個問題很明顯的是race condition。所謂的race condition是結果必須依賴與某種特定的順序，但是順序又並不是固定的，因此偶爾會出現錯誤。 解決race condition的方法 為了要解決race condition，必須得要讓操作依照我們期望的順序才操作，才能預防不對的順序導致的錯誤。為了要達到這個目標，資料庫本身有提供兩種方法： atomic update：資料庫提供的一個，對於單一欄位數值做相依於原本值的操作指令。這個操作過程會是atomic的，也就是不會操作到一半值被改掉而導致結果出錯。 update products set quantity = quantity -1 where id = 1; 優點：因為只是對於欄位做簡單的數字運算並馬上更新上去，所以對於欄位的佔用時間相較下面的select for update較短，且資料庫會將這類atomic操作做優化，所以效能會比較好。 缺點：只支援對於數值的簡單操作後更新，並不能做太複雜的運算。 select for update：這個操作被限制在transaction開起來的時候才能使用，使用時實際上就是將指定的欄位上一個更新的lock，此時直到commit之前，沒有其他client可以對這個欄位做任何更新。所以就能夠限制欄位更新的順序了。 Begin; select quantity into $q from products where id = 1 for update; update products set quantity = $q-1; Commit; 優點：因為有上鎖了，所以幾乎可以用各種邏輯運算來更新欄位的值。 缺點：因為會在欄位上面上鎖，並且持續到commit位置，所以對於效能會有很大的影響。 version scheme ：在table上面多新增一個欄位叫做version，來確定現在更新時的version，是否從拿值的時候到現在還沒有被更新過。程式可以藉由資料庫回傳的訊息，是否有更改到任何row來判斷是否更新成功。 old_ver = `select money, version from bank where name = A` `update bank set money = 30, version = version + 1 where name = A and version = old_ver` 優點：能夠不使用任何鎖的時候實現。（或者還有其他我想不到的優點）">
+<title>資料庫的同步</title>
 
-        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
-    <div class="header-wrapper">
-        <div class="header-title">
-            <a href="/" title="fnsne&#39;s coding world">home</a>
-        </div>
-        <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/" title="About Me"> About Me </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
-                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
-                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
-                        </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+<link rel='canonical' href='http://coding.fnsne.com/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/'>
+
+<link rel="stylesheet" href="/scss/style.min.0304c6baf04e01a8fe70693791cb744d56a3578a3120a8796cefc66825aa39c7.css"><meta property='og:title' content="資料庫的同步">
+<meta property='og:description' content="網路上查到簡單說明transaction的例子，常常都是用轉賬來說明，但其實還有很多東西需要注意 帳戶轉賬，因為race condition的緣故，導致操作欄位的值被改錯。 A有100，B有40。 A轉100元給B，B轉20元給A，由兩個不同的client來處理操作。 順序正確時：A會是減掉80 但是當順序不正確，則數字會錯掉，例如A很早取得現在的餘額（100），但是更新數字0慢了，導致A最終變成0元，因為在B轉完帳後才更新值。 以上的這個問題很明顯的是race condition。所謂的race condition是結果必須依賴與某種特定的順序，但是順序又並不是固定的，因此偶爾會出現錯誤。 解決race condition的方法 為了要解決race condition，必須得要讓操作依照我們期望的順序才操作，才能預防不對的順序導致的錯誤。為了要達到這個目標，資料庫本身有提供兩種方法： atomic update：資料庫提供的一個，對於單一欄位數值做相依於原本值的操作指令。這個操作過程會是atomic的，也就是不會操作到一半值被改掉而導致結果出錯。 update products set quantity = quantity -1 where id = 1; 優點：因為只是對於欄位做簡單的數字運算並馬上更新上去，所以對於欄位的佔用時間相較下面的select for update較短，且資料庫會將這類atomic操作做優化，所以效能會比較好。 缺點：只支援對於數值的簡單操作後更新，並不能做太複雜的運算。 select for update：這個操作被限制在transaction開起來的時候才能使用，使用時實際上就是將指定的欄位上一個更新的lock，此時直到commit之前，沒有其他client可以對這個欄位做任何更新。所以就能夠限制欄位更新的順序了。 Begin; select quantity into $q from products where id = 1 for update; update products set quantity = $q-1; Commit; 優點：因為有上鎖了，所以幾乎可以用各種邏輯運算來更新欄位的值。 缺點：因為會在欄位上面上鎖，並且持續到commit位置，所以對於效能會有很大的影響。 version scheme ：在table上面多新增一個欄位叫做version，來確定現在更新時的version，是否從拿值的時候到現在還沒有被更新過。程式可以藉由資料庫回傳的訊息，是否有更改到任何row來判斷是否更新成功。 old_ver = `select money, version from bank where name = A` `update bank set money = 30, version = version + 1 where name = A and version = old_ver` 優點：能夠不使用任何鎖的時候實現。（或者還有其他我想不到的優點）">
+<meta property='og:url' content='http://coding.fnsne.com/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/'>
+<meta property='og:site_name' content='fnsne&#39;s coding world'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='database' /><meta property='article:tag' content='transaction' /><meta property='article:tag' content='同步' /><meta property='article:published_time' content='2022-09-14T16:22:17&#43;08:00'/><meta property='article:modified_time' content='2022-09-14T16:22:17&#43;08:00'/>
+<meta name="twitter:title" content="資料庫的同步">
+<meta name="twitter:description" content="網路上查到簡單說明transaction的例子，常常都是用轉賬來說明，但其實還有很多東西需要注意 帳戶轉賬，因為race condition的緣故，導致操作欄位的值被改錯。 A有100，B有40。 A轉100元給B，B轉20元給A，由兩個不同的client來處理操作。 順序正確時：A會是減掉80 但是當順序不正確，則數字會錯掉，例如A很早取得現在的餘額（100），但是更新數字0慢了，導致A最終變成0元，因為在B轉完帳後才更新值。 以上的這個問題很明顯的是race condition。所謂的race condition是結果必須依賴與某種特定的順序，但是順序又並不是固定的，因此偶爾會出現錯誤。 解決race condition的方法 為了要解決race condition，必須得要讓操作依照我們期望的順序才操作，才能預防不對的順序導致的錯誤。為了要達到這個目標，資料庫本身有提供兩種方法： atomic update：資料庫提供的一個，對於單一欄位數值做相依於原本值的操作指令。這個操作過程會是atomic的，也就是不會操作到一半值被改掉而導致結果出錯。 update products set quantity = quantity -1 where id = 1; 優點：因為只是對於欄位做簡單的數字運算並馬上更新上去，所以對於欄位的佔用時間相較下面的select for update較短，且資料庫會將這類atomic操作做優化，所以效能會比較好。 缺點：只支援對於數值的簡單操作後更新，並不能做太複雜的運算。 select for update：這個操作被限制在transaction開起來的時候才能使用，使用時實際上就是將指定的欄位上一個更新的lock，此時直到commit之前，沒有其他client可以對這個欄位做任何更新。所以就能夠限制欄位更新的順序了。 Begin; select quantity into $q from products where id = 1 for update; update products set quantity = $q-1; Commit; 優點：因為有上鎖了，所以幾乎可以用各種邏輯運算來更新欄位的值。 缺點：因為會在欄位上面上鎖，並且持續到commit位置，所以對於效能會有很大的影響。 version scheme ：在table上面多新增一個欄位叫做version，來確定現在更新時的version，是否從拿值的時候到現在還沒有被更新過。程式可以藉由資料庫回傳的訊息，是否有更改到任何row來判斷是否更新成功。 old_ver = `select money, version from bank where name = A` `update bank set money = 30, version = version + 1 where name = A and version = old_ver` 優點：能夠不使用任何鎖的時候實現。（或者還有其他我想不到的優點）">
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
                 </a>
-            </div>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">fnsne&#39;s coding world</a></h1>
+            <h2 class="site-description">this is subtitle</h2>
         </div>
-    </div>
-</header><header class="mobile" id="header-mobile">
-    <div class="header-container">
-        <div class="header-wrapper">
-            <div class="header-title">
-                <a href="/" title="fnsne&#39;s coding world">home</a>
-            </div>
-            <div class="menu-toggle" id="menu-toggle-mobile">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-        <div class="menu" id="menu-mobile"><div class="search-wrapper">
-                    <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
-                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
-                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
-                        </span>
-                    </div>
-                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        Cancel
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/fnsne/'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
                     </a>
-                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="About Me">About Me</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-            </a></div>
-    </div>
-</header><div class="search-dropdown desktop">
-        <div id="search-dropdown-desktop"></div>
-    </div>
-    <div class="search-dropdown mobile">
-        <div id="search-dropdown-mobile"></div>
-    </div><main class="main">
-                <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">Contents</h2>
-            <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">資料庫的同步</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>fnsne</a>
-</span>&nbsp;<span class="post-category">included in <a href="/categories/%E8%B3%87%E6%96%99%E5%BA%AB/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>資料庫</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-09-14">2022-09-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;142 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
-        </div><div class="details toc" id="toc-static"  data-kept="">
-                <div class="details-summary toc-title">
-                    <span>Contents</span>
-                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
-                </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/pages/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/pages/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/pages/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>About Me</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#網路上查到簡單說明transaction的例子常常都是用轉賬來說明但其實還有很多東西需要注意">網路上查到簡單說明transaction的例子，常常都是用轉賬來說明，但其實還有很多東西需要注意</a></li>
-        <li><a href="#解決race-condition的方法">解決race condition的方法</a></li>
-        <li><a href="#一開始提到的例子裡面真正用到transaction功能的地方">一開始提到的例子裡面真正用到transaction功能的地方</a></li>
-        <li><a href="#結論">結論</a></li>
-        <li><a href="#參考資料">參考資料</a></li>
-      </ul>
-    </li>
+    <li><a href="#網路上查到簡單說明transaction的例子常常都是用轉賬來說明但其實還有很多東西需要注意">網路上查到簡單說明transaction的例子，常常都是用轉賬來說明，但其實還有很多東西需要注意</a></li>
+    <li><a href="#解決race-condition的方法">解決race condition的方法</a></li>
+    <li><a href="#一開始提到的例子裡面真正用到transaction功能的地方">一開始提到的例子裡面真正用到transaction功能的地方</a></li>
+    <li><a href="#結論">結論</a></li>
+    <li><a href="#參考資料">參考資料</a></li>
   </ul>
-</nav></div>
-            </div><div class="content" id="content"><h2 id="網路上查到簡單說明transaction的例子常常都是用轉賬來說明但其實還有很多東西需要注意">網路上查到簡單說明transaction的例子，常常都是用轉賬來說明，但其實還有很多東西需要注意</h2>
-<blockquote>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E8%B3%87%E6%96%99%E5%BA%AB/" >
+                資料庫
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/">資料庫的同步</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 14, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="網路上查到簡單說明transaction的例子常常都是用轉賬來說明但其實還有很多東西需要注意">網路上查到簡單說明transaction的例子，常常都是用轉賬來說明，但其實還有很多東西需要注意
+</h2><blockquote>
 <p>帳戶轉賬，因為race condition的緣故，導致操作欄位的值被改錯。</p>
 <ul>
 <li>
@@ -168,20 +331,13 @@ version scheme ：在table上面多新增一個欄位叫做version，來確定�
 </ul>
 </blockquote>
 <p>以上的這個問題很明顯的是race condition。所謂的race condition是結果必須依賴與某種特定的順序，但是順序又並不是固定的，因此偶爾會出現錯誤。</p>
-<h2 id="解決race-condition的方法">解決race condition的方法</h2>
-<p>為了要解決race condition，必須得要讓操作依照我們期望的順序才操作，才能預防不對的順序導致的錯誤。為了要達到這個目標，資料庫本身有提供兩種方法：</p>
+<h2 id="解決race-condition的方法">解決race condition的方法
+</h2><p>為了要解決race condition，必須得要讓操作依照我們期望的順序才操作，才能預防不對的順序導致的錯誤。為了要達到這個目標，資料庫本身有提供兩種方法：</p>
 <ol>
 <li>
 <p>atomic update：資料庫提供的一個，對於單一欄位數值做相依於原本值的操作指令。這個操作過程會是atomic的，也就是不會操作到一半值被改掉而導致結果出錯。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">update</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">update</span> products <span style="color:#66d9ef">set</span> quantity <span style="color:#f92672">=</span> quantity <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#66d9ef">where</span> id <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span></code></pre></div><ul>
 <li>
 <p>優點：因為只是對於欄位做簡單的數字運算並馬上更新上去，所以對於欄位的佔用時間相較下面的select for update較短，且資料庫會將這類atomic操作做優化，所以效能會比較好。</p>
 </li>
@@ -192,21 +348,11 @@ version scheme ：在table上面多新增一個欄位叫做version，來確定�
 </li>
 <li>
 <p>select for update：這個操作被限制在transaction開起來的時候才能使用，使用時實際上就是將指定的欄位上一個更新的lock，此時直到commit之前，沒有其他client可以對這個欄位做任何更新。所以就能夠限制欄位更新的順序了。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">Begin</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="err">$</span><span class="n">q</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">update</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">$</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">Commit</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">Begin</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">select</span> quantity <span style="color:#66d9ef">into</span> <span style="color:#960050;background-color:#1e0010">$</span>q <span style="color:#66d9ef">from</span> products <span style="color:#66d9ef">where</span> id <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">for</span> <span style="color:#66d9ef">update</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">update</span> products <span style="color:#66d9ef">set</span> quantity <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">$</span>q<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">Commit</span>;
+</span></span></code></pre></div><ul>
 <li>
 <p>優點：因為有上鎖了，所以幾乎可以用各種邏輯運算來更新欄位的值。</p>
 </li>
@@ -217,17 +363,9 @@ version scheme ：在table上面多新增一個欄位叫做version，來確定�
 </li>
 <li>
 <p>version scheme ：在table上面多新增一個欄位叫做version，來確定現在更新時的version，是否從拿值的時候到現在還沒有被更新過。程式可以藉由資料庫回傳的訊息，<code>是否有更改到任何row</code>來判斷是否更新成功。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">old_ver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">`</span><span class="k">select</span><span class="w"> </span><span class="n">money</span><span class="p">,</span><span class="w"> </span><span class="k">version</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">bank</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="o">`</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">`</span><span class="k">update</span><span class="w"> </span><span class="n">bank</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">money</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="k">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">version</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="k">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">old_ver</span><span class="o">`</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>old_ver <span style="color:#f92672">=</span> <span style="color:#f92672">`</span><span style="color:#66d9ef">select</span> money, <span style="color:#66d9ef">version</span> <span style="color:#66d9ef">from</span> bank <span style="color:#66d9ef">where</span> name <span style="color:#f92672">=</span> A<span style="color:#f92672">`</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">`</span><span style="color:#66d9ef">update</span> bank <span style="color:#66d9ef">set</span> money <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>, <span style="color:#66d9ef">version</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">version</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">where</span> name <span style="color:#f92672">=</span> A <span style="color:#66d9ef">and</span> <span style="color:#66d9ef">version</span> <span style="color:#f92672">=</span> old_ver<span style="color:#f92672">`</span>
+</span></span></code></pre></div><ul>
 <li>
 <p>優點：能夠不使用任何鎖的時候實現。（或者還有其他我想不到的優點）</p>
 </li>
@@ -237,8 +375,8 @@ version scheme ：在table上面多新增一個欄位叫做version，來確定�
 </ul>
 </li>
 </ol>
-<h2 id="一開始提到的例子裡面真正用到transaction功能的地方">一開始提到的例子裡面真正用到transaction功能的地方</h2>
-<ul>
+<h2 id="一開始提到的例子裡面真正用到transaction功能的地方">一開始提到的例子裡面真正用到transaction功能的地方
+</h2><ul>
 <li>
 <p>利用transaction遇到錯誤時會rollback的特性，來在餘額小於0的時候，復原到還未轉賬之前的狀態。</p>
 </li>
@@ -257,8 +395,8 @@ version scheme ：在table上面多新增一個欄位叫做version，來確定�
 </ul>
 </li>
 <li>
-<p>利用<a href="https://stackoverflow.com/questions/21503658/prevent-less-than-zero-values-in-postgresql" target="_blank" rel="noopener noreffer">check constraint</a>
- 來讓資料庫在欄位不符合規範的時候丟出錯誤。此時就可以配合transaction來rollback復原了。</p>
+<p>利用<a class="link" href="https://stackoverflow.com/questions/21503658/prevent-less-than-zero-values-in-postgresql"  target="_blank" rel="noopener"
+    >check constraint</a> 來讓資料庫在欄位不符合規範的時候丟出錯誤。此時就可以配合transaction來rollback復原了。</p>
 <ul>
 <li>
 <p>優點：因為check constraint是資料庫提供可以給欄位增加規範的設定，檢查會在更新的時候做，所以即使背後有使用鎖，所花費的時間會比用select for update還要少。</p>
@@ -271,8 +409,8 @@ version scheme ：在table上面多新增一個欄位叫做version，來確定�
 </ol>
 </li>
 </ul>
-<h2 id="結論">結論</h2>
-<ul>
+<h2 id="結論">結論
+</h2><ul>
 <li>
 <p>遇到需要注意順序的操作，先試著能不能使用atomic update的方式來完成需求，沒有辦法的時候才會使用select for update的方式來限制進到這個transaction後，必須要操作完這邊的指令後，才能換別人改值。</p>
 </li>
@@ -280,52 +418,237 @@ version scheme ：在table上面多新增一個欄位叫做version，來確定�
 <p>遇到需要檢查數值符不符合規範，先試著用check constraint來限制欄位，真的沒有辦法，才會採用select for update的方式來將欄位上鎖，來做檢查。</p>
 </li>
 </ul>
-<h2 id="參考資料">參考資料</h2>
-<p><a href="https://medium.com/interviewnoodle/how-to-avoid-the-race-condition-and-the-negative-value-3f397b2b08e4" target="_blank" rel="noopener noreffer">How to avoid the race condition and the negative value</a>
-</p>
-<p><a href="https://stackoverflow.com/questions/21503658/prevent-less-than-zero-values-in-postgresql" target="_blank" rel="noopener noreffer">check constraint</a>
-</p>
-<p><a href="https://zhuanlan.zhihu.com/p/143866444" target="_blank" rel="noopener noreffer">select for update 詳解</a>
-</p>
-<p><a href="https://stackoverflow.com/questions/21503658/prevent-less-than-zero-values-in-postgresql" target="_blank" rel="noopener noreffer">check constraint</a>
-</p>
-</div><div class="post-footer" id="post-footer">
-    <div class="post-info">
-        <div class="post-info-line">
-            <div class="post-info-mod">
-                <span>Updated on 2022-09-14</span>
-            </div></div>
-        <div class="post-info-line">
-            <div class="post-info-md"></div>
-            <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://coding.fnsne.com/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/" data-title="資料庫的同步" data-hashtags="database,transaction,同步"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://coding.fnsne.com/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/" data-hashtag="database"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://coding.fnsne.com/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/" data-title="資料庫的同步"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://coding.fnsne.com/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/" data-title="資料庫的同步"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/line.svg" aria-hidden="true"></i></a></span>
-            </div>
-        </div>
-    </div>
+<h2 id="參考資料">參考資料
+</h2><p><a class="link" href="https://medium.com/interviewnoodle/how-to-avoid-the-race-condition-and-the-negative-value-3f397b2b08e4"  target="_blank" rel="noopener"
+    >How to avoid the race condition and the negative value</a></p>
+<p><a class="link" href="https://stackoverflow.com/questions/21503658/prevent-less-than-zero-values-in-postgresql"  target="_blank" rel="noopener"
+    >check constraint</a></p>
+<p><a class="link" href="https://zhuanlan.zhihu.com/p/143866444"  target="_blank" rel="noopener"
+    >select for update 詳解</a></p>
+<p><a class="link" href="https://stackoverflow.com/questions/21503658/prevent-less-than-zero-values-in-postgresql"  target="_blank" rel="noopener"
+    >check constraint</a></p>
 
-    <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/database/">database</a>,&nbsp;<a href="/tags/transaction/">transaction</a>,&nbsp;<a href="/tags/%E5%90%8C%E6%AD%A5/">同步</a></section>
-        <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
-        </section>
-    </div>
+</section>
 
-    <div class="post-nav"><a href="/posts/2022-09-03/heptabase-zettelkasten/" class="prev" rel="prev" title="我用heptabase來實作卡片盒筆記的方式"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>我用heptabase來實作卡片盒筆記的方式</a>
-            <a href="/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/" class="next" rel="next" title="關於鎖">關於鎖<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/database/">Database</a>
+        
+            <a href="/tags/transaction/">Transaction</a>
+        
+            <a href="/tags/%E5%90%8C%E6%AD%A5/">同步</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "fnsnes-coding-world" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
-<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
-                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
-            </noscript></div></article></div>
-            </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">fnsne</a></span></div>
-        </div>
-    </footer></div>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
-                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
-                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
-            </a>
-        </div><script type="text/javascript" src="https://fnsnes-coding-world.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2024 fnsne
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
 </html>

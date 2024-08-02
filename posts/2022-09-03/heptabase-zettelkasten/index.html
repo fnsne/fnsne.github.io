@@ -1,178 +1,347 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="robots" content="noodp" />
-        <title>我用heptabase來實作卡片盒筆記的方式 - fnsne&#39;s coding world</title><meta name="Description" content="fnsne&#39;s coding world"><meta property="og:title" content="我用heptabase來實作卡片盒筆記的方式" />
-<meta property="og:description" content="卡片盒筆記寫作有兩種方式 卡片盒筆記的做法，現在網路上很多影片、文章都有教了，所以我就不贅述了，這篇文章主要是記錄我如何在heptabase上面實作卡片盒筆記的方式。目前理解到的用法大致上有兩種方式。
-闡述延伸自己論點的做法 google搜尋卡片盒筆記最容易找到的是閱讀前哨戰站長瓦基的文章，張永錫老師有一次有和瓦基、朱騏有直播 ，我在這邊大概知道了瓦基使用heptabase的方式 ，大致上就是持續將相同大分類（同board）的卡片做多張卡片凝聚出共通點、複雜卡片切割成多張不需要上下文即可理解的論述、依照因果關係或層級架構為卡片作出連結。最後依照這個的架構輸出成文章。瓦基卡片盒筆記的文章 不同卡片蹦發出新的東西 在張永錫老師在hahow的卡片盒筆記術 中，教導的寫文章方式，則是直接將所有搜尋到有所關聯的卡片複製到whimsical 上面，再來整理排序，變成一張完整的文章。
-對我來說 我使用卡片盒筆記的目的是學習知識、整理思路，對於卡片盒筆記術課程 中教導的用whimsical 配合notion放卡片，對於長期的專案來說，持續分裂、內聚的卡片很難同步。我的結論是，這套流程只比較適合一次結束的專案。
-所以在理清我需要讓專案持續成長，又要能夠視覺化看到因果和層級架構 這件事後，我馬上就花錢訂閱了heptabase。
-我實際的做法 整理卡片（收集、整理材料） white board為一項大項知識的庫，在裡面可以持續新增卡片，並且整理出順序。 持續做以下的流程
-為簡單的卡片查詢資料
-將資料整理成多項能夠獨立闡述內容的卡片（永久卡片）
-看看多張卡片可不可以凝聚出共同性，將其抽出來寫成卡片
-看看有沒有卡片寫了太多項內容，將內容封裝成多張卡片
-如果卡片之間有因果關係、架構層級，為其加上connection。
-在這邊要注意一點是，link和connection感覺很相似，我剛開始很混亂，不知道要怎麼使用。因為同時想要能闡述延伸自己論點的做法 、不同卡片蹦發出新的東西 ，所以會想要讓所有卡片之間的關聯都是用connection來連結。但是這個做法會讓畫面變得很混亂，反而會阻礙思考。後來在釐清了我使用卡片筆記的主要用法是闡述延伸自己論點的做法 後，就決定只讓有因係、層級架構關聯的卡片，使用connection，而其他的關聯則是在卡片內文使用link的方式來關聯。這個是在直播裡面學到的瓦基使用link和connect的時機 寫成文章時 把所有想到和這篇文章相關的卡片用bullet list 來link到entry card
-這個方法是從瓦基學到的，文章/keyword card/entry卡片上面先用link把所有相關的卡片給連結進來。再來在這張卡片下面開始書寫文章。
-entry card 這個方法的完全是利用了heptabase的功能。
-首先heptabase的list可以隨意拖拉，來初步排列出書寫的順序。這個在各大筆記軟體（notion、evernote等）上的bullet list 其實都可以做得到。 Open in new tab → 再點選所有的link，heptabase會在右邊打開所有卡片，這樣可以快速的複製卡片內容過來變成初稿。 這篇文章大致上描述了我現在會在heptabase上面實作的卡片筆記流程，並且這篇文章也是我第一次在heptabase上面使用卡片筆記寫成的。總共花了一個下午和半個晚上研究、半個晚上整理成文章。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://coding.fnsne.com/posts/2022-09-03/heptabase-zettelkasten/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-09-03T23:18:17+08:00" />
-<meta property="article:modified_time" content="2022-09-03T23:18:17+08:00" /><meta property="og:site_name" content="fnsne&#39;s coding world" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="我用heptabase來實作卡片盒筆記的方式"/>
-<meta name="twitter:description" content="卡片盒筆記寫作有兩種方式 卡片盒筆記的做法，現在網路上很多影片、文章都有教了，所以我就不贅述了，這篇文章主要是記錄我如何在heptabase上面實作卡片盒筆記的方式。目前理解到的用法大致上有兩種方式。
-闡述延伸自己論點的做法 google搜尋卡片盒筆記最容易找到的是閱讀前哨戰站長瓦基的文章，張永錫老師有一次有和瓦基、朱騏有直播 ，我在這邊大概知道了瓦基使用heptabase的方式 ，大致上就是持續將相同大分類（同board）的卡片做多張卡片凝聚出共通點、複雜卡片切割成多張不需要上下文即可理解的論述、依照因果關係或層級架構為卡片作出連結。最後依照這個的架構輸出成文章。瓦基卡片盒筆記的文章 不同卡片蹦發出新的東西 在張永錫老師在hahow的卡片盒筆記術 中，教導的寫文章方式，則是直接將所有搜尋到有所關聯的卡片複製到whimsical 上面，再來整理排序，變成一張完整的文章。
-對我來說 我使用卡片盒筆記的目的是學習知識、整理思路，對於卡片盒筆記術課程 中教導的用whimsical 配合notion放卡片，對於長期的專案來說，持續分裂、內聚的卡片很難同步。我的結論是，這套流程只比較適合一次結束的專案。
-所以在理清我需要讓專案持續成長，又要能夠視覺化看到因果和層級架構 這件事後，我馬上就花錢訂閱了heptabase。
-我實際的做法 整理卡片（收集、整理材料） white board為一項大項知識的庫，在裡面可以持續新增卡片，並且整理出順序。 持續做以下的流程
-為簡單的卡片查詢資料
-將資料整理成多項能夠獨立闡述內容的卡片（永久卡片）
-看看多張卡片可不可以凝聚出共同性，將其抽出來寫成卡片
-看看有沒有卡片寫了太多項內容，將內容封裝成多張卡片
-如果卡片之間有因果關係、架構層級，為其加上connection。
-在這邊要注意一點是，link和connection感覺很相似，我剛開始很混亂，不知道要怎麼使用。因為同時想要能闡述延伸自己論點的做法 、不同卡片蹦發出新的東西 ，所以會想要讓所有卡片之間的關聯都是用connection來連結。但是這個做法會讓畫面變得很混亂，反而會阻礙思考。後來在釐清了我使用卡片筆記的主要用法是闡述延伸自己論點的做法 後，就決定只讓有因係、層級架構關聯的卡片，使用connection，而其他的關聯則是在卡片內文使用link的方式來關聯。這個是在直播裡面學到的瓦基使用link和connect的時機 寫成文章時 把所有想到和這篇文章相關的卡片用bullet list 來link到entry card
-這個方法是從瓦基學到的，文章/keyword card/entry卡片上面先用link把所有相關的卡片給連結進來。再來在這張卡片下面開始書寫文章。
-entry card 這個方法的完全是利用了heptabase的功能。
-首先heptabase的list可以隨意拖拉，來初步排列出書寫的順序。這個在各大筆記軟體（notion、evernote等）上的bullet list 其實都可以做得到。 Open in new tab → 再點選所有的link，heptabase會在右邊打開所有卡片，這樣可以快速的複製卡片內容過來變成初稿。 這篇文章大致上描述了我現在會在heptabase上面實作的卡片筆記流程，並且這篇文章也是我第一次在heptabase上面使用卡片筆記寫成的。總共花了一個下午和半個晚上研究、半個晚上整理成文章。"/>
-<meta name="application-name" content="My cool site">
-<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://coding.fnsne.com/posts/2022-09-03/heptabase-zettelkasten/" /><link rel="prev" href="http://coding.fnsne.com/posts/2022-09-02/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BA/" /><link rel="next" href="http://coding.fnsne.com/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"><script type="application/ld+json">
-    {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        "headline": "我用heptabase來實作卡片盒筆記的方式",
-        "inLanguage": "zh-TW",
-        "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "http:\/\/coding.fnsne.com\/posts\/2022-09-03\/heptabase-zettelkasten\/"
-        },"genre": "posts","keywords": "卡片盒筆記, heptabase","wordcount":  50 ,
-        "url": "http:\/\/coding.fnsne.com\/posts\/2022-09-03\/heptabase-zettelkasten\/","datePublished": "2022-09-03T23:18:17+08:00","dateModified": "2022-09-03T23:18:17+08:00","publisher": {
-            "@type": "Organization",
-            "name": ""},"author": {
-                "@type": "Person",
-                "name": "fnsne"
-            },"description": ""
-    }
-    </script></head>
-    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+<html lang="zh-TW" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="卡片盒筆記寫作有兩種方式 卡片盒筆記的做法，現在網路上很多影片、文章都有教了，所以我就不贅述了，這篇文章主要是記錄我如何在heptabase上面實作卡片盒筆記的方式。目前理解到的用法大致上有兩種方式。 闡述延伸自己論點的做法 google搜尋卡片盒筆記最容易找到的是閱讀前哨戰站長瓦基的文章，張永錫老師有一次有和瓦基、朱騏有直播 ，我在這邊大概知道了瓦基使用heptabase的方式 ，大致上就是持續將相同大分類（同board）的卡片做多張卡片凝聚出共通點、複雜卡片切割成多張不需要上下文即可理解的論述、依照因果關係或層級架構為卡片作出連結。最後依照這個的架構輸出成文章。瓦基卡片盒筆記的文章 不同卡片蹦發出新的東西 在張永錫老師在hahow的卡片盒筆記術 中，教導的寫文章方式，則是直接將所有搜尋到有所關聯的卡片複製到whimsical上面，再來整理排序，變成一張完整的文章。 對我來說 我使用卡片盒筆記的目的是學習知識、整理思路，對於卡片盒筆記術課程中教導的用whimsical 配合notion放卡片，對於長期的專案來說，持續分裂、內聚的卡片很難同步。我的結論是，這套流程只比較適合一次結束的專案。 所以在理清我需要讓專案持續成長，又要能夠視覺化看到因果和層級架構 這件事後，我馬上就花錢訂閱了heptabase。 我實際的做法 整理卡片（收集、整理材料） white board為一項大項知識的庫，在裡面可以持續新增卡片，並且整理出順序。 持續做以下的流程 為簡單的卡片查詢資料 將資料整理成多項能夠獨立闡述內容的卡片（永久卡片） 看看多張卡片可不可以凝聚出共同性，將其抽出來寫成卡片 看看有沒有卡片寫了太多項內容，將內容封裝成多張卡片 如果卡片之間有因果關係、架構層級，為其加上connection。 在這邊要注意一點是，link和connection感覺很相似，我剛開始很混亂，不知道要怎麼使用。因為同時想要能闡述延伸自己論點的做法 、不同卡片蹦發出新的東西 ，所以會想要讓所有卡片之間的關聯都是用connection來連結。但是這個做法會讓畫面變得很混亂，反而會阻礙思考。後來在釐清了我使用卡片筆記的主要用法是闡述延伸自己論點的做法 後，就決定只讓有因係、層級架構關聯的卡片，使用connection，而其他的關聯則是在卡片內文使用link的方式來關聯。這個是在直播裡面學到的瓦基使用link和connect的時機 寫成文章時 把所有想到和這篇文章相關的卡片用bullet list 來link到entry card 這個方法是從瓦基學到的，文章/keyword card/entry卡片上面先用link把所有相關的卡片給連結進來。再來在這張卡片下面開始書寫文章。 entry card 這個方法的完全是利用了heptabase的功能。 首先heptabase的list可以隨意拖拉，來初步排列出書寫的順序。這個在各大筆記軟體（notion、evernote等）上的bullet list 其實都可以做得到。 Open in new tab → 再點選所有的link，heptabase會在右邊打開所有卡片，這樣可以快速的複製卡片內容過來變成初稿。 這篇文章大致上描述了我現在會在heptabase上面實作的卡片筆記流程，並且這篇文章也是我第一次在heptabase上面使用卡片筆記寫成的。總共花了一個下午和半個晚上研究、半個晚上整理成文章。">
+<title>我用heptabase來實作卡片盒筆記的方式</title>
 
-        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
-    <div class="header-wrapper">
-        <div class="header-title">
-            <a href="/" title="fnsne&#39;s coding world">home</a>
-        </div>
-        <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/" title="About Me"> About Me </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
-                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
-                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
-                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-desktop">
-                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
-                        </span>
-                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+<link rel='canonical' href='http://coding.fnsne.com/posts/2022-09-03/heptabase-zettelkasten/'>
+
+<link rel="stylesheet" href="/scss/style.min.0304c6baf04e01a8fe70693791cb744d56a3578a3120a8796cefc66825aa39c7.css"><meta property='og:title' content="我用heptabase來實作卡片盒筆記的方式">
+<meta property='og:description' content="卡片盒筆記寫作有兩種方式 卡片盒筆記的做法，現在網路上很多影片、文章都有教了，所以我就不贅述了，這篇文章主要是記錄我如何在heptabase上面實作卡片盒筆記的方式。目前理解到的用法大致上有兩種方式。 闡述延伸自己論點的做法 google搜尋卡片盒筆記最容易找到的是閱讀前哨戰站長瓦基的文章，張永錫老師有一次有和瓦基、朱騏有直播 ，我在這邊大概知道了瓦基使用heptabase的方式 ，大致上就是持續將相同大分類（同board）的卡片做多張卡片凝聚出共通點、複雜卡片切割成多張不需要上下文即可理解的論述、依照因果關係或層級架構為卡片作出連結。最後依照這個的架構輸出成文章。瓦基卡片盒筆記的文章 不同卡片蹦發出新的東西 在張永錫老師在hahow的卡片盒筆記術 中，教導的寫文章方式，則是直接將所有搜尋到有所關聯的卡片複製到whimsical上面，再來整理排序，變成一張完整的文章。 對我來說 我使用卡片盒筆記的目的是學習知識、整理思路，對於卡片盒筆記術課程中教導的用whimsical 配合notion放卡片，對於長期的專案來說，持續分裂、內聚的卡片很難同步。我的結論是，這套流程只比較適合一次結束的專案。 所以在理清我需要讓專案持續成長，又要能夠視覺化看到因果和層級架構 這件事後，我馬上就花錢訂閱了heptabase。 我實際的做法 整理卡片（收集、整理材料） white board為一項大項知識的庫，在裡面可以持續新增卡片，並且整理出順序。 持續做以下的流程 為簡單的卡片查詢資料 將資料整理成多項能夠獨立闡述內容的卡片（永久卡片） 看看多張卡片可不可以凝聚出共同性，將其抽出來寫成卡片 看看有沒有卡片寫了太多項內容，將內容封裝成多張卡片 如果卡片之間有因果關係、架構層級，為其加上connection。 在這邊要注意一點是，link和connection感覺很相似，我剛開始很混亂，不知道要怎麼使用。因為同時想要能闡述延伸自己論點的做法 、不同卡片蹦發出新的東西 ，所以會想要讓所有卡片之間的關聯都是用connection來連結。但是這個做法會讓畫面變得很混亂，反而會阻礙思考。後來在釐清了我使用卡片筆記的主要用法是闡述延伸自己論點的做法 後，就決定只讓有因係、層級架構關聯的卡片，使用connection，而其他的關聯則是在卡片內文使用link的方式來關聯。這個是在直播裡面學到的瓦基使用link和connect的時機 寫成文章時 把所有想到和這篇文章相關的卡片用bullet list 來link到entry card 這個方法是從瓦基學到的，文章/keyword card/entry卡片上面先用link把所有相關的卡片給連結進來。再來在這張卡片下面開始書寫文章。 entry card 這個方法的完全是利用了heptabase的功能。 首先heptabase的list可以隨意拖拉，來初步排列出書寫的順序。這個在各大筆記軟體（notion、evernote等）上的bullet list 其實都可以做得到。 Open in new tab → 再點選所有的link，heptabase會在右邊打開所有卡片，這樣可以快速的複製卡片內容過來變成初稿。 這篇文章大致上描述了我現在會在heptabase上面實作的卡片筆記流程，並且這篇文章也是我第一次在heptabase上面使用卡片筆記寫成的。總共花了一個下午和半個晚上研究、半個晚上整理成文章。">
+<meta property='og:url' content='http://coding.fnsne.com/posts/2022-09-03/heptabase-zettelkasten/'>
+<meta property='og:site_name' content='fnsne&#39;s coding world'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='卡片盒筆記' /><meta property='article:tag' content='heptabase' /><meta property='article:published_time' content='2022-09-03T23:18:17&#43;08:00'/><meta property='article:modified_time' content='2022-09-03T23:18:17&#43;08:00'/>
+<meta name="twitter:title" content="我用heptabase來實作卡片盒筆記的方式">
+<meta name="twitter:description" content="卡片盒筆記寫作有兩種方式 卡片盒筆記的做法，現在網路上很多影片、文章都有教了，所以我就不贅述了，這篇文章主要是記錄我如何在heptabase上面實作卡片盒筆記的方式。目前理解到的用法大致上有兩種方式。 闡述延伸自己論點的做法 google搜尋卡片盒筆記最容易找到的是閱讀前哨戰站長瓦基的文章，張永錫老師有一次有和瓦基、朱騏有直播 ，我在這邊大概知道了瓦基使用heptabase的方式 ，大致上就是持續將相同大分類（同board）的卡片做多張卡片凝聚出共通點、複雜卡片切割成多張不需要上下文即可理解的論述、依照因果關係或層級架構為卡片作出連結。最後依照這個的架構輸出成文章。瓦基卡片盒筆記的文章 不同卡片蹦發出新的東西 在張永錫老師在hahow的卡片盒筆記術 中，教導的寫文章方式，則是直接將所有搜尋到有所關聯的卡片複製到whimsical上面，再來整理排序，變成一張完整的文章。 對我來說 我使用卡片盒筆記的目的是學習知識、整理思路，對於卡片盒筆記術課程中教導的用whimsical 配合notion放卡片，對於長期的專案來說，持續分裂、內聚的卡片很難同步。我的結論是，這套流程只比較適合一次結束的專案。 所以在理清我需要讓專案持續成長，又要能夠視覺化看到因果和層級架構 這件事後，我馬上就花錢訂閱了heptabase。 我實際的做法 整理卡片（收集、整理材料） white board為一項大項知識的庫，在裡面可以持續新增卡片，並且整理出順序。 持續做以下的流程 為簡單的卡片查詢資料 將資料整理成多項能夠獨立闡述內容的卡片（永久卡片） 看看多張卡片可不可以凝聚出共同性，將其抽出來寫成卡片 看看有沒有卡片寫了太多項內容，將內容封裝成多張卡片 如果卡片之間有因果關係、架構層級，為其加上connection。 在這邊要注意一點是，link和connection感覺很相似，我剛開始很混亂，不知道要怎麼使用。因為同時想要能闡述延伸自己論點的做法 、不同卡片蹦發出新的東西 ，所以會想要讓所有卡片之間的關聯都是用connection來連結。但是這個做法會讓畫面變得很混亂，反而會阻礙思考。後來在釐清了我使用卡片筆記的主要用法是闡述延伸自己論點的做法 後，就決定只讓有因係、層級架構關聯的卡片，使用connection，而其他的關聯則是在卡片內文使用link的方式來關聯。這個是在直播裡面學到的瓦基使用link和connect的時機 寫成文章時 把所有想到和這篇文章相關的卡片用bullet list 來link到entry card 這個方法是從瓦基學到的，文章/keyword card/entry卡片上面先用link把所有相關的卡片給連結進來。再來在這張卡片下面開始書寫文章。 entry card 這個方法的完全是利用了heptabase的功能。 首先heptabase的list可以隨意拖拉，來初步排列出書寫的順序。這個在各大筆記軟體（notion、evernote等）上的bullet list 其實都可以做得到。 Open in new tab → 再點選所有的link，heptabase會在右邊打開所有卡片，這樣可以快速的複製卡片內容過來變成初稿。 這篇文章大致上描述了我現在會在heptabase上面實作的卡片筆記流程，並且這篇文章也是我第一次在heptabase上面使用卡片筆記寫成的。總共花了一個下午和半個晚上研究、半個晚上整理成文章。">
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
                 </a>
-            </div>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">fnsne&#39;s coding world</a></h1>
+            <h2 class="site-description">this is subtitle</h2>
         </div>
-    </div>
-</header><header class="mobile" id="header-mobile">
-    <div class="header-container">
-        <div class="header-wrapper">
-            <div class="header-title">
-                <a href="/" title="fnsne&#39;s coding world">home</a>
-            </div>
-            <div class="menu-toggle" id="menu-toggle-mobile">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-        <div class="menu" id="menu-mobile"><div class="search-wrapper">
-                    <div class="search mobile" id="search-mobile">
-                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
-                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
-                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
-                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
-                        </a>
-                        <span class="search-button search-loading" id="search-loading-mobile">
-                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
-                        </span>
-                    </div>
-                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
-                        Cancel
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/fnsne/'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
                     </a>
-                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="About Me">About Me</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
-                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-            </a></div>
-    </div>
-</header><div class="search-dropdown desktop">
-        <div id="search-dropdown-desktop"></div>
-    </div>
-    <div class="search-dropdown mobile">
-        <div id="search-dropdown-mobile"></div>
-    </div><main class="main">
-                <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">Contents</h2>
-            <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">我用heptabase來實作卡片盒筆記的方式</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>fnsne</a>
-</span>&nbsp;<span class="post-category">included in <a href="/categories/heptabase/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>heptabase</a>&nbsp;<a href="/categories/%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>卡片盒筆記</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-09-03">2022-09-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;50 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
-        </div><div class="details toc" id="toc-static"  data-kept="">
-                <div class="details-summary toc-title">
-                    <span>Contents</span>
-                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
-                </div>
-                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/pages/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/pages/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/pages/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>About Me</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#卡片盒筆記寫作有兩種方式">卡片盒筆記寫作有兩種方式</a>
       <ul>
-        <li><a href="#卡片盒筆記寫作有兩種方式">卡片盒筆記寫作有兩種方式</a>
-          <ul>
-            <li><a href="#闡述延伸自己論點的做法">闡述延伸自己論點的做法</a></li>
-            <li><a href="#不同卡片蹦發出新的東西">不同卡片蹦發出新的東西</a></li>
-          </ul>
-        </li>
-        <li><a href="#對我來說">對我來說</a></li>
-        <li><a href="#我實際的做法">我實際的做法</a>
-          <ul>
-            <li><a href="#整理卡片收集整理材料">整理卡片（收集、整理材料）</a></li>
-            <li><a href="#寫成文章時">寫成文章時</a></li>
-          </ul>
-        </li>
+        <li><a href="#闡述延伸自己論點的做法">闡述延伸自己論點的做法</a></li>
+        <li><a href="#不同卡片蹦發出新的東西">不同卡片蹦發出新的東西</a></li>
+      </ul>
+    </li>
+    <li><a href="#對我來說">對我來說</a></li>
+    <li><a href="#我實際的做法">我實際的做法</a>
+      <ul>
+        <li><a href="#整理卡片收集整理材料">整理卡片（收集、整理材料）</a></li>
+        <li><a href="#寫成文章時">寫成文章時</a></li>
       </ul>
     </li>
   </ul>
-</nav></div>
-            </div><div class="content" id="content"><h2 id="卡片盒筆記寫作有兩種方式">卡片盒筆記寫作有兩種方式</h2>
-<p>卡片盒筆記的做法，現在網路上很多影片、文章都有教了，所以我就不贅述了，這篇文章主要是記錄我如何在heptabase上面實作卡片盒筆記的方式。目前理解到的用法大致上有兩種方式。</p>
-<h3 id="闡述延伸自己論點的做法">闡述延伸自己論點的做法</h3>
-<p>google搜尋卡片盒筆記最容易找到的是閱讀前哨戰站長瓦基的文章，張永錫老師有一次有和瓦基、朱騏有<a href="https://www.youtube.com/watch?v%5c=TtuufXfSkXU" target="_blank" rel="noopener noreffer">直播</a>
- ，我在這邊大概知道了瓦基使用heptabase的方式 ，大致上就是持續將相同大分類（同board）的卡片做<code>多張卡片凝聚出共通點</code>、<code>複雜卡片切割成多張不需要上下文即可理解的論述</code>、<code>依照因果關係或層級架構為卡片作出連結</code>。最後依照這個的架構輸出成文章。<a href="https://readingoutpost.com/zettelkasten-6-steps/" target="_blank" rel="noopener noreffer">瓦基卡片盒筆記的文章</a>
-</p>
-<h3 id="不同卡片蹦發出新的東西">不同卡片蹦發出新的東西</h3>
-<p>在<a href="https://hahow.in/courses/623156dc32edfc0007190299/main" target="_blank" rel="noopener noreffer">張永錫老師在hahow的卡片盒筆記術</a>
- 中，教導的寫文章方式，則是直接將所有搜尋到有所關聯的卡片複製到<a href="http://whimsical.com/" target="_blank" rel="noopener noreffer">whimsical</a>
-上面，再來整理排序，變成一張完整的文章。</p>
-<h2 id="對我來說">對我來說</h2>
-<p>我使用卡片盒筆記的目的是學習知識、整理思路，對於<a href="https://hahow.in/courses/623156dc32edfc0007190299/main" target="_blank" rel="noopener noreffer">卡片盒筆記術課程</a>
-中教導的用<a href="http://whimsical.com/" target="_blank" rel="noopener noreffer">whimsical</a>
- 配合notion放卡片，對於長期的專案來說，持續分裂、內聚的卡片很難同步。我的結論是，這套流程只比較適合一次結束的專案。</p>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/heptabase/" >
+                Heptabase
+            </a>
+        
+            <a href="/categories/%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98/" >
+                卡片盒筆記
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/2022-09-03/heptabase-zettelkasten/">我用heptabase來實作卡片盒筆記的方式</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 03, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="卡片盒筆記寫作有兩種方式">卡片盒筆記寫作有兩種方式
+</h2><p>卡片盒筆記的做法，現在網路上很多影片、文章都有教了，所以我就不贅述了，這篇文章主要是記錄我如何在heptabase上面實作卡片盒筆記的方式。目前理解到的用法大致上有兩種方式。</p>
+<h3 id="闡述延伸自己論點的做法">闡述延伸自己論點的做法
+</h3><p>google搜尋卡片盒筆記最容易找到的是閱讀前哨戰站長瓦基的文章，張永錫老師有一次有和瓦基、朱騏有<a class="link" href="https://www.youtube.com/watch?v%5c=TtuufXfSkXU"  target="_blank" rel="noopener"
+    >直播</a> ，我在這邊大概知道了瓦基使用heptabase的方式 ，大致上就是持續將相同大分類（同board）的卡片做<code>多張卡片凝聚出共通點</code>、<code>複雜卡片切割成多張不需要上下文即可理解的論述</code>、<code>依照因果關係或層級架構為卡片作出連結</code>。最後依照這個的架構輸出成文章。<a class="link" href="https://readingoutpost.com/zettelkasten-6-steps/"  target="_blank" rel="noopener"
+    >瓦基卡片盒筆記的文章</a></p>
+<h3 id="不同卡片蹦發出新的東西">不同卡片蹦發出新的東西
+</h3><p>在<a class="link" href="https://hahow.in/courses/623156dc32edfc0007190299/main"  target="_blank" rel="noopener"
+    >張永錫老師在hahow的卡片盒筆記術</a> 中，教導的寫文章方式，則是直接將所有搜尋到有所關聯的卡片複製到<a class="link" href="http://whimsical.com/"  target="_blank" rel="noopener"
+    >whimsical</a>上面，再來整理排序，變成一張完整的文章。</p>
+<h2 id="對我來說">對我來說
+</h2><p>我使用卡片盒筆記的目的是學習知識、整理思路，對於<a class="link" href="https://hahow.in/courses/623156dc32edfc0007190299/main"  target="_blank" rel="noopener"
+    >卡片盒筆記術課程</a>中教導的用<a class="link" href="http://whimsical.com/"  target="_blank" rel="noopener"
+    >whimsical</a> 配合notion放卡片，對於長期的專案來說，持續分裂、內聚的卡片很難同步。我的結論是，這套流程只比較適合一次結束的專案。</p>
 <p>所以在理清<code>我需要讓專案持續成長，又要能夠視覺化看到因果和層級架構</code> 這件事後，我馬上就花錢訂閱了heptabase。</p>
-<h2 id="我實際的做法">我實際的做法</h2>
-<h3 id="整理卡片收集整理材料">整理卡片（收集、整理材料）</h3>
-<ul>
+<h2 id="我實際的做法">我實際的做法
+</h2><h3 id="整理卡片收集整理材料">整理卡片（收集、整理材料）
+</h3><ul>
 <li>white board為一項大項知識的庫，在裡面可以持續新增卡片，並且整理出順序。</li>
 </ul>
 <p>持續做以下的流程</p>
@@ -195,74 +364,254 @@ entry card 這個方法的完全是利用了heptabase的功能。
 </li>
 </ul>
 </blockquote>
-<p>在這邊要注意一點是，link和connection感覺很相似，我剛開始很混亂，不知道要怎麼使用。因為同時想要能<a href="#%E9%97%A1%E8%BF%B0%E5%BB%B6%E4%BC%B8%E8%87%AA%E5%B7%B1%E8%AB%96%E9%BB%9E%E7%9A%84%E5%81%9A%E6%B3%95" rel="">闡述延伸自己論點的做法</a>
- 、<a href="#%E4%B8%8D%E5%90%8C%E5%8D%A1%E7%89%87%E8%B9%A6%E7%99%BC%E5%87%BA%E6%96%B0%E7%9A%84%E6%9D%B1%E8%A5%BF" rel="">不同卡片蹦發出新的東西</a>
- ，所以會想要讓所有卡片之間的關聯都是用connection來連結。但是這個做法會讓畫面變得很混亂，反而會阻礙思考。後來在釐清了我使用卡片筆記的主要用法是<a href="#%E9%97%A1%E8%BF%B0%E5%BB%B6%E4%BC%B8%E8%87%AA%E5%B7%B1%E8%AB%96%E9%BB%9E%E7%9A%84%E5%81%9A%E6%B3%95" rel="">闡述延伸自己論點的做法</a>
- 後，就決定只讓有因係、層級架構關聯的卡片，使用connection，而其他的關聯則是在卡片內文使用link的方式來關聯。這個是在直播裡面學到的<a href="https://www.youtube.com/watch?t%5C%5c=2672&amp;v%5c=TtuufXfSkXU&amp;feature%5c=youtu.be" target="_blank" rel="noopener noreffer">瓦基使用link和connect的時機</a>
-</p>
-<h3 id="寫成文章時">寫成文章時</h3>
-<blockquote>
+<p>在這邊要注意一點是，link和connection感覺很相似，我剛開始很混亂，不知道要怎麼使用。因為同時想要能<a class="link" href="#%E9%97%A1%E8%BF%B0%E5%BB%B6%E4%BC%B8%E8%87%AA%E5%B7%B1%E8%AB%96%E9%BB%9E%E7%9A%84%E5%81%9A%E6%B3%95" >闡述延伸自己論點的做法</a> 、<a class="link" href="#%E4%B8%8D%E5%90%8C%E5%8D%A1%E7%89%87%E8%B9%A6%E7%99%BC%E5%87%BA%E6%96%B0%E7%9A%84%E6%9D%B1%E8%A5%BF" >不同卡片蹦發出新的東西</a> ，所以會想要讓所有卡片之間的關聯都是用connection來連結。但是這個做法會讓畫面變得很混亂，反而會阻礙思考。後來在釐清了我使用卡片筆記的主要用法是<a class="link" href="#%E9%97%A1%E8%BF%B0%E5%BB%B6%E4%BC%B8%E8%87%AA%E5%B7%B1%E8%AB%96%E9%BB%9E%E7%9A%84%E5%81%9A%E6%B3%95" >闡述延伸自己論點的做法</a> 後，就決定只讓有因係、層級架構關聯的卡片，使用connection，而其他的關聯則是在卡片內文使用link的方式來關聯。這個是在直播裡面學到的<a class="link" href="https://www.youtube.com/watch?t%5C%5c=2672&amp;v%5c=TtuufXfSkXU&amp;feature%5c=youtu.be"  target="_blank" rel="noopener"
+    >瓦基使用link和connect的時機</a></p>
+<h3 id="寫成文章時">寫成文章時
+</h3><blockquote>
 <p>把所有想到和這篇文章相關的卡片用bullet list 來link到entry card</p>
 </blockquote>
 <p>這個方法是從瓦基學到的，文章/keyword card/entry卡片上面先用link把所有相關的卡片給連結進來。再來在這張卡片下面開始書寫文章。</p>
-<figure><img src="keyword-card.png"/><figcaption>
-            <h4>entry card</h4>
-        </figcaption>
+<figure><img src="/posts/2022-09-03/heptabase-zettelkasten/keyword-card.png"><figcaption>
+      <h4>entry card</h4>
+    </figcaption>
 </figure>
 
 <p>這個方法的完全是利用了heptabase的功能。</p>
 <ol>
 <li>
 <p>首先heptabase的list可以隨意拖拉，來初步排列出書寫的順序。這個在各大筆記軟體（notion、evernote等）上的bullet list 其實都可以做得到。
-<figure><img src="https://lh3.googleusercontent.com/oR_Vovjx-cbE9xENfmEpSMzZ35_6DC-_K5kTYVO9WHkiJaHMz0QRpg0me-2dXTrh3Hg0NCARJmJAiIoPjEqEOO9unp_ItgyASM6NQ-Ao_DgT2Hg58W2L0-uogI-Sybf1B36gsw-rzx4=w2400"/>
+<figure><img src="https://lh3.googleusercontent.com/oR_Vovjx-cbE9xENfmEpSMzZ35_6DC-_K5kTYVO9WHkiJaHMz0QRpg0me-2dXTrh3Hg0NCARJmJAiIoPjEqEOO9unp_ItgyASM6NQ-Ao_DgT2Hg58W2L0-uogI-Sybf1B36gsw-rzx4=w2400">
 </figure>
 </p>
 </li>
 <li>
 <p>Open in new tab → 再點選所有的link，heptabase會在右邊打開所有卡片，這樣可以快速的複製卡片內容過來變成初稿。
-<figure><img src="https://lh3.googleusercontent.com/EKz6pTXK0nYgLOuf0DSspDZxVUL-kX7Ql7x8AeaUrSBz4bpbi9ADa-Uu1sgPtsSDS7iDDthbjz1Jt8t7hq7fTfI0H7YtDZj9d5SgPAvd30j_niOwIwQJC5zblwlC-mmCbEcufSQ_xIY=w2400"/>
+<figure><img src="https://lh3.googleusercontent.com/EKz6pTXK0nYgLOuf0DSspDZxVUL-kX7Ql7x8AeaUrSBz4bpbi9ADa-Uu1sgPtsSDS7iDDthbjz1Jt8t7hq7fTfI0H7YtDZj9d5SgPAvd30j_niOwIwQJC5zblwlC-mmCbEcufSQ_xIY=w2400">
 </figure>
 </p>
 </li>
 </ol>
 <p>這篇文章大致上描述了我現在會在heptabase上面實作的卡片筆記流程，並且這篇文章也是我第一次在heptabase上面使用卡片筆記寫成的。總共花了一個下午和半個晚上研究、半個晚上整理成文章。</p>
-</div><div class="post-footer" id="post-footer">
-    <div class="post-info">
-        <div class="post-info-line">
-            <div class="post-info-mod">
-                <span>Updated on 2022-09-03</span>
-            </div></div>
-        <div class="post-info-line">
-            <div class="post-info-md"></div>
-            <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://coding.fnsne.com/posts/2022-09-03/heptabase-zettelkasten/" data-title="我用heptabase來實作卡片盒筆記的方式" data-hashtags="卡片盒筆記,heptabase"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://coding.fnsne.com/posts/2022-09-03/heptabase-zettelkasten/" data-hashtag="卡片盒筆記"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://coding.fnsne.com/posts/2022-09-03/heptabase-zettelkasten/" data-title="我用heptabase來實作卡片盒筆記的方式"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://coding.fnsne.com/posts/2022-09-03/heptabase-zettelkasten/" data-title="我用heptabase來實作卡片盒筆記的方式"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@6.20.0/icons/line.svg" aria-hidden="true"></i></a></span>
-            </div>
-        </div>
-    </div>
 
-    <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98/">卡片盒筆記</a>,&nbsp;<a href="/tags/heptabase/">heptabase</a></section>
-        <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
-        </section>
-    </div>
+</section>
 
-    <div class="post-nav"><a href="/posts/2022-09-02/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BA/" class="prev" rel="prev" title="Hugo LoveIt 不會顯示toc"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Hugo LoveIt 不會顯示toc</a>
-            <a href="/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/" class="next" rel="next" title="資料庫的同步">資料庫的同步<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98/">卡片盒筆記</a>
+        
+            <a href="/tags/heptabase/">Heptabase</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "fnsnes-coding-world" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
-<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
-                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
-            </noscript></div></article></div>
-            </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.111.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">fnsne</a></span></div>
-        </div>
-    </footer></div>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
-                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
-                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
-            </a>
-        </div><script type="text/javascript" src="https://fnsnes-coding-world.disqus.com/embed.js" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2024 fnsne
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
 </html>

@@ -1,52 +1,204 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>同步 - Tag - fnsne&#39;s coding world</title>
+        <title>同步 on fnsne&#39;s coding world</title>
         <link>http://coding.fnsne.com/tags/%E5%90%8C%E6%AD%A5/</link>
-        <description>同步 - Tag - fnsne&#39;s coding world</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>watashiwafnsne@gmail.com (fnsne)</managingEditor>
-            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Tue, 20 Sep 2022 16:35:44 &#43;0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/%E5%90%8C%E6%AD%A5/" rel="self" type="application/rss+xml" /><item>
-    <title>關於鎖</title>
-    <link>http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/</link>
-    <pubDate>Tue, 20 Sep 2022 16:35:44 &#43;0800</pubDate>
-    <author>fnsne</author>
-    <guid>http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/</guid>
-    <description><![CDATA[關於鎖(lock) 畢業後，太久沒有用到相關的東西，概念開始有點混淆了，所以拿出恐龍本讀回來。順便做一篇筆記
-一些專有名詞 名稱 說明 cooperation process （協作行程） 會操作到共同資源的不同process critical section 在各種cooperation process 裡面會操作到共同資源的code區塊 鎖想解決的問題 在多核心多執行序問世之前的單核心的時代，是一個核心切換來切換去的做不同事，在時間區間上每個時間點都只有一個process正在被cpu執行，如下圖。
-單核心運作示意圖 而在多核心問世以後開始會出現一些問題，如下圖。
-多核心的運作示意圖 開始會發生圖上，兩個核心會同時執行不同的process ，這個時候可能會發生互相改到資料的問題。例如process B和D是要在印表機上面印出現在電腦的時間，就有可能會發生一下的輸出：
-假設兩個核心在執行processB和D的時間點是15:38和15:40
-1 15:153:840 這是因為兩個核心互相搶著輸出到印表機，但是順序亂掉的緣故。為了解決這個問題，鎖的概念被提了出來。
-鎖的用途 用來保護注critical section（以上面的例子來看，是Process B和Process D裡面，執行輸出資料到印表機的code block）。強制這兩個critical section，在同一個時間裡面，頂多只能有一個執行，另一個想要執行，得要等到另一個結束後，才能開始動作。
-鎖的種類 mutex lock（互斥鎖） 又稱自旋鎖，會讓這個process一直卡在loop裡面，直到能夠存取資料後，才跳出迴圈，開始執行這個critical section。
-因為實際上是一直在執行loop的狀態下做等待資源釋放的，所以它不需要使用到context switch，在獲得資源後的切換速度很快。所以常常被使用在共用資源都只會被佔用短短時間的情境下使用。
-mutex lock的概念是一個被相同mutex lock保護起來的多個critical section，一個時間裡只能有一個被執行，其他都得要等待它mutex lock釋放後，才能繼續搶，搶到的才能執行。
-semaphore lock（號誌鎖） 和mutex lock不同，可以設定資源同一時間下，最多可以有S個process同時執行，當同時執行的critical section數目大於S時，會被停下來，等待到同時執行的critical section小於S時，才能繼續搶進去執行。
-如果要用mutex lock的方式執行，會讓很多process一直在執行loop，對於資源的浪費太大了，所以在semaphore lock的時候，會採用將process 暫停，將address存到lock S 的list裡面。等到有process把S給釋放，此時CPU會將S裡面的list，取出一個process出來執行。
-我混淆的概念釐清 鎖不是鎖住cpu，而是鎖住其他一樣需要這個鎖的process，讓同一個鎖保護的同一個（或者不同個）critical section ，一次最多只能有1（或者semaphore lock設定的數字）個process存取。
-被鎖保護住的critical section，只要裡面有存取某個共用資源的code，就能讓這項資源被鎖給保護，不被濫用。
-結論 鎖的概念就是為了要保護有限的資源，不要被無限的取用。例如可以利用鎖來保護對同一個檔案的更改，讓這個檔案一次只能被一個process更新，防止檔案內資料變得亂七八糟的。]]></description>
-</item>
-<item>
-    <title>資料庫的同步</title>
-    <link>http://coding.fnsne.com/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/</link>
-    <pubDate>Wed, 14 Sep 2022 16:22:17 &#43;0800</pubDate>
-    <author>fnsne</author>
-    <guid>http://coding.fnsne.com/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/</guid>
-    <description><![CDATA[網路上查到簡單說明transaction的例子，常常都是用轉賬來說明，但其實還有很多東西需要注意 帳戶轉賬，因為race condition的緣故，導致操作欄位的值被改錯。
-A有100，B有40。
-A轉100元給B，B轉20元給A，由兩個不同的client來處理操作。
-順序正確時：A會是減掉80
-但是當順序不正確，則數字會錯掉，例如A很早取得現在的餘額（100），但是更新數字0慢了，導致A最終變成0元，因為在B轉完帳後才更新值。
-以上的這個問題很明顯的是race condition。所謂的race condition是結果必須依賴與某種特定的順序，但是順序又並不是固定的，因此偶爾會出現錯誤。
-解決race condition的方法 為了要解決race condition，必須得要讓操作依照我們期望的順序才操作，才能預防不對的順序導致的錯誤。為了要達到這個目標，資料庫本身有提供兩種方法：
-atomic update：資料庫提供的一個，對於單一欄位數值做相依於原本值的操作指令。這個操作過程會是atomic的，也就是不會操作到一半值被改掉而導致結果出錯。
-1 update products set quantity = quantity -1 where id = 1; 優點：因為只是對於欄位做簡單的數字運算並馬上更新上去，所以對於欄位的佔用時間相較下面的select for update較短，且資料庫會將這類atomic操作做優化，所以效能會比較好。
-缺點：只支援對於數值的簡單操作後更新，並不能做太複雜的運算。
-select for update：這個操作被限制在transaction開起來的時候才能使用，使用時實際上就是將指定的欄位上一個更新的lock，此時直到commit之前，沒有其他client可以對這個欄位做任何更新。所以就能夠限制欄位更新的順序了。
-1 2 3 4 Begin; select quantity into $q from products where id = 1 for update; update products set quantity = $q-1; Commit; 優點：因為有上鎖了，所以幾乎可以用各種邏輯運算來更新欄位的值。
-缺點：因為會在欄位上面上鎖，並且持續到commit位置，所以對於效能會有很大的影響。
-version scheme ：在table上面多新增一個欄位叫做version，來確定現在更新時的version，是否從拿值的時候到現在還沒有被更新過。程式可以藉由資料庫回傳的訊息，是否有更改到任何row來判斷是否更新成功。
-1 2 old_ver = `select money, version from bank where name = A` `update bank set money = 30, version = version + 1 where name = A and version = old_ver` 優點：能夠不使用任何鎖的時候實現。（或者還有其他我想不到的優點）]]></description>
-</item>
-</channel>
+        <description>Recent content in 同步 on fnsne&#39;s coding world</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-TW</language>
+        <copyright>fnsne</copyright>
+        <lastBuildDate>Tue, 20 Sep 2022 16:35:44 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/%E5%90%8C%E6%AD%A5/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>關於鎖</title>
+        <link>http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/</link>
+        <pubDate>Tue, 20 Sep 2022 16:35:44 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/</guid>
+        <description>&lt;h1 id=&#34;關於鎖lock&#34;&gt;關於鎖(lock)
+&lt;/h1&gt;&lt;p&gt;畢業後，太久沒有用到相關的東西，概念開始有點混淆了，所以拿出恐龍本讀回來。順便做一篇筆記&lt;/p&gt;
+&lt;h2 id=&#34;一些專有名詞&#34;&gt;一些專有名詞
+&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;名稱&lt;/th&gt;
+&lt;th&gt;說明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;cooperation process （協作行程）&lt;/td&gt;
+&lt;td&gt;會操作到共同資源的不同process&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;critical section&lt;/td&gt;
+&lt;td&gt;在各種cooperation process 裡面會操作到共同資源的code區塊&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;鎖想解決的問題&#34;&gt;鎖想解決的問題
+&lt;/h2&gt;&lt;p&gt;在多核心多執行序問世之前的單核心的時代，是一個核心切換來切換去的做不同事，在時間區間上每個時間點都只有一個process正在被cpu執行，如下圖。&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/single-core.jpg&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;單核心運作示意圖&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;而在多核心問世以後開始會出現一些問題，如下圖。&lt;/p&gt;
+&lt;figure&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/multi-core.jpg&#34;&gt;&lt;figcaption&gt;
+      &lt;h4&gt;多核心的運作示意圖&lt;/h4&gt;
+    &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;開始會發生圖上，兩個核心會同時執行不同的process ，這個時候可能會發生互相改到資料的問題。例如process B和D是要在印表機上面印出現在電腦的時間，就有可能會發生一下的輸出：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;假設兩個核心在執行processB和D的時間點是&lt;code&gt;15:38&lt;/code&gt;和&lt;code&gt;15:40&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;15:153:840
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;這是因為兩個核心互相搶著輸出到印表機，但是順序亂掉的緣故。為了解決這個問題，鎖的概念被提了出來。&lt;/p&gt;
+&lt;h2 id=&#34;鎖的用途&#34;&gt;鎖的用途
+&lt;/h2&gt;&lt;p&gt;用來保護注critical section（以上面的例子來看，是Process B和Process D裡面，執行輸出資料到印表機的code block）。強制這兩個critical section，在同一個時間裡面，頂多只能有一個執行，另一個想要執行，得要等到另一個結束後，才能開始動作。&lt;/p&gt;
+&lt;h2 id=&#34;鎖的種類&#34;&gt;鎖的種類
+&lt;/h2&gt;&lt;h3 id=&#34;mutex-lock互斥鎖&#34;&gt;mutex lock（互斥鎖）
+&lt;/h3&gt;&lt;p&gt;又稱自旋鎖，會讓這個process一直卡在loop裡面，直到能夠存取資料後，才跳出迴圈，開始執行這個critical section。&lt;/p&gt;
+&lt;p&gt;因為實際上是一直在執行loop的狀態下做等待資源釋放的，所以它不需要使用到context switch，在獲得資源後的切換速度很快。所以常常被使用在共用資源都只會被佔用短短時間的情境下使用。&lt;/p&gt;
+&lt;p&gt;mutex lock的概念是一個被相同mutex lock保護起來的多個critical section，一個時間裡只能有一個被執行，其他都得要等待它mutex lock釋放後，才能繼續搶，搶到的才能執行。&lt;/p&gt;
+&lt;h3 id=&#34;semaphore-lock號誌鎖&#34;&gt;semaphore lock（號誌鎖）
+&lt;/h3&gt;&lt;p&gt;和mutex lock不同，可以設定資源同一時間下，最多可以有&lt;code&gt;S&lt;/code&gt;個process同時執行，當同時執行的critical section數目大於&lt;code&gt;S&lt;/code&gt;時，會被停下來，等待到同時執行的critical section小於S時，才能繼續搶進去執行。&lt;/p&gt;
+&lt;p&gt;如果要用mutex lock的方式執行，會讓很多process一直在執行loop，對於資源的浪費太大了，所以在semaphore lock的時候，會採用將process 暫停，將address存到lock &lt;code&gt;S&lt;/code&gt; 的list裡面。等到有process把&lt;code&gt;S&lt;/code&gt;給釋放，此時CPU會將S裡面的list，取出一個process出來執行。&lt;/p&gt;
+&lt;h2 id=&#34;我混淆的概念釐清&#34;&gt;我混淆的概念釐清
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;鎖不是鎖住cpu，而是鎖住其他一樣需要這個鎖的process，讓同一個鎖保護的同一個（或者不同個）critical section ，一次最多只能有1（或者semaphore lock設定的數字）個process存取。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;被鎖保護住的critical section，只要裡面有存取某個共用資源的code，就能讓這項資源被鎖給保護，不被濫用。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;結論&#34;&gt;結論
+&lt;/h2&gt;&lt;p&gt;鎖的概念就是為了要保護有限的資源，不要被無限的取用。例如可以利用鎖來保護對同一個檔案的更改，讓這個檔案一次只能被一個process更新，防止檔案內資料變得亂七八糟的。&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>資料庫的同步</title>
+        <link>http://coding.fnsne.com/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/</link>
+        <pubDate>Wed, 14 Sep 2022 16:22:17 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/</guid>
+        <description>&lt;h2 id=&#34;網路上查到簡單說明transaction的例子常常都是用轉賬來說明但其實還有很多東西需要注意&#34;&gt;網路上查到簡單說明transaction的例子，常常都是用轉賬來說明，但其實還有很多東西需要注意
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;帳戶轉賬，因為race condition的緣故，導致操作欄位的值被改錯。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;A有100，B有40。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A轉100元給B，B轉20元給A，由兩個不同的client來處理操作。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;順序正確時：A會是減掉80&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;但是當順序不正確，則數字會錯掉，例如A很早取得現在的餘額（100），但是更新數字0慢了，導致A最終變成0元，因為在B轉完帳後才更新值。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;以上的這個問題很明顯的是race condition。所謂的race condition是結果必須依賴與某種特定的順序，但是順序又並不是固定的，因此偶爾會出現錯誤。&lt;/p&gt;
+&lt;h2 id=&#34;解決race-condition的方法&#34;&gt;解決race condition的方法
+&lt;/h2&gt;&lt;p&gt;為了要解決race condition，必須得要讓操作依照我們期望的順序才操作，才能預防不對的順序導致的錯誤。為了要達到這個目標，資料庫本身有提供兩種方法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;atomic update：資料庫提供的一個，對於單一欄位數值做相依於原本值的操作指令。這個操作過程會是atomic的，也就是不會操作到一半值被改掉而導致結果出錯。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;update&lt;/span&gt; products &lt;span style=&#34;color:#66d9ef&#34;&gt;set&lt;/span&gt; quantity &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; quantity &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;where&lt;/span&gt; id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;優點：因為只是對於欄位做簡單的數字運算並馬上更新上去，所以對於欄位的佔用時間相較下面的select for update較短，且資料庫會將這類atomic操作做優化，所以效能會比較好。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;缺點：只支援對於數值的簡單操作後更新，並不能做太複雜的運算。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;select for update：這個操作被限制在transaction開起來的時候才能使用，使用時實際上就是將指定的欄位上一個更新的lock，此時直到commit之前，沒有其他client可以對這個欄位做任何更新。所以就能夠限制欄位更新的順序了。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Begin&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;select&lt;/span&gt; quantity &lt;span style=&#34;color:#66d9ef&#34;&gt;into&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;$&lt;/span&gt;q &lt;span style=&#34;color:#66d9ef&#34;&gt;from&lt;/span&gt; products &lt;span style=&#34;color:#66d9ef&#34;&gt;where&lt;/span&gt; id &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;update&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;update&lt;/span&gt; products &lt;span style=&#34;color:#66d9ef&#34;&gt;set&lt;/span&gt; quantity &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;$&lt;/span&gt;q&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;Commit&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;優點：因為有上鎖了，所以幾乎可以用各種邏輯運算來更新欄位的值。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;缺點：因為會在欄位上面上鎖，並且持續到commit位置，所以對於效能會有很大的影響。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;version scheme ：在table上面多新增一個欄位叫做version，來確定現在更新時的version，是否從拿值的時候到現在還沒有被更新過。程式可以藉由資料庫回傳的訊息，&lt;code&gt;是否有更改到任何row&lt;/code&gt;來判斷是否更新成功。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;old_ver &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;select&lt;/span&gt; money, &lt;span style=&#34;color:#66d9ef&#34;&gt;version&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;from&lt;/span&gt; bank &lt;span style=&#34;color:#66d9ef&#34;&gt;where&lt;/span&gt; name &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; A&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;update&lt;/span&gt; bank &lt;span style=&#34;color:#66d9ef&#34;&gt;set&lt;/span&gt; money &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;30&lt;/span&gt;, &lt;span style=&#34;color:#66d9ef&#34;&gt;version&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;version&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;where&lt;/span&gt; name &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; A &lt;span style=&#34;color:#66d9ef&#34;&gt;and&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;version&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; old_ver&lt;span style=&#34;color:#f92672&#34;&gt;`&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;優點：能夠不使用任何鎖的時候實現。（或者還有其他我想不到的優點）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;缺點：可能會很浪費時間，尤其是當更新的頻率特別高的時候，可能很難可以得到把值更新下去的機會。並且失敗後得要重頭來過。可能會造成鎖的飢餓效應。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;一開始提到的例子裡面真正用到transaction功能的地方&#34;&gt;一開始提到的例子裡面真正用到transaction功能的地方
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;利用transaction遇到錯誤時會rollback的特性，來在餘額小於0的時候，復原到還未轉賬之前的狀態。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如何檢查餘額小於0，並在此時丟出錯誤呢？&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;利用select for update鎖住欄位更新，在此時檢查，通過且做完操作後commit，釋放鎖。就可以避免此時有其他操作更動到這個帳戶的餘額。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;優點：可以實作各種複雜的檢查邏輯&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;缺點：必須為這個帳戶的餘額上鎖，此時沒有其他人可以操作（也就是沒有其他人可以轉賬給他、領錢等操作），會導致效能低下。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;利用&lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/questions/21503658/prevent-less-than-zero-values-in-postgresql&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;check constraint&lt;/a&gt; 來讓資料庫在欄位不符合規範的時候丟出錯誤。此時就可以配合transaction來rollback復原了。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;優點：因為check constraint是資料庫提供可以給欄位增加規範的設定，檢查會在更新的時候做，所以即使背後有使用鎖，所花費的時間會比用select for update還要少。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;缺點：只能依照資料庫提供的有限constraint來設定，並不一定能夠做到想要的規範。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;結論&#34;&gt;結論
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;遇到需要注意順序的操作，先試著能不能使用atomic update的方式來完成需求，沒有辦法的時候才會使用select for update的方式來限制進到這個transaction後，必須要操作完這邊的指令後，才能換別人改值。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;遇到需要檢查數值符不符合規範，先試著用check constraint來限制欄位，真的沒有辦法，才會採用select for update的方式來將欄位上鎖，來做檢查。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/interviewnoodle/how-to-avoid-the-race-condition-and-the-negative-value-3f397b2b08e4&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;How to avoid the race condition and the negative value&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/questions/21503658/prevent-less-than-zero-values-in-postgresql&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;check constraint&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/143866444&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;select for update 詳解&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/questions/21503658/prevent-less-than-zero-values-in-postgresql&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;check constraint&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

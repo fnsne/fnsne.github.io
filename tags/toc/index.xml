@@ -1,20 +1,32 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>toc - Tag - fnsne&#39;s coding world</title>
+        <title>Toc on fnsne&#39;s coding world</title>
         <link>http://coding.fnsne.com/tags/toc/</link>
-        <description>toc - Tag - fnsne&#39;s coding world</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>watashiwafnsne@gmail.com (fnsne)</managingEditor>
-            <webMaster>watashiwafnsne@gmail.com (fnsne)</webMaster><lastBuildDate>Fri, 02 Sep 2022 16:06:28 &#43;0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/toc/" rel="self" type="application/rss+xml" /><item>
-    <title>Hugo LoveIt 不會顯示toc</title>
-    <link>http://coding.fnsne.com/posts/2022-09-02/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BA/</link>
-    <pubDate>Fri, 02 Sep 2022 16:06:28 &#43;0800</pubDate>
-    <author>fnsne</author>
-    <guid>http://coding.fnsne.com/posts/2022-09-02/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BA/</guid>
-    <description><![CDATA[問題描述 明明有開啟toc功能，但是在旁邊的toc卻完全沒有顯示任何的標題鏈接。
-解法 這個問題的原因很簡單，是因為LoveIt預設會抓h2的標題，但我習慣從h1的標題開始寫，所以在toc上面沒有任何的標題存在。
-解決的方法很簡單，只要到設定（config.toml）裡面，加上
-1 2 3 [markup] [markup.tableOfContents] startLevel = 1 即可讓LoveIt從h1就開始抓到toc上面。
-reference LoveIt Github Issue 410 ]]></description>
-</item>
-</channel>
+        <description>Recent content in Toc on fnsne&#39;s coding world</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-TW</language>
+        <copyright>fnsne</copyright>
+        <lastBuildDate>Fri, 02 Sep 2022 16:06:28 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/toc/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Hugo LoveIt 不會顯示toc</title>
+        <link>http://coding.fnsne.com/posts/2022-09-02/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BA/</link>
+        <pubDate>Fri, 02 Sep 2022 16:06:28 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/posts/2022-09-02/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BA/</guid>
+        <description>&lt;h1 id=&#34;問題描述&#34;&gt;問題描述
+&lt;/h1&gt;&lt;p&gt;明明有開啟toc功能，但是在旁邊的toc卻完全沒有顯示任何的標題鏈接。&lt;/p&gt;
+&lt;h1 id=&#34;解法&#34;&gt;解法
+&lt;/h1&gt;&lt;p&gt;這個問題的原因很簡單，是因為LoveIt預設會抓h2的標題，但我習慣從h1的標題開始寫，所以在toc上面沒有任何的標題存在。&lt;/p&gt;
+&lt;p&gt;解決的方法很簡單，只要到設定（&lt;code&gt;config.toml&lt;/code&gt;）裡面，加上&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;[markup]
+  [markup.tableOfContents]
+    startLevel = 1
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;即可讓LoveIt從h1就開始抓到toc上面。&lt;/p&gt;
+&lt;h1 id=&#34;reference&#34;&gt;reference
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/dillonzq/LoveIt/issues/410#issuecomment-647272066&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;LoveIt Github Issue 410&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>

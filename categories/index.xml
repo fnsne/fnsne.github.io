@@ -8,6 +8,14 @@
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
         <lastBuildDate>Thu, 29 Jun 2023 09:34:49 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Golang</title>
+        <link>http://coding.fnsne.com/categories/golang/</link>
+        <pubDate>Tue, 02 Aug 2022 20:01:59 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/categories/golang/</guid>
+        <description>&lt;img src="http://coding.fnsne.com/categories/golang/Go-Logo_LightBlue.svg" alt="Featured image of post Golang" /&gt;</description>
+        </item>
+        <item>
         <title>K8s</title>
         <link>http://coding.fnsne.com/categories/k8s/</link>
         <pubDate>Thu, 29 Jun 2023 09:34:49 +0800</pubDate>
@@ -61,7 +69,7 @@
         <pubDate>Fri, 02 Sep 2022 16:06:28 +0800</pubDate>
         
         <guid>http://coding.fnsne.com/categories/hugo/</guid>
-        <description></description>
+        <description>&lt;img src="http://coding.fnsne.com/categories/hugo/Logo_of_Hugo_the_static_website_generator.svg.png" alt="Featured image of post Hugo" /&gt;</description>
         </item>
         <item>
         <title>JetBrains</title>
@@ -86,14 +94,6 @@
         
         <guid>http://coding.fnsne.com/categories/coding/</guid>
         <description></description>
-        </item>
-        <item>
-        <title>Golang</title>
-        <link>http://coding.fnsne.com/categories/golang/</link>
-        <pubDate>Tue, 02 Aug 2022 20:01:59 +0800</pubDate>
-        
-        <guid>http://coding.fnsne.com/categories/golang/</guid>
-        <description>&lt;img src="http://coding.fnsne.com/categories/golang/Go-Logo_LightBlue.svg" alt="Featured image of post Golang" /&gt;</description>
         </item>
         
     </channel>

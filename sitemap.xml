@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://coding.fnsne.com/categories/golang/</loc>
+    <lastmod>2022-08-02T20:01:59+08:00</lastmod>
+  </url><url>
     <loc>http://coding.fnsne.com/</loc>
     <lastmod>2024-08-02T00:00:00+00:00</lastmod>
   </url><url>
@@ -144,9 +147,6 @@
     <lastmod>2022-08-02T20:01:59+08:00</lastmod>
   </url><url>
     <loc>http://coding.fnsne.com/tags/golang/</loc>
-    <lastmod>2022-08-02T20:01:59+08:00</lastmod>
-  </url><url>
-    <loc>http://coding.fnsne.com/categories/golang/</loc>
     <lastmod>2022-08-02T20:01:59+08:00</lastmod>
   </url><url>
     <loc>http://coding.fnsne.com/articles/2022/08/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/</loc>

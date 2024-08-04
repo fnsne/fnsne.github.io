@@ -9,10 +9,10 @@
         <copyright>fnsne</copyright>
         <lastBuildDate>Fri, 02 Sep 2022 16:06:28 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/hugo/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Hugo LoveIt 不會顯示toc</title>
-        <link>http://coding.fnsne.com/posts/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BA/</link>
+        <link>http://coding.fnsne.com/articles/2022/09/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BAtoc/</link>
         <pubDate>Fri, 02 Sep 2022 16:06:28 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BA/</guid>
+        <guid>http://coding.fnsne.com/articles/2022/09/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BAtoc/</guid>
         <description>&lt;h1 id=&#34;問題描述&#34;&gt;問題描述
 &lt;/h1&gt;&lt;p&gt;明明有開啟toc功能，但是在旁邊的toc卻完全沒有顯示任何的標題鏈接。&lt;/p&gt;
 &lt;h1 id=&#34;解法&#34;&gt;解法
@@ -29,10 +29,10 @@
         </item>
         <item>
         <title>Hugo  Bundle問題</title>
-        <link>http://coding.fnsne.com/posts/hugo-bundle%E5%95%8F%E9%A1%8C/</link>
+        <link>http://coding.fnsne.com/articles/2022/09/hugo-bundle%E5%95%8F%E9%A1%8C/</link>
         <pubDate>Fri, 02 Sep 2022 14:36:26 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/hugo-bundle%E5%95%8F%E9%A1%8C/</guid>
+        <guid>http://coding.fnsne.com/articles/2022/09/hugo-bundle%E5%95%8F%E9%A1%8C/</guid>
         <description>&lt;h1 id=&#34;描述&#34;&gt;描述
 &lt;/h1&gt;&lt;p&gt;原本在hugo上面放文章是把所有的文章和圖片都放在&lt;code&gt;content/posts/&lt;/code&gt;裡面用文章來分類。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;content/posts/
@@ -89,15 +89,15 @@
         </item>
         <item>
         <title>Goland Markdown split editor消失的問題</title>
-        <link>http://coding.fnsne.com/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/</link>
+        <link>http://coding.fnsne.com/articles/2022/09/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/</link>
         <pubDate>Thu, 01 Sep 2022 20:21:30 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/</guid>
+        <guid>http://coding.fnsne.com/articles/2022/09/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/</guid>
         <description>&lt;p&gt;最近開始使用Goland來用hugo寫部落格文章，之前markdown的preview分頁都還很正常，但到了今天，突然之間只剩下一般的編輯界面，而且Goland好像還把它識別為html,旁邊會出現在各種瀏覽器上面的按鈕。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-markdown_detected_wrong.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/articles/2022/09/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-markdown_detected_wrong.jpg&#34;
 	width=&#34;384&#34;
 	height=&#34;143&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-markdown_detected_wrong_huaf8f8d9afbbf12ddd7a02df886fbcd51_10326_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-markdown_detected_wrong_huaf8f8d9afbbf12ddd7a02df886fbcd51_10326_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;http://coding.fnsne.com/articles/2022/09/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-markdown_detected_wrong_huaf8f8d9afbbf12ddd7a02df886fbcd51_10326_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/articles/2022/09/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-markdown_detected_wrong_huaf8f8d9afbbf12ddd7a02df886fbcd51_10326_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;偵測成html&#34;
@@ -109,10 +109,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;而且使用hugo的shortcode還會出現網頁相關的錯誤訊息，在設定裡面查了一陣子才發現到。關於檔案的偵測少了&lt;code&gt;.md&lt;/code&gt;的部分，只剩下&lt;code&gt;markdown&lt;/code&gt;的部分&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-fileTypeMarkDownSetting.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/articles/2022/09/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-fileTypeMarkDownSetting.jpg&#34;
 	width=&#34;1324&#34;
 	height=&#34;763&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-fileTypeMarkDownSetting_huaf8f8d9afbbf12ddd7a02df886fbcd51_83783_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-fileTypeMarkDownSetting_huaf8f8d9afbbf12ddd7a02df886fbcd51_83783_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;http://coding.fnsne.com/articles/2022/09/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-fileTypeMarkDownSetting_huaf8f8d9afbbf12ddd7a02df886fbcd51_83783_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/articles/2022/09/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-fileTypeMarkDownSetting_huaf8f8d9afbbf12ddd7a02df886fbcd51_83783_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;settings -&amp;gt; Editor -&amp;gt; File Type&#34;

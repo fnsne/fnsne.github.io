@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-TW" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="卡片盒筆記寫作有兩種方式 卡片盒筆記的做法，現在網路上很多影片、文章都有教了，所以我就不贅述了，這篇文章主要是記錄我如何在heptabase上面實作卡片盒筆記的方式。目前理解到的用法大致上有兩種方式。 闡述延伸自己論點的做法 google搜尋卡片盒筆記最容易找到的是閱讀前哨戰站長瓦基的文章，張永錫老師有一次有和瓦基、朱騏有直播 ，我在這邊大概知道了瓦基使用heptabase的方式 ，大致上就是持續將相同大分類（同board）的卡片做多張卡片凝聚出共通點、複雜卡片切割成多張不需要上下文即可理解的論述、依照因果關係或層級架構為卡片作出連結。最後依照這個的架構輸出成文章。瓦基卡片盒筆記的文章 不同卡片蹦發出新的東西 在張永錫老師在hahow的卡片盒筆記術 中，教導的寫文章方式，則是直接將所有搜尋到有所關聯的卡片複製到whimsical上面，再來整理排序，變成一張完整的文章。 對我來說 我使用卡片盒筆記的目的是學習知識、整理思路，對於卡片盒筆記術課程中教導的用whimsical 配合notion放卡片，對於長期的專案來說，持續分裂、內聚的卡片很難同步。我的結論是，這套流程只比較適合一次結束的專案。 所以在理清我需要讓專案持續成長，又要能夠視覺化看到因果和層級架構 這件事後，我馬上就花錢訂閱了heptabase。 我實際的做法 整理卡片（收集、整理材料） white board為一項大項知識的庫，在裡面可以持續新增卡片，並且整理出順序。 持續做以下的流程 為簡單的卡片查詢資料 將資料整理成多項能夠獨立闡述內容的卡片（永久卡片） 看看多張卡片可不可以凝聚出共同性，將其抽出來寫成卡片 看看有沒有卡片寫了太多項內容，將內容封裝成多張卡片 如果卡片之間有因果關係、架構層級，為其加上connection。 在這邊要注意一點是，link和connection感覺很相似，我剛開始很混亂，不知道要怎麼使用。因為同時想要能闡述延伸自己論點的做法 、不同卡片蹦發出新的東西 ，所以會想要讓所有卡片之間的關聯都是用connection來連結。但是這個做法會讓畫面變得很混亂，反而會阻礙思考。後來在釐清了我使用卡片筆記的主要用法是闡述延伸自己論點的做法 後，就決定只讓有因係、層級架構關聯的卡片，使用connection，而其他的關聯則是在卡片內文使用link的方式來關聯。這個是在直播裡面學到的瓦基使用link和connect的時機 寫成文章時 把所有想到和這篇文章相關的卡片用bullet list 來link到entry card 這個方法是從瓦基學到的，文章/keyword card/entry卡片上面先用link把所有相關的卡片給連結進來。再來在這張卡片下面開始書寫文章。 entry card 這個方法的完全是利用了heptabase的功能。 首先heptabase的list可以隨意拖拉，來初步排列出書寫的順序。這個在各大筆記軟體（notion、evernote等）上的bullet list 其實都可以做得到。 Open in new tab → 再點選所有的link，heptabase會在右邊打開所有卡片，這樣可以快速的複製卡片內容過來變成初稿。 這篇文章大致上描述了我現在會在heptabase上面實作的卡片筆記流程，並且這篇文章也是我第一次在heptabase上面使用卡片筆記寫成的。總共花了一個下午和半個晚上研究、半個晚上整理成文章。">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="卡片盒筆記寫作有兩種方式 卡片盒筆記的做法，現在網路上很多影片、文章都有教了，所以我就不贅述了，這篇文章主要是記錄我如何在heptabase上面實作卡片盒筆記的方式。目前理解到的用法大致上有兩種方式。 闡述延伸自己論點的做法 google搜尋卡片盒筆記最容易找到的是閱讀前哨戰站長瓦基的文章，張永錫老師有一次有和瓦基、朱騏有直播 ，我在這邊大概知道了瓦基使用heptabase的方式 ，大致上就是持續將相同大分類（同board）的卡片做多張卡片凝聚出共通點、複雜卡片切割成多張不需要上下文即可理解的論述、依照因果關係或層級架構為卡片作出連結。最後依照這個的架構輸出成文章。瓦基卡片盒筆記的文章 不同卡片蹦發出新的東西 在張永錫老師在hahow的卡片盒筆記術 中，教導的寫文章方式，則是直接將所有搜尋到有所關聯的卡片複製到whimsical上面，再來整理排序，變成一張完整的文章。 對我來說 我使用卡片盒筆記的目的是學習知識、整理思路，對於卡片盒筆記術課程中教導的用whimsical 配合notion放卡片，對於長期的專案來說，持續分裂、內聚的卡片很難同步。我的結論是，這套流程只比較適合一次結束的專案。 所以在理清我需要讓專案持續成長，又要能夠視覺化看到因果和層級架構 這件事後，我馬上就花錢訂閱了heptabase。 我實際的做法 整理卡片（收集、整理材料） white board為一項大項知識的庫，在裡面可以持續新增卡片，並且整理出順序。 持續做以下的流程 為簡單的卡片查詢資料 將資料整理成多項能夠獨立闡述內容的卡片（永久卡片） 看看多張卡片可不可以凝聚出共同性，將其抽出來寫成卡片 看看有沒有卡片寫了太多項內容，將內容封裝成多張卡片 如果卡片之間有因果關係、架構層級，為其加上connection。 在這邊要注意一點是，link和connection感覺很相似，我剛開始很混亂，不知道要怎麼使用。因為同時想要能闡述延伸自己論點的做法 、不同卡片蹦發出新的東西 ，所以會想要讓所有卡片之間的關聯都是用connection來連結。但是這個做法會讓畫面變得很混亂，反而會阻礙思考。後來在釐清了我使用卡片筆記的主要用法是闡述延伸自己論點的做法 後，就決定只讓有因係、層級架構關聯的卡片，使用connection，而其他的關聯則是在卡片內文使用link的方式來關聯。這個是在直播裡面學到的瓦基使用link和connect的時機 寫成文章時 把所有想到和這篇文章相關的卡片用bullet list 來link到entry card 這個方法是從瓦基學到的，文章/keyword card/entry卡片上面先用link把所有相關的卡片給連結進來。再來在這張卡片下面開始書寫文章。 這個方法的完全是利用了heptabase的功能。 首先heptabase的list可以隨意拖拉，來初步排列出書寫的順序。這個在各大筆記軟體（notion、evernote等）上的bullet list 其實都可以做得到。 Open in new tab → 再點選所有的link，heptabase會在右邊打開所有卡片，這樣可以快速的複製卡片內容過來變成初稿。 這篇文章大致上描述了我現在會在heptabase上面實作的卡片筆記流程，並且這篇文章也是我第一次在heptabase上面使用卡片筆記寫成的。總共花了一個下午和半個晚上研究、半個晚上整理成文章。">
 <title>我用heptabase來實作卡片盒筆記的方式</title>
 
 <link rel='canonical' href='http://coding.fnsne.com/posts/2022-09-03/heptabase-zettelkasten/'>
 
 <link rel="stylesheet" href="/scss/style.min.019f43d20328dc448a078e45ce0a6f0cf4b41d169e8fced7628c2e067db2a7a8.css"><meta property='og:title' content="我用heptabase來實作卡片盒筆記的方式">
-<meta property='og:description' content="卡片盒筆記寫作有兩種方式 卡片盒筆記的做法，現在網路上很多影片、文章都有教了，所以我就不贅述了，這篇文章主要是記錄我如何在heptabase上面實作卡片盒筆記的方式。目前理解到的用法大致上有兩種方式。 闡述延伸自己論點的做法 google搜尋卡片盒筆記最容易找到的是閱讀前哨戰站長瓦基的文章，張永錫老師有一次有和瓦基、朱騏有直播 ，我在這邊大概知道了瓦基使用heptabase的方式 ，大致上就是持續將相同大分類（同board）的卡片做多張卡片凝聚出共通點、複雜卡片切割成多張不需要上下文即可理解的論述、依照因果關係或層級架構為卡片作出連結。最後依照這個的架構輸出成文章。瓦基卡片盒筆記的文章 不同卡片蹦發出新的東西 在張永錫老師在hahow的卡片盒筆記術 中，教導的寫文章方式，則是直接將所有搜尋到有所關聯的卡片複製到whimsical上面，再來整理排序，變成一張完整的文章。 對我來說 我使用卡片盒筆記的目的是學習知識、整理思路，對於卡片盒筆記術課程中教導的用whimsical 配合notion放卡片，對於長期的專案來說，持續分裂、內聚的卡片很難同步。我的結論是，這套流程只比較適合一次結束的專案。 所以在理清我需要讓專案持續成長，又要能夠視覺化看到因果和層級架構 這件事後，我馬上就花錢訂閱了heptabase。 我實際的做法 整理卡片（收集、整理材料） white board為一項大項知識的庫，在裡面可以持續新增卡片，並且整理出順序。 持續做以下的流程 為簡單的卡片查詢資料 將資料整理成多項能夠獨立闡述內容的卡片（永久卡片） 看看多張卡片可不可以凝聚出共同性，將其抽出來寫成卡片 看看有沒有卡片寫了太多項內容，將內容封裝成多張卡片 如果卡片之間有因果關係、架構層級，為其加上connection。 在這邊要注意一點是，link和connection感覺很相似，我剛開始很混亂，不知道要怎麼使用。因為同時想要能闡述延伸自己論點的做法 、不同卡片蹦發出新的東西 ，所以會想要讓所有卡片之間的關聯都是用connection來連結。但是這個做法會讓畫面變得很混亂，反而會阻礙思考。後來在釐清了我使用卡片筆記的主要用法是闡述延伸自己論點的做法 後，就決定只讓有因係、層級架構關聯的卡片，使用connection，而其他的關聯則是在卡片內文使用link的方式來關聯。這個是在直播裡面學到的瓦基使用link和connect的時機 寫成文章時 把所有想到和這篇文章相關的卡片用bullet list 來link到entry card 這個方法是從瓦基學到的，文章/keyword card/entry卡片上面先用link把所有相關的卡片給連結進來。再來在這張卡片下面開始書寫文章。 entry card 這個方法的完全是利用了heptabase的功能。 首先heptabase的list可以隨意拖拉，來初步排列出書寫的順序。這個在各大筆記軟體（notion、evernote等）上的bullet list 其實都可以做得到。 Open in new tab → 再點選所有的link，heptabase會在右邊打開所有卡片，這樣可以快速的複製卡片內容過來變成初稿。 這篇文章大致上描述了我現在會在heptabase上面實作的卡片筆記流程，並且這篇文章也是我第一次在heptabase上面使用卡片筆記寫成的。總共花了一個下午和半個晚上研究、半個晚上整理成文章。">
+<meta property='og:description' content="卡片盒筆記寫作有兩種方式 卡片盒筆記的做法，現在網路上很多影片、文章都有教了，所以我就不贅述了，這篇文章主要是記錄我如何在heptabase上面實作卡片盒筆記的方式。目前理解到的用法大致上有兩種方式。 闡述延伸自己論點的做法 google搜尋卡片盒筆記最容易找到的是閱讀前哨戰站長瓦基的文章，張永錫老師有一次有和瓦基、朱騏有直播 ，我在這邊大概知道了瓦基使用heptabase的方式 ，大致上就是持續將相同大分類（同board）的卡片做多張卡片凝聚出共通點、複雜卡片切割成多張不需要上下文即可理解的論述、依照因果關係或層級架構為卡片作出連結。最後依照這個的架構輸出成文章。瓦基卡片盒筆記的文章 不同卡片蹦發出新的東西 在張永錫老師在hahow的卡片盒筆記術 中，教導的寫文章方式，則是直接將所有搜尋到有所關聯的卡片複製到whimsical上面，再來整理排序，變成一張完整的文章。 對我來說 我使用卡片盒筆記的目的是學習知識、整理思路，對於卡片盒筆記術課程中教導的用whimsical 配合notion放卡片，對於長期的專案來說，持續分裂、內聚的卡片很難同步。我的結論是，這套流程只比較適合一次結束的專案。 所以在理清我需要讓專案持續成長，又要能夠視覺化看到因果和層級架構 這件事後，我馬上就花錢訂閱了heptabase。 我實際的做法 整理卡片（收集、整理材料） white board為一項大項知識的庫，在裡面可以持續新增卡片，並且整理出順序。 持續做以下的流程 為簡單的卡片查詢資料 將資料整理成多項能夠獨立闡述內容的卡片（永久卡片） 看看多張卡片可不可以凝聚出共同性，將其抽出來寫成卡片 看看有沒有卡片寫了太多項內容，將內容封裝成多張卡片 如果卡片之間有因果關係、架構層級，為其加上connection。 在這邊要注意一點是，link和connection感覺很相似，我剛開始很混亂，不知道要怎麼使用。因為同時想要能闡述延伸自己論點的做法 、不同卡片蹦發出新的東西 ，所以會想要讓所有卡片之間的關聯都是用connection來連結。但是這個做法會讓畫面變得很混亂，反而會阻礙思考。後來在釐清了我使用卡片筆記的主要用法是闡述延伸自己論點的做法 後，就決定只讓有因係、層級架構關聯的卡片，使用connection，而其他的關聯則是在卡片內文使用link的方式來關聯。這個是在直播裡面學到的瓦基使用link和connect的時機 寫成文章時 把所有想到和這篇文章相關的卡片用bullet list 來link到entry card 這個方法是從瓦基學到的，文章/keyword card/entry卡片上面先用link把所有相關的卡片給連結進來。再來在這張卡片下面開始書寫文章。 這個方法的完全是利用了heptabase的功能。 首先heptabase的list可以隨意拖拉，來初步排列出書寫的順序。這個在各大筆記軟體（notion、evernote等）上的bullet list 其實都可以做得到。 Open in new tab → 再點選所有的link，heptabase會在右邊打開所有卡片，這樣可以快速的複製卡片內容過來變成初稿。 這篇文章大致上描述了我現在會在heptabase上面實作的卡片筆記流程，並且這篇文章也是我第一次在heptabase上面使用卡片筆記寫成的。總共花了一個下午和半個晚上研究、半個晚上整理成文章。">
 <meta property='og:url' content='http://coding.fnsne.com/posts/2022-09-03/heptabase-zettelkasten/'>
 <meta property='og:site_name' content='fnsne&#39;s coding world'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='卡片盒筆記' /><meta property='article:tag' content='heptabase' /><meta property='article:published_time' content='2022-09-03T23:18:17&#43;08:00'/><meta property='article:modified_time' content='2022-09-03T23:18:17&#43;08:00'/>
 <meta name="twitter:title" content="我用heptabase來實作卡片盒筆記的方式">
-<meta name="twitter:description" content="卡片盒筆記寫作有兩種方式 卡片盒筆記的做法，現在網路上很多影片、文章都有教了，所以我就不贅述了，這篇文章主要是記錄我如何在heptabase上面實作卡片盒筆記的方式。目前理解到的用法大致上有兩種方式。 闡述延伸自己論點的做法 google搜尋卡片盒筆記最容易找到的是閱讀前哨戰站長瓦基的文章，張永錫老師有一次有和瓦基、朱騏有直播 ，我在這邊大概知道了瓦基使用heptabase的方式 ，大致上就是持續將相同大分類（同board）的卡片做多張卡片凝聚出共通點、複雜卡片切割成多張不需要上下文即可理解的論述、依照因果關係或層級架構為卡片作出連結。最後依照這個的架構輸出成文章。瓦基卡片盒筆記的文章 不同卡片蹦發出新的東西 在張永錫老師在hahow的卡片盒筆記術 中，教導的寫文章方式，則是直接將所有搜尋到有所關聯的卡片複製到whimsical上面，再來整理排序，變成一張完整的文章。 對我來說 我使用卡片盒筆記的目的是學習知識、整理思路，對於卡片盒筆記術課程中教導的用whimsical 配合notion放卡片，對於長期的專案來說，持續分裂、內聚的卡片很難同步。我的結論是，這套流程只比較適合一次結束的專案。 所以在理清我需要讓專案持續成長，又要能夠視覺化看到因果和層級架構 這件事後，我馬上就花錢訂閱了heptabase。 我實際的做法 整理卡片（收集、整理材料） white board為一項大項知識的庫，在裡面可以持續新增卡片，並且整理出順序。 持續做以下的流程 為簡單的卡片查詢資料 將資料整理成多項能夠獨立闡述內容的卡片（永久卡片） 看看多張卡片可不可以凝聚出共同性，將其抽出來寫成卡片 看看有沒有卡片寫了太多項內容，將內容封裝成多張卡片 如果卡片之間有因果關係、架構層級，為其加上connection。 在這邊要注意一點是，link和connection感覺很相似，我剛開始很混亂，不知道要怎麼使用。因為同時想要能闡述延伸自己論點的做法 、不同卡片蹦發出新的東西 ，所以會想要讓所有卡片之間的關聯都是用connection來連結。但是這個做法會讓畫面變得很混亂，反而會阻礙思考。後來在釐清了我使用卡片筆記的主要用法是闡述延伸自己論點的做法 後，就決定只讓有因係、層級架構關聯的卡片，使用connection，而其他的關聯則是在卡片內文使用link的方式來關聯。這個是在直播裡面學到的瓦基使用link和connect的時機 寫成文章時 把所有想到和這篇文章相關的卡片用bullet list 來link到entry card 這個方法是從瓦基學到的，文章/keyword card/entry卡片上面先用link把所有相關的卡片給連結進來。再來在這張卡片下面開始書寫文章。 entry card 這個方法的完全是利用了heptabase的功能。 首先heptabase的list可以隨意拖拉，來初步排列出書寫的順序。這個在各大筆記軟體（notion、evernote等）上的bullet list 其實都可以做得到。 Open in new tab → 再點選所有的link，heptabase會在右邊打開所有卡片，這樣可以快速的複製卡片內容過來變成初稿。 這篇文章大致上描述了我現在會在heptabase上面實作的卡片筆記流程，並且這篇文章也是我第一次在heptabase上面使用卡片筆記寫成的。總共花了一個下午和半個晚上研究、半個晚上整理成文章。">
+<meta name="twitter:description" content="卡片盒筆記寫作有兩種方式 卡片盒筆記的做法，現在網路上很多影片、文章都有教了，所以我就不贅述了，這篇文章主要是記錄我如何在heptabase上面實作卡片盒筆記的方式。目前理解到的用法大致上有兩種方式。 闡述延伸自己論點的做法 google搜尋卡片盒筆記最容易找到的是閱讀前哨戰站長瓦基的文章，張永錫老師有一次有和瓦基、朱騏有直播 ，我在這邊大概知道了瓦基使用heptabase的方式 ，大致上就是持續將相同大分類（同board）的卡片做多張卡片凝聚出共通點、複雜卡片切割成多張不需要上下文即可理解的論述、依照因果關係或層級架構為卡片作出連結。最後依照這個的架構輸出成文章。瓦基卡片盒筆記的文章 不同卡片蹦發出新的東西 在張永錫老師在hahow的卡片盒筆記術 中，教導的寫文章方式，則是直接將所有搜尋到有所關聯的卡片複製到whimsical上面，再來整理排序，變成一張完整的文章。 對我來說 我使用卡片盒筆記的目的是學習知識、整理思路，對於卡片盒筆記術課程中教導的用whimsical 配合notion放卡片，對於長期的專案來說，持續分裂、內聚的卡片很難同步。我的結論是，這套流程只比較適合一次結束的專案。 所以在理清我需要讓專案持續成長，又要能夠視覺化看到因果和層級架構 這件事後，我馬上就花錢訂閱了heptabase。 我實際的做法 整理卡片（收集、整理材料） white board為一項大項知識的庫，在裡面可以持續新增卡片，並且整理出順序。 持續做以下的流程 為簡單的卡片查詢資料 將資料整理成多項能夠獨立闡述內容的卡片（永久卡片） 看看多張卡片可不可以凝聚出共同性，將其抽出來寫成卡片 看看有沒有卡片寫了太多項內容，將內容封裝成多張卡片 如果卡片之間有因果關係、架構層級，為其加上connection。 在這邊要注意一點是，link和connection感覺很相似，我剛開始很混亂，不知道要怎麼使用。因為同時想要能闡述延伸自己論點的做法 、不同卡片蹦發出新的東西 ，所以會想要讓所有卡片之間的關聯都是用connection來連結。但是這個做法會讓畫面變得很混亂，反而會阻礙思考。後來在釐清了我使用卡片筆記的主要用法是闡述延伸自己論點的做法 後，就決定只讓有因係、層級架構關聯的卡片，使用connection，而其他的關聯則是在卡片內文使用link的方式來關聯。這個是在直播裡面學到的瓦基使用link和connect的時機 寫成文章時 把所有想到和這篇文章相關的卡片用bullet list 來link到entry card 這個方法是從瓦基學到的，文章/keyword card/entry卡片上面先用link把所有相關的卡片給連結進來。再來在這張卡片下面開始書寫文章。 這個方法的完全是利用了heptabase的功能。 首先heptabase的list可以隨意拖拉，來初步排列出書寫的順序。這個在各大筆記軟體（notion、evernote等）上的bullet list 其實都可以做得到。 Open in new tab → 再點選所有的link，heptabase會在右邊打開所有卡片，這樣可以快速的複製卡片內容過來變成初稿。 這篇文章大致上描述了我現在會在heptabase上面實作的卡片筆記流程，並且這篇文章也是我第一次在heptabase上面使用卡片筆記寫成的。總共花了一個下午和半個晚上研究、半個晚上整理成文章。">
   
 
 
@@ -392,26 +392,47 @@
 <p>把所有想到和這篇文章相關的卡片用bullet list 來link到entry card</p>
 </blockquote>
 <p>這個方法是從瓦基學到的，文章/keyword card/entry卡片上面先用link把所有相關的卡片給連結進來。再來在這張卡片下面開始書寫文章。</p>
-<figure><img src="/posts/2022-09-03/heptabase-zettelkasten/keyword-card.png"><figcaption>
-      <h4>entry card</h4>
-    </figcaption>
-</figure>
-
+<p><img src="/posts/2022-09-03/heptabase-zettelkasten/keyword-card.png"
+	width="1046"
+	height="660"
+	srcset="/posts/2022-09-03/heptabase-zettelkasten/keyword-card_hu76df4f6a71ac3accc876e30e64ae508e_67058_480x0_resize_box_3.png 480w, /posts/2022-09-03/heptabase-zettelkasten/keyword-card_hu76df4f6a71ac3accc876e30e64ae508e_67058_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="entry card"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="158"
+		data-flex-basis="380px"
+	
+></p>
 <p>這個方法的完全是利用了heptabase的功能。</p>
 <ol>
-<li>
-<p>首先heptabase的list可以隨意拖拉，來初步排列出書寫的順序。這個在各大筆記軟體（notion、evernote等）上的bullet list 其實都可以做得到。
-<figure><img src="https://lh3.googleusercontent.com/oR_Vovjx-cbE9xENfmEpSMzZ35_6DC-_K5kTYVO9WHkiJaHMz0QRpg0me-2dXTrh3Hg0NCARJmJAiIoPjEqEOO9unp_ItgyASM6NQ-Ao_DgT2Hg58W2L0-uogI-Sybf1B36gsw-rzx4=w2400">
-</figure>
-</p>
-</li>
-<li>
-<p>Open in new tab → 再點選所有的link，heptabase會在右邊打開所有卡片，這樣可以快速的複製卡片內容過來變成初稿。
-<figure><img src="https://lh3.googleusercontent.com/EKz6pTXK0nYgLOuf0DSspDZxVUL-kX7Ql7x8AeaUrSBz4bpbi9ADa-Uu1sgPtsSDS7iDDthbjz1Jt8t7hq7fTfI0H7YtDZj9d5SgPAvd30j_niOwIwQJC5zblwlC-mmCbEcufSQ_xIY=w2400">
-</figure>
-</p>
-</li>
+<li>首先heptabase的list可以隨意拖拉，來初步排列出書寫的順序。這個在各大筆記軟體（notion、evernote等）上的bullet list 其實都可以做得到。</li>
 </ol>
+<p><img src="https://lh3.googleusercontent.com/oR_Vovjx-cbE9xENfmEpSMzZ35_6DC-_K5kTYVO9WHkiJaHMz0QRpg0me-2dXTrh3Hg0NCARJmJAiIoPjEqEOO9unp_ItgyASM6NQ-Ao_DgT2Hg58W2L0-uogI-Sybf1B36gsw-rzx4=w2400"
+	
+	
+	
+	loading="lazy"
+	
+		alt="123"
+	
+	
+></p>
+<ol start="2">
+<li>Open in new tab → 再點選所有的link，heptabase會在右邊打開所有卡片，這樣可以快速的複製卡片內容過來變成初稿。</li>
+</ol>
+<p><img src="https://lh3.googleusercontent.com/EKz6pTXK0nYgLOuf0DSspDZxVUL-kX7Ql7x8AeaUrSBz4bpbi9ADa-Uu1sgPtsSDS7iDDthbjz1Jt8t7hq7fTfI0H7YtDZj9d5SgPAvd30j_niOwIwQJC5zblwlC-mmCbEcufSQ_xIY=w2400"
+	
+	
+	
+	loading="lazy"
+	
+		alt="123"
+	
+	
+></p>
 <p>這篇文章大致上描述了我現在會在heptabase上面實作的卡片筆記流程，並且這篇文章也是我第一次在heptabase上面使用卡片筆記寫成的。總共花了一個下午和半個晚上研究、半個晚上整理成文章。</p>
 
 </section>

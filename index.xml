@@ -178,13 +178,22 @@
 &lt;p&gt;編輯 &lt;code&gt;/etc/fstab&lt;/code&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vim /etc/fstab
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;把檔案裡面 &lt;code&gt;/swapfile &lt;/code&gt;開頭的這行註解掉&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/d-%E5%9C%A8%E4%B9%BE%E6%B7%A8%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8Bk8s%E7%92%B0%E5%A2%83/edit-swap.png&#34;&gt;&lt;figcaption&gt;
-         &lt;h4&gt;編輯swap的畫面.png&lt;/h4&gt;
-       &lt;/figcaption&gt;
-   &lt;/figure&gt;
-
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/d-%E5%9C%A8%E4%B9%BE%E6%B7%A8%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8Bk8s%E7%92%B0%E5%A2%83/edit-swap.png&#34;
+	width=&#34;718&#34;
+	height=&#34;177&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/d-%E5%9C%A8%E4%B9%BE%E6%B7%A8%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8Bk8s%E7%92%B0%E5%A2%83/edit-swap_hu9c81197473fbd2c64ac565bd0078aaf2_104429_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/d-%E5%9C%A8%E4%B9%BE%E6%B7%A8%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8Bk8s%E7%92%B0%E5%A2%83/edit-swap_hu9c81197473fbd2c64ac565bd0078aaf2_104429_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;編輯swap的畫面.png&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;405&#34;
+		data-flex-basis=&#34;973px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;h3 id=&#34;安裝docker&#34;&gt;安裝docker
 &lt;/h3&gt;&lt;ol&gt;
 &lt;li&gt;
@@ -524,17 +533,35 @@
 &lt;/table&gt;
 &lt;h2 id=&#34;鎖想解決的問題&#34;&gt;鎖想解決的問題
 &lt;/h2&gt;&lt;p&gt;在多核心多執行序問世之前的單核心的時代，是一個核心切換來切換去的做不同事，在時間區間上每個時間點都只有一個process正在被cpu執行，如下圖。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/single-core.jpg&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;單核心運作示意圖&lt;/h4&gt;
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/single-core.jpg&#34;
+	width=&#34;1255&#34;
+	height=&#34;759&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/single-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_77858_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/single-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_77858_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;單核心運作示意圖&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;165&#34;
+		data-flex-basis=&#34;396px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;p&gt;而在多核心問世以後開始會出現一些問題，如下圖。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/multi-core.jpg&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;多核心的運作示意圖&lt;/h4&gt;
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/multi-core.jpg&#34;
+	width=&#34;1255&#34;
+	height=&#34;713&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/multi-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_78620_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/multi-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_78620_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;多核心的運作示意圖&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;176&#34;
+		data-flex-basis=&#34;422px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;p&gt;開始會發生圖上，兩個核心會同時執行不同的process ，這個時候可能會發生互相改到資料的問題。例如process B和D是要在印表機上面印出現在電腦的時間，就有可能會發生一下的輸出：&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;假設兩個核心在執行processB和D的時間點是&lt;code&gt;15:38&lt;/code&gt;和&lt;code&gt;15:40&lt;/code&gt;&lt;/p&gt;
@@ -740,26 +767,47 @@
 &lt;p&gt;把所有想到和這篇文章相關的卡片用bullet list 來link到entry card&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;這個方法是從瓦基學到的，文章/keyword card/entry卡片上面先用link把所有相關的卡片給連結進來。再來在這張卡片下面開始書寫文章。&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/2022-09-03/heptabase-zettelkasten/keyword-card.png&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;entry card&lt;/h4&gt;
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/2022-09-03/heptabase-zettelkasten/keyword-card.png&#34;
+	width=&#34;1046&#34;
+	height=&#34;660&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/2022-09-03/heptabase-zettelkasten/keyword-card_hu76df4f6a71ac3accc876e30e64ae508e_67058_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/2022-09-03/heptabase-zettelkasten/keyword-card_hu76df4f6a71ac3accc876e30e64ae508e_67058_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;entry card&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;158&#34;
+		data-flex-basis=&#34;380px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;p&gt;這個方法的完全是利用了heptabase的功能。&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;首先heptabase的list可以隨意拖拉，來初步排列出書寫的順序。這個在各大筆記軟體（notion、evernote等）上的bullet list 其實都可以做得到。
-&lt;figure&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/oR_Vovjx-cbE9xENfmEpSMzZ35_6DC-_K5kTYVO9WHkiJaHMz0QRpg0me-2dXTrh3Hg0NCARJmJAiIoPjEqEOO9unp_ItgyASM6NQ-Ao_DgT2Hg58W2L0-uogI-Sybf1B36gsw-rzx4=w2400&#34;&gt;
-&lt;/figure&gt;
-&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Open in new tab → 再點選所有的link，heptabase會在右邊打開所有卡片，這樣可以快速的複製卡片內容過來變成初稿。
-&lt;figure&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/EKz6pTXK0nYgLOuf0DSspDZxVUL-kX7Ql7x8AeaUrSBz4bpbi9ADa-Uu1sgPtsSDS7iDDthbjz1Jt8t7hq7fTfI0H7YtDZj9d5SgPAvd30j_niOwIwQJC5zblwlC-mmCbEcufSQ_xIY=w2400&#34;&gt;
-&lt;/figure&gt;
-&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;首先heptabase的list可以隨意拖拉，來初步排列出書寫的順序。這個在各大筆記軟體（notion、evernote等）上的bullet list 其實都可以做得到。&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/oR_Vovjx-cbE9xENfmEpSMzZ35_6DC-_K5kTYVO9WHkiJaHMz0QRpg0me-2dXTrh3Hg0NCARJmJAiIoPjEqEOO9unp_ItgyASM6NQ-Ao_DgT2Hg58W2L0-uogI-Sybf1B36gsw-rzx4=w2400&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;123&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Open in new tab → 再點選所有的link，heptabase會在右邊打開所有卡片，這樣可以快速的複製卡片內容過來變成初稿。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;https://lh3.googleusercontent.com/EKz6pTXK0nYgLOuf0DSspDZxVUL-kX7Ql7x8AeaUrSBz4bpbi9ADa-Uu1sgPtsSDS7iDDthbjz1Jt8t7hq7fTfI0H7YtDZj9d5SgPAvd30j_niOwIwQJC5zblwlC-mmCbEcufSQ_xIY=w2400&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;123&#34;
+	
+	
+&gt;&lt;/p&gt;
 &lt;p&gt;這篇文章大致上描述了我現在會在heptabase上面實作的卡片筆記流程，並且這篇文章也是我第一次在heptabase上面使用卡片筆記寫成的。總共花了一個下午和半個晚上研究、半個晚上整理成文章。&lt;/p&gt;
 </description>
         </item>
@@ -849,18 +897,36 @@
         <pubDate>Thu, 01 Sep 2022 20:21:30 +0800</pubDate>
         
         <guid>http://coding.fnsne.com/posts/2022-09-01/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/</guid>
-        <description>&lt;p&gt;最近開始使用Goland來用hugo寫部落格文章，之前markdown的preview分頁都還很正常，但到了今天，突然之間只剩下一般的編輯界面，而且Goland好像還把它識別為html,旁邊會出現在各種瀏覽器上面的按鈕。
-&lt;figure&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/2022-09-01/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-markdown_detected_wrong.jpg&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;偵測成html&lt;/h4&gt;
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;/p&gt;
-&lt;p&gt;而且使用hugo的shortcode還會出現網頁相關的錯誤訊息，在設定裡面查了一陣子才發現到。關於檔案的偵測少了&lt;code&gt;.md&lt;/code&gt;的部分，只剩下&lt;code&gt;markdown&lt;/code&gt;的部分
-&lt;figure&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/2022-09-01/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-fileTypeMarkDownSetting.jpg&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;settings -&amp;gt; Editor -&amp;gt; File Type&lt;/h4&gt;
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;/p&gt;
+        <description>&lt;p&gt;最近開始使用Goland來用hugo寫部落格文章，之前markdown的preview分頁都還很正常，但到了今天，突然之間只剩下一般的編輯界面，而且Goland好像還把它識別為html,旁邊會出現在各種瀏覽器上面的按鈕。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/2022-09-01/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-markdown_detected_wrong.jpg&#34;
+	width=&#34;384&#34;
+	height=&#34;143&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/2022-09-01/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-markdown_detected_wrong_huaf8f8d9afbbf12ddd7a02df886fbcd51_10326_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/2022-09-01/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-markdown_detected_wrong_huaf8f8d9afbbf12ddd7a02df886fbcd51_10326_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;偵測成html&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;268&#34;
+		data-flex-basis=&#34;644px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;而且使用hugo的shortcode還會出現網頁相關的錯誤訊息，在設定裡面查了一陣子才發現到。關於檔案的偵測少了&lt;code&gt;.md&lt;/code&gt;的部分，只剩下&lt;code&gt;markdown&lt;/code&gt;的部分&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/2022-09-01/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-fileTypeMarkDownSetting.jpg&#34;
+	width=&#34;1324&#34;
+	height=&#34;763&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/2022-09-01/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-fileTypeMarkDownSetting_huaf8f8d9afbbf12ddd7a02df886fbcd51_83783_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/2022-09-01/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-fileTypeMarkDownSetting_huaf8f8d9afbbf12ddd7a02df886fbcd51_83783_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;settings -&amp;gt; Editor -&amp;gt; File Type&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;173&#34;
+		data-flex-basis=&#34;416px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;p&gt;將&lt;code&gt;*.md&lt;/code&gt;加上去，一切的紅底線、還有markdown就都全部回來了。&lt;/p&gt;
 </description>
         </item>
@@ -872,23 +938,50 @@
         <guid>http://coding.fnsne.com/posts/2022-09-01/cloudflare_ssl_in_redirect_loop/</guid>
         <description>&lt;h1 id=&#34;內文&#34;&gt;內文
 &lt;/h1&gt;&lt;p&gt;最近在godaddy上面購買網域，然後使用cloudflare來申請ssl並弄成https的連線。結果今天上來看blog卻發現進不去，錯誤訊息是太多的redirect了。
-打開F12重整看看，還真的是持續進行著
-&lt;figure&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/2022-09-01/cloudflare_ssl_in_redirect_loop/2022-09-01-repeat301.jpg&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;重複redirect到首頁的情況&lt;/h4&gt;
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;/p&gt;
+打開F12重整看看，還真的是持續進行著&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/2022-09-01/cloudflare_ssl_in_redirect_loop/2022-09-01-repeat301.jpg&#34;
+	width=&#34;962&#34;
+	height=&#34;594&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/2022-09-01/cloudflare_ssl_in_redirect_loop/2022-09-01-repeat301_hu0f868d73a597a61d8aca0cc112005036_100170_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/2022-09-01/cloudflare_ssl_in_redirect_loop/2022-09-01-repeat301_hu0f868d73a597a61d8aca0cc112005036_100170_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;重複redirect到首頁的情況&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;161&#34;
+		data-flex-basis=&#34;388px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;p&gt;經過一段研究，發現只是這個問題很sssssssss多人有遇到，只是因為CloudFlare的SSL設定設到了Flexible&lt;/p&gt;
-&lt;figure&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/2022-09-01/cloudflare_ssl_in_redirect_loop/2022-09-01-wrongSSL_setting.jpg&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;造成迴圈的ssl設定&lt;/h4&gt;
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;figure&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/2022-09-01/cloudflare_ssl_in_redirect_loop/2022-09-01-rightSSL-setting.jpg&#34;&gt;&lt;figcaption&gt;
-      &lt;h4&gt;正確的設定&lt;/h4&gt;
-    &lt;/figcaption&gt;
-&lt;/figure&gt;
-
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/2022-09-01/cloudflare_ssl_in_redirect_loop/2022-09-01-wrongSSL_setting.jpg&#34;
+	width=&#34;1353&#34;
+	height=&#34;600&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/2022-09-01/cloudflare_ssl_in_redirect_loop/2022-09-01-wrongSSL_setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_73300_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/2022-09-01/cloudflare_ssl_in_redirect_loop/2022-09-01-wrongSSL_setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_73300_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;造成迴圈的ssl設定&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;225&#34;
+		data-flex-basis=&#34;541px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/2022-09-01/cloudflare_ssl_in_redirect_loop/2022-09-01-rightSSL-setting.jpg&#34;
+	width=&#34;1319&#34;
+	height=&#34;610&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/2022-09-01/cloudflare_ssl_in_redirect_loop/2022-09-01-rightSSL-setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_77068_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/2022-09-01/cloudflare_ssl_in_redirect_loop/2022-09-01-rightSSL-setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_77068_1024x0_resize_q75_box.jpg 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;正確的設定&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;216&#34;
+		data-flex-basis=&#34;518px&#34;
+	
+&gt;&lt;/p&gt;
 &lt;h1 id=&#34;參考資料&#34;&gt;參考資料
 &lt;/h1&gt;&lt;p&gt;{&amp;lt; link &amp;ldquo;&lt;a class=&#34;link&#34; href=&#34;https://community.cloudflare.com/t/error-301-on-dns-and-http-proxy/77699%22&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://community.cloudflare.com/t/error-301-on-dns-and-http-proxy/77699&#34;&lt;/a&gt; &amp;gt;}}&lt;/p&gt;

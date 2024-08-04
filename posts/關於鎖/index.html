@@ -4,11 +4,11 @@
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="關於鎖(lock) 畢業後，太久沒有用到相關的東西，概念開始有點混淆了，所以拿出恐龍本讀回來。順便做一篇筆記 一些專有名詞 名稱 說明 cooperation process （協作行程） 會操作到共同資源的不同process critical section 在各種cooperation process 裡面會操作到共同資源的code區塊 鎖想解決的問題 在多核心多執行序問世之前的單核心的時代，是一個核心切換來切換去的做不同事，在時間區間上每個時間點都只有一個process正在被cpu執行，如下圖。 而在多核心問世以後開始會出現一些問題，如下圖。 開始會發生圖上，兩個核心會同時執行不同的process ，這個時候可能會發生互相改到資料的問題。例如process B和D是要在印表機上面印出現在電腦的時間，就有可能會發生一下的輸出： 假設兩個核心在執行processB和D的時間點是15:38和15:40 15:153:840 這是因為兩個核心互相搶著輸出到印表機，但是順序亂掉的緣故。為了解決這個問題，鎖的概念被提了出來。 鎖的用途 用來保護注critical section（以上面的例子來看，是Process B和Process D裡面，執行輸出資料到印表機的code block）。強制這兩個critical section，在同一個時間裡面，頂多只能有一個執行，另一個想要執行，得要等到另一個結束後，才能開始動作。 鎖的種類 mutex lock（互斥鎖） 又稱自旋鎖，會讓這個process一直卡在loop裡面，直到能夠存取資料後，才跳出迴圈，開始執行這個critical section。 因為實際上是一直在執行loop的狀態下做等待資源釋放的，所以它不需要使用到context switch，在獲得資源後的切換速度很快。所以常常被使用在共用資源都只會被佔用短短時間的情境下使用。 mutex lock的概念是一個被相同mutex lock保護起來的多個critical section，一個時間裡只能有一個被執行，其他都得要等待它mutex lock釋放後，才能繼續搶，搶到的才能執行。 semaphore lock（號誌鎖） 和mutex lock不同，可以設定資源同一時間下，最多可以有S個process同時執行，當同時執行的critical section數目大於S時，會被停下來，等待到同時執行的critical section小於S時，才能繼續搶進去執行。 如果要用mutex lock的方式執行，會讓很多process一直在執行loop，對於資源的浪費太大了，所以在semaphore lock的時候，會採用將process 暫停，將address存到lock S 的list裡面。等到有process把S給釋放，此時CPU會將S裡面的list，取出一個process出來執行。 我混淆的概念釐清 鎖不是鎖住cpu，而是鎖住其他一樣需要這個鎖的process，讓同一個鎖保護的同一個（或者不同個）critical section ，一次最多只能有1（或者semaphore lock設定的數字）個process存取。 被鎖保護住的critical section，只要裡面有存取某個共用資源的code，就能讓這項資源被鎖給保護，不被濫用。 結論 鎖的概念就是為了要保護有限的資源，不要被無限的取用。例如可以利用鎖來保護對同一個檔案的更改，讓這個檔案一次只能被一個process更新，防止檔案內資料變得亂七八糟的。">
 <title>關於鎖</title>
 
-<link rel='canonical' href='http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/'>
+<link rel='canonical' href='http://coding.fnsne.com/posts/%E9%97%9C%E6%96%BC%E9%8E%96/'>
 
 <link rel="stylesheet" href="/scss/style.min.019f43d20328dc448a078e45ce0a6f0cf4b41d169e8fced7628c2e067db2a7a8.css"><meta property='og:title' content="關於鎖">
 <meta property='og:description' content="關於鎖(lock) 畢業後，太久沒有用到相關的東西，概念開始有點混淆了，所以拿出恐龍本讀回來。順便做一篇筆記 一些專有名詞 名稱 說明 cooperation process （協作行程） 會操作到共同資源的不同process critical section 在各種cooperation process 裡面會操作到共同資源的code區塊 鎖想解決的問題 在多核心多執行序問世之前的單核心的時代，是一個核心切換來切換去的做不同事，在時間區間上每個時間點都只有一個process正在被cpu執行，如下圖。 而在多核心問世以後開始會出現一些問題，如下圖。 開始會發生圖上，兩個核心會同時執行不同的process ，這個時候可能會發生互相改到資料的問題。例如process B和D是要在印表機上面印出現在電腦的時間，就有可能會發生一下的輸出： 假設兩個核心在執行processB和D的時間點是15:38和15:40 15:153:840 這是因為兩個核心互相搶著輸出到印表機，但是順序亂掉的緣故。為了解決這個問題，鎖的概念被提了出來。 鎖的用途 用來保護注critical section（以上面的例子來看，是Process B和Process D裡面，執行輸出資料到印表機的code block）。強制這兩個critical section，在同一個時間裡面，頂多只能有一個執行，另一個想要執行，得要等到另一個結束後，才能開始動作。 鎖的種類 mutex lock（互斥鎖） 又稱自旋鎖，會讓這個process一直卡在loop裡面，直到能夠存取資料後，才跳出迴圈，開始執行這個critical section。 因為實際上是一直在執行loop的狀態下做等待資源釋放的，所以它不需要使用到context switch，在獲得資源後的切換速度很快。所以常常被使用在共用資源都只會被佔用短短時間的情境下使用。 mutex lock的概念是一個被相同mutex lock保護起來的多個critical section，一個時間裡只能有一個被執行，其他都得要等待它mutex lock釋放後，才能繼續搶，搶到的才能執行。 semaphore lock（號誌鎖） 和mutex lock不同，可以設定資源同一時間下，最多可以有S個process同時執行，當同時執行的critical section數目大於S時，會被停下來，等待到同時執行的critical section小於S時，才能繼續搶進去執行。 如果要用mutex lock的方式執行，會讓很多process一直在執行loop，對於資源的浪費太大了，所以在semaphore lock的時候，會採用將process 暫停，將address存到lock S 的list裡面。等到有process把S給釋放，此時CPU會將S裡面的list，取出一個process出來執行。 我混淆的概念釐清 鎖不是鎖住cpu，而是鎖住其他一樣需要這個鎖的process，讓同一個鎖保護的同一個（或者不同個）critical section ，一次最多只能有1（或者semaphore lock設定的數字）個process存取。 被鎖保護住的critical section，只要裡面有存取某個共用資源的code，就能讓這項資源被鎖給保護，不被濫用。 結論 鎖的概念就是為了要保護有限的資源，不要被無限的取用。例如可以利用鎖來保護對同一個檔案的更改，讓這個檔案一次只能被一個process更新，防止檔案內資料變得亂七八糟的。">
-<meta property='og:url' content='http://coding.fnsne.com/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/'>
+<meta property='og:url' content='http://coding.fnsne.com/posts/%E9%97%9C%E6%96%BC%E9%8E%96/'>
 <meta property='og:site_name' content='fnsne&#39;s coding world'>
 <meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='lock' /><meta property='article:tag' content='作業系統' /><meta property='article:tag' content='同步' /><meta property='article:published_time' content='2022-09-20T16:35:44&#43;08:00'/><meta property='article:modified_time' content='2022-09-20T16:35:44&#43;08:00'/>
 <meta name="twitter:title" content="關於鎖">
@@ -287,7 +287,7 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/">關於鎖</a>
+            <a href="/posts/%E9%97%9C%E6%96%BC%E9%8E%96/">關於鎖</a>
         </h2>
     
         
@@ -362,10 +362,10 @@
 </table></div>
 <h2 id="鎖想解決的問題">鎖想解決的問題
 </h2><p>在多核心多執行序問世之前的單核心的時代，是一個核心切換來切換去的做不同事，在時間區間上每個時間點都只有一個process正在被cpu執行，如下圖。</p>
-<p><img src="/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/single-core.jpg"
+<p><img src="/posts/%E9%97%9C%E6%96%BC%E9%8E%96/single-core.jpg"
 	width="1255"
 	height="759"
-	srcset="/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/single-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_77858_480x0_resize_q75_box.jpg 480w, /posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/single-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_77858_1024x0_resize_q75_box.jpg 1024w"
+	srcset="/posts/%E9%97%9C%E6%96%BC%E9%8E%96/single-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_77858_480x0_resize_q75_box.jpg 480w, /posts/%E9%97%9C%E6%96%BC%E9%8E%96/single-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_77858_1024x0_resize_q75_box.jpg 1024w"
 	loading="lazy"
 	
 		alt="單核心運作示意圖"
@@ -377,10 +377,10 @@
 	
 ></p>
 <p>而在多核心問世以後開始會出現一些問題，如下圖。</p>
-<p><img src="/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/multi-core.jpg"
+<p><img src="/posts/%E9%97%9C%E6%96%BC%E9%8E%96/multi-core.jpg"
 	width="1255"
 	height="713"
-	srcset="/posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/multi-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_78620_480x0_resize_q75_box.jpg 480w, /posts/2022-09-20/%E9%97%9C%E6%96%BC%E9%8E%96/multi-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_78620_1024x0_resize_q75_box.jpg 1024w"
+	srcset="/posts/%E9%97%9C%E6%96%BC%E9%8E%96/multi-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_78620_480x0_resize_q75_box.jpg 480w, /posts/%E9%97%9C%E6%96%BC%E9%8E%96/multi-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_78620_1024x0_resize_q75_box.jpg 1024w"
 	loading="lazy"
 	
 		alt="多核心的運作示意圖"
@@ -488,7 +488,7 @@
             
                 
 <article class="">
-    <a href="/posts/2022-09-14/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/">
+    <a href="/posts/%E8%B3%87%E6%96%99%E5%BA%AB%E7%9A%84%E5%90%8C%E6%AD%A5/">
         
         
 

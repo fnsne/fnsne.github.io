@@ -9,10 +9,10 @@
         <copyright>fnsne</copyright>
         <lastBuildDate>Fri, 02 Sep 2022 14:36:26 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/page-bundle/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Hugo  Bundle問題</title>
-        <link>http://coding.fnsne.com/posts/2022-09-02/hugo-bundle%E5%95%8F%E9%A1%8C/</link>
+        <link>http://coding.fnsne.com/posts/hugo-bundle%E5%95%8F%E9%A1%8C/</link>
         <pubDate>Fri, 02 Sep 2022 14:36:26 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/2022-09-02/hugo-bundle%E5%95%8F%E9%A1%8C/</guid>
+        <guid>http://coding.fnsne.com/posts/hugo-bundle%E5%95%8F%E9%A1%8C/</guid>
         <description>&lt;h1 id=&#34;描述&#34;&gt;描述
 &lt;/h1&gt;&lt;p&gt;原本在hugo上面放文章是把所有的文章和圖片都放在&lt;code&gt;content/posts/&lt;/code&gt;裡面用文章來分類。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;content/posts/

@@ -13,14 +13,11 @@
         <pubDate>Thu, 04 Jul 2024 21:09:08 +0800</pubDate>
         
         <guid>http://coding.fnsne.com/posts/%E5%A6%82%E4%BD%95%E7%94%A8certbot%E7%94%B3%E8%AB%8B-lets-encrypt-%E7%9A%84%E6%86%91%E8%AD%89/</guid>
-        <description>&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;安裝certbot&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install certbot
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;使用certbot申請SSL憑證&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo certbot certonly -d &amp;lt;DOMAINNAME&amp;gt; --manual
+        <description>&lt;h2 id=&#34;1-安裝certbot&#34;&gt;1. 安裝certbot
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install certbot
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-使用certbot申請ssl憑證&#34;&gt;2. 使用certbot申請SSL憑證
+&lt;/h2&gt;&lt;h3 id=&#34;手動驗證manual&#34;&gt;手動驗證（manual)
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo certbot certonly -d &amp;lt;DOMAINNAME&amp;gt; --manual
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;certonly&lt;/code&gt;：表示只需要申請憑證即可。certbot還有支援一些常見的server替換SSL的功能，如apache、nginx等&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;--manual&lt;/code&gt;：表示要使用互動界面來申請憑證。&lt;/li&gt;
@@ -28,8 +25,6 @@
 &lt;blockquote&gt;
 &lt;p&gt;注意：使用&amp;ndash;manual的方式申請的憑證，除非有配合使用其它驗證插件，否則無法自動renew。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
 &lt;p&gt;這個方式申請的憑證有提供兩種預設方式驗證&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;會產生一個challenge檔案，然後讓我們放到要使用這個憑證的機器（至少是這個domain name會連到的機器）的根目錄下指定的資料夾，讓ACME驗證可以使用申請的domain name加上給定的ACME資料夾，拿到申請的檔案。&lt;/li&gt;
@@ -40,21 +35,17 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;certbot會在申請的互動界面，產生一個申請憑證網域的challenge key和value，申請人要到DNS託管服務，例如GoDaddy、AWS Route53等服務上，對要申請憑證的網域使用certbot產出的key value來建立一筆TXT設定，讓Let’s Encrypt確定要申請的網域是屬於你的。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;使用route53插件驗證&#34;&gt;使用Route53插件驗證
-&lt;/h2&gt;&lt;p&gt;其實就是藉由Route53的API，讓插件替我們做完把ACME Chellenge TXT設定到DNS Server上的這段流程。所以需要設定AWS的access client到申請憑證的機器上。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;安裝certbot-dns-route53&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install python3-certbot-dns-route53
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;其它plugin的名稱也是使用相同的pattern: &lt;code&gt;python3-certbot-dns-&amp;lt;PLUGIN&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;設定AWS的access client&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;到AWS設定一個Policy&lt;/p&gt;
+&lt;h3 id=&#34;使用route53插件驗證&#34;&gt;使用Route53插件驗證
+&lt;/h3&gt;&lt;p&gt;其實就是藉由Route53的API，讓插件替我們做完把ACME Chellenge TXT設定到DNS Server上的這段流程。所以需要設定AWS的access client到申請憑證的機器上。&lt;/p&gt;
+&lt;h4 id=&#34;1-安裝certbot-dns-route53&#34;&gt;1. 安裝certbot-dns-route53
+&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; sudo apt install python3-certbot-dns-route53
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;其它plugin的名稱也是使用相同的pattern: &lt;code&gt;python3-certbot-dns-&amp;lt;PLUGIN&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;2-設定aws的access-client&#34;&gt;2. 設定AWS的access client
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;到AWS設定一個Policy&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Version&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2012-10-17&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;Id&amp;#34;: &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;certbot-dns-route53 sample policy&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
@@ -88,23 +79,23 @@
 &lt;p&gt;&lt;code&gt;YOURHOSTEDZONEID&lt;/code&gt;：去Route53點選要設定的domain name，就會寫出它的host zone ID（託管區域ID）了。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
+&lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;
 &lt;p&gt;建立一個IAM account，並且授予它上面的policy權限&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;在要執行certbot的機器上建立一個config檔，叫~/.aws/config內容如下&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[default]
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;aws_access_key_id=&amp;lt;IAM的ID&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;aws_secret_access_key=&amp;lt;IAM的secret key&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;注意，如果執行certbot需要使用sudo來執行，這個config必須改放到&lt;code&gt;/root/.aws/config&lt;/code&gt;。&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;/li&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;執行certbot&lt;/li&gt;
 &lt;/ol&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;執行certbot&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo certbot certonly --dns-route53 -d rd2.team.araliadata.io
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;
@@ -114,9 +105,9 @@
 &lt;p&gt;&lt;code&gt;—-post-hook&lt;/code&gt;：當certbot完成執行後，會在本地執行的動作。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;設定排程執行&lt;code&gt;sudo certbot renew&lt;/code&gt;，它會自行檢查是否有憑證快要到期了，如果快要到期才會真的再次申請新的憑證下來。&lt;/p&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;設定排程執行&lt;code&gt;sudo certbot renew&lt;/code&gt;，它會自行檢查是否有憑證快要到期了，如果快要到期才會真的再次申請新的憑證下來。&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo certbot renew --cert-name &amp;lt;憑證名稱&amp;gt; --post-hook &amp;#34;docker compose -f /home/bigobject/data-planet-testbed/ambrose/docker-compose.yml down &amp;amp; /home/bigobject/data-planet-testbed/ambrose/docker-compose.yml up -d&amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;
@@ -129,9 +120,7 @@
 &lt;p&gt;ex: 每週一檢查一次&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;#sudo crontab -e
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;0 0 * * 1 sudo certbot renew --cert-name rd2.team.araliadata.io --post-hook &amp;#34;docker compose -f /home/bigobject/data-planet-testbed/ambrose/docker-compose.yml down &amp;amp; /home/bigobject/data-planet-testbed/ambrose/docker-compose.yml up -d&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;提醒&#34;&gt;提醒
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;提醒&#34;&gt;提醒
 &lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;可以先加上 &lt;code&gt;--dry-run&lt;/code&gt; ，用來測試server申請憑證是否能成功，以防操作太多次，超過額度，不給申請。&lt;/p&gt;

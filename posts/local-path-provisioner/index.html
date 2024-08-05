@@ -250,6 +250,20 @@
             <nav id="TableOfContents">
   <ol>
     <li><a href="#安裝">安裝</a></li>
+    <li><a href="#使用configmap來給予設定">使用configmap來給予設定</a>
+      <ol>
+        <li><a href="#configjson說明">config.json說明</a>
+          <ol>
+            <li><a href="#nodepathmap">nodePathMap</a></li>
+            <li><a href="#sharedfilesystempath">sharedFileSystemPath</a></li>
+            <li><a href="#setup">setup</a></li>
+            <li><a href="#teardown">teardown</a></li>
+            <li><a href="#helperpodyaml">helperPod.yaml</a></li>
+            <li><a href="#setup和teardown上面可以使用的環境變數">setup和teardown上面可以使用的環境變數</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
     <li><a href="#設定storageclass來驅動local-path-provisioner">設定storageClass來驅動local-path-provisioner</a></li>
   </ol>
 </nav>
@@ -339,12 +353,10 @@
 <h2 id="安裝">安裝
 </h2><p>command</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/v0.0.24/deploy/local-path-storage.yaml
-</span></span></code></pre></div><blockquote>
-<p>會建立<code>local-path-storage</code>這個namespace，要查看運行狀態，可以到裡面看log</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> kubectl -n local-path-storage logs pods/local-path-provisioner-7f8667b75c-hjrrb
-</span></span></code></pre></div></blockquote>
-<p>使用configmap來給予設定</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ConfigMap</span><span class="w">
+</span></span></code></pre></div><p>會建立<code>local-path-storage</code>這個namespace，要查看運行狀態，可以到裡面看log</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">  kubectl -n local-path-storage logs pods/local-path-provisioner-7f8667b75c-hjrrb
+</span></span></code></pre></div><h2 id="使用configmap來給予設定">使用configmap來給予設定
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ConfigMap</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">local-path-config</span><span class="w">
@@ -384,10 +396,9 @@
 </span></span></span><span class="line"><span class="cl"><span class="sd">          containers:
 </span></span></span><span class="line"><span class="cl"><span class="sd">          - name: helper-pod
 </span></span></span><span class="line"><span class="cl"><span class="sd">            image: busybox</span><span class="w">        
-</span></span></span></code></pre></div><ul>
-<li>config.json說明
-<ul>
-<li><code>nodePathMap</code>：用來表示在各自的Node上，存資料的位置，規則如下
+</span></span></span></code></pre></div><h3 id="configjson說明">config.json說明
+</h3><h4 id="nodepathmap">nodePathMap
+</h4><p>用來表示在各自的Node上，存資料的位置，規則如下</p>
 <ul>
 <li>沒有設定path的node會套用<code>DEFAULT_PATH_FOR_NON_LISTED_NODES</code>的設定</li>
 <li>如果有列出來，但path是空的，代表這個Node不會允許用local-path-provisioner來建pv</li>
@@ -397,23 +408,20 @@
 <li>同一個node不能重複列出來。</li>
 <li>不允許使用<code>/</code> 根目錄</li>
 </ul>
-</li>
-<li><code>sharedFileSystemPath</code>:
-<ul>
+<h4 id="sharedfilesystempath">sharedFileSystemPath
+</h4><ul>
 <li>假如有一個file system有被mount在所有的Node上時，可以使用這個設定來指定，指定都用同一個位置。</li>
 <li>和nodePathMap互斥，所以當有使用<code>sharedFileSystemPath</code>時，<code>nodePathMap</code>一定要是<code>[]</code></li>
 <li>只有使用了<code>sharedFileSystemPath</code>時，才會支援<code>ReadOnlyMany</code>、<code>ReadWriteMany</code></li>
 </ul>
-</li>
-</ul>
-</li>
-<li><code>setup</code>: 每個volume在建立之前會先做的script，用來準備node上volume資料夾用。</li>
-<li><code>teardown</code>：每個volume在被刪掉後會做的script，用來清掉node上volume資料夾用。</li>
-<li><code>helperPod.yaml</code>：用來執行setup和teardown的pod template</li>
-<li>setup和teardown上面可以使用的環境變數：
-<ul>
-<li>
-<div class="table-wrapper"><table>
+<h4 id="setup">setup
+</h4><p>每個volume在建立之前會先做的script，用來準備node上volume資料夾用。</p>
+<h4 id="teardown">teardown
+</h4><p>每個volume在被刪掉後會做的script，用來清掉node上volume資料夾用。</p>
+<h4 id="helperpodyaml">helperPod.yaml
+</h4><p>用來執行setup和teardown的pod template</p>
+<h4 id="setup和teardown上面可以使用的環境變數">setup和teardown上面可以使用的環境變數
+</h4><div class="table-wrapper"><table>
 <thead>
 <tr>
 <th>環境變數</th>
@@ -435,10 +443,6 @@
 </tr>
 </tbody>
 </table></div>
-</li>
-</ul>
-</li>
-</ul>
 <h2 id="設定storageclass來驅動local-path-provisioner">設定storageClass來驅動local-path-provisioner
 </h2><p>provisioner欄位，官方Github寫的<code>cluster.local/local-path-provisioner</code>沒有用，反而要用rancher.io/local-path才有用。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">storage.k8s.io/v1</span><span class="w">

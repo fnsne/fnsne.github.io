@@ -9,17 +9,17 @@
         <copyright>fnsne</copyright>
         <lastBuildDate>Thu, 01 Sep 2022 17:01:39 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/cloudflare/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>CloudFlare SSL in redirect loop</title>
-        <link>http://coding.fnsne.com/articles/2022/09/cloudflare-ssl-in-redirect-loop/</link>
+        <link>http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/</link>
         <pubDate>Thu, 01 Sep 2022 17:01:39 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/articles/2022/09/cloudflare-ssl-in-redirect-loop/</guid>
+        <guid>http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/</guid>
         <description>&lt;h1 id=&#34;內文&#34;&gt;內文
 &lt;/h1&gt;&lt;p&gt;最近在godaddy上面購買網域，然後使用cloudflare來申請ssl並弄成https的連線。結果今天上來看blog卻發現進不去，錯誤訊息是太多的redirect了。
 打開F12重整看看，還真的是持續進行著&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/articles/2022/09/cloudflare-ssl-in-redirect-loop/2022-09-01-repeat301.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/2022-09-01-repeat301.jpg&#34;
 	width=&#34;962&#34;
 	height=&#34;594&#34;
-	srcset=&#34;http://coding.fnsne.com/articles/2022/09/cloudflare-ssl-in-redirect-loop/2022-09-01-repeat301_hu0f868d73a597a61d8aca0cc112005036_100170_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/articles/2022/09/cloudflare-ssl-in-redirect-loop/2022-09-01-repeat301_hu0f868d73a597a61d8aca0cc112005036_100170_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/2022-09-01-repeat301_hu0f868d73a597a61d8aca0cc112005036_100170_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/2022-09-01-repeat301_hu0f868d73a597a61d8aca0cc112005036_100170_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;重複redirect到首頁的情況&#34;
@@ -31,10 +31,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;經過一段研究，發現只是這個問題很sssssssss多人有遇到，只是因為CloudFlare的SSL設定設到了Flexible&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/articles/2022/09/cloudflare-ssl-in-redirect-loop/2022-09-01-wrongSSL_setting.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/2022-09-01-wrongSSL_setting.jpg&#34;
 	width=&#34;1353&#34;
 	height=&#34;600&#34;
-	srcset=&#34;http://coding.fnsne.com/articles/2022/09/cloudflare-ssl-in-redirect-loop/2022-09-01-wrongSSL_setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_73300_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/articles/2022/09/cloudflare-ssl-in-redirect-loop/2022-09-01-wrongSSL_setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_73300_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/2022-09-01-wrongSSL_setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_73300_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/2022-09-01-wrongSSL_setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_73300_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;造成迴圈的ssl設定&#34;
@@ -45,10 +45,10 @@
 		data-flex-basis=&#34;541px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/articles/2022/09/cloudflare-ssl-in-redirect-loop/2022-09-01-rightSSL-setting.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/2022-09-01-rightSSL-setting.jpg&#34;
 	width=&#34;1319&#34;
 	height=&#34;610&#34;
-	srcset=&#34;http://coding.fnsne.com/articles/2022/09/cloudflare-ssl-in-redirect-loop/2022-09-01-rightSSL-setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_77068_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/articles/2022/09/cloudflare-ssl-in-redirect-loop/2022-09-01-rightSSL-setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_77068_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/2022-09-01-rightSSL-setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_77068_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/2022-09-01-rightSSL-setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_77068_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;正確的設定&#34;

@@ -9,10 +9,10 @@
         <copyright>fnsne</copyright>
         <lastBuildDate>Fri, 02 Sep 2022 16:06:28 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/toc/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Hugo LoveIt 不會顯示toc</title>
-        <link>http://coding.fnsne.com/articles/2022/09/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BAtoc/</link>
+        <link>http://coding.fnsne.com/posts/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BA/</link>
         <pubDate>Fri, 02 Sep 2022 16:06:28 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/articles/2022/09/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BAtoc/</guid>
+        <guid>http://coding.fnsne.com/posts/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BA/</guid>
         <description>&lt;h1 id=&#34;問題描述&#34;&gt;問題描述
 &lt;/h1&gt;&lt;p&gt;明明有開啟toc功能，但是在旁邊的toc卻完全沒有顯示任何的標題鏈接。&lt;/p&gt;
 &lt;h1 id=&#34;解法&#34;&gt;解法

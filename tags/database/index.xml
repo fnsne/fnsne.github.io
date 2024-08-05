@@ -9,10 +9,10 @@
         <copyright>fnsne</copyright>
         <lastBuildDate>Wed, 14 Sep 2022 16:22:17 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/database/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>資料庫的同步</title>
-        <link>http://coding.fnsne.com/articles/2022/09/how-database-sync/</link>
+        <link>http://coding.fnsne.com/posts/how-database-sync/</link>
         <pubDate>Wed, 14 Sep 2022 16:22:17 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/articles/2022/09/how-database-sync/</guid>
+        <guid>http://coding.fnsne.com/posts/how-database-sync/</guid>
         <description>&lt;h2 id=&#34;網路上查到簡單說明transaction的例子常常都是用轉賬來說明但其實還有很多東西需要注意&#34;&gt;網路上查到簡單說明transaction的例子，常常都是用轉賬來說明，但其實還有很多東西需要注意
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;帳戶轉賬，因為race condition的緣故，導致操作欄位的值被改錯。&lt;/p&gt;

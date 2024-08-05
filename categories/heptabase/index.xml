@@ -9,10 +9,10 @@
         <copyright>fnsne</copyright>
         <lastBuildDate>Sat, 03 Sep 2022 23:18:17 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/categories/heptabase/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>我用heptabase來實作卡片盒筆記的方式</title>
-        <link>http://coding.fnsne.com/articles/2022/09/%E6%88%91%E7%94%A8heptabase%E4%BE%86%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98%E7%9A%84%E6%96%B9%E5%BC%8F/</link>
+        <link>http://coding.fnsne.com/posts/%E6%88%91%E7%94%A8heptabase%E4%BE%86%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98%E7%9A%84%E6%96%B9%E5%BC%8F/</link>
         <pubDate>Sat, 03 Sep 2022 23:18:17 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/articles/2022/09/%E6%88%91%E7%94%A8heptabase%E4%BE%86%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98%E7%9A%84%E6%96%B9%E5%BC%8F/</guid>
+        <guid>http://coding.fnsne.com/posts/%E6%88%91%E7%94%A8heptabase%E4%BE%86%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98%E7%9A%84%E6%96%B9%E5%BC%8F/</guid>
         <description>&lt;h2 id=&#34;卡片盒筆記寫作有兩種方式&#34;&gt;卡片盒筆記寫作有兩種方式
 &lt;/h2&gt;&lt;p&gt;卡片盒筆記的做法，現在網路上很多影片、文章都有教了，所以我就不贅述了，這篇文章主要是記錄我如何在heptabase上面實作卡片盒筆記的方式。目前理解到的用法大致上有兩種方式。&lt;/p&gt;
 &lt;h3 id=&#34;闡述延伸自己論點的做法&#34;&gt;闡述延伸自己論點的做法
@@ -60,10 +60,10 @@
 &lt;p&gt;把所有想到和這篇文章相關的卡片用bullet list 來link到entry card&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;這個方法是從瓦基學到的，文章/keyword card/entry卡片上面先用link把所有相關的卡片給連結進來。再來在這張卡片下面開始書寫文章。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/articles/2022/09/%E6%88%91%E7%94%A8heptabase%E4%BE%86%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98%E7%9A%84%E6%96%B9%E5%BC%8F/keyword-card.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/%E6%88%91%E7%94%A8heptabase%E4%BE%86%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98%E7%9A%84%E6%96%B9%E5%BC%8F/keyword-card.png&#34;
 	width=&#34;1046&#34;
 	height=&#34;660&#34;
-	srcset=&#34;http://coding.fnsne.com/articles/2022/09/%E6%88%91%E7%94%A8heptabase%E4%BE%86%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98%E7%9A%84%E6%96%B9%E5%BC%8F/keyword-card_hu76df4f6a71ac3accc876e30e64ae508e_67058_480x0_resize_box_3.png 480w, http://coding.fnsne.com/articles/2022/09/%E6%88%91%E7%94%A8heptabase%E4%BE%86%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98%E7%9A%84%E6%96%B9%E5%BC%8F/keyword-card_hu76df4f6a71ac3accc876e30e64ae508e_67058_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/%E6%88%91%E7%94%A8heptabase%E4%BE%86%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98%E7%9A%84%E6%96%B9%E5%BC%8F/keyword-card_hu76df4f6a71ac3accc876e30e64ae508e_67058_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/%E6%88%91%E7%94%A8heptabase%E4%BE%86%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98%E7%9A%84%E6%96%B9%E5%BC%8F/keyword-card_hu76df4f6a71ac3accc876e30e64ae508e_67058_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;entry card&#34;

@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='http://coding.fnsne.com/posts/local-path-provisioner/'>
 
-<link rel="stylesheet" href="/scss/style.min.019f43d20328dc448a078e45ce0a6f0cf4b41d169e8fced7628c2e067db2a7a8.css"><meta property='og:title' content="Local Path Provisioner">
+<link rel="stylesheet" href="/scss/style.min.7f419c559f828b36545078a3e850db6bad13b93775ae54f92b7a1dd7178f541f.css"><meta property='og:title' content="Local Path Provisioner">
 <meta property='og:description' content="Local Path Provisioner 是一個 Container Storage Interface (CSI)，也就是用來提供k8s環境下建立Persistent Volume (PV)的插件 安裝 command kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/v0.0.24/deploy/local-path-storage.yaml 會建立local-path-storage這個namespace，要查看運行狀態，可以到裡面看log kubectl -n local-path-storage logs pods/local-path-provisioner-7f8667b75c-hjrrb 使用configmap來給予設定 kind: ConfigMap apiVersion: v1 metadata: name: local-path-config namespace: local-path-storage data: config.json: |- { &#34;nodePathMap&#34;:[ { &#34;node&#34;:&#34;DEFAULT_PATH_FOR_NON_LISTED_NODES&#34;, &#34;paths&#34;:[&#34;/opt/local-path-provisioner&#34;] }, { &#34;node&#34;:&#34;yasker-lp-dev1&#34;, &#34;paths&#34;:[&#34;/opt/local-path-provisioner&#34;, &#34;/data1&#34;] }, { &#34;node&#34;:&#34;yasker-lp-dev3&#34;, &#34;paths&#34;:[] } ] } setup: |- #!/bin/sh set -eu mkdir -m 0777 -p &#34;$VOL_DIR&#34; teardown: |- #!/bin/sh set -eu rm -rf &#34;$VOL_DIR&#34; helperPod.">
 <meta property='og:url' content='http://coding.fnsne.com/posts/local-path-provisioner/'>
 <meta property='og:site_name' content='fnsne&#39;s coding world'>
@@ -661,17 +661,20 @@
                 
                 >
             </script><script type="text/javascript" src="/ts/main.js" defer></script>
-<script>
-    (function () {
-        const customFont = document.createElement('link');
-        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
 
-        customFont.type = "text/css";
-        customFont.rel = "stylesheet";
 
-        document.head.appendChild(customFont);
-    }());
-</script>
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
 
     </body>
 </html>

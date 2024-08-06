@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='http://coding.fnsne.com/posts/hugo-bundle%E5%95%8F%E9%A1%8C/'>
 
-<link rel="stylesheet" href="/scss/style.min.019f43d20328dc448a078e45ce0a6f0cf4b41d169e8fced7628c2e067db2a7a8.css"><meta property='og:title' content="Hugo  Bundle問題">
+<link rel="stylesheet" href="/scss/style.min.7f419c559f828b36545078a3e850db6bad13b93775ae54f92b7a1dd7178f541f.css"><meta property='og:title' content="Hugo  Bundle問題">
 <meta property='og:description' content="描述 原本在hugo上面放文章是把所有的文章和圖片都放在content/posts/裡面用文章來分類。 content/posts/ ├── post1 │ └── post1.md │ └── img1.jpg ├── post2 │ └── post2.md │ └── img2.jpg ├── post3 │ └── post3.md │ └── img3.jpg 因為覺得全部文章和圖片都放在一起是在是太過於雜亂，而且害怕未來文章多的時候，markdown和圖片的命名會很痛苦，雖然也是可以利用在前面加上日期前綴來區分，但感覺還是會很亂。所以開始研究page bundle怎麼處理,試著將結構改成這樣。 content/posts/ ├── 2022-08-02 │ └── post1 │ └── post1.md │ └── img1.jpg │ └── post2 │ └── post2.md │ └── img2.jpg ├── 2022-09-02 │ └── post3 │ └── post3.md │ └── img3.jpg 問題 看到跑出來的網頁上，載入圖片404的網址居然是還會增加一個文章名稱的資料夾，然後才存取圖片。以上面的例子來看， 打開網頁 post1頁面，網址會是domain/posts/2022-08-02/post1/post1/ 而圖片是呼叫domain/posts/2022-08-02/post1/post1/img1.jpg 可是實際上到build出來的public裡面去看，這一個頁面的結構居然是長這樣 ├── 2022-08-02 │ └── post1 │ └── post1.">
 <meta property='og:url' content='http://coding.fnsne.com/posts/hugo-bundle%E5%95%8F%E9%A1%8C/'>
 <meta property='og:site_name' content='fnsne&#39;s coding world'>
@@ -559,17 +559,20 @@
                 
                 >
             </script><script type="text/javascript" src="/ts/main.js" defer></script>
-<script>
-    (function () {
-        const customFont = document.createElement('link');
-        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
 
-        customFont.type = "text/css";
-        customFont.rel = "stylesheet";
 
-        document.head.appendChild(customFont);
-    }());
-</script>
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
 
     </body>
 </html>

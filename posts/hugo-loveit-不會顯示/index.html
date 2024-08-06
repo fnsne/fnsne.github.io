@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='http://coding.fnsne.com/posts/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BA/'>
 
-<link rel="stylesheet" href="/scss/style.min.019f43d20328dc448a078e45ce0a6f0cf4b41d169e8fced7628c2e067db2a7a8.css"><meta property='og:title' content="Hugo LoveIt 不會顯示toc">
+<link rel="stylesheet" href="/scss/style.min.7f419c559f828b36545078a3e850db6bad13b93775ae54f92b7a1dd7178f541f.css"><meta property='og:title' content="Hugo LoveIt 不會顯示toc">
 <meta property='og:description' content="問題描述 明明有開啟toc功能，但是在旁邊的toc卻完全沒有顯示任何的標題鏈接。 解法 這個問題的原因很簡單，是因為LoveIt預設會抓h2的標題，但我習慣從h1的標題開始寫，所以在toc上面沒有任何的標題存在。 解決的方法很簡單，只要到設定（config.toml）裡面，加上 [markup] [markup.tableOfContents] startLevel = 1 即可讓LoveIt從h1就開始抓到toc上面。 reference LoveIt Github Issue 410">
 <meta property='og:url' content='http://coding.fnsne.com/posts/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BA/'>
 <meta property='og:site_name' content='fnsne&#39;s coding world'>
@@ -543,17 +543,20 @@
                 
                 >
             </script><script type="text/javascript" src="/ts/main.js" defer></script>
-<script>
-    (function () {
-        const customFont = document.createElement('link');
-        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
 
-        customFont.type = "text/css";
-        customFont.rel = "stylesheet";
 
-        document.head.appendChild(customFont);
-    }());
-</script>
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
 
     </body>
 </html>

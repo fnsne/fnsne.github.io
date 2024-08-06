@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='http://coding.fnsne.com/posts/%E5%A6%82%E4%BD%95%E7%94%A8certbot%E7%94%B3%E8%AB%8B-lets-encrypt-%E7%9A%84%E6%86%91%E8%AD%89/'>
 
-<link rel="stylesheet" href="/scss/style.min.019f43d20328dc448a078e45ce0a6f0cf4b41d169e8fced7628c2e067db2a7a8.css"><meta property='og:title' content="如何用certbot申請 Let’s Encrypt 的憑證">
+<link rel="stylesheet" href="/scss/style.min.7f419c559f828b36545078a3e850db6bad13b93775ae54f92b7a1dd7178f541f.css"><meta property='og:title' content="如何用certbot申請 Let’s Encrypt 的憑證">
 <meta property='og:description' content="1. 安裝certbot sudo apt install certbot 2. 使用certbot申請SSL憑證 手動驗證（manual) sudo certbot certonly -d &lt;DOMAINNAME&gt; --manual certonly：表示只需要申請憑證即可。certbot還有支援一些常見的server替換SSL的功能，如apache、nginx等 --manual：表示要使用互動界面來申請憑證。 注意：使用&ndash;manual的方式申請的憑證，除非有配合使用其它驗證插件，否則無法自動renew。 這個方式申請的憑證有提供兩種預設方式驗證 會產生一個challenge檔案，然後讓我們放到要使用這個憑證的機器（至少是這個domain name會連到的機器）的根目錄下指定的資料夾，讓ACME驗證可以使用申請的domain name加上給定的ACME資料夾，拿到申請的檔案。 直接會在目標機器上加上一個短暫的server，做到在指定的網址回傳上述的challenge檔案。 另外certbot其實還提供了其它的驗證方式，例如DNS sudo certbot certonly -d &lt;DOMAINNAME&gt; --preferred-challenges dns --manual certbot會在申請的互動界面，產生一個申請憑證網域的challenge key和value，申請人要到DNS託管服務，例如GoDaddy、AWS Route53等服務上，對要申請憑證的網域使用certbot產出的key value來建立一筆TXT設定，讓Let’s Encrypt確定要申請的網域是屬於你的。 使用Route53插件驗證 其實就是藉由Route53的API，讓插件替我們做完把ACME Chellenge TXT設定到DNS Server上的這段流程。所以需要設定AWS的access client到申請憑證的機器上。 1. 安裝certbot-dns-route53 sudo apt install python3-certbot-dns-route53 其它plugin的名稱也是使用相同的pattern: python3-certbot-dns-&lt;PLUGIN&gt; 2. 設定AWS的access client 到AWS設定一個Policy { &#34;Version&#34;:&#34;2012-10-17&#34;, &#34;Id&#34;: &#34;certbot-dns-route53 sample policy&#34;, &#34;Statement&#34;: [ { &#34;Effect&#34;: &#34;Allow&#34;, &#34;Action&#34;: [ &#34;route53:ListHostedZones&#34;, &#34;route53:GetChange&#34; ], &#34;Resource&#34;: [ &#34;*&#34; ] }, { &#34;Effect&#34; : &#34;Allow&#34;, &#34;Action&#34; : [ &#34;route53:ChangeResourceRecordSets&#34; ], &#34;Resource&#34; : [ &#34;arn:aws:route53:::hostedzone/YOURHOSTEDZONEID&#34; ] } ] } Version的值不能改，這是告訴AWS要用這版的規則來看這個Policy">
 <meta property='og:url' content='http://coding.fnsne.com/posts/%E5%A6%82%E4%BD%95%E7%94%A8certbot%E7%94%B3%E8%AB%8B-lets-encrypt-%E7%9A%84%E6%86%91%E8%AD%89/'>
 <meta property='og:site_name' content='fnsne&#39;s coding world'>
@@ -662,17 +662,20 @@
                 
                 >
             </script><script type="text/javascript" src="/ts/main.js" defer></script>
-<script>
-    (function () {
-        const customFont = document.createElement('link');
-        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
 
-        customFont.type = "text/css";
-        customFont.rel = "stylesheet";
 
-        document.head.appendChild(customFont);
-    }());
-</script>
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
 
     </body>
 </html>

@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='http://coding.fnsne.com/posts/%E5%9C%A8%E4%B9%BE%E6%B7%A8%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8Bk8s%E7%92%B0%E5%A2%83/'>
 
-<link rel="stylesheet" href="/scss/style.min.7f419c559f828b36545078a3e850db6bad13b93775ae54f92b7a1dd7178f541f.css"><meta property='og:title' content="在乾淨環境建立k8s環境">
+<link rel="stylesheet" href="/scss/style.min.50dda404ea8b9660810f3a10315639e714c500ecbdb77ec8cce81a2b2bff252e.css"><meta property='og:title' content="在乾淨環境建立k8s環境">
 <meta property='og:description' content="在乾淨環境建立k8s環境 使用k8sadmin架設k8s環境 linux環境設定 在開始安裝之前，需要先把host給設定好，所以會先說明要做哪些動作。 關閉swap功能 關閉swap swapoff -a 編輯 /etc/fstab vim /etc/fstab 把檔案裡面 /swapfile 開頭的這行註解掉 安裝docker 安裝所需的工具 sudo apt-get update &amp;&amp; sudo apt-get install ca-certificates curl gnupg lsb-release 下載docker並新增官方的GPG key sudo mkdir -m 0755 -p /etc/apt/keyrings &amp;&amp; curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg 設定放docker的repository echo &#34;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&#34; | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null 安裝docker engine sudo apt-get update &amp;&amp; sudo apt-get install docker-ce docker-ce-cli containerd.">
 <meta property='og:url' content='http://coding.fnsne.com/posts/%E5%9C%A8%E4%B9%BE%E6%B7%A8%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8Bk8s%E7%92%B0%E5%A2%83/'>
 <meta property='og:site_name' content='fnsne&#39;s coding world'>
@@ -248,47 +248,47 @@
         
         <div class="widget--toc">
             <nav id="TableOfContents">
-  <ol>
+  <ul>
     <li><a href="#linux環境設定">linux環境設定</a>
-      <ol>
+      <ul>
         <li><a href="#關閉swap功能">關閉swap功能</a></li>
         <li><a href="#安裝docker">安裝docker</a></li>
         <li><a href="#安裝apt-transport-httpsca-certificatescurl">安裝apt-transport-https、ca-certificates、curl</a></li>
         <li><a href="#加上-kubernetes-apt-的repo">加上 Kubernetes <code>apt</code> 的repo</a></li>
-      </ol>
+      </ul>
     </li>
     <li><a href="#安裝k8s環境執行用的工具">安裝k8s環境執行用的工具</a>
-      <ol>
+      <ul>
         <li><a href="#更新apt並安裝kubeadm-kubectl-kubelet並鎖定版本">更新apt並安裝kubeadm, kubectl, kubelet，並鎖定版本</a></li>
         <li><a href="#安裝cri-dockerd">安裝cri-dockerd</a></li>
-      </ol>
+      </ul>
     </li>
     <li><a href="#啟動k8s-cluster">啟動k8s cluster</a>
-      <ol>
+      <ul>
         <li><a href="#常見的options有">常見的options有</a>
-          <ol>
+          <ul>
             <li><a href="#--pod-network-cidr">&ndash;pod-network-cidr</a></li>
             <li><a href="#--apiserver-advertise-address">&ndash;apiserver-advertise-address</a></li>
             <li><a href="#--apiserver-bind-port">&ndash;apiserver-bind-port</a></li>
             <li><a href="#--service-cidr">&ndash;service-cidr</a></li>
-          </ol>
+          </ul>
         </li>
         <li><a href="#可以使用--cri-socketcri的socket指定特定的cri">可以使用<code>--cri-socket={CRI的socket}</code>指定特定的cri</a></li>
         <li><a href="#讓現在的帳號可以使用kubectl">讓現在的帳號可以使用kubectl</a></li>
-      </ol>
+      </ul>
     </li>
     <li><a href="#安裝cni">安裝CNI</a>
-      <ol>
+      <ul>
         <li><a href="#常見的cni">常見的CNI</a>
-          <ol>
+          <ul>
             <li><a href="#flannel已停止維護"><code>Flannel</code>(已停止維護)、</a></li>
             <li><a href="#calico"><code>Calico</code>。</a></li>
-          </ol>
+          </ul>
         </li>
-      </ol>
+      </ul>
     </li>
     <li><a href="#把其它臺機器加入這個k8s-cluster">把其它臺機器加入這個k8s cluster</a></li>
-  </ol>
+  </ul>
 </nav>
         </div>
     </section>

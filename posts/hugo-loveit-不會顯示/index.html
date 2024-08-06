@@ -6,7 +6,7 @@
 
 <link rel='canonical' href='http://coding.fnsne.com/posts/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BA/'>
 
-<link rel="stylesheet" href="/scss/style.min.7f419c559f828b36545078a3e850db6bad13b93775ae54f92b7a1dd7178f541f.css"><meta property='og:title' content="Hugo LoveIt 不會顯示toc">
+<link rel="stylesheet" href="/scss/style.min.50dda404ea8b9660810f3a10315639e714c500ecbdb77ec8cce81a2b2bff252e.css"><meta property='og:title' content="Hugo LoveIt 不會顯示toc">
 <meta property='og:description' content="問題描述 明明有開啟toc功能，但是在旁邊的toc卻完全沒有顯示任何的標題鏈接。 解法 這個問題的原因很簡單，是因為LoveIt預設會抓h2的標題，但我習慣從h1的標題開始寫，所以在toc上面沒有任何的標題存在。 解決的方法很簡單，只要到設定（config.toml）裡面，加上 [markup] [markup.tableOfContents] startLevel = 1 即可讓LoveIt從h1就開始抓到toc上面。 reference LoveIt Github Issue 410">
 <meta property='og:url' content='http://coding.fnsne.com/posts/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BA/'>
 <meta property='og:site_name' content='fnsne&#39;s coding world'>

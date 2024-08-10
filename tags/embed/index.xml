@@ -9,10 +9,10 @@
         <copyright>fnsne</copyright>
         <lastBuildDate>Tue, 02 Aug 2022 20:01:59 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/embed/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>淺談在Golang上面的物件導向</title>
-        <link>http://coding.fnsne.com/posts/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/</link>
+        <link>http://coding.fnsne.com/posts/golang_object_oriented/</link>
         <pubDate>Tue, 02 Aug 2022 20:01:59 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/</guid>
+        <guid>http://coding.fnsne.com/posts/golang_object_oriented/</guid>
         <description>&lt;p&gt;從物件導向的語言轉到Golang常常會遇到，不知道該怎麼在Golang實作類似多型和繼承的功能。這是因為Golang根本不是物件導向的語言。&lt;/p&gt;
 &lt;p&gt;在網路上會看到一些文章，寫說可以使用可以embed來模擬繼承，但事實上embed的用途應該只是用來減少重複的程式碼，增加可讀性。像在io package裡面就很明顯，如interface ReadWriter就是用Reader和Writer 兩個interface組合起來的。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ReadWriter&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;interface&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;

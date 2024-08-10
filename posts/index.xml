@@ -7,12 +7,20 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Thu, 04 Jul 2024 21:09:08 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 10 Aug 2024 22:13:15 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>我2024年使用heptabase作為卡片盒筆記法的流程</title>
+        <link>http://coding.fnsne.com/posts/00d-%E6%88%912024%E5%B9%B4%E4%BD%BF%E7%94%A8heptabase%E4%BD%9C%E7%82%BA%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98%E6%B3%95%E7%9A%84%E6%B5%81%E7%A8%8B/</link>
+        <pubDate>Sat, 10 Aug 2024 22:13:15 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/posts/00d-%E6%88%912024%E5%B9%B4%E4%BD%BF%E7%94%A8heptabase%E4%BD%9C%E7%82%BA%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98%E6%B3%95%E7%9A%84%E6%B5%81%E7%A8%8B/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>如何用certbot申請 Let’s Encrypt 的憑證</title>
-        <link>http://coding.fnsne.com/posts/%E5%A6%82%E4%BD%95%E7%94%A8certbot%E7%94%B3%E8%AB%8B-lets-encrypt-%E7%9A%84%E6%86%91%E8%AD%89/</link>
+        <link>http://coding.fnsne.com/posts/certbot_auto_gen_ssl_certificate/</link>
         <pubDate>Thu, 04 Jul 2024 21:09:08 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/%E5%A6%82%E4%BD%95%E7%94%A8certbot%E7%94%B3%E8%AB%8B-lets-encrypt-%E7%9A%84%E6%86%91%E8%AD%89/</guid>
+        <guid>http://coding.fnsne.com/posts/certbot_auto_gen_ssl_certificate/</guid>
         <description>&lt;h2 id=&#34;1-安裝certbot&#34;&gt;1. 安裝certbot
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install certbot
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-使用certbot申請ssl憑證&#34;&gt;2. 使用certbot申請SSL憑證
@@ -139,10 +147,10 @@
         </item>
         <item>
         <title>在乾淨環境建立k8s環境</title>
-        <link>http://coding.fnsne.com/posts/%E5%9C%A8%E4%B9%BE%E6%B7%A8%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8Bk8s%E7%92%B0%E5%A2%83/</link>
+        <link>http://coding.fnsne.com/posts/install_k8s_environment/</link>
         <pubDate>Thu, 29 Jun 2023 09:34:49 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/%E5%9C%A8%E4%B9%BE%E6%B7%A8%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8Bk8s%E7%92%B0%E5%A2%83/</guid>
+        <guid>http://coding.fnsne.com/posts/install_k8s_environment/</guid>
         <description>&lt;h1 id=&#34;在乾淨環境建立k8s環境&#34;&gt;在乾淨環境建立k8s環境
 &lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;使用k8sadmin架設k8s環境&lt;/p&gt;
@@ -159,10 +167,10 @@
 &lt;/ol&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vim /etc/fstab
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;把檔案裡面 &lt;code&gt;/swapfile &lt;/code&gt;開頭的這行註解掉&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/%E5%9C%A8%E4%B9%BE%E6%B7%A8%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8Bk8s%E7%92%B0%E5%A2%83/edit-swap.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/install_k8s_environment/edit-swap.png&#34;
 	width=&#34;718&#34;
 	height=&#34;177&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/%E5%9C%A8%E4%B9%BE%E6%B7%A8%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8Bk8s%E7%92%B0%E5%A2%83/edit-swap_hu9c81197473fbd2c64ac565bd0078aaf2_104429_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/%E5%9C%A8%E4%B9%BE%E6%B7%A8%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8Bk8s%E7%92%B0%E5%A2%83/edit-swap_hu9c81197473fbd2c64ac565bd0078aaf2_104429_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/install_k8s_environment/edit-swap_hu9c81197473fbd2c64ac565bd0078aaf2_104429_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/install_k8s_environment/edit-swap_hu9c81197473fbd2c64ac565bd0078aaf2_104429_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;編輯swap的畫面.png&#34;
@@ -317,10 +325,10 @@
         </item>
         <item>
         <title>Local Path Provisioner</title>
-        <link>http://coding.fnsne.com/posts/local-path-provisioner/</link>
+        <link>http://coding.fnsne.com/posts/k8s_local_path_provisioner/</link>
         <pubDate>Thu, 27 Apr 2023 09:30:27 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/local-path-provisioner/</guid>
+        <guid>http://coding.fnsne.com/posts/k8s_local_path_provisioner/</guid>
         <description>&lt;h1 id=&#34;local-path-provisioner&#34;&gt;Local Path Provisioner
 &lt;/h1&gt;&lt;p&gt;是一個 &lt;code&gt;Container Storage Interface (CSI)&lt;/code&gt;，也就是用來提供k8s環境下建立&lt;code&gt;Persistent Volume (PV)&lt;/code&gt;的插件&lt;/p&gt;
 &lt;h2 id=&#34;安裝&#34;&gt;安裝
@@ -429,12 +437,12 @@
         </item>
         <item>
         <title>關於鎖</title>
-        <link>http://coding.fnsne.com/posts/%E9%97%9C%E6%96%BC%E9%8E%96/</link>
+        <link>http://coding.fnsne.com/posts/operating_system_lock/</link>
         <pubDate>Tue, 20 Sep 2022 16:35:44 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/%E9%97%9C%E6%96%BC%E9%8E%96/</guid>
+        <guid>http://coding.fnsne.com/posts/operating_system_lock/</guid>
         <description>&lt;h1 id=&#34;關於鎖lock&#34;&gt;關於鎖(lock)
-&lt;/h1&gt;&lt;p&gt;畢業後，太久沒有用到相關的東西，概念開始有點混淆了，所以拿出恐龍本讀回來。順便做一篇筆記&lt;/p&gt;
+&lt;/h1&gt;&lt;p&gt;畢業後，太久沒有用到相關的東西，概念開始和資料庫的transaction有點混淆了，所以拿出恐龍本讀回來。順便做一篇筆記&lt;/p&gt;
 &lt;h2 id=&#34;一些專有名詞&#34;&gt;一些專有名詞
 &lt;/h2&gt;&lt;table&gt;
 &lt;thead&gt;
@@ -456,10 +464,10 @@
 &lt;/table&gt;
 &lt;h2 id=&#34;鎖想解決的問題&#34;&gt;鎖想解決的問題
 &lt;/h2&gt;&lt;p&gt;在多核心多執行序問世之前的單核心的時代，是一個核心切換來切換去的做不同事，在時間區間上每個時間點都只有一個process正在被cpu執行，如下圖。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/%E9%97%9C%E6%96%BC%E9%8E%96/single-core.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/operating_system_lock/single-core.jpg&#34;
 	width=&#34;1255&#34;
 	height=&#34;759&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/%E9%97%9C%E6%96%BC%E9%8E%96/single-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_77858_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/%E9%97%9C%E6%96%BC%E9%8E%96/single-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_77858_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/operating_system_lock/single-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_77858_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/operating_system_lock/single-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_77858_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;單核心運作示意圖&#34;
@@ -471,10 +479,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;而在多核心問世以後開始會出現一些問題，如下圖。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/%E9%97%9C%E6%96%BC%E9%8E%96/multi-core.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/operating_system_lock/multi-core.jpg&#34;
 	width=&#34;1255&#34;
 	height=&#34;713&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/%E9%97%9C%E6%96%BC%E9%8E%96/multi-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_78620_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/%E9%97%9C%E6%96%BC%E9%8E%96/multi-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_78620_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/operating_system_lock/multi-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_78620_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/operating_system_lock/multi-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_78620_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;多核心的運作示意圖&#34;
@@ -639,10 +647,10 @@
         </item>
         <item>
         <title>我用heptabase來實作卡片盒筆記的方式</title>
-        <link>http://coding.fnsne.com/posts/%E6%88%91%E7%94%A8heptabase%E4%BE%86%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98%E7%9A%84%E6%96%B9%E5%BC%8F/</link>
+        <link>http://coding.fnsne.com/posts/zetelkasten_in_heptabase_2022/</link>
         <pubDate>Sat, 03 Sep 2022 23:18:17 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/%E6%88%91%E7%94%A8heptabase%E4%BE%86%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98%E7%9A%84%E6%96%B9%E5%BC%8F/</guid>
+        <guid>http://coding.fnsne.com/posts/zetelkasten_in_heptabase_2022/</guid>
         <description>&lt;h2 id=&#34;卡片盒筆記寫作有兩種方式&#34;&gt;卡片盒筆記寫作有兩種方式
 &lt;/h2&gt;&lt;p&gt;卡片盒筆記的做法，現在網路上很多影片、文章都有教了，所以我就不贅述了，這篇文章主要是記錄我如何在heptabase上面實作卡片盒筆記的方式。目前理解到的用法大致上有兩種方式。&lt;/p&gt;
 &lt;h3 id=&#34;闡述延伸自己論點的做法&#34;&gt;闡述延伸自己論點的做法
@@ -690,10 +698,10 @@
 &lt;p&gt;把所有想到和這篇文章相關的卡片用bullet list 來link到entry card&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;這個方法是從瓦基學到的，文章/keyword card/entry卡片上面先用link把所有相關的卡片給連結進來。再來在這張卡片下面開始書寫文章。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/%E6%88%91%E7%94%A8heptabase%E4%BE%86%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98%E7%9A%84%E6%96%B9%E5%BC%8F/keyword-card.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/zetelkasten_in_heptabase_2022/keyword-card.png&#34;
 	width=&#34;1046&#34;
 	height=&#34;660&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/%E6%88%91%E7%94%A8heptabase%E4%BE%86%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98%E7%9A%84%E6%96%B9%E5%BC%8F/keyword-card_hu76df4f6a71ac3accc876e30e64ae508e_67058_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/%E6%88%91%E7%94%A8heptabase%E4%BE%86%E5%AF%A6%E4%BD%9C%E5%8D%A1%E7%89%87%E7%9B%92%E7%AD%86%E8%A8%98%E7%9A%84%E6%96%B9%E5%BC%8F/keyword-card_hu76df4f6a71ac3accc876e30e64ae508e_67058_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/zetelkasten_in_heptabase_2022/keyword-card_hu76df4f6a71ac3accc876e30e64ae508e_67058_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/zetelkasten_in_heptabase_2022/keyword-card_hu76df4f6a71ac3accc876e30e64ae508e_67058_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;entry card&#34;
@@ -736,10 +744,10 @@
         </item>
         <item>
         <title>Hugo LoveIt 不會顯示toc</title>
-        <link>http://coding.fnsne.com/posts/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BA/</link>
+        <link>http://coding.fnsne.com/posts/hugo_theme_loveit_toc_disappear/</link>
         <pubDate>Fri, 02 Sep 2022 16:06:28 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BA/</guid>
+        <guid>http://coding.fnsne.com/posts/hugo_theme_loveit_toc_disappear/</guid>
         <description>&lt;h1 id=&#34;問題描述&#34;&gt;問題描述
 &lt;/h1&gt;&lt;p&gt;明明有開啟toc功能，但是在旁邊的toc卻完全沒有顯示任何的標題鏈接。&lt;/p&gt;
 &lt;h1 id=&#34;解法&#34;&gt;解法
@@ -756,12 +764,12 @@
         </item>
         <item>
         <title>Hugo  Bundle問題</title>
-        <link>http://coding.fnsne.com/posts/hugo-bundle%E5%95%8F%E9%A1%8C/</link>
+        <link>http://coding.fnsne.com/posts/hugo_bundle_organization/</link>
         <pubDate>Fri, 02 Sep 2022 14:36:26 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/hugo-bundle%E5%95%8F%E9%A1%8C/</guid>
+        <guid>http://coding.fnsne.com/posts/hugo_bundle_organization/</guid>
         <description>&lt;h1 id=&#34;描述&#34;&gt;描述
-&lt;/h1&gt;&lt;p&gt;原本在hugo上面放文章是把所有的文章和圖片都放在&lt;code&gt;content/posts/&lt;/code&gt;裡面用文章來分類。&lt;/p&gt;
+&lt;/h1&gt;&lt;p&gt;原本在hugo上面放文章，是每篇文章一個資料夾，在其中放文章和會用到的圖片。每個文章資料夾都放在&lt;code&gt;content/posts/&lt;/code&gt;。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;content/posts/
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── post1
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│    └── post1.md
@@ -772,7 +780,12 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── post3
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│    └── post3.md
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│    └── img3.jpg   
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;因為覺得全部文章和圖片都放在一起是在是太過於雜亂，而且害怕未來文章多的時候，markdown和圖片的命名會很痛苦，雖然也是可以利用在前面加上日期前綴來區分，但感覺還是會很亂。所以開始研究page bundle怎麼處理,試著將結構改成這樣。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;因為覺得全部文章直接用資料夾名稱排序，覺得未來會變得很混亂，並且不好找尋文章位置，所以改成以下的結構：&lt;code&gt;使用日期當主資料夾名稱&lt;/code&gt;。
+雖然也是可以在&lt;code&gt;文章資料夾&lt;/code&gt;名稱加上日期前綴來區分，但感覺還是會很亂。所以開始研究page bundle怎麼處理,試著將結構改成這樣。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P.S. 在2024年8月的時候又改回hugo最原始的文章放置方式，發現全部文章放在一起，其實也不會太亂（是我寫太少文章了）。
+並且使用日期當第一層資料夾名稱，我反而沒辦法一眼看出這裡面放的文章是什麼文章&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;content/posts/
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── 2022-08-02
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   └── post1         
@@ -816,15 +829,15 @@
         </item>
         <item>
         <title>Goland Markdown split editor消失的問題</title>
-        <link>http://coding.fnsne.com/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/</link>
+        <link>http://coding.fnsne.com/posts/jetbrains_goland_markdown_preview_disappear/</link>
         <pubDate>Thu, 01 Sep 2022 20:21:30 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/</guid>
+        <guid>http://coding.fnsne.com/posts/jetbrains_goland_markdown_preview_disappear/</guid>
         <description>&lt;p&gt;最近開始使用Goland來用hugo寫部落格文章，之前markdown的preview分頁都還很正常，但到了今天，突然之間只剩下一般的編輯界面，而且Goland好像還把它識別為html,旁邊會出現在各種瀏覽器上面的按鈕。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-markdown_detected_wrong.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/jetbrains_goland_markdown_preview_disappear/2022-09-01-markdown_detected_wrong.jpg&#34;
 	width=&#34;384&#34;
 	height=&#34;143&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-markdown_detected_wrong_huaf8f8d9afbbf12ddd7a02df886fbcd51_10326_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-markdown_detected_wrong_huaf8f8d9afbbf12ddd7a02df886fbcd51_10326_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/jetbrains_goland_markdown_preview_disappear/2022-09-01-markdown_detected_wrong_huaf8f8d9afbbf12ddd7a02df886fbcd51_10326_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/jetbrains_goland_markdown_preview_disappear/2022-09-01-markdown_detected_wrong_huaf8f8d9afbbf12ddd7a02df886fbcd51_10326_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;偵測成html&#34;
@@ -836,10 +849,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;p&gt;而且使用hugo的shortcode還會出現網頁相關的錯誤訊息，在設定裡面查了一陣子才發現到。關於檔案的偵測少了&lt;code&gt;.md&lt;/code&gt;的部分，只剩下&lt;code&gt;markdown&lt;/code&gt;的部分&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-fileTypeMarkDownSetting.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/jetbrains_goland_markdown_preview_disappear/2022-09-01-fileTypeMarkDownSetting.jpg&#34;
 	width=&#34;1324&#34;
 	height=&#34;763&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-fileTypeMarkDownSetting_huaf8f8d9afbbf12ddd7a02df886fbcd51_83783_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-fileTypeMarkDownSetting_huaf8f8d9afbbf12ddd7a02df886fbcd51_83783_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/jetbrains_goland_markdown_preview_disappear/2022-09-01-fileTypeMarkDownSetting_huaf8f8d9afbbf12ddd7a02df886fbcd51_83783_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/jetbrains_goland_markdown_preview_disappear/2022-09-01-fileTypeMarkDownSetting_huaf8f8d9afbbf12ddd7a02df886fbcd51_83783_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;settings -&amp;gt; Editor -&amp;gt; File Type&#34;
@@ -855,17 +868,17 @@
         </item>
         <item>
         <title>CloudFlare SSL in redirect loop</title>
-        <link>http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/</link>
+        <link>http://coding.fnsne.com/posts/cloudflare_ssl_redirect_loop/</link>
         <pubDate>Thu, 01 Sep 2022 17:01:39 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/</guid>
+        <guid>http://coding.fnsne.com/posts/cloudflare_ssl_redirect_loop/</guid>
         <description>&lt;h1 id=&#34;內文&#34;&gt;內文
 &lt;/h1&gt;&lt;p&gt;最近在godaddy上面購買網域，然後使用cloudflare來申請ssl並弄成https的連線。結果今天上來看blog卻發現進不去，錯誤訊息是太多的redirect了。
 打開F12重整看看，還真的是持續進行著&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/2022-09-01-repeat301.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/cloudflare_ssl_redirect_loop/2022-09-01-repeat301.jpg&#34;
 	width=&#34;962&#34;
 	height=&#34;594&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/2022-09-01-repeat301_hu0f868d73a597a61d8aca0cc112005036_100170_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/2022-09-01-repeat301_hu0f868d73a597a61d8aca0cc112005036_100170_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/cloudflare_ssl_redirect_loop/2022-09-01-repeat301_hu0f868d73a597a61d8aca0cc112005036_100170_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/cloudflare_ssl_redirect_loop/2022-09-01-repeat301_hu0f868d73a597a61d8aca0cc112005036_100170_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;重複redirect到首頁的情況&#34;
@@ -876,11 +889,11 @@
 		data-flex-basis=&#34;388px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;經過一段研究，發現只是這個問題很sssssssss多人有遇到，只是因為CloudFlare的SSL設定設到了Flexible&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/2022-09-01-wrongSSL_setting.jpg&#34;
+&lt;p&gt;經過一段研究，發現只是這個問題很多人有遇到，只是因為CloudFlare的SSL設定設到了Flexible&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/cloudflare_ssl_redirect_loop/2022-09-01-wrongSSL_setting.jpg&#34;
 	width=&#34;1353&#34;
 	height=&#34;600&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/2022-09-01-wrongSSL_setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_73300_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/2022-09-01-wrongSSL_setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_73300_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/cloudflare_ssl_redirect_loop/2022-09-01-wrongSSL_setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_73300_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/cloudflare_ssl_redirect_loop/2022-09-01-wrongSSL_setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_73300_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;造成迴圈的ssl設定&#34;
@@ -891,10 +904,10 @@
 		data-flex-basis=&#34;541px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/2022-09-01-rightSSL-setting.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/cloudflare_ssl_redirect_loop/2022-09-01-rightSSL-setting.jpg&#34;
 	width=&#34;1319&#34;
 	height=&#34;610&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/2022-09-01-rightSSL-setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_77068_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/cloudflare_ssl_in_redirect_loop/2022-09-01-rightSSL-setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_77068_1024x0_resize_q75_box.jpg 1024w&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/cloudflare_ssl_redirect_loop/2022-09-01-rightSSL-setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_77068_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/cloudflare_ssl_redirect_loop/2022-09-01-rightSSL-setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_77068_1024x0_resize_q75_box.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;正確的設定&#34;
@@ -912,10 +925,10 @@
         </item>
         <item>
         <title>淺談在Golang上面的物件導向</title>
-        <link>http://coding.fnsne.com/posts/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/</link>
+        <link>http://coding.fnsne.com/posts/golang_object_oriented/</link>
         <pubDate>Tue, 02 Aug 2022 20:01:59 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/%E6%B7%BA%E8%AB%87%E5%9C%A8golang%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/</guid>
+        <guid>http://coding.fnsne.com/posts/golang_object_oriented/</guid>
         <description>&lt;p&gt;從物件導向的語言轉到Golang常常會遇到，不知道該怎麼在Golang實作類似多型和繼承的功能。這是因為Golang根本不是物件導向的語言。&lt;/p&gt;
 &lt;p&gt;在網路上會看到一些文章，寫說可以使用可以embed來模擬繼承，但事實上embed的用途應該只是用來減少重複的程式碼，增加可讀性。像在io package裡面就很明顯，如interface ReadWriter就是用Reader和Writer 兩個interface組合起來的。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ReadWriter&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;interface&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;

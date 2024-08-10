@@ -9,10 +9,10 @@
         <copyright>fnsne</copyright>
         <lastBuildDate>Fri, 02 Sep 2022 16:06:28 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/categories/hugo/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Hugo LoveIt 不會顯示toc</title>
-        <link>http://coding.fnsne.com/posts/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BA/</link>
+        <link>http://coding.fnsne.com/posts/hugo_theme_loveit_toc_disappear/</link>
         <pubDate>Fri, 02 Sep 2022 16:06:28 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/hugo-loveit-%E4%B8%8D%E6%9C%83%E9%A1%AF%E7%A4%BA/</guid>
+        <guid>http://coding.fnsne.com/posts/hugo_theme_loveit_toc_disappear/</guid>
         <description>&lt;h1 id=&#34;問題描述&#34;&gt;問題描述
 &lt;/h1&gt;&lt;p&gt;明明有開啟toc功能，但是在旁邊的toc卻完全沒有顯示任何的標題鏈接。&lt;/p&gt;
 &lt;h1 id=&#34;解法&#34;&gt;解法
@@ -29,12 +29,12 @@
         </item>
         <item>
         <title>Hugo  Bundle問題</title>
-        <link>http://coding.fnsne.com/posts/hugo-bundle%E5%95%8F%E9%A1%8C/</link>
+        <link>http://coding.fnsne.com/posts/hugo_bundle_organization/</link>
         <pubDate>Fri, 02 Sep 2022 14:36:26 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/hugo-bundle%E5%95%8F%E9%A1%8C/</guid>
+        <guid>http://coding.fnsne.com/posts/hugo_bundle_organization/</guid>
         <description>&lt;h1 id=&#34;描述&#34;&gt;描述
-&lt;/h1&gt;&lt;p&gt;原本在hugo上面放文章是把所有的文章和圖片都放在&lt;code&gt;content/posts/&lt;/code&gt;裡面用文章來分類。&lt;/p&gt;
+&lt;/h1&gt;&lt;p&gt;原本在hugo上面放文章，是每篇文章一個資料夾，在其中放文章和會用到的圖片。每個文章資料夾都放在&lt;code&gt;content/posts/&lt;/code&gt;。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;content/posts/
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── post1
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│    └── post1.md
@@ -45,7 +45,12 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── post3
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│    └── post3.md
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│    └── img3.jpg   
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;因為覺得全部文章和圖片都放在一起是在是太過於雜亂，而且害怕未來文章多的時候，markdown和圖片的命名會很痛苦，雖然也是可以利用在前面加上日期前綴來區分，但感覺還是會很亂。所以開始研究page bundle怎麼處理,試著將結構改成這樣。&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;因為覺得全部文章直接用資料夾名稱排序，覺得未來會變得很混亂，並且不好找尋文章位置，所以改成以下的結構：&lt;code&gt;使用日期當主資料夾名稱&lt;/code&gt;。
+雖然也是可以在&lt;code&gt;文章資料夾&lt;/code&gt;名稱加上日期前綴來區分，但感覺還是會很亂。所以開始研究page bundle怎麼處理,試著將結構改成這樣。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P.S. 在2024年8月的時候又改回hugo最原始的文章放置方式，發現全部文章放在一起，其實也不會太亂（是我寫太少文章了）。
+並且使用日期當第一層資料夾名稱，我反而沒辦法一眼看出這裡面放的文章是什麼文章&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;content/posts/
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── 2022-08-02
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   └── post1         

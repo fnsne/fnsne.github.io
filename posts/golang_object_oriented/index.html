@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-TW" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="簡單說明RDBMS到底要怎麼避免race condition導致的數值錯亂。">
-<title>資料庫的同步</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="淺談如何使用Golang的embed和interface來模擬物件導向的繼承和多型。">
+<title>淺談在Golang上面的物件導向</title>
 
-<link rel='canonical' href='http://coding.fnsne.com/posts/how-database-sync/'>
+<link rel='canonical' href='http://coding.fnsne.com/posts/golang_object_oriented/'>
 
-<link rel="stylesheet" href="/scss/style.min.50dda404ea8b9660810f3a10315639e714c500ecbdb77ec8cce81a2b2bff252e.css"><meta property='og:title' content="資料庫的同步">
-<meta property='og:description' content="簡單說明RDBMS到底要怎麼避免race condition導致的數值錯亂。">
-<meta property='og:url' content='http://coding.fnsne.com/posts/how-database-sync/'>
+<link rel="stylesheet" href="/scss/style.min.50dda404ea8b9660810f3a10315639e714c500ecbdb77ec8cce81a2b2bff252e.css"><meta property='og:title' content="淺談在Golang上面的物件導向">
+<meta property='og:description' content="淺談如何使用Golang的embed和interface來模擬物件導向的繼承和多型。">
+<meta property='og:url' content='http://coding.fnsne.com/posts/golang_object_oriented/'>
 <meta property='og:site_name' content='fnsne&#39;s coding world'>
-<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='database' /><meta property='article:tag' content='transaction' /><meta property='article:tag' content='同步' /><meta property='article:published_time' content='2022-09-14T16:22:17&#43;08:00'/><meta property='article:modified_time' content='2022-09-14T16:22:17&#43;08:00'/>
-<meta name="twitter:title" content="資料庫的同步">
-<meta name="twitter:description" content="簡單說明RDBMS到底要怎麼避免race condition導致的數值錯亂。">
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='golang' /><meta property='article:tag' content='物件導向' /><meta property='article:tag' content='embed' /><meta property='article:published_time' content='2022-08-02T20:01:59&#43;08:00'/><meta property='article:modified_time' content='2022-08-02T20:01:59&#43;08:00'/>
+<meta name="twitter:title" content="淺談在Golang上面的物件導向">
+<meta name="twitter:description" content="淺談如何使用Golang的embed和interface來模擬物件導向的繼承和多型。">
   
 
 
@@ -227,42 +227,7 @@
     </ol>
 </aside>
 
-    <aside class="sidebar right-sidebar sticky">
-        
-            
-                
-    <section class="widget archives">
-        <div class="widget-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z"/>
-  <line x1="5" y1="9" x2="19" y2="9" />
-  <line x1="5" y1="15" x2="19" y2="15" />
-  <line x1="11" y1="4" x2="7" y2="20" />
-  <line x1="17" y1="4" x2="13" y2="20" />
-</svg>
-
-
-
-        </div>
-        <h2 class="widget-title section-title">Table of contents</h2>
-        
-        <div class="widget--toc">
-            <nav id="TableOfContents">
-  <ul>
-    <li><a href="#網路上查到簡單說明transaction的例子常常都是用轉賬來說明但其實還有很多東西需要注意">網路上查到簡單說明transaction的例子，常常都是用轉賬來說明，但其實還有很多東西需要注意</a></li>
-    <li><a href="#解決race-condition的方法">解決race condition的方法</a></li>
-    <li><a href="#一開始提到的例子裡面真正用到transaction功能的地方">一開始提到的例子裡面真正用到transaction功能的地方</a></li>
-    <li><a href="#結論">結論</a></li>
-    <li><a href="#參考資料">參考資料</a></li>
-  </ul>
-</nav>
-        </div>
-    </section>
-
-            
-        
-    </aside>
-
+    
 
             <main class="main full-width">
     <article class="main-article">
@@ -272,8 +237,12 @@
     
     <header class="article-category">
         
-            <a href="/categories/%E8%B3%87%E6%96%99%E5%BA%AB/" >
-                資料庫
+            <a href="/categories/golang/" style="background-color: ; color: #fff;">
+                Golang
+            </a>
+        
+            <a href="/categories/coding/" >
+                Coding
             </a>
         
     </header>
@@ -281,12 +250,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/posts/how-database-sync/">資料庫的同步</a>
+            <a href="/posts/golang_object_oriented/">淺談在Golang上面的物件導向</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            簡單說明RDBMS到底要怎麼避免race condition導致的數值錯亂。
+            淺談如何使用Golang的embed和interface來模擬物件導向的繼承和多型。
         </h3>
         
     </div>
@@ -307,7 +276,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Sep 14, 2022</time>
+                <time class="article-time--published">Aug 02, 2022</time>
             </div>
         
 
@@ -337,121 +306,18 @@
     <section class="article-content">
     
     
-    <h2 id="網路上查到簡單說明transaction的例子常常都是用轉賬來說明但其實還有很多東西需要注意">網路上查到簡單說明transaction的例子，常常都是用轉賬來說明，但其實還有很多東西需要注意
-</h2><blockquote>
-<p>帳戶轉賬，因為race condition的緣故，導致操作欄位的值被改錯。</p>
-<ul>
-<li>
-<p>A有100，B有40。</p>
-</li>
-<li>
-<p>A轉100元給B，B轉20元給A，由兩個不同的client來處理操作。</p>
-</li>
-<li>
-<p>順序正確時：A會是減掉80</p>
-</li>
-<li>
-<p>但是當順序不正確，則數字會錯掉，例如A很早取得現在的餘額（100），但是更新數字0慢了，導致A最終變成0元，因為在B轉完帳後才更新值。</p>
-</li>
-</ul>
-</blockquote>
-<p>以上的這個問題很明顯的是race condition。所謂的race condition是結果必須依賴與某種特定的順序，但是順序又並不是固定的，因此偶爾會出現錯誤。</p>
-<h2 id="解決race-condition的方法">解決race condition的方法
-</h2><p>為了要解決race condition，必須得要讓操作依照我們期望的順序才操作，才能預防不對的順序導致的錯誤。為了要達到這個目標，資料庫本身有提供兩種方法：</p>
-<ol>
-<li>
-<p>atomic update：資料庫提供的一個，對於單一欄位數值做相依於原本值的操作指令。這個操作過程會是atomic的，也就是不會操作到一半值被改掉而導致結果出錯。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">update</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><ul>
-<li>
-<p>優點：因為只是對於欄位做簡單的數字運算並馬上更新上去，所以對於欄位的佔用時間相較下面的select for update較短，且資料庫會將這類atomic操作做優化，所以效能會比較好。</p>
-</li>
-<li>
-<p>缺點：只支援對於數值的簡單操作後更新，並不能做太複雜的運算。</p>
-</li>
-</ul>
-</li>
-<li>
-<p>select for update：這個操作被限制在transaction開起來的時候才能使用，使用時實際上就是將指定的欄位上一個更新的lock，此時直到commit之前，沒有其他client可以對這個欄位做任何更新。所以就能夠限制欄位更新的順序了。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">Begin</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">select</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="k">into</span><span class="w"> </span><span class="err">$</span><span class="n">q</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">update</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">update</span><span class="w"> </span><span class="n">products</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">quantity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">$</span><span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">Commit</span><span class="p">;</span><span class="w">
-</span></span></span></code></pre></div><ul>
-<li>
-<p>優點：因為有上鎖了，所以幾乎可以用各種邏輯運算來更新欄位的值。</p>
-</li>
-<li>
-<p>缺點：因為會在欄位上面上鎖，並且持續到commit位置，所以對於效能會有很大的影響。</p>
-</li>
-</ul>
-</li>
-<li>
-<p>version scheme ：在table上面多新增一個欄位叫做version，來確定現在更新時的version，是否從拿值的時候到現在還沒有被更新過。程式可以藉由資料庫回傳的訊息，<code>是否有更改到任何row</code>來判斷是否更新成功。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">old_ver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">`</span><span class="k">select</span><span class="w"> </span><span class="n">money</span><span class="p">,</span><span class="w"> </span><span class="k">version</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">bank</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="o">`</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">`</span><span class="k">update</span><span class="w"> </span><span class="n">bank</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="n">money</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="k">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">version</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="k">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">old_ver</span><span class="o">`</span><span class="w">
-</span></span></span></code></pre></div><ul>
-<li>
-<p>優點：能夠不使用任何鎖的時候實現。（或者還有其他我想不到的優點）</p>
-</li>
-<li>
-<p>缺點：可能會很浪費時間，尤其是當更新的頻率特別高的時候，可能很難可以得到把值更新下去的機會。並且失敗後得要重頭來過。可能會造成鎖的飢餓效應。</p>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="一開始提到的例子裡面真正用到transaction功能的地方">一開始提到的例子裡面真正用到transaction功能的地方
-</h2><ul>
-<li>
-<p>利用transaction遇到錯誤時會rollback的特性，來在餘額小於0的時候，復原到還未轉賬之前的狀態。</p>
-</li>
-<li>
-<p>如何檢查餘額小於0，並在此時丟出錯誤呢？</p>
-<ol>
-<li>
-<p>利用select for update鎖住欄位更新，在此時檢查，通過且做完操作後commit，釋放鎖。就可以避免此時有其他操作更動到這個帳戶的餘額。</p>
-<ul>
-<li>
-<p>優點：可以實作各種複雜的檢查邏輯</p>
-</li>
-<li>
-<p>缺點：必須為這個帳戶的餘額上鎖，此時沒有其他人可以操作（也就是沒有其他人可以轉賬給他、領錢等操作），會導致效能低下。</p>
-</li>
-</ul>
-</li>
-<li>
-<p>利用<a class="link" href="https://stackoverflow.com/questions/21503658/prevent-less-than-zero-values-in-postgresql"  target="_blank" rel="noopener"
-    >check constraint</a> 來讓資料庫在欄位不符合規範的時候丟出錯誤。此時就可以配合transaction來rollback復原了。</p>
-<ul>
-<li>
-<p>優點：因為check constraint是資料庫提供可以給欄位增加規範的設定，檢查會在更新的時候做，所以即使背後有使用鎖，所花費的時間會比用select for update還要少。</p>
-</li>
-<li>
-<p>缺點：只能依照資料庫提供的有限constraint來設定，並不一定能夠做到想要的規範。</p>
-</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<h2 id="結論">結論
-</h2><ul>
-<li>
-<p>遇到需要注意順序的操作，先試著能不能使用atomic update的方式來完成需求，沒有辦法的時候才會使用select for update的方式來限制進到這個transaction後，必須要操作完這邊的指令後，才能換別人改值。</p>
-</li>
-<li>
-<p>遇到需要檢查數值符不符合規範，先試著用check constraint來限制欄位，真的沒有辦法，才會採用select for update的方式來將欄位上鎖，來做檢查。</p>
-</li>
-</ul>
-<h2 id="參考資料">參考資料
-</h2><p><a class="link" href="https://medium.com/interviewnoodle/how-to-avoid-the-race-condition-and-the-negative-value-3f397b2b08e4"  target="_blank" rel="noopener"
-    >How to avoid the race condition and the negative value</a></p>
-<p><a class="link" href="https://stackoverflow.com/questions/21503658/prevent-less-than-zero-values-in-postgresql"  target="_blank" rel="noopener"
-    >check constraint</a></p>
-<p><a class="link" href="https://zhuanlan.zhihu.com/p/143866444"  target="_blank" rel="noopener"
-    >select for update 詳解</a></p>
-<p><a class="link" href="https://stackoverflow.com/questions/21503658/prevent-less-than-zero-values-in-postgresql"  target="_blank" rel="noopener"
-    >check constraint</a></p>
+    <p>從物件導向的語言轉到Golang常常會遇到，不知道該怎麼在Golang實作類似多型和繼承的功能。這是因為Golang根本不是物件導向的語言。</p>
+<p>在網路上會看到一些文章，寫說可以使用可以embed來模擬繼承，但事實上embed的用途應該只是用來減少重複的程式碼，增加可讀性。像在io package裡面就很明顯，如interface ReadWriter就是用Reader和Writer 兩個interface組合起來的。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">ReadWriter</span> <span class="kd">interface</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Reader</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Writer</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>使用embed struct的方式來模擬繼承。為了要可以被抽換注入，還是得要同時implement一個interface。這樣還不如直接implement interface就好了。</p>
+<p>在Golang，唯一類似物件導向的東西只有 interface。只要有implement interface，就可以在宣告使用這個interface的地方使用。</p>
+<p>個人的理解，Golang把繼承的概念且分成兩個部分：embed和interface。embed struct (interface) 負責擴增fields (method); interface負責讓不同struct可以有相同的調用方式</p>
+<p>embed struct 的功能只是單純消除struct的field的重用而已。embed interface 也是如此，單純想要減少 method 裡面重複宣告 method 的程式碼。</p>
+<p>簡單來說，就是</p>
+<p>想要可以抽換，用interface; 想要減少重複可以用embed的方式包裝組合</p>
 
 </section>
 
@@ -460,11 +326,11 @@
     
     <section class="article-tags">
         
-            <a href="/tags/database/">Database</a>
+            <a href="/tags/golang/">Golang</a>
         
-            <a href="/tags/transaction/">Transaction</a>
+            <a href="/tags/%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91/">物件導向</a>
         
-            <a href="/tags/%E5%90%8C%E6%AD%A5/">同步</a>
+            <a href="/tags/embed/">Embed</a>
         
     </section>
 

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-TW" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="最近開始使用Goland來用hugo寫部落格文章，之前markdown的preview分頁都還很正常，但到了今天，突然之間只剩下一般的編輯界面，而且Goland好像還把它識別為html,旁邊會出現在各種瀏覽器上面的按鈕。 而且使用hugo的shortcode還會出現網頁相關的錯誤訊息，在設定裡面查了一陣子才發現到。關於檔案的偵測少了.md的部分，只剩下markdown的部分 將*.md加上去，一切的紅底線、還有markdown就都全部回來了。">
-<title>Goland Markdown split editor消失的問題</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="使用CloudFlare的SSL，網頁卻持續進行重整的錯誤，其實是設定問題">
+<title>CloudFlare SSL in redirect loop</title>
 
-<link rel='canonical' href='http://coding.fnsne.com/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/'>
+<link rel='canonical' href='http://coding.fnsne.com/posts/cloudflare_ssl_redirect_loop/'>
 
-<link rel="stylesheet" href="/scss/style.min.50dda404ea8b9660810f3a10315639e714c500ecbdb77ec8cce81a2b2bff252e.css"><meta property='og:title' content="Goland Markdown split editor消失的問題">
-<meta property='og:description' content="最近開始使用Goland來用hugo寫部落格文章，之前markdown的preview分頁都還很正常，但到了今天，突然之間只剩下一般的編輯界面，而且Goland好像還把它識別為html,旁邊會出現在各種瀏覽器上面的按鈕。 而且使用hugo的shortcode還會出現網頁相關的錯誤訊息，在設定裡面查了一陣子才發現到。關於檔案的偵測少了.md的部分，只剩下markdown的部分 將*.md加上去，一切的紅底線、還有markdown就都全部回來了。">
-<meta property='og:url' content='http://coding.fnsne.com/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/'>
+<link rel="stylesheet" href="/scss/style.min.50dda404ea8b9660810f3a10315639e714c500ecbdb77ec8cce81a2b2bff252e.css"><meta property='og:title' content="CloudFlare SSL in redirect loop">
+<meta property='og:description' content="使用CloudFlare的SSL，網頁卻持續進行重整的錯誤，其實是設定問題">
+<meta property='og:url' content='http://coding.fnsne.com/posts/cloudflare_ssl_redirect_loop/'>
 <meta property='og:site_name' content='fnsne&#39;s coding world'>
-<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='Jetbrains' /><meta property='article:tag' content='Goland' /><meta property='article:tag' content='Markdown' /><meta property='article:tag' content='Hugo' /><meta property='article:published_time' content='2022-09-01T20:21:30&#43;08:00'/><meta property='article:modified_time' content='2022-09-01T20:21:30&#43;08:00'/>
-<meta name="twitter:title" content="Goland Markdown split editor消失的問題">
-<meta name="twitter:description" content="最近開始使用Goland來用hugo寫部落格文章，之前markdown的preview分頁都還很正常，但到了今天，突然之間只剩下一般的編輯界面，而且Goland好像還把它識別為html,旁邊會出現在各種瀏覽器上面的按鈕。 而且使用hugo的shortcode還會出現網頁相關的錯誤訊息，在設定裡面查了一陣子才發現到。關於檔案的偵測少了.md的部分，只剩下markdown的部分 將*.md加上去，一切的紅底線、還有markdown就都全部回來了。">
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='CloudFlare' /><meta property='article:tag' content='SSL/TLS' /><meta property='article:published_time' content='2022-09-01T17:01:39&#43;08:00'/><meta property='article:modified_time' content='2022-09-01T17:01:39&#43;08:00'/>
+<meta name="twitter:title" content="CloudFlare SSL in redirect loop">
+<meta name="twitter:description" content="使用CloudFlare的SSL，網頁卻持續進行重整的錯誤，其實是設定問題">
   
 
 
@@ -237,8 +237,8 @@
     
     <header class="article-category">
         
-            <a href="/categories/jetbrains/" >
-                JetBrains
+            <a href="/categories/cloudflare/" >
+                CloudFlare
             </a>
         
     </header>
@@ -246,9 +246,13 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/">Goland Markdown split editor消失的問題</a>
+            <a href="/posts/cloudflare_ssl_redirect_loop/">CloudFlare SSL in redirect loop</a>
         </h2>
     
+        
+        <h3 class="article-subtitle">
+            使用CloudFlare的SSL，網頁卻持續進行重整的錯誤，其實是設定問題
+        </h3>
         
     </div>
 
@@ -298,37 +302,55 @@
     <section class="article-content">
     
     
-    <p>最近開始使用Goland來用hugo寫部落格文章，之前markdown的preview分頁都還很正常，但到了今天，突然之間只剩下一般的編輯界面，而且Goland好像還把它識別為html,旁邊會出現在各種瀏覽器上面的按鈕。</p>
-<p><img src="/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-markdown_detected_wrong.jpg"
-	width="384"
-	height="143"
-	srcset="/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-markdown_detected_wrong_huaf8f8d9afbbf12ddd7a02df886fbcd51_10326_480x0_resize_q75_box.jpg 480w, /posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-markdown_detected_wrong_huaf8f8d9afbbf12ddd7a02df886fbcd51_10326_1024x0_resize_q75_box.jpg 1024w"
+    <h1 id="內文">內文
+</h1><p>最近在godaddy上面購買網域，然後使用cloudflare來申請ssl並弄成https的連線。結果今天上來看blog卻發現進不去，錯誤訊息是太多的redirect了。
+打開F12重整看看，還真的是持續進行著</p>
+<p><img src="/posts/cloudflare_ssl_redirect_loop/2022-09-01-repeat301.jpg"
+	width="962"
+	height="594"
+	srcset="/posts/cloudflare_ssl_redirect_loop/2022-09-01-repeat301_hu0f868d73a597a61d8aca0cc112005036_100170_480x0_resize_q75_box.jpg 480w, /posts/cloudflare_ssl_redirect_loop/2022-09-01-repeat301_hu0f868d73a597a61d8aca0cc112005036_100170_1024x0_resize_q75_box.jpg 1024w"
 	loading="lazy"
 	
-		alt="偵測成html"
+		alt="重複redirect到首頁的情況"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="268"
-		data-flex-basis="644px"
+		data-flex-grow="161"
+		data-flex-basis="388px"
 	
 ></p>
-<p>而且使用hugo的shortcode還會出現網頁相關的錯誤訊息，在設定裡面查了一陣子才發現到。關於檔案的偵測少了<code>.md</code>的部分，只剩下<code>markdown</code>的部分</p>
-<p><img src="/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-fileTypeMarkDownSetting.jpg"
-	width="1324"
-	height="763"
-	srcset="/posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-fileTypeMarkDownSetting_huaf8f8d9afbbf12ddd7a02df886fbcd51_83783_480x0_resize_q75_box.jpg 480w, /posts/goland-markdown-split-editor%E6%B6%88%E5%A4%B1%E7%9A%84%E5%95%8F%E9%A1%8C/2022-09-01-fileTypeMarkDownSetting_huaf8f8d9afbbf12ddd7a02df886fbcd51_83783_1024x0_resize_q75_box.jpg 1024w"
+<p>經過一段研究，發現只是這個問題很多人有遇到，只是因為CloudFlare的SSL設定設到了Flexible</p>
+<p><img src="/posts/cloudflare_ssl_redirect_loop/2022-09-01-wrongSSL_setting.jpg"
+	width="1353"
+	height="600"
+	srcset="/posts/cloudflare_ssl_redirect_loop/2022-09-01-wrongSSL_setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_73300_480x0_resize_q75_box.jpg 480w, /posts/cloudflare_ssl_redirect_loop/2022-09-01-wrongSSL_setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_73300_1024x0_resize_q75_box.jpg 1024w"
 	loading="lazy"
 	
-		alt="settings -&gt; Editor -&gt; File Type"
+		alt="造成迴圈的ssl設定"
 	
 	
 		class="gallery-image" 
-		data-flex-grow="173"
-		data-flex-basis="416px"
+		data-flex-grow="225"
+		data-flex-basis="541px"
 	
 ></p>
-<p>將<code>*.md</code>加上去，一切的紅底線、還有markdown就都全部回來了。</p>
+<p><img src="/posts/cloudflare_ssl_redirect_loop/2022-09-01-rightSSL-setting.jpg"
+	width="1319"
+	height="610"
+	srcset="/posts/cloudflare_ssl_redirect_loop/2022-09-01-rightSSL-setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_77068_480x0_resize_q75_box.jpg 480w, /posts/cloudflare_ssl_redirect_loop/2022-09-01-rightSSL-setting_huaf8f8d9afbbf12ddd7a02df886fbcd51_77068_1024x0_resize_q75_box.jpg 1024w"
+	loading="lazy"
+	
+		alt="正確的設定"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="216"
+		data-flex-basis="518px"
+	
+></p>
+<h1 id="參考資料">參考資料
+</h1><p>{&lt; link &ldquo;<a class="link" href="https://community.cloudflare.com/t/error-301-on-dns-and-http-proxy/77699%22"  target="_blank" rel="noopener"
+    >https://community.cloudflare.com/t/error-301-on-dns-and-http-proxy/77699"</a> &gt;}}</p>
 
 </section>
 
@@ -337,13 +359,9 @@
     
     <section class="article-tags">
         
-            <a href="/tags/jetbrains/">Jetbrains</a>
+            <a href="/tags/cloudflare/">CloudFlare</a>
         
-            <a href="/tags/goland/">Goland</a>
-        
-            <a href="/tags/markdown/">Markdown</a>
-        
-            <a href="/tags/hugo/">Hugo</a>
+            <a href="/tags/ssl/tls/">SSL/TLS</a>
         
     </section>
 

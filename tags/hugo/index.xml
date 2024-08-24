@@ -23,8 +23,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    startLevel = 1
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;即可讓LoveIt從h1就開始抓到toc上面。&lt;/p&gt;
 &lt;h1 id=&#34;reference&#34;&gt;reference
-&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/dillonzq/LoveIt/issues/410#issuecomment-647272066&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;LoveIt Github Issue 410&lt;/a&gt;&lt;/p&gt;
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/dillonzq/LoveIt/issues/410#issuecomment-647272066&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;LoveIt Github Issue 410&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>

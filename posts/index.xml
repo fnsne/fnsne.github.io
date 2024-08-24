@@ -627,14 +627,24 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;參考資料&#34;&gt;參考資料
-&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/interviewnoodle/how-to-avoid-the-race-condition-and-the-negative-value-3f397b2b08e4&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/interviewnoodle/how-to-avoid-the-race-condition-and-the-negative-value-3f397b2b08e4&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;How to avoid the race condition and the negative value&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/questions/21503658/prevent-less-than-zero-values-in-postgresql&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;check constraint&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/143866444&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;select for update 詳解&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/questions/21503658/prevent-less-than-zero-values-in-postgresql&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;check constraint&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>
@@ -750,8 +760,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    startLevel = 1
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;即可讓LoveIt從h1就開始抓到toc上面。&lt;/p&gt;
 &lt;h1 id=&#34;reference&#34;&gt;reference
-&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/dillonzq/LoveIt/issues/410#issuecomment-647272066&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;LoveIt Github Issue 410&lt;/a&gt;&lt;/p&gt;
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/dillonzq/LoveIt/issues/410#issuecomment-647272066&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;LoveIt Github Issue 410&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>
@@ -911,8 +923,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;h1 id=&#34;參考資料&#34;&gt;參考資料
-&lt;/h1&gt;&lt;p&gt;{&amp;lt; link &amp;ldquo;&lt;a class=&#34;link&#34; href=&#34;https://community.cloudflare.com/t/error-301-on-dns-and-http-proxy/77699%22&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://community.cloudflare.com/t/error-301-on-dns-and-http-proxy/77699&#34;&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://community.cloudflare.com/t/error-301-on-dns-and-http-proxy/77699&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Error 301 on DNS and HTTP Proxy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>

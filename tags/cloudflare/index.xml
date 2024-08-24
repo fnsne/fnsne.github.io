@@ -60,8 +60,10 @@
 	
 &gt;&lt;/p&gt;
 &lt;h1 id=&#34;參考資料&#34;&gt;參考資料
-&lt;/h1&gt;&lt;p&gt;{&amp;lt; link &amp;ldquo;&lt;a class=&#34;link&#34; href=&#34;https://community.cloudflare.com/t/error-301-on-dns-and-http-proxy/77699%22&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://community.cloudflare.com/t/error-301-on-dns-and-http-proxy/77699&#34;&lt;/a&gt; &amp;gt;}}&lt;/p&gt;
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://community.cloudflare.com/t/error-301-on-dns-and-http-proxy/77699&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Error 301 on DNS and HTTP Proxy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         

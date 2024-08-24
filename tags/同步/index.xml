@@ -207,14 +207,24 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;參考資料&#34;&gt;參考資料
-&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/interviewnoodle/how-to-avoid-the-race-condition-and-the-negative-value-3f397b2b08e4&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/interviewnoodle/how-to-avoid-the-race-condition-and-the-negative-value-3f397b2b08e4&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;How to avoid the race condition and the negative value&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/questions/21503658/prevent-less-than-zero-values-in-postgresql&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;check constraint&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/143866444&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;select for update 詳解&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/questions/21503658/prevent-less-than-zero-values-in-postgresql&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;check constraint&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         

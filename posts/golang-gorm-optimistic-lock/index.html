@@ -254,11 +254,15 @@
     <li><a href="#為什麼要使用樂觀鎖">為什麼要使用樂觀鎖？</a></li>
     <li><a href="#範例">範例</a>
       <ul>
-        <li><a href="#自行實作方法1-使用atomic-update">自行實作方法1: 使用Atomic Update</a></li>
-        <li><a href="#自行實作方法2-使用lock">自行實作方法2: 使用lock</a></li>
-        <li><a href="#自行實作方法3-使用樂觀鎖updatedat版本">自行實作方法3: 使用樂觀鎖：UpdatedAt版本</a></li>
-        <li><a href="#自行實作方法4-使用樂觀鎖version欄位">自行實作方法4: 使用樂觀鎖：Version欄位</a></li>
-        <li><a href="#使用go-gormoptimisticlock">使用go-gorm/optimisticlock</a></li>
+        <li><a href="#方法1使用atomic-update">方法1：使用Atomic Update</a></li>
+        <li><a href="#方法2使用lock">方法2：使用lock</a></li>
+        <li><a href="#方法3使用樂觀鎖">方法3：使用樂觀鎖</a>
+          <ul>
+            <li><a href="#用updatedat來自己實作">用UpdatedAt來自己實作</a></li>
+            <li><a href="#用version欄位來自己實作">用Version欄位來自己實作</a></li>
+            <li><a href="#使用go-gormoptimisticlock">使用go-gorm/optimisticlock</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#結論">結論</a></li>
@@ -367,8 +371,8 @@
 </ul>
 <p>每賣出一本書，就要讓count加1。
 請實作出AddBookCount的方法。</p>
-<h3 id="自行實作方法1-使用atomic-update">自行實作方法1: 使用Atomic Update
-</h3><p>剛好這個例子只需要更新一個欄位的值，所以可以使用Atomic Update來實作。但在一些複雜的情境下，可能會需要同時更新不同的欄位，這個時候就不能使用這個方法，而是需要使用樂觀鎖了。</p>
+<h3 id="方法1使用atomic-update">方法1：使用Atomic Update
+</h3><p>剛好這個例子只需要更新一個欄位的值，所以可以使用Atomic Update來實作。但在一些複雜的情境下，並不是單純的對原本的數值做加減的情況，就不能使用這個方法，而是需要使用下面其它的方法了。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">BookRepo</span> <span class="kd">struct</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">db</span> <span class="o">*</span><span class="nx">gorm</span><span class="p">.</span><span class="nx">DB</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -384,8 +388,8 @@
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">	    <span class="k">return</span> <span class="kc">nil</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="自行實作方法2-使用lock">自行實作方法2: 使用lock
-</h3><p>這個做法，在大部分的情況下可以正常運作，只是不能避免Phantom Read, Write Skew的情況。需要多加上 conflict materialization（select parent record for update)。</p>
+</span></span></code></pre></div><h3 id="方法2使用lock">方法2：使用lock
+</h3><p>這個做法，在大部分的情況下可以正常運作。（例外：Phantom Read, Write Skew的情況)。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">BookRepo</span> <span class="kd">struct</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">db</span> <span class="o">*</span><span class="nx">gorm</span><span class="p">.</span><span class="nx">DB</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -409,8 +413,10 @@
 </span></span><span class="line"><span class="cl">	<span class="nx">tx</span><span class="p">.</span><span class="nf">Commit</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">nil</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>   
-</span></span></code></pre></div><h3 id="自行實作方法3-使用樂觀鎖updatedat版本">自行實作方法3: 使用樂觀鎖：UpdatedAt版本
-</h3><p>常見的做法，使用updated_at欄位來做為樂觀鎖的版本號，但這個方法有一個缺點：如果更新在比updated_at記錄的時間顆粒度還小的時間內一起發生，就會發生問題。例如updated_at的顆粒度是秒，但有多個request在同一秒內更新，就會相撞。
+</span></span></code></pre></div><h3 id="方法3使用樂觀鎖">方法3：使用樂觀鎖
+</h3><p>雖然看起來都有點複雜，但只要是針對一個record的更新，都可以簡化成同樣的流程：<code>取出該筆資料-&gt;更新欄位的值-&gt;整筆存起來</code>。這樣在一些比較複雜的情境裡面，就可以用相對簡單的方式實作出來。</p>
+<h4 id="用updatedat來自己實作">用UpdatedAt來自己實作
+</h4><p>常見的做法，使用updated_at欄位來做為樂觀鎖的版本號，但這個方法有一個缺點：如果更新在比updated_at記錄的時間顆粒度還小的時間內一起發生，就會發生問題。例如updated_at的顆粒度是秒，但有多個request在同一秒內更新，就會相撞。
 所以這個做法要很小心，注意更新的頻率和updated_at資料的顆粒度。但通常來說，如果更新頻率偏高，通常就會開始改成使用Lock的方式，而不是樂觀鎖了。</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">BookRepo</span> <span class="kd">struct</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">db</span> <span class="o">*</span><span class="nx">gorm</span><span class="p">.</span><span class="nx">DB</span>
@@ -435,8 +441,8 @@
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">nil</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>   
-</span></span></code></pre></div><h3 id="自行實作方法4-使用樂觀鎖version欄位">自行實作方法4: 使用樂觀鎖：Version欄位
-</h3><p>能避免上面<code>用updated_at來實作樂觀鎖</code>提到的缺點。但是必須要在欄位上，多加上一個version的欄位</p>
+</span></span></code></pre></div><h4 id="用version欄位來自己實作">用Version欄位來自己實作
+</h4><p>能避免上面<code>用updated_at來實作樂觀鎖</code>提到的缺點。但是必須要在欄位上，多加上一個version的欄位</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">BookRepo</span> <span class="kd">struct</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">db</span> <span class="o">*</span><span class="nx">gorm</span><span class="p">.</span><span class="nx">DB</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -461,8 +467,8 @@
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">nil</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h3 id="使用go-gormoptimisticlock">使用go-gorm/optimisticlock
-</h3><p>在Model使用optimisticlock.Version</p>
+</span></span></code></pre></div><h4 id="使用go-gormoptimisticlock">使用go-gorm/optimisticlock
+</h4><p>在Model使用optimisticlock.Version</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Book</span> <span class="kd">struct</span><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">ID</span>         <span class="kt">string</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">Title</span>      <span class="kt">string</span>
@@ -492,7 +498,9 @@
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">nil</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 id="結論">結論
+</span></span></code></pre></div><p>完整範例<a class="link" href="https://github.com/fnsne/gormOptimisticLockExample"  target="_blank" rel="noopener"
+    >在此</a></p>
+<h2 id="結論">結論
 </h2><ul>
 <li>使用Atomic Update的方式，速度最快，但不一定適用於所有的情況。</li>
 <li>使用Lock的方式，能夠避免race condition的發生，但因為要取得、釋放lock，所以每個request執行所需要的時間會比較長一些。當然，在更新頻率較高的情況下，多等一下下，總是比全部重新來過還要快。</li>

@@ -7,13 +7,21 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Thu, 29 Jun 2023 09:34:49 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 01 Nov 2024 13:42:30 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Golang</title>
         <link>http://coding.fnsne.com/categories/golang/</link>
-        <pubDate>Tue, 02 Aug 2022 20:01:59 +0800</pubDate>
+        <pubDate>Fri, 01 Nov 2024 13:42:30 +0800</pubDate>
         
         <guid>http://coding.fnsne.com/categories/golang/</guid>
         <description>&lt;img src="http://coding.fnsne.com/categories/golang/Go-Logo_LightBlue.svg" alt="Featured image of post Golang" /&gt;</description>
+        </item>
+        <item>
+        <title>ORM</title>
+        <link>http://coding.fnsne.com/categories/orm/</link>
+        <pubDate>Fri, 01 Nov 2024 13:42:30 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/categories/orm/</guid>
+        <description></description>
         </item>
         <item>
         <title>K8s</title>

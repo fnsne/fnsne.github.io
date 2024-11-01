@@ -7,7 +7,31 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Thu, 04 Jul 2024 21:09:08 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 01 Nov 2024 13:42:30 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Golang</title>
+        <link>http://coding.fnsne.com/tags/golang/</link>
+        <pubDate>Fri, 01 Nov 2024 13:42:30 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/tags/golang/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Gorm</title>
+        <link>http://coding.fnsne.com/tags/gorm/</link>
+        <pubDate>Fri, 01 Nov 2024 13:42:30 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/tags/gorm/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>樂觀鎖(Optimistic Lock)</title>
+        <link>http://coding.fnsne.com/tags/%E6%A8%82%E8%A7%80%E9%8E%96optimistic-lock/</link>
+        <pubDate>Fri, 01 Nov 2024 13:42:30 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/tags/%E6%A8%82%E8%A7%80%E9%8E%96optimistic-lock/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>SSL/TSL</title>
         <link>http://coding.fnsne.com/tags/ssl/tsl/</link>
         <pubDate>Thu, 04 Jul 2024 21:09:08 +0800</pubDate>
@@ -141,30 +165,6 @@
         <pubDate>Thu, 01 Sep 2022 20:21:30 +0800</pubDate>
         
         <guid>http://coding.fnsne.com/tags/markdown/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>CloudFlare</title>
-        <link>http://coding.fnsne.com/tags/cloudflare/</link>
-        <pubDate>Thu, 01 Sep 2022 17:01:39 +0800</pubDate>
-        
-        <guid>http://coding.fnsne.com/tags/cloudflare/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>SSL/TLS</title>
-        <link>http://coding.fnsne.com/tags/ssl/tls/</link>
-        <pubDate>Thu, 01 Sep 2022 17:01:39 +0800</pubDate>
-        
-        <guid>http://coding.fnsne.com/tags/ssl/tls/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Embed</title>
-        <link>http://coding.fnsne.com/tags/embed/</link>
-        <pubDate>Tue, 02 Aug 2022 20:01:59 +0800</pubDate>
-        
-        <guid>http://coding.fnsne.com/tags/embed/</guid>
         <description></description>
         </item>
         

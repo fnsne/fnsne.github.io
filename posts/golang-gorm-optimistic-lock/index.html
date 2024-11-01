@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="zh-TW" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="簡單介紹如何在Golang的gorm上面使用樂觀鎖的做法。">
+<title>探討在Golang_gorm上使用樂觀鎖的做法</title>
+
+<link rel='canonical' href='http://coding.fnsne.com/posts/golang-gorm-optimistic-lock/'>
+
+<link rel="stylesheet" href="/scss/style.min.50dda404ea8b9660810f3a10315639e714c500ecbdb77ec8cce81a2b2bff252e.css"><meta property='og:title' content="探討在Golang_gorm上使用樂觀鎖的做法">
+<meta property='og:description' content="簡單介紹如何在Golang的gorm上面使用樂觀鎖的做法。">
+<meta property='og:url' content='http://coding.fnsne.com/posts/golang-gorm-optimistic-lock/'>
+<meta property='og:site_name' content='fnsne&#39;s coding world'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='Golang' /><meta property='article:tag' content='gorm' /><meta property='article:tag' content='樂觀鎖(Optimistic Lock)' /><meta property='article:published_time' content='2024-11-01T13:42:30&#43;08:00'/><meta property='article:modified_time' content='2024-11-01T13:42:30&#43;08:00'/>
+<meta name="twitter:title" content="探討在Golang_gorm上使用樂觀鎖的做法">
+<meta name="twitter:description" content="簡單介紹如何在Golang的gorm上面使用樂觀鎖的做法。">
+    <link rel="shortcut icon" href="/favicon.svg" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/avatar_hua68e4532ac30c2aafc07cde884358a82_1922083_300x0_resize_q75_box.jpg" width="300"
+                            height="235" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">fnsne&#39;s coding world</a></h1>
+            <h2 class="site-description">this is subtitle</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/fnsne/'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/fnsne/'
+                        target="_blank"
+                        title="LinkedIn"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#00abfb" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+    <path d="M8 11l0 5" />
+    <path d="M8 8l0 .01" />
+    <path d="M12 16l0 -5" />
+    <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>About Me</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#為什麼要使用樂觀鎖">為什麼要使用樂觀鎖？</a></li>
+    <li><a href="#範例">範例</a>
+      <ul>
+        <li><a href="#自行實作方法1-使用atomic-update">自行實作方法1: 使用Atomic Update</a></li>
+        <li><a href="#自行實作方法2-使用lock">自行實作方法2: 使用lock</a></li>
+        <li><a href="#自行實作方法3-使用樂觀鎖updatedat版本">自行實作方法3: 使用樂觀鎖：UpdatedAt版本</a></li>
+        <li><a href="#自行實作方法4-使用樂觀鎖version欄位">自行實作方法4: 使用樂觀鎖：Version欄位</a></li>
+        <li><a href="#使用go-gormoptimisticlock">使用go-gorm/optimisticlock</a></li>
+      </ul>
+    </li>
+    <li><a href="#結論">結論</a></li>
+  </ul>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/golang/" style="background-color: ; color: #fff;">
+                Golang
+            </a>
+        
+            <a href="/categories/orm/" >
+                ORM
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/golang-gorm-optimistic-lock/">探討在Golang_gorm上使用樂觀鎖的做法</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            簡單介紹如何在Golang的gorm上面使用樂觀鎖的做法。
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 01, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="探討在golang_gorm上使用樂觀鎖的做法">探討在Golang_gorm上使用樂觀鎖的做法
+</h1><p>在<a class="link" href="https://gorm.io/docs/index.html"  target="_blank" rel="noopener"
+    >Gorm</a>上如果要使用Optimistic locking的話，使用<a class="link" href="https://github.com/go-gorm/optimisticlock"  target="_blank" rel="noopener"
+    >go-gorm optimisticlock</a>會是一個好選擇。因為它只需要在Model定義好，就可以正常使用了。可以避免實作的時候忘記加上<code>WHERE version = ?</code>的條件。而變成沒有使用樂觀鎖保護資料的情況。</p>
+<h2 id="為什麼要使用樂觀鎖">為什麼要使用樂觀鎖？
+</h2><p>樂觀鎖實際上是沒有使用到Lock的，所以在沒有衝突的情況下，每筆資料的更新速度，會比有使用Lock的情況還要快速。 所以在資料庫更新頻率較低的時候，樂觀鎖是一個不錯的選擇。
+樂觀鎖的缺點是，如果有兩個人同時更新同一筆資料，就會有一個人的更新會失敗。這時候就需要重新讀取資料，再重新更新一次。所以不適合在資料更新頻率很高的情況下使用。</p>
+<p>另一方面，在產品還在MVP階段的時候，重點是趕快把Business Model 實作出來放到市場上，看看市場反應如何。能儘量快一點把功能做出來會越好。等確定這個功能是真的有市場，再來考慮優化效能方面的問題。
+使用樂觀鎖+ORM，能簡化開發要寫的code，因為使用樂觀鎖+OR，就能讓大部分的code都變成，<code>取出該筆資料-&gt;更新欄位的值-&gt;整筆存起來</code>，並且可以避免資料更新的時候，用到別人更新的資料（race condition），
+這樣幾乎每個table就只需要有<code>Get</code>、<code>Update</code>就能完成所有更新的操作了。因此在MVP階段，使用樂觀鎖是一個不錯的選擇。</p>
+<p>以下列出各種寫法，就能很清楚的看出來使用樂觀鎖的好處，還有為什麼要使用Optimisticlock套件了。</p>
+<h2 id="範例">範例
+</h2><ul>
+<li>table <code>books</code></li>
+<li>table 欄位有 <code>id</code>, <code>title</code>, <code>count</code>, <code>updated_at</code>;</li>
+</ul>
+<p>每賣出一本書，就要讓count加1。
+請實作出AddBookCount的方法。</p>
+<h3 id="自行實作方法1-使用atomic-update">自行實作方法1: 使用Atomic Update
+</h3><p>剛好這個例子只需要更新一個欄位的值，所以可以使用Atomic Update來實作。但在一些複雜的情境下，可能會需要同時更新不同的欄位，這個時候就不能使用這個方法，而是需要使用樂觀鎖了。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">BookRepo</span> <span class="kd">struct</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">db</span> <span class="o">*</span><span class="nx">gorm</span><span class="p">.</span><span class="nx">DB</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">repo</span><span class="o">*</span> <span class="nx">BookRepo</span><span class="p">)</span> <span class="nf">AddBookCount</span><span class="p">(</span><span class="nx">bookID</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">count</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">error</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">err</span> <span class="o">:=</span> <span class="nx">repo</span><span class="p">.</span><span class="nx">db</span><span class="p">.</span><span class="nf">Model</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">Book</span><span class="p">{}).</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">Where</span><span class="p">(</span><span class="s">&#34;id = ?&#34;</span><span class="p">,</span> <span class="nx">bookID</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">Update</span><span class="p">(</span><span class="s">&#34;count = count + ?&#34;</span><span class="p">,</span> <span class="nx">count</span><span class="p">).</span>
+</span></span><span class="line"><span class="cl">		<span class="nf">Update</span><span class="p">(</span><span class="s">&#34;updated_at&#34;</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()).</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">Error</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">	    <span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="自行實作方法2-使用lock">自行實作方法2: 使用lock
+</h3><p>這個做法，在大部分的情況下可以正常運作，只是不能避免Phantom Read, Write Skew的情況。需要多加上 conflict materialization（select parent record for update)。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">BookRepo</span> <span class="kd">struct</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">db</span> <span class="o">*</span><span class="nx">gorm</span><span class="p">.</span><span class="nx">DB</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="p">(</span><span class="nx">repo</span><span class="o">*</span> <span class="nx">BookRepo</span><span class="p">)</span> <span class="nf">AddBookCount</span><span class="p">(</span><span class="nx">bookID</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">count</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">error</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">tx</span> <span class="o">:=</span> <span class="nx">repo</span><span class="p">.</span><span class="nx">db</span><span class="p">.</span><span class="nf">Begin</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//lock the book record
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kd">var</span> <span class="nx">b</span> <span class="nx">Book</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">err</span> <span class="o">:=</span> <span class="nx">tx</span><span class="p">.</span><span class="nf">Clauses</span><span class="p">(</span><span class="nx">clause</span><span class="p">.</span><span class="nx">Locking</span><span class="p">{</span><span class="nx">Strength</span><span class="p">:</span> <span class="s">&#34;UPDATE&#34;</span><span class="p">}).</span><span class="nf">Where</span><span class="p">(</span><span class="s">&#34;id = ?&#34;</span><span class="p">,</span> <span class="nx">bookID</span><span class="p">).</span><span class="nf">First</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">book</span><span class="p">).</span><span class="nx">Error</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">tx</span><span class="p">.</span><span class="nf">Rollback</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//update the book record
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">b</span><span class="p">.</span><span class="nx">Count</span> <span class="o">+=</span> <span class="nx">count</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">err</span> <span class="p">=</span> <span class="nx">tx</span><span class="p">.</span><span class="nf">Save</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">b</span><span class="p">).</span><span class="nx">Error</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">tx</span><span class="p">.</span><span class="nf">Rollback</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">tx</span><span class="p">.</span><span class="nf">Commit</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>   
+</span></span></code></pre></div><h3 id="自行實作方法3-使用樂觀鎖updatedat版本">自行實作方法3: 使用樂觀鎖：UpdatedAt版本
+</h3><p>常見的做法，使用updated_at欄位來做為樂觀鎖的版本號，但這個方法有一個缺點：如果更新在比updated_at記錄的時間顆粒度還小的時間內一起發生，就會發生問題。例如updated_at的顆粒度是秒，但有多個request在同一秒內更新，就會相撞。
+所以這個做法要很小心，注意更新的頻率和updated_at資料的顆粒度。但通常來說，如果更新頻率偏高，通常就會開始改成使用Lock的方式，而不是樂觀鎖了。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">BookRepo</span> <span class="kd">struct</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">db</span> <span class="o">*</span><span class="nx">gorm</span><span class="p">.</span><span class="nx">DB</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="p">(</span><span class="nx">repo</span><span class="o">*</span> <span class="nx">BookRepo</span><span class="p">)</span> <span class="nf">AddBookCount</span><span class="p">(</span><span class="nx">bookID</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">count</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">error</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//lock the book record
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="kd">var</span> <span class="nx">b</span> <span class="nx">Book</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">err</span> <span class="o">:=</span> <span class="nx">tx</span><span class="p">.</span><span class="nf">First</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">book</span><span class="p">,</span> <span class="s">&#34;id = ?&#34;</span><span class="p">,</span> <span class="nx">bookID</span><span class="p">).</span><span class="nx">Error</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">	<span class="c1">//update the book record
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">b</span><span class="p">.</span><span class="nx">Count</span> <span class="o">+=</span> <span class="nx">count</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">err</span> <span class="o">:=</span> <span class="nx">tx</span><span class="p">.</span><span class="nf">Model</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">Book</span><span class="p">{}).</span><span class="nf">Where</span><span class="p">(</span><span class="s">&#34;updated_at = ?&#34;</span><span class="p">,</span> <span class="nx">b</span><span class="p">.</span><span class="nx">UpdatedAt</span><span class="p">).</span><span class="nf">Updates</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">b</span><span class="p">).</span><span class="nx">Error</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//檢查是否成功更新
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="nx">tx</span><span class="p">.</span><span class="nf">AffectedRows</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;更新失敗&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>   
+</span></span></code></pre></div><h3 id="自行實作方法4-使用樂觀鎖version欄位">自行實作方法4: 使用樂觀鎖：Version欄位
+</h3><p>能避免上面<code>用updated_at來實作樂觀鎖</code>提到的缺點。但是必須要在欄位上，多加上一個version的欄位</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">BookRepo</span> <span class="kd">struct</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">db</span> <span class="o">*</span><span class="nx">gorm</span><span class="p">.</span><span class="nx">DB</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">repo</span><span class="o">*</span> <span class="nx">BookRepo</span><span class="p">)</span><span class="nf">AddBookCount</span><span class="p">(</span><span class="nx">bookID</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">count</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">error</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">b</span> <span class="nx">Book</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">err</span> <span class="o">:=</span> <span class="nx">repo</span><span class="p">.</span><span class="nx">db</span><span class="p">.</span><span class="nf">First</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">b</span><span class="p">,</span> <span class="s">&#34;id = ?&#34;</span><span class="p">,</span> <span class="nx">bookID</span><span class="p">).</span><span class="nx">Error</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">b</span><span class="p">.</span><span class="nx">Count</span> <span class="o">+=</span> <span class="nx">count</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">currentVersion</span> <span class="o">:=</span> <span class="nx">b</span><span class="p">.</span><span class="nx">Version</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">b</span><span class="p">.</span><span class="nx">Version</span> <span class="o">+=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nx">err</span> <span class="p">=</span> <span class="nx">repo</span><span class="p">.</span><span class="nx">db</span><span class="p">.</span><span class="nf">Where</span><span class="p">(</span><span class="s">&#34;version = ?&#34;</span><span class="p">,</span> <span class="nx">currentVersion</span><span class="p">).</span><span class="nf">Updates</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">b</span><span class="p">).</span><span class="nx">Error</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 檢查是否成功更新
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="nx">repo</span><span class="p">.</span><span class="nx">db</span><span class="p">.</span><span class="nx">RowsAffected</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;更新失敗&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h3 id="使用go-gormoptimisticlock">使用go-gorm/optimisticlock
+</h3><p>在Model使用optimisticlock.Version</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">Book</span> <span class="kd">struct</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ID</span>         <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Title</span>      <span class="kt">string</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Count</span>      <span class="kt">int</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">UpdatedAt</span>  <span class="nx">time</span><span class="p">.</span><span class="nx">Time</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">Version</span>    <span class="nx">optimisticlock</span><span class="p">.</span><span class="nx">Version</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span> <span class="nx">BookRepo</span> <span class="kd">struct</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">db</span> <span class="o">*</span><span class="nx">gorm</span><span class="p">.</span><span class="nx">DB</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="p">(</span><span class="nx">repo</span><span class="o">*</span> <span class="nx">BookRepo</span><span class="p">)</span><span class="nf">AddBookCount</span><span class="p">(</span><span class="nx">bookID</span> <span class="kt">string</span><span class="p">,</span> <span class="nx">count</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">error</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">var</span> <span class="nx">b</span> <span class="nx">Book</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">err</span> <span class="o">:=</span> <span class="nx">repo</span><span class="p">.</span><span class="nx">db</span><span class="p">.</span><span class="nf">First</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">b</span><span class="p">,</span> <span class="s">&#34;id = ?&#34;</span><span class="p">,</span> <span class="nx">bookID</span><span class="p">).</span><span class="nx">Error</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">b</span><span class="p">.</span><span class="nx">Count</span> <span class="o">+=</span> <span class="nx">count</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="nx">err</span> <span class="p">=</span> <span class="nx">repo</span><span class="p">.</span><span class="nx">db</span><span class="p">.</span><span class="nf">Save</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">b</span><span class="p">).</span><span class="nx">Error</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">err</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 檢查是否成功更新
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="nx">repo</span><span class="p">.</span><span class="nx">db</span><span class="p">.</span><span class="nx">RowsAffected</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">errors</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="s">&#34;更新失敗&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">nil</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="結論">結論
+</h2><ul>
+<li>使用Atomic Update的方式，速度最快，但不一定適用於所有的情況。</li>
+<li>使用Lock的方式，能夠避免race condition的發生，但因為要取得、釋放lock，所以每個request執行所需要的時間會比較長一些。當然，在更新頻率較高的情況下，多等一下下，總是比全部重新來過還要快。</li>
+<li>如果要在Gorm上使用樂觀鎖，這個時候使用樂觀鎖套件會比較好，因為不論是哪種自己實作的樂觀鎖，都會需要多加一些檢查的條件，但在使用樂觀鎖套件的時候，只需要在Model上加上<code>optimisticlock.Version</code>，剩下的就是照常的使用Gorm的方法就好了。</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/golang/">Golang</a>
+        
+            <a href="/tags/gorm/">Gorm</a>
+        
+            <a href="/tags/%E6%A8%82%E8%A7%80%E9%8E%96optimistic-lock/">樂觀鎖(Optimistic Lock)</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "fnsnes-coding-world" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2024 fnsne
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+
+    </body>
+</html>

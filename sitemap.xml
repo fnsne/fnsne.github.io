@@ -3,33 +3,48 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://coding.fnsne.com/categories/golang/</loc>
-    <lastmod>2024-11-02T22:59:36+08:00</lastmod>
+    <lastmod>2024-11-03T21:37:26+08:00</lastmod>
   </url><url>
     <loc>http://coding.fnsne.com/</loc>
-    <lastmod>2024-11-02T22:59:36+08:00</lastmod>
+    <lastmod>2024-11-03T21:37:26+08:00</lastmod>
   </url><url>
     <loc>http://coding.fnsne.com/categories/</loc>
-    <lastmod>2024-11-02T22:59:36+08:00</lastmod>
+    <lastmod>2024-11-03T21:37:26+08:00</lastmod>
   </url><url>
-    <loc>http://coding.fnsne.com/tags/generic/</loc>
-    <lastmod>2024-11-02T22:59:36+08:00</lastmod>
+    <loc>http://coding.fnsne.com/tags/chain-of-responsibility/</loc>
+    <lastmod>2024-11-03T21:37:26+08:00</lastmod>
+  </url><url>
+    <loc>http://coding.fnsne.com/tags/decorator-pattern/</loc>
+    <lastmod>2024-11-03T21:37:26+08:00</lastmod>
+  </url><url>
+    <loc>http://coding.fnsne.com/tags/design-pattern/</loc>
+    <lastmod>2024-11-03T21:37:26+08:00</lastmod>
+  </url><url>
+    <loc>http://coding.fnsne.com/categories/design-pattern/</loc>
+    <lastmod>2024-11-03T21:37:26+08:00</lastmod>
   </url><url>
     <loc>http://coding.fnsne.com/tags/golang/</loc>
-    <lastmod>2024-11-02T22:59:36+08:00</lastmod>
+    <lastmod>2024-11-03T21:37:26+08:00</lastmod>
   </url><url>
     <loc>http://coding.fnsne.com/posts/</loc>
-    <lastmod>2024-11-02T22:59:36+08:00</lastmod>
+    <lastmod>2024-11-03T21:37:26+08:00</lastmod>
   </url><url>
     <loc>http://coding.fnsne.com/tags/</loc>
+    <lastmod>2024-11-03T21:37:26+08:00</lastmod>
+  </url><url>
+    <loc>http://coding.fnsne.com/posts/decorator-vs-chain-of-responsibility/</loc>
+    <lastmod>2024-11-03T21:37:26+08:00</lastmod>
+  </url><url>
+    <loc>http://coding.fnsne.com/categories/%E9%9D%88%E6%84%9F%E6%97%A5%E6%97%A5%E6%9D%91/</loc>
+    <lastmod>2024-11-03T21:37:26+08:00</lastmod>
+  </url><url>
+    <loc>http://coding.fnsne.com/tags/generic/</loc>
     <lastmod>2024-11-02T22:59:36+08:00</lastmod>
   </url><url>
     <loc>http://coding.fnsne.com/posts/golang-generic/</loc>
     <lastmod>2024-11-02T22:59:36+08:00</lastmod>
   </url><url>
     <loc>http://coding.fnsne.com/tags/%E9%9D%88%E6%84%9F%E6%97%A5%E6%97%A5%E6%9D%91/</loc>
-    <lastmod>2024-11-02T22:59:36+08:00</lastmod>
-  </url><url>
-    <loc>http://coding.fnsne.com/categories/%E9%9D%88%E6%84%9F%E6%97%A5%E6%97%A5%E6%9D%91/</loc>
     <lastmod>2024-11-02T22:59:36+08:00</lastmod>
   </url><url>
     <loc>http://coding.fnsne.com/tags/gorm/</loc>

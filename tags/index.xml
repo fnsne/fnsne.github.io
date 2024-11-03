@@ -7,20 +7,44 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Sat, 02 Nov 2024 22:59:36 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Generic</title>
-        <link>http://coding.fnsne.com/tags/generic/</link>
-        <pubDate>Sat, 02 Nov 2024 22:59:36 +0800</pubDate>
+        <lastBuildDate>Sun, 03 Nov 2024 21:37:26 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Chain of Responsibility</title>
+        <link>http://coding.fnsne.com/tags/chain-of-responsibility/</link>
+        <pubDate>Sun, 03 Nov 2024 21:37:26 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/tags/generic/</guid>
+        <guid>http://coding.fnsne.com/tags/chain-of-responsibility/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Decorator Pattern</title>
+        <link>http://coding.fnsne.com/tags/decorator-pattern/</link>
+        <pubDate>Sun, 03 Nov 2024 21:37:26 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/tags/decorator-pattern/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Design Pattern</title>
+        <link>http://coding.fnsne.com/tags/design-pattern/</link>
+        <pubDate>Sun, 03 Nov 2024 21:37:26 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/tags/design-pattern/</guid>
         <description></description>
         </item>
         <item>
         <title>Golang</title>
         <link>http://coding.fnsne.com/tags/golang/</link>
-        <pubDate>Sat, 02 Nov 2024 22:59:36 +0800</pubDate>
+        <pubDate>Sun, 03 Nov 2024 21:37:26 +0800</pubDate>
         
         <guid>http://coding.fnsne.com/tags/golang/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Generic</title>
+        <link>http://coding.fnsne.com/tags/generic/</link>
+        <pubDate>Sat, 02 Nov 2024 22:59:36 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/tags/generic/</guid>
         <description></description>
         </item>
         <item>
@@ -141,30 +165,6 @@
         <pubDate>Fri, 02 Sep 2022 16:06:28 +0800</pubDate>
         
         <guid>http://coding.fnsne.com/tags/loveit/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Toc</title>
-        <link>http://coding.fnsne.com/tags/toc/</link>
-        <pubDate>Fri, 02 Sep 2022 16:06:28 +0800</pubDate>
-        
-        <guid>http://coding.fnsne.com/tags/toc/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Page Bundle</title>
-        <link>http://coding.fnsne.com/tags/page-bundle/</link>
-        <pubDate>Fri, 02 Sep 2022 14:36:26 +0800</pubDate>
-        
-        <guid>http://coding.fnsne.com/tags/page-bundle/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Goland</title>
-        <link>http://coding.fnsne.com/tags/goland/</link>
-        <pubDate>Thu, 01 Sep 2022 20:21:30 +0800</pubDate>
-        
-        <guid>http://coding.fnsne.com/tags/goland/</guid>
         <description></description>
         </item>
         

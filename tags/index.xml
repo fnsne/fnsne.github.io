@@ -7,7 +7,15 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Sun, 03 Nov 2024 21:37:26 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 04 Nov 2024 21:28:29 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>GeoJson</title>
+        <link>http://coding.fnsne.com/tags/geojson/</link>
+        <pubDate>Mon, 04 Nov 2024 21:28:29 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/tags/geojson/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Chain of Responsibility</title>
         <link>http://coding.fnsne.com/tags/chain-of-responsibility/</link>
         <pubDate>Sun, 03 Nov 2024 21:37:26 +0800</pubDate>
@@ -157,14 +165,6 @@
         <pubDate>Fri, 02 Sep 2022 16:06:28 +0800</pubDate>
         
         <guid>http://coding.fnsne.com/tags/hugo/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>LoveIt</title>
-        <link>http://coding.fnsne.com/tags/loveit/</link>
-        <pubDate>Fri, 02 Sep 2022 16:06:28 +0800</pubDate>
-        
-        <guid>http://coding.fnsne.com/tags/loveit/</guid>
         <description></description>
         </item>
         

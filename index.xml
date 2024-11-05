@@ -7,7 +7,20 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Mon, 04 Nov 2024 21:28:29 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 05 Nov 2024 22:13:15 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>PREP輸出框架</title>
+        <link>http://coding.fnsne.com/posts/prep-output-framework/</link>
+        <pubDate>Tue, 05 Nov 2024 22:13:15 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/posts/prep-output-framework/</guid>
+        <description>&lt;h1 id=&#34;prep輸出框架&#34;&gt;PREP輸出框架
+&lt;/h1&gt;&lt;p&gt;PREP框架是一種輸出框架，它能夠協助我們快速的整理出一個有邏輯，又很好理解的文章。&lt;/p&gt;
+&lt;p&gt;PREP分別是Point（結論）、Reson（理由）、Example（範例）、Point（再次重複結論）。也就是說，一開始的時候就先點題，把結論給寫出來。再來開始開始說明下這個結論的理由是什麼，然後舉例子。最終再次重複結論。在使用這樣的結構下，能夠很快速的讓人理解結論是什麼。
+但使用PREP輸出框架需要注意，必須是在閱讀者已經瞭解前提和背景的情況下才能使用。如果閱讀者本身並未已瞭解前提、和背景，在這個時候就先點題，就反而容易讓人一頭霧水，不知道在說什麼。&lt;/p&gt;
+&lt;p&gt;但如果在正確的對象上使用PREP，它就能讓我們在最短的時間內，整理出一個邏輯通順，很好理解的文字，快速的傳達出想要表達的內容。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>GeoJSON</title>
         <link>http://coding.fnsne.com/posts/geo-json/</link>
         <pubDate>Mon, 04 Nov 2024 21:28:29 +0800</pubDate>

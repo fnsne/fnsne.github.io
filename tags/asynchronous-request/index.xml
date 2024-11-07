@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Asynchronous-Request on fnsne&#39;s coding world</title>
+        <link>http://coding.fnsne.com/tags/asynchronous-request/</link>
+        <description>Recent content in Asynchronous-Request on fnsne&#39;s coding world</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-TW</language>
+        <copyright>fnsne</copyright>
+        <lastBuildDate>Thu, 07 Nov 2024 20:59:16 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/asynchronous-request/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Asynchronous Request</title>
+        <link>http://coding.fnsne.com/posts/asynchronous-request/</link>
+        <pubDate>Thu, 07 Nov 2024 20:59:16 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/posts/asynchronous-request/</guid>
+        <description>&lt;h1 id=&#34;關於asynchronous-request&#34;&gt;關於Asynchronous Request
+&lt;/h1&gt;&lt;p&gt;Asynchronous Request（非同步請求），就是讓server收到請求後，馬上回應使用者有接收到了，但結果會等到執行完後再通知使用者。&lt;/p&gt;
+&lt;p&gt;就像寄信一樣，寄出後我們就不用一直在郵局等，等到信件寄到目的地後，才能離開郵局。我們只要做了寄信的動作，就可以離開郵局做其它事情，郵局自然會把信件送達到目的地。
+非同步請求也是這樣，在發出request後，server在收到請求後，就會把工作交由背景執行的worker進行運算，並在此時就告知使用者，讓使用者知道server已經收到要求了。&lt;/p&gt;
+&lt;p&gt;所以使用者不會感覺到服務被卡住。&lt;/p&gt;
+&lt;p&gt;最近我就有切身體驗到使用非同步請求對使用者體驗有著巨大的提升。&lt;/p&gt;
+&lt;p&gt;那就是7-11賣貨便&lt;/p&gt;
+&lt;p&gt;7-11賣貨便其實每逢節慶，就會開始發放優惠券、折價券，但很常見的發放時間都是在半夜12點的時候開始，因此每到那個時候整個賣貨便服務就會變得非常的卡頓，
+甚至會看到服務目前無法使用的訊息出現。&lt;/p&gt;
+&lt;p&gt;為什麼我會知道這個呢？因為我的家人習慣使用賣貨便的服務來買東西， 所以每次到了這個時候，都會動員全家人想辦法領取優惠券。甚至到後來因為有時候會領取不到，
+開始會定半夜2點的鬧鐘起來，在那個時候再領取優惠券。&lt;/p&gt;
+&lt;p&gt;但就在最近&lt;/p&gt;
+&lt;p&gt;在11-06的要領取雙十一的優惠券的時候，突然發現，領取優惠券的操作，變得十分的滑順。&lt;/p&gt;
+&lt;p&gt;仔細一看發現，在按領取後畫面上很快就顯示「已進行領取，優惠券稍後會轉入帳號中」（之類的訊息），並且有個幾秒鐘的讀秒，然後重整頁面，優惠券就到帳了。&lt;/p&gt;
+&lt;p&gt;這整個讓使用者體驗變得非常的好，因為使用者馬上就知道自己有領取到了，所以這就減少了非常多的使用者按F5的行為。&lt;/p&gt;
+&lt;p&gt;再加上按了領取後，畫面上會有個讀秒的動畫，這和轉圈圈的動畫不同，因為這是已經收到回應了，
+也就是說已經告訴使用者，你已經領取到了，只是我們還在跑程序，所以使用者比較不會在這個等待的時間中一直按F5。
+在這一套修改下，讓我家人瘋狂稱讚，稱讚現在領取變得好快速。也讓他們不再在半夜起床領取優惠券。&lt;/p&gt;
+&lt;p&gt;對於需要長時間運算的操作，很多時候其實可以嘗試使用Asynchronous Request，在增加使用者體驗的同時，也減少使用者等的不耐煩一直按重整導致的request數量。&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

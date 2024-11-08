@@ -7,7 +7,39 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Thu, 07 Nov 2024 20:59:16 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 08 Nov 2024 22:41:41 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Kindle</title>
+        <link>http://coding.fnsne.com/tags/kindle/</link>
+        <pubDate>Fri, 08 Nov 2024 22:41:41 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/tags/kindle/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Kobo</title>
+        <link>http://coding.fnsne.com/tags/kobo/</link>
+        <pubDate>Fri, 08 Nov 2024 22:41:41 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/tags/kobo/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>閱讀方法</title>
+        <link>http://coding.fnsne.com/tags/%E9%96%B1%E8%AE%80%E6%96%B9%E6%B3%95/</link>
+        <pubDate>Fri, 08 Nov 2024 22:41:41 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/tags/%E9%96%B1%E8%AE%80%E6%96%B9%E6%B3%95/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>電子書</title>
+        <link>http://coding.fnsne.com/tags/%E9%9B%BB%E5%AD%90%E6%9B%B8/</link>
+        <pubDate>Fri, 08 Nov 2024 22:41:41 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/tags/%E9%9B%BB%E5%AD%90%E6%9B%B8/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Asynchronous-Request</title>
         <link>http://coding.fnsne.com/tags/asynchronous-request/</link>
         <pubDate>Thu, 07 Nov 2024 20:59:16 +0800</pubDate>
@@ -133,38 +165,6 @@
         <pubDate>Thu, 29 Jun 2023 09:34:49 +0800</pubDate>
         
         <guid>http://coding.fnsne.com/tags/kubernetes/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Lock</title>
-        <link>http://coding.fnsne.com/tags/lock/</link>
-        <pubDate>Tue, 20 Sep 2022 16:35:44 +0800</pubDate>
-        
-        <guid>http://coding.fnsne.com/tags/lock/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>作業系統</title>
-        <link>http://coding.fnsne.com/tags/%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1/</link>
-        <pubDate>Tue, 20 Sep 2022 16:35:44 +0800</pubDate>
-        
-        <guid>http://coding.fnsne.com/tags/%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>同步</title>
-        <link>http://coding.fnsne.com/tags/%E5%90%8C%E6%AD%A5/</link>
-        <pubDate>Tue, 20 Sep 2022 16:35:44 +0800</pubDate>
-        
-        <guid>http://coding.fnsne.com/tags/%E5%90%8C%E6%AD%A5/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Database</title>
-        <link>http://coding.fnsne.com/tags/database/</link>
-        <pubDate>Wed, 14 Sep 2022 16:22:17 +0800</pubDate>
-        
-        <guid>http://coding.fnsne.com/tags/database/</guid>
         <description></description>
         </item>
         

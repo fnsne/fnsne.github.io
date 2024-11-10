@@ -7,7 +7,138 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Fri, 08 Nov 2024 22:41:41 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 11 Nov 2024 00:23:33 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>我整理電子書Highlight的方法：彙整階段</title>
+        <link>http://coding.fnsne.com/posts/category-highlights/</link>
+        <pubDate>Mon, 11 Nov 2024 00:23:33 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/posts/category-highlights/</guid>
+        <description>&lt;h2 id=&#34;我整理電子書highlight的方法彙整階段&#34;&gt;我整理電子書highlight的方法：彙整階段
+&lt;/h2&gt;&lt;p&gt;接續&lt;a class=&#34;link&#34; href=&#34;http://coding.fnsne.com/posts/e-book-is-an-amazing-invention/&#34; &gt;上一篇&lt;/a&gt;的內容&lt;/p&gt;
+&lt;p&gt;前面我有提到我使用readwise把highlight給同步到heptabase（筆記軟體）上面，所以當我標記完，highlight就會自動到heptabase上面了。&lt;/p&gt;
+&lt;p&gt;接下來就是整理階段，我把整理階段分成兩個階段，這篇文章會著重在第一階段，彙整。&lt;/p&gt;
+&lt;h3 id=&#34;彙整&#34;&gt;彙整
+&lt;/h3&gt;&lt;p&gt;簡單來說就是利用whiteboard和section功能，把感覺有相關概念的卡片放在附近，然後用section群組起來。最後再連結到一個萃取出來的卡片上面。&lt;/p&gt;
+&lt;p&gt;在這個階段，我會在heptabase上面新增一個whiteboard，然後把它pin到左側的tab上。我是使用閱讀資料夾來分類的用來放置我還沒有整理完的書的whiteboard&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/category-highlights/heptabase-tabs.png&#34;
+	width=&#34;530&#34;
+	height=&#34;378&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/category-highlights/heptabase-tabs_hu3b5ab001e6b7c43c36b681a8d32997b3_37656_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/category-highlights/heptabase-tabs_hu3b5ab001e6b7c43c36b681a8d32997b3_37656_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;我heptabase左側的tabs&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;140&#34;
+		data-flex-basis=&#34;336px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;接下來我會再把彙整分成兩步驟：&lt;code&gt;把類似的highlight放在附近&lt;/code&gt;、&lt;code&gt;彙整出筆記粗稿&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;步驟1-把類似的highlight放在附近&#34;&gt;步驟1: 把類似的highlight放在附近
+&lt;/h4&gt;&lt;p&gt;在這個時候，我會打開kobo app，依照書本上的順序，重新閱讀highlights，並把我覺得重要的highlights放到whiteboard上面，把覺得類似的highlight放在一堆，然後用section群組起來。&lt;/p&gt;
+&lt;p&gt;詳細的流程：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;一頁一頁的看kobo app上劃線的highlights，一邊思考這是否重要，重要的話，在heptbase上，搜尋對應的關鍵字，找到heptabase上對應的highlight卡片。把它移到whtieboard上面，其它和這張highlight相關的卡片的附近。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;雖然有時候kobo送到readwise的順序怪怪的，但還是可以藉由使用highlight的搜尋功能，搜尋highlight的前幾個字。來做到以實際書本上面的highlight順序來截取highlights。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;發現某些相關的highlight有個可以總結他們概念的大標題時，把他們放在一起，然後使用section功能群組在一起。（多選卡片→Ctrl + G）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;(這是我閱讀&lt;a class=&#34;link&#34; href=&#34;https://r10.to/hkN4Lh&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;《專注力協定》&lt;/a&gt;的時候做的whiteboard。)
+&lt;img src=&#34;http://coding.fnsne.com/posts/category-highlights/group-by-section.png&#34;
+	width=&#34;1584&#34;
+	height=&#34;1282&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/category-highlights/group-by-section_huecc40670c9dae1b3bbef18b6f459c23a_305939_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/category-highlights/group-by-section_huecc40670c9dae1b3bbef18b6f459c23a_305939_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;範例圖&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;123&#34;
+		data-flex-basis=&#34;296px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h4 id=&#34;步驟2-彙整出筆記粗稿&#34;&gt;步驟2: 彙整出筆記粗稿
+&lt;/h4&gt;&lt;p&gt;在這個時候，重新以section為單位來閱讀highlights並參考section標題，彙總出筆記粗稿。&lt;/p&gt;
+&lt;p&gt;詳細流程：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;打開whiteboard的右邊側欄，點Table Of Content&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/category-highlights/whiteboard-table-of-content.png&#34;
+	width=&#34;2506&#34;
+	height=&#34;1264&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/category-highlights/whiteboard-table-of-content_hu4b8f3469276b36b52cb34fdb905dbdee_588919_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/category-highlights/whiteboard-table-of-content_hu4b8f3469276b36b52cb34fdb905dbdee_588919_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;whiteboard-table-of-content&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;198&#34;
+		data-flex-basis=&#34;475px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;使用Table Of Content跳到各個section上，重新閱讀highlight，思考是否能彙整出什麼知識點，這個知識點就是筆記粗稿的標題&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果有，就在section旁邊建立以該知識點為標題的卡片，並用copy content把相關的highlight內容貼到知識點卡片上。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;回到這些highlight上，在筆記的部分，連結這個知識點卡片。這樣未來就能使用卡片下方的backlink，來找到當初是由哪些highlight，來得到這個的知識點卡片的。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;到了這一步，畫面應該會長這樣&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/category-highlights/extract-knowledge-draft.png&#34;
+	width=&#34;1048&#34;
+	height=&#34;1060&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/category-highlights/extract-knowledge-draft_hu66667b5a6af6fdab3a95da0adb3e3775_279590_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/category-highlights/extract-knowledge-draft_hu66667b5a6af6fdab3a95da0adb3e3775_279590_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;彙整出來的筆記粗稿&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;98&#34;
+		data-flex-basis=&#34;237px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;在知識點卡片上，加上屬於知識點卡片的tag，我是使用reference。藉由這個讓我下一階段時，能只篩選出知識點卡片。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在這樣整理之後，我就可以把各種知識切成一塊塊小組，然後再下一階段的時候，利用碎片時間萃取了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/category-highlights/whiteboard-example.png&#34;
+	width=&#34;2326&#34;
+	height=&#34;1362&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/category-highlights/whiteboard-example_hu866c797137e3631e2eb4b717172e1227_576673_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/category-highlights/whiteboard-example_hu866c797137e3631e2eb4b717172e1227_576673_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;白板上的知識點卡片&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;170&#34;
+		data-flex-basis=&#34;409px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h5 id=&#34;備註&#34;&gt;備註
+&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;步驟2可以在任何時候做，可以在剛圈出一個section的時候馬上做，也可以等步驟3把整本書整理過之後，再來做。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在上一篇文章提到的問題：Kobo即使是電子書閱讀器，有時候highlight也會斷掉。在這個做法下不會有問題，因為我在步驟2的時候，會一邊打開kobo app放在旁邊作為索引，用搜尋的方式在heptabase上查找highlights。所以即使我沒有讓一整段highlight在一起，而是切成好幾段標記，也還是可以找到應該要連在一起的highlights。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>電子書真的是劃時代的發明</title>
         <link>http://coding.fnsne.com/posts/e-book-is-an-amazing-invention/</link>
         <pubDate>Fri, 08 Nov 2024 22:41:41 +0800</pubDate>

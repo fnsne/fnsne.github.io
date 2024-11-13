@@ -7,7 +7,111 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Mon, 11 Nov 2024 00:23:33 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/categories/%E6%88%91%E7%9A%84%E9%96%B1%E8%AE%80%E6%96%B9%E6%B3%95/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 14 Nov 2024 00:49:22 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/categories/%E6%88%91%E7%9A%84%E9%96%B1%E8%AE%80%E6%96%B9%E6%B3%95/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>我整理電子書Highlight的方法：萃取階段</title>
+        <link>http://coding.fnsne.com/posts/extract-highlight/</link>
+        <pubDate>Thu, 14 Nov 2024 00:49:22 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/posts/extract-highlight/</guid>
+        <description>&lt;h1 id=&#34;我整理電子書highlight的方法萃取階段&#34;&gt;我整理電子書highlight的方法：萃取階段
+&lt;/h1&gt;&lt;p&gt;接續[上一篇]/posts/category-highlights/的內容
+其實到了這個階段，就只剩下很簡單的行為了：就是利用碎片時間慢慢整理之前彙整好的知識點卡片了。&lt;/p&gt;
+&lt;p&gt;步驟：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;篩選出還沒有消化好的知識點卡片&lt;/li&gt;
+&lt;li&gt;閱讀和整理知識點卡片&lt;/li&gt;
+&lt;li&gt;如果知識點卡片還可以延伸出其它的知識，那就產出來&lt;/li&gt;
+&lt;li&gt;把產生的知識點卡片給鏈接到&lt;code&gt;主題分類&lt;/code&gt;上&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;詳細流程：&lt;/p&gt;
+&lt;h2 id=&#34;步驟1-篩選出還沒有消化好的知識點卡片&#34;&gt;步驟1: 篩選出還沒有消化好的知識點卡片
+&lt;/h2&gt;&lt;p&gt;要做到這點其實很簡單，只要再多加上一個&lt;code&gt;消化完成&lt;/code&gt;的tag來區分是否消化完成。就可以在Card Library上設定篩選器。&lt;/p&gt;
+&lt;p&gt;也就是設定有&lt;code&gt;reference&lt;/code&gt; tag，但不要有&lt;code&gt;消化完成&lt;/code&gt;tag的卡片就可以了。&lt;/p&gt;
+&lt;p&gt;設定如下圖：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/extract-highlight/filter-setting.png&#34;
+	width=&#34;1176&#34;
+	height=&#34;354&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/extract-highlight/filter-setting_hube9fec22f1a96163f7f1fa65b9119be3_60662_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/extract-highlight/filter-setting_hube9fec22f1a96163f7f1fa65b9119be3_60662_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;篩選器設定&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;332&#34;
+		data-flex-basis=&#34;797px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;步驟2-閱讀和整理知識點卡片&#34;&gt;步驟2: 閱讀和整理知識點卡片
+&lt;/h2&gt;&lt;p&gt;因為知識點卡片上面通常已經彙整了不少相關的資訊在上面了，在這個時候開始整理大多情況都會變得很快速順暢。&lt;/p&gt;
+&lt;p&gt;可以從下圖看到，此時內容已經很充足，能讓我快速整理出通順內容了。（highlight來源：&lt;a class=&#34;link&#34; href=&#34;https://r10.to/hkt6Zc&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;雜訊時代的高效資料整理術&lt;/a&gt;）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/extract-highlight/knowledge-rough-card.png&#34;
+	width=&#34;1736&#34;
+	height=&#34;1580&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/extract-highlight/knowledge-rough-card_hu914b54b9f008ec602a694be050db91a1_867499_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/extract-highlight/knowledge-rough-card_hu914b54b9f008ec602a694be050db91a1_867499_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;知識點卡片&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;109&#34;
+		data-flex-basis=&#34;263px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;步驟3-如果知識點卡片還可以延伸出其它的知識那就產出來&#34;&gt;步驟3: 如果知識點卡片還可以延伸出其它的知識，那就產出來
+&lt;/h2&gt;&lt;p&gt;這一步，只有在發現卡片中其實還可以再次彙整出不同的知識點卡片時，才需要做。&lt;/p&gt;
+&lt;p&gt;做法和[上一篇]/posts/category-highlights/的時候一樣，
+就是從這張知識點卡片再分出不同的子知識點卡片出來。&lt;/p&gt;
+&lt;h2 id=&#34;步驟4-把整理完的知識點卡片的鏈接加到主題分類上&#34;&gt;步驟4: 把整理完的知識點卡片的鏈接加到主題分類上
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;主題分類&lt;/code&gt;：是我從瓦基的卡片盒筆記實戰課裡面學到的一個很重要的東西，它上面列出我所在乎的所有主題。&lt;/p&gt;
+&lt;p&gt;它是我的第二大腦最一開始的進入點。&lt;/p&gt;
+&lt;p&gt;每當我想要找相關的主題內容的時候，可以從主題分類開始進入。讓我一邊閱讀尋找我要的知識，一邊把相關的知識給再看到一次。&lt;/p&gt;
+&lt;p&gt;因為有主題分類的存在，讓我可以把我學到的知識點，和我至今所學的知識整理在一起，而不是依照書名、書目錄架構、課程的順序來排序&lt;/p&gt;
+&lt;p&gt;有了主題分類，等於我能夠把所有我所學到的知識、想出來的點子，給連結起來。
+即使未來忘記了，也還是可以從主題分類開始順藤摸瓜，慢慢找到我要的知識。&lt;/p&gt;
+&lt;p&gt;而不會變成忘記關鍵字，就很有永遠找不到那張卡片了。&lt;/p&gt;
+&lt;p&gt;放到&lt;code&gt;主題分類&lt;/code&gt;的流程：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;Ctrl+O&lt;/code&gt; 全局搜尋&lt;code&gt;我的主題分類&lt;/code&gt;，來找到主題分類的卡片&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/extract-highlight/search-topic.png&#34;
+	width=&#34;834&#34;
+	height=&#34;480&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/extract-highlight/search-topic_hub70d470acbbabf0bb544acfeab3d2af8_56982_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/extract-highlight/search-topic_hub70d470acbbabf0bb544acfeab3d2af8_56982_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;全局搜尋&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;173&#34;
+		data-flex-basis=&#34;417px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;找到和這個知識點卡片相關的主題，一層層的往下找，
+直到找到有類似的知識點卡片鏈接，在它旁邊加上這張知識點卡片的鏈接。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;例如下圖這是我的主題分類 → 生產力&amp;amp;時間管理主題的部分內容&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/extract-highlight/topic-category-sample.png&#34;
+	width=&#34;1750&#34;
+	height=&#34;1430&#34;
+	srcset=&#34;http://coding.fnsne.com/posts/extract-highlight/topic-category-sample_hu346b76393ca7964a24a6e529841be2b8_357647_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/extract-highlight/topic-category-sample_hu346b76393ca7964a24a6e529841be2b8_357647_1024x0_resize_box_3.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;主題分類&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;122&#34;
+		data-flex-basis=&#34;293px&#34;
+	
+&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>我整理電子書Highlight的方法：彙整階段</title>
         <link>http://coding.fnsne.com/posts/category-highlights/</link>
         <pubDate>Mon, 11 Nov 2024 00:23:33 +0800</pubDate>

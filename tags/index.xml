@@ -7,7 +7,31 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Thu, 14 Nov 2024 00:49:22 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 15 Nov 2024 00:27:17 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>拖延症</title>
+        <link>http://coding.fnsne.com/tags/%E6%8B%96%E5%BB%B6%E7%97%87/</link>
+        <pubDate>Fri, 15 Nov 2024 00:27:17 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/tags/%E6%8B%96%E5%BB%B6%E7%97%87/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>時間管理</title>
+        <link>http://coding.fnsne.com/tags/%E6%99%82%E9%96%93%E7%AE%A1%E7%90%86/</link>
+        <pubDate>Fri, 15 Nov 2024 00:27:17 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/tags/%E6%99%82%E9%96%93%E7%AE%A1%E7%90%86/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>生產力</title>
+        <link>http://coding.fnsne.com/tags/%E7%94%9F%E7%94%A2%E5%8A%9B/</link>
+        <pubDate>Fri, 15 Nov 2024 00:27:17 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/tags/%E7%94%9F%E7%94%A2%E5%8A%9B/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>閱讀方法</title>
         <link>http://coding.fnsne.com/tags/%E9%96%B1%E8%AE%80%E6%96%B9%E6%B3%95/</link>
         <pubDate>Thu, 14 Nov 2024 00:49:22 +0800</pubDate>
@@ -141,30 +165,6 @@
         <pubDate>Fri, 01 Nov 2024 13:42:30 +0800</pubDate>
         
         <guid>http://coding.fnsne.com/tags/%E6%A8%82%E8%A7%80%E9%8E%96optimistic-lock/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>SSL/TSL</title>
-        <link>http://coding.fnsne.com/tags/ssl/tsl/</link>
-        <pubDate>Thu, 04 Jul 2024 21:09:08 +0800</pubDate>
-        
-        <guid>http://coding.fnsne.com/tags/ssl/tsl/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>K8s</title>
-        <link>http://coding.fnsne.com/tags/k8s/</link>
-        <pubDate>Thu, 29 Jun 2023 09:34:49 +0800</pubDate>
-        
-        <guid>http://coding.fnsne.com/tags/k8s/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Kubernetes</title>
-        <link>http://coding.fnsne.com/tags/kubernetes/</link>
-        <pubDate>Thu, 29 Jun 2023 09:34:49 +0800</pubDate>
-        
-        <guid>http://coding.fnsne.com/tags/kubernetes/</guid>
         <description></description>
         </item>
         

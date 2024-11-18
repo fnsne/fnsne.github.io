@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Debug on fnsne&#39;s coding world</title>
+        <link>http://coding.fnsne.com/tags/debug/</link>
+        <description>Recent content in Debug on fnsne&#39;s coding world</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-TW</language>
+        <copyright>fnsne</copyright>
+        <lastBuildDate>Mon, 18 Nov 2024 21:43:53 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/debug/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Debug的小技巧:假設</title>
+        <link>http://coding.fnsne.com/posts/debug-tricks-suppose/</link>
+        <pubDate>Mon, 18 Nov 2024 21:43:53 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/posts/debug-tricks-suppose/</guid>
+        <description>&lt;h1 id=&#34;排查問題的小技巧假設&#34;&gt;排查問題的小技巧：假設
+&lt;/h1&gt;&lt;p&gt;跟大家分享一下最近發現到，在debug時的一個小技巧&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;先假設原因&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;這個做法，其實是在我閱讀&lt;a class=&#34;link&#34; href=&#34;https://r10.to/hNdMd5&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;《雜訊時代的高效資料整理術：精準掌握二成黃金資訊的39個法則》&lt;/a&gt;
+關於收集資訊的章節後，在工作上debug時突然靈機一動，亂套用看看&lt;/p&gt;
+&lt;p&gt;結果發現還真的蠻好用的。&lt;/p&gt;
+&lt;p&gt;這個做法其實很簡單，就是&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;初步瞭解狀況&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;假設一個發生的原因&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;以假設的原因來設計重現步驟（比較小的部分，可以順便寫對應的測試來跑）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;嘗試看看能不能重現同樣的問題，如果不行就回到第二步，再改變假設&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;就這樣!&lt;/p&gt;
+&lt;p&gt;為什麼我會覺得這個方法很好用呢？&lt;/p&gt;
+&lt;p&gt;因為我很常會在前面的階段花上過多的時間來分析和思考，導致很晚才開始碰code。&lt;/p&gt;
+&lt;p&gt;但通常真正的問題得要獲得一些更內部的資訊才有可能察覺到，
+而這些資訊，通常得要在實際嘗試後才有可能會得到。&lt;/p&gt;
+&lt;p&gt;也就是說，在這樣快速假設→驗證的流程下，能夠讓我更快速的獲得比較深入的相關資訊，有了更多的資訊，就更有機會能分析找到問題的根源在哪裡。&lt;/p&gt;
+&lt;p&gt;所以在套用了這個方法後，我debug的速度加快了不少，至少在找到原因的步驟，快了至少一倍&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P.S. 這樣就知道我以前多會在前面思考的部分糾結了……&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

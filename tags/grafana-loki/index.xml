@@ -8,7 +8,7 @@
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
         <lastBuildDate>Tue, 19 Nov 2024 21:19:07 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/grafana-loki/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Grafana_loki</title>
+        <title>Grafana Loki</title>
         <link>http://coding.fnsne.com/posts/grafana-loki/</link>
         <pubDate>Tue, 19 Nov 2024 21:19:07 +0800</pubDate>
         
@@ -33,6 +33,11 @@
 &lt;li&gt;利用AlertManager來在一些不正常情況發生時，進行通知。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;這就是Grafana Loki的簡單流程，接下來我會繼續往後研究，看看要怎麼把logs整合到Grafana Loki上面。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;相關文章：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://coding.fnsne.com/posts/grafana-alloy/&#34; &gt;Grafana Alloy：用來收集各種logs和系統指標的工具&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         

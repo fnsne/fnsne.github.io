@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-TW" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Grafana Loki是Grafana的Log整合系統">
-<title>Grafana Loki</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Grafana alloy是Grafana的一個log收集工具，而且除了收集log以外，還能收集系統指標。">
+<title>Grafana Alloy</title>
 
-<link rel='canonical' href='http://coding.fnsne.com/posts/grafana-loki/'>
+<link rel='canonical' href='http://coding.fnsne.com/posts/grafana-alloy/'>
 
-<link rel="stylesheet" href="/scss/style.min.50dda404ea8b9660810f3a10315639e714c500ecbdb77ec8cce81a2b2bff252e.css"><meta property='og:title' content="Grafana Loki">
-<meta property='og:description' content="Grafana Loki是Grafana的Log整合系統">
-<meta property='og:url' content='http://coding.fnsne.com/posts/grafana-loki/'>
+<link rel="stylesheet" href="/scss/style.min.50dda404ea8b9660810f3a10315639e714c500ecbdb77ec8cce81a2b2bff252e.css"><meta property='og:title' content="Grafana Alloy">
+<meta property='og:description' content="Grafana alloy是Grafana的一個log收集工具，而且除了收集log以外，還能收集系統指標。">
+<meta property='og:url' content='http://coding.fnsne.com/posts/grafana-alloy/'>
 <meta property='og:site_name' content='fnsne&#39;s coding world'>
-<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='grafana' /><meta property='article:tag' content='grafana loki' /><meta property='article:published_time' content='2024-11-19T21:19:07&#43;08:00'/><meta property='article:modified_time' content='2024-11-19T21:19:07&#43;08:00'/>
-<meta name="twitter:title" content="Grafana Loki">
-<meta name="twitter:description" content="Grafana Loki是Grafana的Log整合系統">
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='grafana' /><meta property='article:tag' content='grafana alloy' /><meta property='article:published_time' content='2024-11-20T21:19:18&#43;08:00'/><meta property='article:modified_time' content='2024-11-20T21:19:18&#43;08:00'/>
+<meta name="twitter:title" content="Grafana Alloy">
+<meta name="twitter:description" content="Grafana alloy是Grafana的一個log收集工具，而且除了收集log以外，還能收集系統指標。">
     <link rel="shortcut icon" href="/favicon.svg" />
 
   
@@ -246,7 +246,49 @@
     </ol>
 </aside>
 
-    
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#components">Components</a>
+      <ul>
+        <li><a href="#collector">Collector</a></li>
+        <li><a href="#transformer">Transformer</a></li>
+        <li><a href="#writer">Writer</a></li>
+      </ul>
+    </li>
+    <li><a href="#安裝">安裝</a></li>
+    <li><a href="#設定">設定</a></li>
+    <li><a href="#用debug-web來重新載入設定">用Debug Web來重新載入設定</a></li>
+    <li><a href="#如何確定有正確運作">如何確定有正確運作</a></li>
+    <li><a href="#ref">ref</a></li>
+  </ul>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
 
             <main class="main full-width">
     <article class="main-article">
@@ -269,12 +311,12 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/posts/grafana-loki/">Grafana Loki</a>
+            <a href="/posts/grafana-alloy/">Grafana Alloy</a>
         </h2>
     
         
         <h3 class="article-subtitle">
-            Grafana Loki是Grafana的Log整合系統
+            Grafana alloy是Grafana的一個log收集工具，而且除了收集log以外，還能收集系統指標。
         </h3>
         
     </div>
@@ -295,7 +337,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">Nov 19, 2024</time>
+                <time class="article-time--published">Nov 20, 2024</time>
             </div>
         
 
@@ -325,30 +367,109 @@
     <section class="article-content">
     
     
-    <h1 id="grafana-loki">Grafana Loki
-</h1><p>最近因為覺得log實在是不怎麼好閱讀、查找問題，所以開始來研究Grafana，看看怎麼讓他來分析和query logs。</p>
-<p>先分享一下關於logs是如何進入到Grafana的Log管理服務Grafana Loki的</p>
-<p>下圖是Grafana官網的圖，說明了Log彙整簡單的流程
-<img src="/posts/grafana-loki/logs-loki-diagram.svg"
-	
-	
-	
-	loading="lazy"
-	
-		alt="Grafana Loki"
-	
-	
-></p>
-<ol>
-<li>使用Promotail/Alloy在各端機器上收集logs，然後送到Grafana Loki上面處理和儲存起來。</li>
-<li>然後使用Grafana的UI界面、LogcLi來分析、探索Loki上面的logs。</li>
-<li>利用AlertManager來在一些不正常情況發生時，進行通知。</li>
-</ol>
-<p>這就是Grafana Loki的簡單流程，接下來我會繼續往後研究，看看要怎麼把logs整合到Grafana Loki上面。</p>
-<hr>
-<p>相關文章：</p>
+    <h1 id="grafana-alloy">Grafana Alloy
+</h1><p>原本我一開始是考慮要先研究怎麼使用grafana promtail把Log傳到Loki的，
+但我在Promtail的文件上面看到，promtail 的功能已經完整了，未來新的功能，只會被加到Grafana Alloy上面。</p>
+<p>在這邊我才知道，Alloy應該是比較新的，並且擁有更多的功能。Alloy除了可以偵測logs，還提供把一些系統指標抓取起來的功能。
+所以最後想說既然要學，那我就先來學Alloy好了。</p>
+<h2 id="components">Components
+</h2><p>Alloy的功能是圍繞在三種component上，運用以下三種component來做到把資料收集、處理、寫出去：</p>
 <ul>
-<li><a class="link" href="/posts/grafana-alloy/" >Grafana Alloy：用來收集各種logs和系統指標的工具</a></li>
+<li>
+<p>collector: 把資料收集起來</p>
+</li>
+<li>
+<p>transformer: 對資料做額外處理</p>
+</li>
+<li>
+<p>writer: 把資料寫出去</p>
+</li>
+</ul>
+<p>例如：我們可以利用loki.source.file 來偵測log檔案的內容變動，並收集起來，傳遞給loki.writer，把資料寫到Loki server上。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">loki.source.file &#34;foo_file&#34; {
+</span></span><span class="line"><span class="cl">  targets    = [{__path__ = &#34;/tmp/foo.txt&#34;}]
+</span></span><span class="line"><span class="cl">  forward_to = [loki.write.local.receiver]
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">loki.write &#34;local&#34; {
+</span></span><span class="line"><span class="cl">  endpoint {
+</span></span><span class="line"><span class="cl">    url = &#34;loki:3100/loki/api/v1/push&#34;
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><h3 id="collector">Collector
+</h3><p>Alloy提供不同的Collector，讓我們能收集不同的logs。例如可以從檔案、HTTP、gRPC、message queue收集logs。</p>
+<h3 id="transformer">Transformer
+</h3><p>Alloy提供不同的transformer，來讓我們對於collector收集到的logs做額外的處理，例如加上額外的metadata、過濾某些logs、壓縮整理logs，讓他更好傳輸到Loki上。</p>
+<h3 id="writer">Writer
+</h3><p>就是負責把收集好的logs送出去的元件，Grafana Alloy除了提供寫到Loki之外，也有提供不少寫到其它服務的Writer，例如Kafaka。</p>
+<hr>
+<p>這邊是Alloy支援的Component 列表： <a class="link" href="https://grafana.com/docs/alloy/latest/reference/components/"  target="_blank" rel="noopener"
+    >components list</a></p>
+<hr>
+<p>介紹完畢了，接下來就是開始安裝了</p>
+<h2 id="安裝">安裝
+</h2><p>我是直接照著官網上面的做法，在macOS上面使用homebrew來安裝的。</p>
+<ol>
+<li>首先，先把grafana的tap加到我的home brew上</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew tap grafana/grafana
+</span></span></code></pre></div><ol start="2">
+<li>再來就是使用home brew來安裝了</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew install grafana/grafana/alloy
+</span></span></code></pre></div><p>這邊要注意的是，Alloy是一個背景作業的程式，他會一直執行監控要監控的目標。但因為我只是要在需要的時候打開，所以我會在需要使用的時候才打開，平常的時候會關掉它。</p>
+<p>打開的指令</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew services start alloy
+</span></span></code></pre></div><p>關掉的指令</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew services stop alloy
+</span></span></code></pre></div><h2 id="設定">設定
+</h2><p>接下來就要進入到重要關頭了，也就是設定Alloy的pipeline怎麼接。這個設定要寫在<code>config.alloy</code>這個檔案裡面。</p>
+<p>不同安裝方式的<code>config.alloy</code>位置都不太一樣，像是home brew 安裝的Alloy會被放在<code>/opt/homebrew/etc/alloy/config.alloy</code>。</p>
+<p>我們可以在這個設定裡面，利用components，來組出我們希望Alloy執行的pipeline。</p>
+<p>例如我們可以讓Alloy監控 /tmp/foo.txt 當它的內容有變更的時候，就把記錄寫到Loki上。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">loki.source.file &#34;foo_file&#34; {
+</span></span><span class="line"><span class="cl">  targets    = [{__path__ = &#34;/tmp/foo.txt&#34;}]
+</span></span><span class="line"><span class="cl">  forward_to = [loki.write.local.receiver]
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">loki.write &#34;local&#34; {
+</span></span><span class="line"><span class="cl">  endpoint {
+</span></span><span class="line"><span class="cl">    url = &#34;loki:3100/loki/api/v1/push&#34;
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>這邊要注意的地方是，對於Alloy的每個元件，我們都可以命名，並且會擁有一個完整的名稱。</p>
+<p>例如loki.write &ldquo;local&rdquo;
+會命名一個loki.write的component叫做local。
+它會有個完整名稱叫做 loki.write.local ，這個名稱可以用來在別的component上面使用</p>
+<p>（但只有被設計為Export的欄位可以被使用。）</p>
+<p>以上面的例子來說就是</p>
+<ol>
+<li>
+<p>loki.source.file.foo_file藉由foward_to來指定，指定說要把收集到的資料，送到loki.wrti.local.receiver這個接口</p>
+</li>
+<li>
+<p>loki.write.local會把receiver接口收到的資料，送到loki:3100/loki/api/v1/push上面。</p>
+</li>
+</ol>
+<p>接下來，設定完<code>config.alloy</code>後，我們就可以讓Alloy來重新載入設定了</p>
+<h2 id="用debug-web來重新載入設定">用Debug Web來重新載入設定
+</h2><p>首先連到Alloy的debug web界面：<code>http://localhost:12345</code></p>
+<p>要注意，它預設只能在架設Alloy的機器上，使用localhost來存取到，避免把secret的資料從debug資訊中暴露出去。</p>
+<p>重新讀取設定，只要request這個頁面即可 <code>http://localhost:12345/-/reload</code></p>
+<p>成功重新讀取設定，會顯示reloaded的訊息。</p>
+<p>如果有遇到config有寫錯，可以在存取reload頁面的時候，看到解析失敗的訊息。</p>
+<h2 id="如何確定有正確運作">如何確定有正確運作
+</h2><p>可以到Alloy的log去檢查</p>
+<p>以macOS homebrew安裝的Alloy的log，會被放在 /opt/homebrew/var/log 裡面。</p>
+<p>可以在裡面查看<code>alloy.err.log</code> 、<code>alloy.log</code> 來看看是否有正常收集資料、處理資料、傳輸資料到Loki（或目的地）去。</p>
+<h2 id="ref">ref
+</h2><ul>
+<li>
+<p><a class="link" href="https://grafana.com/docs/loki/latest/send-data/alloy/"  target="_blank" rel="noopener"
+    >https://grafana.com/docs/loki/latest/send-data/alloy/</a></p>
+</li>
+<li>
+<p><a class="link" href="https://grafana.com/docs/alloy/latest/tutorials/"  target="_blank" rel="noopener"
+    >https://grafana.com/docs/alloy/latest/tutorials/</a></p>
+</li>
 </ul>
 
 </section>
@@ -360,7 +481,7 @@
         
             <a href="/tags/grafana/">Grafana</a>
         
-            <a href="/tags/grafana-loki/">Grafana Loki</a>
+            <a href="/tags/grafana-alloy/">Grafana Alloy</a>
         
     </section>
 
@@ -410,6 +531,28 @@
     
 
     
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/grafana-loki/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Grafana Loki</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
 
      
     

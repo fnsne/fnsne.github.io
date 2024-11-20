@@ -7,8 +7,120 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Tue, 19 Nov 2024 21:19:07 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/posts/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>Grafana_loki</title>
+        <lastBuildDate>Wed, 20 Nov 2024 21:19:18 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Grafana Alloy</title>
+        <link>http://coding.fnsne.com/posts/grafana-alloy/</link>
+        <pubDate>Wed, 20 Nov 2024 21:19:18 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/posts/grafana-alloy/</guid>
+        <description>&lt;h1 id=&#34;grafana-alloy&#34;&gt;Grafana Alloy
+&lt;/h1&gt;&lt;p&gt;原本我一開始是考慮要先研究怎麼使用grafana promtail把Log傳到Loki的，
+但我在Promtail的文件上面看到，promtail 的功能已經完整了，未來新的功能，只會被加到Grafana Alloy上面。&lt;/p&gt;
+&lt;p&gt;在這邊我才知道，Alloy應該是比較新的，並且擁有更多的功能。Alloy除了可以偵測logs，還提供把一些系統指標抓取起來的功能。
+所以最後想說既然要學，那我就先來學Alloy好了。&lt;/p&gt;
+&lt;h2 id=&#34;components&#34;&gt;Components
+&lt;/h2&gt;&lt;p&gt;Alloy的功能是圍繞在三種component上，運用以下三種component來做到把資料收集、處理、寫出去：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;collector: 把資料收集起來&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;transformer: 對資料做額外處理&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;writer: 把資料寫出去&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例如：我們可以利用loki.source.file 來偵測log檔案的內容變動，並收集起來，傳遞給loki.writer，把資料寫到Loki server上。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;loki.source.file &amp;#34;foo_file&amp;#34; {
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  targets    = [{__path__ = &amp;#34;/tmp/foo.txt&amp;#34;}]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  forward_to = [loki.write.local.receiver]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;loki.write &amp;#34;local&amp;#34; {
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  endpoint {
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    url = &amp;#34;loki:3100/loki/api/v1/push&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;collector&#34;&gt;Collector
+&lt;/h3&gt;&lt;p&gt;Alloy提供不同的Collector，讓我們能收集不同的logs。例如可以從檔案、HTTP、gRPC、message queue收集logs。&lt;/p&gt;
+&lt;h3 id=&#34;transformer&#34;&gt;Transformer
+&lt;/h3&gt;&lt;p&gt;Alloy提供不同的transformer，來讓我們對於collector收集到的logs做額外的處理，例如加上額外的metadata、過濾某些logs、壓縮整理logs，讓他更好傳輸到Loki上。&lt;/p&gt;
+&lt;h3 id=&#34;writer&#34;&gt;Writer
+&lt;/h3&gt;&lt;p&gt;就是負責把收集好的logs送出去的元件，Grafana Alloy除了提供寫到Loki之外，也有提供不少寫到其它服務的Writer，例如Kafaka。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;這邊是Alloy支援的Component 列表： &lt;a class=&#34;link&#34; href=&#34;https://grafana.com/docs/alloy/latest/reference/components/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;components list&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;介紹完畢了，接下來就是開始安裝了&lt;/p&gt;
+&lt;h2 id=&#34;安裝&#34;&gt;安裝
+&lt;/h2&gt;&lt;p&gt;我是直接照著官網上面的做法，在macOS上面使用homebrew來安裝的。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;首先，先把grafana的tap加到我的home brew上&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew tap grafana/grafana
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;再來就是使用home brew來安裝了&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew install grafana/grafana/alloy
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;這邊要注意的是，Alloy是一個背景作業的程式，他會一直執行監控要監控的目標。但因為我只是要在需要的時候打開，所以我會在需要使用的時候才打開，平常的時候會關掉它。&lt;/p&gt;
+&lt;p&gt;打開的指令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew services start alloy
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;關掉的指令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew services stop alloy
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;設定&#34;&gt;設定
+&lt;/h2&gt;&lt;p&gt;接下來就要進入到重要關頭了，也就是設定Alloy的pipeline怎麼接。這個設定要寫在&lt;code&gt;config.alloy&lt;/code&gt;這個檔案裡面。&lt;/p&gt;
+&lt;p&gt;不同安裝方式的&lt;code&gt;config.alloy&lt;/code&gt;位置都不太一樣，像是home brew 安裝的Alloy會被放在&lt;code&gt;/opt/homebrew/etc/alloy/config.alloy&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;我們可以在這個設定裡面，利用components，來組出我們希望Alloy執行的pipeline。&lt;/p&gt;
+&lt;p&gt;例如我們可以讓Alloy監控 /tmp/foo.txt 當它的內容有變更的時候，就把記錄寫到Loki上。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;loki.source.file &amp;#34;foo_file&amp;#34; {
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  targets    = [{__path__ = &amp;#34;/tmp/foo.txt&amp;#34;}]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  forward_to = [loki.write.local.receiver]
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;loki.write &amp;#34;local&amp;#34; {
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  endpoint {
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    url = &amp;#34;loki:3100/loki/api/v1/push&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;這邊要注意的地方是，對於Alloy的每個元件，我們都可以命名，並且會擁有一個完整的名稱。&lt;/p&gt;
+&lt;p&gt;例如loki.write &amp;ldquo;local&amp;rdquo;
+會命名一個loki.write的component叫做local。
+它會有個完整名稱叫做 loki.write.local ，這個名稱可以用來在別的component上面使用&lt;/p&gt;
+&lt;p&gt;（但只有被設計為Export的欄位可以被使用。）&lt;/p&gt;
+&lt;p&gt;以上面的例子來說就是&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;loki.source.file.foo_file藉由foward_to來指定，指定說要把收集到的資料，送到loki.wrti.local.receiver這個接口&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;loki.write.local會把receiver接口收到的資料，送到loki:3100/loki/api/v1/push上面。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;接下來，設定完&lt;code&gt;config.alloy&lt;/code&gt;後，我們就可以讓Alloy來重新載入設定了&lt;/p&gt;
+&lt;h2 id=&#34;用debug-web來重新載入設定&#34;&gt;用Debug Web來重新載入設定
+&lt;/h2&gt;&lt;p&gt;首先連到Alloy的debug web界面：&lt;code&gt;http://localhost:12345&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;要注意，它預設只能在架設Alloy的機器上，使用localhost來存取到，避免把secret的資料從debug資訊中暴露出去。&lt;/p&gt;
+&lt;p&gt;重新讀取設定，只要request這個頁面即可 &lt;code&gt;http://localhost:12345/-/reload&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;成功重新讀取設定，會顯示reloaded的訊息。&lt;/p&gt;
+&lt;p&gt;如果有遇到config有寫錯，可以在存取reload頁面的時候，看到解析失敗的訊息。&lt;/p&gt;
+&lt;h2 id=&#34;如何確定有正確運作&#34;&gt;如何確定有正確運作
+&lt;/h2&gt;&lt;p&gt;可以到Alloy的log去檢查&lt;/p&gt;
+&lt;p&gt;以macOS homebrew安裝的Alloy的log，會被放在 /opt/homebrew/var/log 裡面。&lt;/p&gt;
+&lt;p&gt;可以在裡面查看&lt;code&gt;alloy.err.log&lt;/code&gt; 、&lt;code&gt;alloy.log&lt;/code&gt; 來看看是否有正常收集資料、處理資料、傳輸資料到Loki（或目的地）去。&lt;/p&gt;
+&lt;h2 id=&#34;ref&#34;&gt;ref
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://grafana.com/docs/loki/latest/send-data/alloy/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://grafana.com/docs/loki/latest/send-data/alloy/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://grafana.com/docs/alloy/latest/tutorials/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://grafana.com/docs/alloy/latest/tutorials/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>Grafana Loki</title>
         <link>http://coding.fnsne.com/posts/grafana-loki/</link>
         <pubDate>Tue, 19 Nov 2024 21:19:07 +0800</pubDate>
         
@@ -33,6 +145,11 @@
 &lt;li&gt;利用AlertManager來在一些不正常情況發生時，進行通知。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;這就是Grafana Loki的簡單流程，接下來我會繼續往後研究，看看要怎麼把logs整合到Grafana Loki上面。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;相關文章：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://coding.fnsne.com/posts/grafana-alloy/&#34; &gt;Grafana Alloy：用來收集各種logs和系統指標的工具&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>
@@ -1756,71 +1873,6 @@ Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon 和 G
 &lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/dillonzq/LoveIt/issues/410#issuecomment-647272066&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;LoveIt Github Issue 410&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        <item>
-        <title>Hugo  Bundle問題</title>
-        <link>http://coding.fnsne.com/posts/hugo_bundle_organization/</link>
-        <pubDate>Fri, 02 Sep 2022 14:36:26 +0800</pubDate>
-        
-        <guid>http://coding.fnsne.com/posts/hugo_bundle_organization/</guid>
-        <description>&lt;h1 id=&#34;描述&#34;&gt;描述
-&lt;/h1&gt;&lt;p&gt;原本在hugo上面放文章，是每篇文章一個資料夾，在其中放文章和會用到的圖片。每個文章資料夾都放在&lt;code&gt;content/posts/&lt;/code&gt;。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;content/posts/
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── post1
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│    └── post1.md
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│    └── img1.jpg   
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── post2
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│    └── post2.md
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│    └── img2.jpg   
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── post3
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│    └── post3.md
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│    └── img3.jpg   
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;因為覺得全部文章直接用資料夾名稱排序，覺得未來會變得很混亂，並且不好找尋文章位置，所以改成以下的結構：&lt;code&gt;使用日期當主資料夾名稱&lt;/code&gt;。
-雖然也是可以在&lt;code&gt;文章資料夾&lt;/code&gt;名稱加上日期前綴來區分，但感覺還是會很亂。所以開始研究page bundle怎麼處理,試著將結構改成這樣。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;P.S. 在2024年8月的時候又改回hugo最原始的文章放置方式，發現全部文章放在一起，其實也不會太亂（是我寫太少文章了）。
-並且使用日期當第一層資料夾名稱，我反而沒辦法一眼看出這裡面放的文章是什麼文章&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;content/posts/
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── 2022-08-02
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   └── post1         
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── post1.md
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── img1.jpg   
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   └── post2         
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── post2.md
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── img2.jpg   
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── 2022-09-02
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   └── post3         
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── post3.md
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── img3.jpg   
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;問題&#34;&gt;問題
-&lt;/h1&gt;&lt;p&gt;看到跑出來的網頁上，載入圖片404的網址居然是還會增加一個文章名稱的資料夾，然後才存取圖片。以上面的例子來看， 打開網頁 post1頁面，網址會是&lt;code&gt;domain/posts/2022-08-02/post1/post1/&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;而圖片是呼叫&lt;code&gt;domain/posts/2022-08-02/post1/post1/img1.jpg&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;可是實際上到build出來的public裡面去看，這一個頁面的結構居然是長這樣&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── 2022-08-02
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   └── post1         
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── post1.md
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── img1.jpg   
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── post1         
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│           └── index.html         
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;解法&#34;&gt;解法
-&lt;/h1&gt;&lt;p&gt;因為查到的所有資料，上面寫的md都命名為&lt;code&gt;index&lt;/code&gt;，所以試著把&lt;code&gt;post1.md&lt;/code&gt;改名為&lt;code&gt;index.md&lt;/code&gt;，一切就正常了，而此時&lt;code&gt;public&lt;/code&gt;裡面的資料結構變成長這樣。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── 2022-08-02
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   └── post1         
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── post1.md
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── img1.jpg   
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── index.html         
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;看起來可能是因為bundle是抓&lt;code&gt;index.md&lt;/code&gt;這個關鍵字的來製作頁面，如果沒有這個檔案，會用現有的&lt;code&gt;*.md&lt;/code&gt;的檔案，各自建立一個它名稱的資料夾，然後在裡面建立index.html。所以原本的做法才會長成奇怪的結構。&lt;/p&gt;
-&lt;h1 id=&#34;reference&#34;&gt;reference
-&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio/hugo/issues/1240&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;hugo github上面討論bundle的issue&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.darkthread.net/blog/hugo-figures/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Markdown 技術文件寫作-處理圖檔&amp;mdash;黑暗執行續&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/content-management/page-bundles/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;hugo官網 Page Bundle&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         </item>

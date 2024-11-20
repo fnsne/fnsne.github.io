@@ -7,7 +7,35 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Mon, 18 Nov 2024 21:43:53 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 19 Nov 2024 21:19:07 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Grafana_loki</title>
+        <link>http://coding.fnsne.com/posts/grafana-loki/</link>
+        <pubDate>Tue, 19 Nov 2024 21:19:07 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/posts/grafana-loki/</guid>
+        <description>&lt;h1 id=&#34;grafana-loki&#34;&gt;Grafana Loki
+&lt;/h1&gt;&lt;p&gt;最近因為覺得log實在是不怎麼好閱讀、查找問題，所以開始來研究Grafana，看看怎麼讓他來分析和query logs。&lt;/p&gt;
+&lt;p&gt;先分享一下關於logs是如何進入到Grafana的Log管理服務Grafana Loki的&lt;/p&gt;
+&lt;p&gt;下圖是Grafana官網的圖，說明了Log彙整簡單的流程
+&lt;img src=&#34;http://coding.fnsne.com/posts/grafana-loki/logs-loki-diagram.svg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Grafana Loki&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用Promotail/Alloy在各端機器上收集logs，然後送到Grafana Loki上面處理和儲存起來。&lt;/li&gt;
+&lt;li&gt;然後使用Grafana的UI界面、LogcLi來分析、探索Loki上面的logs。&lt;/li&gt;
+&lt;li&gt;利用AlertManager來在一些不正常情況發生時，進行通知。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;這就是Grafana Loki的簡單流程，接下來我會繼續往後研究，看看要怎麼把logs整合到Grafana Loki上面。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Debug的小技巧:假設</title>
         <link>http://coding.fnsne.com/posts/debug-tricks-suppose/</link>
         <pubDate>Mon, 18 Nov 2024 21:43:53 +0800</pubDate>
@@ -1736,71 +1764,6 @@ Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon 和 G
 &lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/dillonzq/LoveIt/issues/410#issuecomment-647272066&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;LoveIt Github Issue 410&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        <item>
-        <title>Hugo  Bundle問題</title>
-        <link>http://coding.fnsne.com/posts/hugo_bundle_organization/</link>
-        <pubDate>Fri, 02 Sep 2022 14:36:26 +0800</pubDate>
-        
-        <guid>http://coding.fnsne.com/posts/hugo_bundle_organization/</guid>
-        <description>&lt;h1 id=&#34;描述&#34;&gt;描述
-&lt;/h1&gt;&lt;p&gt;原本在hugo上面放文章，是每篇文章一個資料夾，在其中放文章和會用到的圖片。每個文章資料夾都放在&lt;code&gt;content/posts/&lt;/code&gt;。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;content/posts/
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── post1
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│    └── post1.md
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│    └── img1.jpg   
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── post2
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│    └── post2.md
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│    └── img2.jpg   
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── post3
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│    └── post3.md
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│    └── img3.jpg   
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;因為覺得全部文章直接用資料夾名稱排序，覺得未來會變得很混亂，並且不好找尋文章位置，所以改成以下的結構：&lt;code&gt;使用日期當主資料夾名稱&lt;/code&gt;。
-雖然也是可以在&lt;code&gt;文章資料夾&lt;/code&gt;名稱加上日期前綴來區分，但感覺還是會很亂。所以開始研究page bundle怎麼處理,試著將結構改成這樣。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;P.S. 在2024年8月的時候又改回hugo最原始的文章放置方式，發現全部文章放在一起，其實也不會太亂（是我寫太少文章了）。
-並且使用日期當第一層資料夾名稱，我反而沒辦法一眼看出這裡面放的文章是什麼文章&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;content/posts/
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── 2022-08-02
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   └── post1         
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── post1.md
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── img1.jpg   
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   └── post2         
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── post2.md
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── img2.jpg   
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── 2022-09-02
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   └── post3         
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── post3.md
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── img3.jpg   
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;問題&#34;&gt;問題
-&lt;/h1&gt;&lt;p&gt;看到跑出來的網頁上，載入圖片404的網址居然是還會增加一個文章名稱的資料夾，然後才存取圖片。以上面的例子來看， 打開網頁 post1頁面，網址會是&lt;code&gt;domain/posts/2022-08-02/post1/post1/&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;而圖片是呼叫&lt;code&gt;domain/posts/2022-08-02/post1/post1/img1.jpg&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;可是實際上到build出來的public裡面去看，這一個頁面的結構居然是長這樣&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── 2022-08-02
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   └── post1         
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── post1.md
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── img1.jpg   
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── post1         
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│           └── index.html         
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;解法&#34;&gt;解法
-&lt;/h1&gt;&lt;p&gt;因為查到的所有資料，上面寫的md都命名為&lt;code&gt;index&lt;/code&gt;，所以試著把&lt;code&gt;post1.md&lt;/code&gt;改名為&lt;code&gt;index.md&lt;/code&gt;，一切就正常了，而此時&lt;code&gt;public&lt;/code&gt;裡面的資料結構變成長這樣。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── 2022-08-02
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│   └── post1         
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── post1.md
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── img1.jpg   
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;│       └── index.html         
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;看起來可能是因為bundle是抓&lt;code&gt;index.md&lt;/code&gt;這個關鍵字的來製作頁面，如果沒有這個檔案，會用現有的&lt;code&gt;*.md&lt;/code&gt;的檔案，各自建立一個它名稱的資料夾，然後在裡面建立index.html。所以原本的做法才會長成奇怪的結構。&lt;/p&gt;
-&lt;h1 id=&#34;reference&#34;&gt;reference
-&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio/hugo/issues/1240&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;hugo github上面討論bundle的issue&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.darkthread.net/blog/hugo-figures/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Markdown 技術文件寫作-處理圖檔&amp;mdash;黑暗執行續&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/content-management/page-bundles/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;hugo官網 Page Bundle&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         </item>

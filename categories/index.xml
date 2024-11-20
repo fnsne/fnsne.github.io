@@ -7,7 +7,7 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Mon, 18 Nov 2024 21:43:53 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 19 Nov 2024 21:19:07 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Golang</title>
         <link>http://coding.fnsne.com/categories/golang/</link>
         <pubDate>Sun, 03 Nov 2024 21:37:26 +0800</pubDate>
@@ -16,19 +16,19 @@
         <description>&lt;img src="http://coding.fnsne.com/categories/golang/Go-Logo_LightBlue.svg" alt="Featured image of post Golang" /&gt;</description>
         </item>
         <item>
+        <title>靈感日日村第二屆創作營</title>
+        <link>http://coding.fnsne.com/categories/%E9%9D%88%E6%84%9F%E6%97%A5%E6%97%A5%E6%9D%91%E7%AC%AC%E4%BA%8C%E5%B1%86%E5%89%B5%E4%BD%9C%E7%87%9F/</link>
+        <pubDate>Tue, 19 Nov 2024 21:19:07 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/categories/%E9%9D%88%E6%84%9F%E6%97%A5%E6%97%A5%E6%9D%91%E7%AC%AC%E4%BA%8C%E5%B1%86%E5%89%B5%E4%BD%9C%E7%87%9F/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Debug</title>
         <link>http://coding.fnsne.com/categories/debug/</link>
         <pubDate>Mon, 18 Nov 2024 21:43:53 +0800</pubDate>
         
         <guid>http://coding.fnsne.com/categories/debug/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>靈感日日村第二屆創作營</title>
-        <link>http://coding.fnsne.com/categories/%E9%9D%88%E6%84%9F%E6%97%A5%E6%97%A5%E6%9D%91%E7%AC%AC%E4%BA%8C%E5%B1%86%E5%89%B5%E4%BD%9C%E7%87%9F/</link>
-        <pubDate>Mon, 18 Nov 2024 21:43:53 +0800</pubDate>
-        
-        <guid>http://coding.fnsne.com/categories/%E9%9D%88%E6%84%9F%E6%97%A5%E6%97%A5%E6%9D%91%E7%AC%AC%E4%BA%8C%E5%B1%86%E5%89%B5%E4%BD%9C%E7%87%9F/</guid>
         <description></description>
         </item>
         <item>

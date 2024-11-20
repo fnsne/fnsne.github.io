@@ -7,7 +7,35 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Mon, 18 Nov 2024 21:43:53 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 19 Nov 2024 21:19:07 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Grafana_loki</title>
+        <link>http://coding.fnsne.com/posts/grafana-loki/</link>
+        <pubDate>Tue, 19 Nov 2024 21:19:07 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/posts/grafana-loki/</guid>
+        <description>&lt;h1 id=&#34;grafana-loki&#34;&gt;Grafana Loki
+&lt;/h1&gt;&lt;p&gt;最近因為覺得log實在是不怎麼好閱讀、查找問題，所以開始來研究Grafana，看看怎麼讓他來分析和query logs。&lt;/p&gt;
+&lt;p&gt;先分享一下關於logs是如何進入到Grafana的Log管理服務Grafana Loki的&lt;/p&gt;
+&lt;p&gt;下圖是Grafana官網的圖，說明了Log彙整簡單的流程
+&lt;img src=&#34;http://coding.fnsne.com/posts/grafana-loki/logs-loki-diagram.svg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;Grafana Loki&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;使用Promotail/Alloy在各端機器上收集logs，然後送到Grafana Loki上面處理和儲存起來。&lt;/li&gt;
+&lt;li&gt;然後使用Grafana的UI界面、LogcLi來分析、探索Loki上面的logs。&lt;/li&gt;
+&lt;li&gt;利用AlertManager來在一些不正常情況發生時，進行通知。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;這就是Grafana Loki的簡單流程，接下來我會繼續往後研究，看看要怎麼把logs整合到Grafana Loki上面。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Debug的小技巧:假設</title>
         <link>http://coding.fnsne.com/posts/debug-tricks-suppose/</link>
         <pubDate>Mon, 18 Nov 2024 21:43:53 +0800</pubDate>
@@ -1794,45 +1822,6 @@ Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon 和 G
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/content-management/page-bundles/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;hugo官網 Page Bundle&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-        </item>
-        <item>
-        <title>Goland Markdown split editor消失的問題</title>
-        <link>http://coding.fnsne.com/posts/jetbrains_goland_markdown_preview_disappear/</link>
-        <pubDate>Thu, 01 Sep 2022 20:21:30 +0800</pubDate>
-        
-        <guid>http://coding.fnsne.com/posts/jetbrains_goland_markdown_preview_disappear/</guid>
-        <description>&lt;p&gt;最近開始使用Goland來用hugo寫部落格文章，之前markdown的preview分頁都還很正常，但到了今天，突然之間只剩下一般的編輯界面，而且Goland好像還把它識別為html,旁邊會出現在各種瀏覽器上面的按鈕。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/jetbrains_goland_markdown_preview_disappear/2022-09-01-markdown_detected_wrong.jpg&#34;
-	width=&#34;384&#34;
-	height=&#34;143&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/jetbrains_goland_markdown_preview_disappear/2022-09-01-markdown_detected_wrong_huaf8f8d9afbbf12ddd7a02df886fbcd51_10326_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/jetbrains_goland_markdown_preview_disappear/2022-09-01-markdown_detected_wrong_huaf8f8d9afbbf12ddd7a02df886fbcd51_10326_1024x0_resize_q75_box.jpg 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;偵測成html&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;268&#34;
-		data-flex-basis=&#34;644px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;而且使用hugo的shortcode還會出現網頁相關的錯誤訊息，在設定裡面查了一陣子才發現到。關於檔案的偵測少了&lt;code&gt;.md&lt;/code&gt;的部分，只剩下&lt;code&gt;markdown&lt;/code&gt;的部分&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/jetbrains_goland_markdown_preview_disappear/2022-09-01-fileTypeMarkDownSetting.jpg&#34;
-	width=&#34;1324&#34;
-	height=&#34;763&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/jetbrains_goland_markdown_preview_disappear/2022-09-01-fileTypeMarkDownSetting_huaf8f8d9afbbf12ddd7a02df886fbcd51_83783_480x0_resize_q75_box.jpg 480w, http://coding.fnsne.com/posts/jetbrains_goland_markdown_preview_disappear/2022-09-01-fileTypeMarkDownSetting_huaf8f8d9afbbf12ddd7a02df886fbcd51_83783_1024x0_resize_q75_box.jpg 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;settings -&amp;gt; Editor -&amp;gt; File Type&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;173&#34;
-		data-flex-basis=&#34;416px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;將&lt;code&gt;*.md&lt;/code&gt;加上去，一切的紅底線、還有markdown就都全部回來了。&lt;/p&gt;
 </description>
         </item>
         

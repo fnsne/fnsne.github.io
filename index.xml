@@ -7,7 +7,34 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Sun, 24 Nov 2024 22:12:38 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 09 Dec 2024 21:18:19 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>The Power of Hand Writing</title>
+        <link>http://coding.fnsne.com/posts/the-power-of-hand-writing/</link>
+        <pubDate>Mon, 09 Dec 2024 21:18:19 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/posts/the-power-of-hand-writing/</guid>
+        <description>&lt;h1 id=&#34;手寫的力量&#34;&gt;手寫的力量
+&lt;/h1&gt;&lt;p&gt;在上星期日（2024-12-08）我陷入了一個狀態。似乎是因為看到了太多的資訊，又打開了噗浪（我追蹤太多資訊了），
+結果在晚上的時候，開始進入了恐慌狀態。在此時內心會一直在「不能，我不能再看下一篇了」、「再看一篇，只要再一篇….」的拉鋸狀態。&lt;/p&gt;
+&lt;p&gt;在進入這個狀態後，整個人會變得非常的不舒服。但即使想要抽離也沒有那麼容易，必須要抽離好一段時間才能慢慢恢復。
+但是即使想辦法抽離，只要稍微沒有注意，就會再被拉回去。我想著要抽離，先站起來動一動，
+但也只是站起來很焦慮的來回踱步，然後又坐下來。最終是家人叫我去準備其他東西的時候，才成功有一小段暫時清醒的時間。&lt;/p&gt;
+&lt;p&gt;在這個時候，我做了一個正確的決定&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;把筆電收起來&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;想當然，我馬上就開始繼續焦慮、渴望訊息。&lt;/p&gt;
+&lt;p&gt;所以我拿出了一隻鋼筆、一疊紙，開始把心中的聲音寫出來、檢討今天怎麼失控成這樣的話也寫出來，寫著寫著，
+開始越來越能理性的思考分析了，漸漸的，我感覺到我腦袋開始放鬆、有種大腦一直處於窒息狀態，
+終於能呼吸到新鮮空氣。這是我這一次明顯感受到的。&lt;/p&gt;
+&lt;p&gt;之前一直知道「寫出來」這個方法很有用，但我一直認為打字的和手寫出來的效果一樣，
+但當我這次的時候，想要在heptabase上面用journal寫日記的方式來抽離，結果發現，打沒幾個字，心思就又被吸走去獲得更多的資訊了。&lt;/p&gt;
+&lt;p&gt;我在想，會不會是因為書寫的速度比較慢，並且我在書寫的時候，其實會順便一邊書寫一邊思考下個字要怎麼寫怎麼放，
+就是因為這樣，才能讓我退出過載的狀態的？&lt;/p&gt;
+&lt;p&gt;好奇大家有沒有遇到這個資訊過載的狀態，還有是用什麼方法解決它的呢？&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>《上線時間管理術》讀後心得1</title>
         <link>http://coding.fnsne.com/posts/uptime-review-1/</link>
         <pubDate>Sun, 24 Nov 2024 22:12:38 +0800</pubDate>
@@ -1698,139 +1725,6 @@ Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon 和 G
 &lt;/ul&gt;
 &lt;h2 id=&#34;結論&#34;&gt;結論
 &lt;/h2&gt;&lt;p&gt;鎖的概念就是為了要保護有限的資源，不要被無限的取用。例如可以利用鎖來保護對同一個檔案的更改，讓這個檔案一次只能被一個process更新，防止檔案內資料變得亂七八糟的。&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>資料庫的同步</title>
-        <link>http://coding.fnsne.com/posts/how-database-sync/</link>
-        <pubDate>Wed, 14 Sep 2022 16:22:17 +0800</pubDate>
-        
-        <guid>http://coding.fnsne.com/posts/how-database-sync/</guid>
-        <description>&lt;h2 id=&#34;網路上查到簡單說明transaction的例子常常都是用轉賬來說明但其實還有很多東西需要注意&#34;&gt;網路上查到簡單說明transaction的例子，常常都是用轉賬來說明，但其實還有很多東西需要注意
-&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;帳戶轉賬，因為race condition的緣故，導致操作欄位的值被改錯。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;A有100，B有40。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;A轉100元給B，B轉20元給A，由兩個不同的client來處理操作。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;順序正確時：A會是減掉80&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;但是當順序不正確，則數字會錯掉，例如A很早取得現在的餘額（100），但是更新數字0慢了，導致A最終變成0元，因為在B轉完帳後才更新值。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;以上的這個問題很明顯的是race condition。所謂的race condition是結果必須依賴與某種特定的順序，但是順序又並不是固定的，因此偶爾會出現錯誤。&lt;/p&gt;
-&lt;h2 id=&#34;解決race-condition的方法&#34;&gt;解決race condition的方法
-&lt;/h2&gt;&lt;p&gt;為了要解決race condition，必須得要讓操作依照我們期望的順序才操作，才能預防不對的順序導致的錯誤。為了要達到這個目標，資料庫本身有提供兩種方法：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;atomic update：資料庫提供的一個，對於單一欄位數值做相依於原本值的操作指令。這個操作過程會是atomic的，也就是不會操作到一半值被改掉而導致結果出錯。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;update&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;products&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;quantity&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;quantity&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;where&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;優點：因為只是對於欄位做簡單的數字運算並馬上更新上去，所以對於欄位的佔用時間相較下面的select for update較短，且資料庫會將這類atomic操作做優化，所以效能會比較好。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;缺點：只支援對於數值的簡單操作後更新，並不能做太複雜的運算。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;select for update：這個操作被限制在transaction開起來的時候才能使用，使用時實際上就是將指定的欄位上一個更新的lock，此時直到commit之前，沒有其他client可以對這個欄位做任何更新。所以就能夠限制欄位更新的順序了。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;Begin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;select&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;quantity&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;into&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;q&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;from&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;products&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;where&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;update&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;update&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;products&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;quantity&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;q&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Commit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;優點：因為有上鎖了，所以幾乎可以用各種邏輯運算來更新欄位的值。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;缺點：因為會在欄位上面上鎖，並且持續到commit位置，所以對於效能會有很大的影響。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;version scheme ：在table上面多新增一個欄位叫做version，來確定現在更新時的version，是否從拿值的時候到現在還沒有被更新過。程式可以藉由資料庫回傳的訊息，&lt;code&gt;是否有更改到任何row&lt;/code&gt;來判斷是否更新成功。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;old_ver&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;select&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;money&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;from&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bank&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;where&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;update&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bank&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;money&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;where&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;and&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;old_ver&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;優點：能夠不使用任何鎖的時候實現。（或者還有其他我想不到的優點）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;缺點：可能會很浪費時間，尤其是當更新的頻率特別高的時候，可能很難可以得到把值更新下去的機會。並且失敗後得要重頭來過。可能會造成鎖的飢餓效應。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;一開始提到的例子裡面真正用到transaction功能的地方&#34;&gt;一開始提到的例子裡面真正用到transaction功能的地方
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;利用transaction遇到錯誤時會rollback的特性，來在餘額小於0的時候，復原到還未轉賬之前的狀態。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;如何檢查餘額小於0，並在此時丟出錯誤呢？&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;利用select for update鎖住欄位更新，在此時檢查，通過且做完操作後commit，釋放鎖。就可以避免此時有其他操作更動到這個帳戶的餘額。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;優點：可以實作各種複雜的檢查邏輯&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;缺點：必須為這個帳戶的餘額上鎖，此時沒有其他人可以操作（也就是沒有其他人可以轉賬給他、領錢等操作），會導致效能低下。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;利用&lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/questions/21503658/prevent-less-than-zero-values-in-postgresql&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;check constraint&lt;/a&gt; 來讓資料庫在欄位不符合規範的時候丟出錯誤。此時就可以配合transaction來rollback復原了。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;優點：因為check constraint是資料庫提供可以給欄位增加規範的設定，檢查會在更新的時候做，所以即使背後有使用鎖，所花費的時間會比用select for update還要少。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;缺點：只能依照資料庫提供的有限constraint來設定，並不一定能夠做到想要的規範。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;結論&#34;&gt;結論
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;遇到需要注意順序的操作，先試著能不能使用atomic update的方式來完成需求，沒有辦法的時候才會使用select for update的方式來限制進到這個transaction後，必須要操作完這邊的指令後，才能換別人改值。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;遇到需要檢查數值符不符合規範，先試著用check constraint來限制欄位，真的沒有辦法，才會採用select for update的方式來將欄位上鎖，來做檢查。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;參考資料&#34;&gt;參考資料
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/interviewnoodle/how-to-avoid-the-race-condition-and-the-negative-value-3f397b2b08e4&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;How to avoid the race condition and the negative value&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/questions/21503658/prevent-less-than-zero-values-in-postgresql&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;check constraint&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/143866444&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;select for update 詳解&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/questions/21503658/prevent-less-than-zero-values-in-postgresql&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;check constraint&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 </description>
         </item>
         

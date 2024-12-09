@@ -7,7 +7,15 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Sun, 24 Nov 2024 22:12:38 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 09 Dec 2024 21:18:19 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Hand-Writing</title>
+        <link>http://coding.fnsne.com/tags/hand-writing/</link>
+        <pubDate>Mon, 09 Dec 2024 21:18:19 +0800</pubDate>
+        
+        <guid>http://coding.fnsne.com/tags/hand-writing/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>時間管理</title>
         <link>http://coding.fnsne.com/tags/%E6%99%82%E9%96%93%E7%AE%A1%E7%90%86/</link>
         <pubDate>Sun, 24 Nov 2024 22:12:38 +0800</pubDate>
@@ -157,14 +165,6 @@
         <pubDate>Sun, 03 Nov 2024 21:37:26 +0800</pubDate>
         
         <guid>http://coding.fnsne.com/tags/design-pattern/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Golang</title>
-        <link>http://coding.fnsne.com/tags/golang/</link>
-        <pubDate>Sun, 03 Nov 2024 21:37:26 +0800</pubDate>
-        
-        <guid>http://coding.fnsne.com/tags/golang/</guid>
         <description></description>
         </item>
         

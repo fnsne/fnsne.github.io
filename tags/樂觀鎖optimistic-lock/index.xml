@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>樂觀鎖(Optimistic Lock) on fnsne&#39;s coding world</title>
-        <link>http://coding.fnsne.com/tags/%E6%A8%82%E8%A7%80%E9%8E%96optimistic-lock/</link>
+        <link>https://coding.fnsne.com/tags/%E6%A8%82%E8%A7%80%E9%8E%96optimistic-lock/</link>
         <description>Recent content in 樂觀鎖(Optimistic Lock) on fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Fri, 01 Nov 2024 13:42:30 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/%E6%A8%82%E8%A7%80%E9%8E%96optimistic-lock/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 01 Nov 2024 13:42:30 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/tags/%E6%A8%82%E8%A7%80%E9%8E%96optimistic-lock/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>探討在Golang_gorm上使用樂觀鎖的做法</title>
-        <link>http://coding.fnsne.com/posts/golang-gorm-optimistic-lock/</link>
+        <link>https://coding.fnsne.com/posts/golang-gorm-optimistic-lock/</link>
         <pubDate>Fri, 01 Nov 2024 13:42:30 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/golang-gorm-optimistic-lock/</guid>
+        <guid>https://coding.fnsne.com/posts/golang-gorm-optimistic-lock/</guid>
         <description>&lt;h1 id=&#34;探討在golang_gorm上使用樂觀鎖的做法&#34;&gt;探討在Golang_gorm上使用樂觀鎖的做法
 &lt;/h1&gt;&lt;p&gt;在&lt;a class=&#34;link&#34; href=&#34;https://gorm.io/docs/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Gorm&lt;/a&gt;上如果要使用Optimistic locking的話，使用&lt;a class=&#34;link&#34; href=&#34;https://github.com/go-gorm/optimisticlock&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;

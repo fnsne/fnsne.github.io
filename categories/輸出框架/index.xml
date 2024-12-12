@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>輸出框架 on fnsne&#39;s coding world</title>
-        <link>http://coding.fnsne.com/categories/%E8%BC%B8%E5%87%BA%E6%A1%86%E6%9E%B6/</link>
+        <link>https://coding.fnsne.com/categories/%E8%BC%B8%E5%87%BA%E6%A1%86%E6%9E%B6/</link>
         <description>Recent content in 輸出框架 on fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Tue, 05 Nov 2024 22:13:15 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/categories/%E8%BC%B8%E5%87%BA%E6%A1%86%E6%9E%B6/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 05 Nov 2024 22:13:15 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/categories/%E8%BC%B8%E5%87%BA%E6%A1%86%E6%9E%B6/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>PREP輸出框架</title>
-        <link>http://coding.fnsne.com/posts/prep-output-framework/</link>
+        <link>https://coding.fnsne.com/posts/prep-output-framework/</link>
         <pubDate>Tue, 05 Nov 2024 22:13:15 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/prep-output-framework/</guid>
+        <guid>https://coding.fnsne.com/posts/prep-output-framework/</guid>
         <description>&lt;h1 id=&#34;prep輸出框架&#34;&gt;PREP輸出框架
 &lt;/h1&gt;&lt;p&gt;PREP框架是一種輸出框架，它能夠協助我們快速的整理出一個有邏輯，又很好理解的文章。&lt;/p&gt;
 &lt;p&gt;PREP分別是Point（結論）、Reason（理由）、Example（範例）、Point（再次重複結論）。也就是說，一開始的時候就先點題，把結論給寫出來。再來開始開始說明下這個結論的理由是什麼，然後舉例子。最終再次重複結論。在使用這樣的結構下，能夠很快速的讓人理解結論是什麼。

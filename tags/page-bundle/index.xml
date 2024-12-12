@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Page Bundle on fnsne&#39;s coding world</title>
-        <link>http://coding.fnsne.com/tags/page-bundle/</link>
+        <link>https://coding.fnsne.com/tags/page-bundle/</link>
         <description>Recent content in Page Bundle on fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Fri, 02 Sep 2022 14:36:26 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/page-bundle/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 02 Sep 2022 14:36:26 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/tags/page-bundle/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Hugo  Bundle問題</title>
-        <link>http://coding.fnsne.com/posts/hugo_bundle_organization/</link>
+        <link>https://coding.fnsne.com/posts/hugo_bundle_organization/</link>
         <pubDate>Fri, 02 Sep 2022 14:36:26 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/hugo_bundle_organization/</guid>
+        <guid>https://coding.fnsne.com/posts/hugo_bundle_organization/</guid>
         <description>&lt;h1 id=&#34;描述&#34;&gt;描述
 &lt;/h1&gt;&lt;p&gt;原本在hugo上面放文章，是每篇文章一個資料夾，在其中放文章和會用到的圖片。每個文章資料夾都放在&lt;code&gt;content/posts/&lt;/code&gt;。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;content/posts/

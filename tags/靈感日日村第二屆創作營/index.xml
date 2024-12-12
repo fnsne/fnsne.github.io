@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>靈感日日村第二屆創作營 on fnsne&#39;s coding world</title>
-        <link>http://coding.fnsne.com/tags/%E9%9D%88%E6%84%9F%E6%97%A5%E6%97%A5%E6%9D%91%E7%AC%AC%E4%BA%8C%E5%B1%86%E5%89%B5%E4%BD%9C%E7%87%9F/</link>
+        <link>https://coding.fnsne.com/tags/%E9%9D%88%E6%84%9F%E6%97%A5%E6%97%A5%E6%9D%91%E7%AC%AC%E4%BA%8C%E5%B1%86%E5%89%B5%E4%BD%9C%E7%87%9F/</link>
         <description>Recent content in 靈感日日村第二屆創作營 on fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Sat, 02 Nov 2024 22:59:36 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/%E9%9D%88%E6%84%9F%E6%97%A5%E6%97%A5%E6%9D%91%E7%AC%AC%E4%BA%8C%E5%B1%86%E5%89%B5%E4%BD%9C%E7%87%9F/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 02 Nov 2024 22:59:36 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/tags/%E9%9D%88%E6%84%9F%E6%97%A5%E6%97%A5%E6%9D%91%E7%AC%AC%E4%BA%8C%E5%B1%86%E5%89%B5%E4%BD%9C%E7%87%9F/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>關於Golang的泛型</title>
-        <link>http://coding.fnsne.com/posts/golang-generic/</link>
+        <link>https://coding.fnsne.com/posts/golang-generic/</link>
         <pubDate>Sat, 02 Nov 2024 22:59:36 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/golang-generic/</guid>
+        <guid>https://coding.fnsne.com/posts/golang-generic/</guid>
         <description>&lt;h1 id=&#34;淺談golang-generic-泛型&#34;&gt;淺談Golang Generic 泛型
 &lt;/h1&gt;&lt;h2 id=&#34;什麼是泛型&#34;&gt;什麼是泛型？
 &lt;/h2&gt;&lt;p&gt;泛型（Generic）是一種用來協助製作通用function、struct用的功能。
@@ -74,10 +74,10 @@
         </item>
         <item>
         <title>探討在Golang_gorm上使用樂觀鎖的做法</title>
-        <link>http://coding.fnsne.com/posts/golang-gorm-optimistic-lock/</link>
+        <link>https://coding.fnsne.com/posts/golang-gorm-optimistic-lock/</link>
         <pubDate>Fri, 01 Nov 2024 13:42:30 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/golang-gorm-optimistic-lock/</guid>
+        <guid>https://coding.fnsne.com/posts/golang-gorm-optimistic-lock/</guid>
         <description>&lt;h1 id=&#34;探討在golang_gorm上使用樂觀鎖的做法&#34;&gt;探討在Golang_gorm上使用樂觀鎖的做法
 &lt;/h1&gt;&lt;p&gt;在&lt;a class=&#34;link&#34; href=&#34;https://gorm.io/docs/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Gorm&lt;/a&gt;上如果要使用Optimistic locking的話，使用&lt;a class=&#34;link&#34; href=&#34;https://github.com/go-gorm/optimisticlock&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;

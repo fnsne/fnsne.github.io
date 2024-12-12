@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Golang on fnsne&#39;s coding world</title>
-        <link>http://coding.fnsne.com/tags/golang/</link>
+        <link>https://coding.fnsne.com/tags/golang/</link>
         <description>Recent content in Golang on fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Sun, 03 Nov 2024 21:37:26 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/golang/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 03 Nov 2024 21:37:26 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/tags/golang/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>關於裝飾器模式和責任鏈模式</title>
-        <link>http://coding.fnsne.com/posts/decorator-vs-chain-of-responsibility/</link>
+        <link>https://coding.fnsne.com/posts/decorator-vs-chain-of-responsibility/</link>
         <pubDate>Sun, 03 Nov 2024 21:37:26 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/decorator-vs-chain-of-responsibility/</guid>
+        <guid>https://coding.fnsne.com/posts/decorator-vs-chain-of-responsibility/</guid>
         <description>&lt;h1 id=&#34;淺談責任鏈chain-of-responsibility和裝飾器decorator模式的差別&#34;&gt;淺談責任鏈（Chain of Responsibility）和裝飾器（Decorator）模式的差別
 &lt;/h1&gt;&lt;p&gt;裝飾器模式和責任鍊模式，都是很常見用來把程式碼邏輯切開，讓不同元件能更明確用code表達其負責的邏輯的方法。&lt;/p&gt;
 &lt;p&gt;以下先簡單介紹一下這兩種模式&lt;/p&gt;
@@ -191,10 +191,10 @@
         </item>
         <item>
         <title>關於Golang的泛型</title>
-        <link>http://coding.fnsne.com/posts/golang-generic/</link>
+        <link>https://coding.fnsne.com/posts/golang-generic/</link>
         <pubDate>Sat, 02 Nov 2024 22:59:36 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/golang-generic/</guid>
+        <guid>https://coding.fnsne.com/posts/golang-generic/</guid>
         <description>&lt;h1 id=&#34;淺談golang-generic-泛型&#34;&gt;淺談Golang Generic 泛型
 &lt;/h1&gt;&lt;h2 id=&#34;什麼是泛型&#34;&gt;什麼是泛型？
 &lt;/h2&gt;&lt;p&gt;泛型（Generic）是一種用來協助製作通用function、struct用的功能。
@@ -256,10 +256,10 @@
         </item>
         <item>
         <title>探討在Golang_gorm上使用樂觀鎖的做法</title>
-        <link>http://coding.fnsne.com/posts/golang-gorm-optimistic-lock/</link>
+        <link>https://coding.fnsne.com/posts/golang-gorm-optimistic-lock/</link>
         <pubDate>Fri, 01 Nov 2024 13:42:30 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/golang-gorm-optimistic-lock/</guid>
+        <guid>https://coding.fnsne.com/posts/golang-gorm-optimistic-lock/</guid>
         <description>&lt;h1 id=&#34;探討在golang_gorm上使用樂觀鎖的做法&#34;&gt;探討在Golang_gorm上使用樂觀鎖的做法
 &lt;/h1&gt;&lt;p&gt;在&lt;a class=&#34;link&#34; href=&#34;https://gorm.io/docs/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Gorm&lt;/a&gt;上如果要使用Optimistic locking的話，使用&lt;a class=&#34;link&#34; href=&#34;https://github.com/go-gorm/optimisticlock&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -417,10 +417,10 @@
         </item>
         <item>
         <title>淺談在Golang上面的物件導向</title>
-        <link>http://coding.fnsne.com/posts/golang_object_oriented/</link>
+        <link>https://coding.fnsne.com/posts/golang_object_oriented/</link>
         <pubDate>Tue, 02 Aug 2022 20:01:59 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/golang_object_oriented/</guid>
+        <guid>https://coding.fnsne.com/posts/golang_object_oriented/</guid>
         <description>&lt;p&gt;從物件導向的語言轉到Golang常常會遇到，不知道該怎麼在Golang實作類似多型和繼承的功能。這是因為Golang根本不是物件導向的語言。&lt;/p&gt;
 &lt;p&gt;在網路上會看到一些文章，寫說可以使用可以embed來模擬繼承，但事實上embed的用途應該只是用來減少重複的程式碼，增加可讀性。像在io package裡面就很明顯，如interface ReadWriter就是用Reader和Writer 兩個interface組合起來的。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;type&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ReadWriter&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;interface&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;

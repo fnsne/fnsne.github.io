@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Decorator Pattern on fnsne&#39;s coding world</title>
-        <link>http://coding.fnsne.com/tags/decorator-pattern/</link>
+        <link>https://coding.fnsne.com/tags/decorator-pattern/</link>
         <description>Recent content in Decorator Pattern on fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Sun, 03 Nov 2024 21:37:26 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/decorator-pattern/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 03 Nov 2024 21:37:26 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/tags/decorator-pattern/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>關於裝飾器模式和責任鏈模式</title>
-        <link>http://coding.fnsne.com/posts/decorator-vs-chain-of-responsibility/</link>
+        <link>https://coding.fnsne.com/posts/decorator-vs-chain-of-responsibility/</link>
         <pubDate>Sun, 03 Nov 2024 21:37:26 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/decorator-vs-chain-of-responsibility/</guid>
+        <guid>https://coding.fnsne.com/posts/decorator-vs-chain-of-responsibility/</guid>
         <description>&lt;h1 id=&#34;淺談責任鏈chain-of-responsibility和裝飾器decorator模式的差別&#34;&gt;淺談責任鏈（Chain of Responsibility）和裝飾器（Decorator）模式的差別
 &lt;/h1&gt;&lt;p&gt;裝飾器模式和責任鍊模式，都是很常見用來把程式碼邏輯切開，讓不同元件能更明確用code表達其負責的邏輯的方法。&lt;/p&gt;
 &lt;p&gt;以下先簡單介紹一下這兩種模式&lt;/p&gt;

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Debug on fnsne&#39;s coding world</title>
-        <link>http://coding.fnsne.com/tags/debug/</link>
+        <link>https://coding.fnsne.com/tags/debug/</link>
         <description>Recent content in Debug on fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Mon, 18 Nov 2024 21:43:53 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/debug/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 18 Nov 2024 21:43:53 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/tags/debug/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Debug的小技巧:假設</title>
-        <link>http://coding.fnsne.com/posts/debug-tricks-suppose/</link>
+        <link>https://coding.fnsne.com/posts/debug-tricks-suppose/</link>
         <pubDate>Mon, 18 Nov 2024 21:43:53 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/debug-tricks-suppose/</guid>
+        <guid>https://coding.fnsne.com/posts/debug-tricks-suppose/</guid>
         <description>&lt;h1 id=&#34;排查問題的小技巧假設&#34;&gt;排查問題的小技巧：假設
 &lt;/h1&gt;&lt;p&gt;跟大家分享一下最近發現到，在debug時的一個小技巧&lt;/p&gt;
 &lt;blockquote&gt;

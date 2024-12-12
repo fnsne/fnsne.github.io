@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>GeoJson on fnsne&#39;s coding world</title>
-        <link>http://coding.fnsne.com/tags/geojson/</link>
+        <link>https://coding.fnsne.com/tags/geojson/</link>
         <description>Recent content in GeoJson on fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Mon, 04 Nov 2024 21:28:29 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/geojson/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 04 Nov 2024 21:28:29 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/tags/geojson/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>GeoJSON</title>
-        <link>http://coding.fnsne.com/posts/geo-json/</link>
+        <link>https://coding.fnsne.com/posts/geo-json/</link>
         <pubDate>Mon, 04 Nov 2024 21:28:29 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/geo-json/</guid>
+        <guid>https://coding.fnsne.com/posts/geo-json/</guid>
         <description>&lt;h1 id=&#34;關於geojson&#34;&gt;關於GeoJSON
 &lt;/h1&gt;&lt;p&gt;GeoJSON是一種基於JSON的地理空間數據交換格式，它定義了幾種類型JSON對象以及它們組合在一起的方法，以表示有關地理要素、屬性和它們的空間範圍的數據。
 一個GeoJSON對象可以是&lt;code&gt;Geometry&lt;/code&gt;, &lt;code&gt;Feature&lt;/code&gt;或者&lt;code&gt;FeatureCollection&lt;/code&gt;&lt;/p&gt;

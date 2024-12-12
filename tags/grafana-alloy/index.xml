@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Grafana Alloy on fnsne&#39;s coding world</title>
-        <link>http://coding.fnsne.com/tags/grafana-alloy/</link>
+        <link>https://coding.fnsne.com/tags/grafana-alloy/</link>
         <description>Recent content in Grafana Alloy on fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Wed, 20 Nov 2024 21:19:18 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/grafana-alloy/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 20 Nov 2024 21:19:18 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/tags/grafana-alloy/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Grafana Alloy</title>
-        <link>http://coding.fnsne.com/posts/grafana-alloy/</link>
+        <link>https://coding.fnsne.com/posts/grafana-alloy/</link>
         <pubDate>Wed, 20 Nov 2024 21:19:18 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/grafana-alloy/</guid>
+        <guid>https://coding.fnsne.com/posts/grafana-alloy/</guid>
         <description>&lt;h1 id=&#34;grafana-alloy&#34;&gt;Grafana Alloy
 &lt;/h1&gt;&lt;p&gt;原本我一開始是考慮要先研究怎麼使用grafana promtail把Log傳到Loki的，
 但我在Promtail的文件上面看到，promtail 的功能已經完整了，未來新的功能，只會被加到Grafana Alloy上面。&lt;/p&gt;

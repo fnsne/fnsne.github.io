@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>SSL/TSL on fnsne&#39;s coding world</title>
-        <link>http://coding.fnsne.com/tags/ssl/tsl/</link>
+        <link>https://coding.fnsne.com/tags/ssl/tsl/</link>
         <description>Recent content in SSL/TSL on fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Thu, 04 Jul 2024 21:09:08 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/ssl/tsl/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 04 Jul 2024 21:09:08 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/tags/ssl/tsl/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>如何用certbot申請 Let’s Encrypt 的憑證</title>
-        <link>http://coding.fnsne.com/posts/certbot_auto_gen_ssl_certificate/</link>
+        <link>https://coding.fnsne.com/posts/certbot_auto_gen_ssl_certificate/</link>
         <pubDate>Thu, 04 Jul 2024 21:09:08 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/certbot_auto_gen_ssl_certificate/</guid>
+        <guid>https://coding.fnsne.com/posts/certbot_auto_gen_ssl_certificate/</guid>
         <description>&lt;h2 id=&#34;1-安裝certbot&#34;&gt;1. 安裝certbot
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install certbot
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-使用certbot申請ssl憑證&#34;&gt;2. 使用certbot申請SSL憑證

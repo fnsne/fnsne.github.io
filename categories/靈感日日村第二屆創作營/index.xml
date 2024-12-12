@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>靈感日日村第二屆創作營 on fnsne&#39;s coding world</title>
-        <link>http://coding.fnsne.com/categories/%E9%9D%88%E6%84%9F%E6%97%A5%E6%97%A5%E6%9D%91%E7%AC%AC%E4%BA%8C%E5%B1%86%E5%89%B5%E4%BD%9C%E7%87%9F/</link>
+        <link>https://coding.fnsne.com/categories/%E9%9D%88%E6%84%9F%E6%97%A5%E6%97%A5%E6%9D%91%E7%AC%AC%E4%BA%8C%E5%B1%86%E5%89%B5%E4%BD%9C%E7%87%9F/</link>
         <description>Recent content in 靈感日日村第二屆創作營 on fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Sun, 24 Nov 2024 22:12:38 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/categories/%E9%9D%88%E6%84%9F%E6%97%A5%E6%97%A5%E6%9D%91%E7%AC%AC%E4%BA%8C%E5%B1%86%E5%89%B5%E4%BD%9C%E7%87%9F/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 24 Nov 2024 22:12:38 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/categories/%E9%9D%88%E6%84%9F%E6%97%A5%E6%97%A5%E6%9D%91%E7%AC%AC%E4%BA%8C%E5%B1%86%E5%89%B5%E4%BD%9C%E7%87%9F/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>《上線時間管理術》讀後心得1</title>
-        <link>http://coding.fnsne.com/posts/uptime-review-1/</link>
+        <link>https://coding.fnsne.com/posts/uptime-review-1/</link>
         <pubDate>Sun, 24 Nov 2024 22:12:38 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/uptime-review-1/</guid>
+        <guid>https://coding.fnsne.com/posts/uptime-review-1/</guid>
         <description>&lt;h1 id=&#34;上線時間管理術閱讀心得&#34;&gt;《上線時間管理術》閱讀心得
 &lt;/h1&gt;&lt;p&gt;《上線時間管理術》的作者是一位專門為Google頭銜有總字的主管，協助規劃時間管理的人。
 在書上有提到很多關於時間管理的方法，在我閱讀到第7課為止，給我最大啟發的是以下兩件事：&lt;/p&gt;
@@ -77,10 +77,10 @@
         </item>
         <item>
         <title>Grafana Alloy</title>
-        <link>http://coding.fnsne.com/posts/grafana-alloy/</link>
+        <link>https://coding.fnsne.com/posts/grafana-alloy/</link>
         <pubDate>Wed, 20 Nov 2024 21:19:18 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/grafana-alloy/</guid>
+        <guid>https://coding.fnsne.com/posts/grafana-alloy/</guid>
         <description>&lt;h1 id=&#34;grafana-alloy&#34;&gt;Grafana Alloy
 &lt;/h1&gt;&lt;p&gt;原本我一開始是考慮要先研究怎麼使用grafana promtail把Log傳到Loki的，
 但我在Promtail的文件上面看到，promtail 的功能已經完整了，未來新的功能，只會被加到Grafana Alloy上面。&lt;/p&gt;
@@ -189,15 +189,15 @@
         </item>
         <item>
         <title>Grafana Loki</title>
-        <link>http://coding.fnsne.com/posts/grafana-loki/</link>
+        <link>https://coding.fnsne.com/posts/grafana-loki/</link>
         <pubDate>Tue, 19 Nov 2024 21:19:07 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/grafana-loki/</guid>
+        <guid>https://coding.fnsne.com/posts/grafana-loki/</guid>
         <description>&lt;h1 id=&#34;grafana-loki&#34;&gt;Grafana Loki
 &lt;/h1&gt;&lt;p&gt;最近因為覺得log實在是不怎麼好閱讀、查找問題，所以開始來研究Grafana，看看怎麼讓他來分析和query logs。&lt;/p&gt;
 &lt;p&gt;先分享一下關於logs是如何進入到Grafana的Log管理服務Grafana Loki的&lt;/p&gt;
 &lt;p&gt;下圖是Grafana官網的圖，說明了Log彙整簡單的流程
-&lt;img src=&#34;http://coding.fnsne.com/posts/grafana-loki/logs-loki-diagram.svg&#34;
+&lt;img src=&#34;https://coding.fnsne.com/posts/grafana-loki/logs-loki-diagram.svg&#34;
 	
 	
 	
@@ -216,16 +216,16 @@
 &lt;hr&gt;
 &lt;p&gt;相關文章：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;http://coding.fnsne.com/posts/grafana-alloy/&#34; &gt;Grafana Alloy：用來收集各種logs和系統指標的工具&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://coding.fnsne.com/posts/grafana-alloy/&#34; &gt;Grafana Alloy：用來收集各種logs和系統指標的工具&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         </item>
         <item>
         <title>Debug的小技巧:假設</title>
-        <link>http://coding.fnsne.com/posts/debug-tricks-suppose/</link>
+        <link>https://coding.fnsne.com/posts/debug-tricks-suppose/</link>
         <pubDate>Mon, 18 Nov 2024 21:43:53 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/debug-tricks-suppose/</guid>
+        <guid>https://coding.fnsne.com/posts/debug-tricks-suppose/</guid>
         <description>&lt;h1 id=&#34;排查問題的小技巧假設&#34;&gt;排查問題的小技巧：假設
 &lt;/h1&gt;&lt;p&gt;跟大家分享一下最近發現到，在debug時的一個小技巧&lt;/p&gt;
 &lt;blockquote&gt;
@@ -264,10 +264,10 @@
         </item>
         <item>
         <title>解決拖延症的方法</title>
-        <link>http://coding.fnsne.com/posts/solve-procrastination/</link>
+        <link>https://coding.fnsne.com/posts/solve-procrastination/</link>
         <pubDate>Fri, 15 Nov 2024 00:27:17 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/solve-procrastination/</guid>
+        <guid>https://coding.fnsne.com/posts/solve-procrastination/</guid>
         <description>&lt;h1 id=&#34;解決拖延症的方法&#34;&gt;解決拖延症的方法
 &lt;/h1&gt;&lt;p&gt;拖延症，是我們大部分的人都會遇到的問題。雖然之前有看到一種說法，「會拖延，只是因為對自己來說還不急，所以才會一直的拖延下去」。
 但我常常發現，即使是對於我來說很重要的事情，就是不知道為什麼，即使已經切分好小小的行動了，還是無法下定決心來做。&lt;/p&gt;
@@ -314,10 +314,10 @@
         </item>
         <item>
         <title>我整理電子書Highlight的方法：萃取階段</title>
-        <link>http://coding.fnsne.com/posts/extract-highlight/</link>
+        <link>https://coding.fnsne.com/posts/extract-highlight/</link>
         <pubDate>Thu, 14 Nov 2024 00:49:22 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/extract-highlight/</guid>
+        <guid>https://coding.fnsne.com/posts/extract-highlight/</guid>
         <description>&lt;h1 id=&#34;我整理電子書highlight的方法萃取階段&#34;&gt;我整理電子書highlight的方法：萃取階段
 &lt;/h1&gt;&lt;p&gt;接續[上一篇]/posts/category-highlights/的內容
 其實到了這個階段，就只剩下很簡單的行為了：就是利用碎片時間慢慢整理之前彙整好的知識點卡片了。&lt;/p&gt;
@@ -333,10 +333,10 @@
 &lt;/h2&gt;&lt;p&gt;要做到這點其實很簡單，只要再多加上一個&lt;code&gt;消化完成&lt;/code&gt;的tag來區分是否消化完成。就可以在Card Library上設定篩選器。&lt;/p&gt;
 &lt;p&gt;也就是設定有&lt;code&gt;reference&lt;/code&gt; tag，但不要有&lt;code&gt;消化完成&lt;/code&gt;tag的卡片就可以了。&lt;/p&gt;
 &lt;p&gt;設定如下圖：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/extract-highlight/filter-setting.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://coding.fnsne.com/posts/extract-highlight/filter-setting.png&#34;
 	width=&#34;1176&#34;
 	height=&#34;354&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/extract-highlight/filter-setting_hube9fec22f1a96163f7f1fa65b9119be3_60662_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/extract-highlight/filter-setting_hube9fec22f1a96163f7f1fa65b9119be3_60662_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://coding.fnsne.com/posts/extract-highlight/filter-setting_hube9fec22f1a96163f7f1fa65b9119be3_60662_480x0_resize_box_3.png 480w, https://coding.fnsne.com/posts/extract-highlight/filter-setting_hube9fec22f1a96163f7f1fa65b9119be3_60662_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;篩選器設定&#34;
@@ -351,10 +351,10 @@
 &lt;/h2&gt;&lt;p&gt;因為知識點卡片上面通常已經彙整了不少相關的資訊在上面了，在這個時候開始整理大多情況都會變得很快速順暢。&lt;/p&gt;
 &lt;p&gt;可以從下圖看到，此時內容已經很充足，能讓我快速整理出通順內容了。（highlight來源：&lt;a class=&#34;link&#34; href=&#34;https://r10.to/hkt6Zc&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;雜訊時代的高效資料整理術&lt;/a&gt;）&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/extract-highlight/knowledge-rough-card.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://coding.fnsne.com/posts/extract-highlight/knowledge-rough-card.png&#34;
 	width=&#34;1736&#34;
 	height=&#34;1580&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/extract-highlight/knowledge-rough-card_hu914b54b9f008ec602a694be050db91a1_867499_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/extract-highlight/knowledge-rough-card_hu914b54b9f008ec602a694be050db91a1_867499_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://coding.fnsne.com/posts/extract-highlight/knowledge-rough-card_hu914b54b9f008ec602a694be050db91a1_867499_480x0_resize_box_3.png 480w, https://coding.fnsne.com/posts/extract-highlight/knowledge-rough-card_hu914b54b9f008ec602a694be050db91a1_867499_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;知識點卡片&#34;
@@ -381,10 +381,10 @@
 &lt;ol&gt;
 &lt;li&gt;&lt;code&gt;Ctrl+O&lt;/code&gt; 全局搜尋&lt;code&gt;我的主題分類&lt;/code&gt;，來找到主題分類的卡片&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/extract-highlight/search-topic.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://coding.fnsne.com/posts/extract-highlight/search-topic.png&#34;
 	width=&#34;834&#34;
 	height=&#34;480&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/extract-highlight/search-topic_hub70d470acbbabf0bb544acfeab3d2af8_56982_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/extract-highlight/search-topic_hub70d470acbbabf0bb544acfeab3d2af8_56982_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://coding.fnsne.com/posts/extract-highlight/search-topic_hub70d470acbbabf0bb544acfeab3d2af8_56982_480x0_resize_box_3.png 480w, https://coding.fnsne.com/posts/extract-highlight/search-topic_hub70d470acbbabf0bb544acfeab3d2af8_56982_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;全局搜尋&#34;
@@ -400,10 +400,10 @@
 直到找到有類似的知識點卡片鏈接，在它旁邊加上這張知識點卡片的鏈接。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;例如下圖這是我的主題分類 → 生產力&amp;amp;時間管理主題的部分內容&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/extract-highlight/topic-category-sample.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://coding.fnsne.com/posts/extract-highlight/topic-category-sample.png&#34;
 	width=&#34;1750&#34;
 	height=&#34;1430&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/extract-highlight/topic-category-sample_hu346b76393ca7964a24a6e529841be2b8_357647_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/extract-highlight/topic-category-sample_hu346b76393ca7964a24a6e529841be2b8_357647_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://coding.fnsne.com/posts/extract-highlight/topic-category-sample_hu346b76393ca7964a24a6e529841be2b8_357647_480x0_resize_box_3.png 480w, https://coding.fnsne.com/posts/extract-highlight/topic-category-sample_hu346b76393ca7964a24a6e529841be2b8_357647_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;主題分類&#34;
@@ -418,21 +418,21 @@
         </item>
         <item>
         <title>我整理電子書Highlight的方法：彙整階段</title>
-        <link>http://coding.fnsne.com/posts/category-highlights/</link>
+        <link>https://coding.fnsne.com/posts/category-highlights/</link>
         <pubDate>Mon, 11 Nov 2024 00:23:33 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/category-highlights/</guid>
+        <guid>https://coding.fnsne.com/posts/category-highlights/</guid>
         <description>&lt;h2 id=&#34;我整理電子書highlight的方法彙整階段&#34;&gt;我整理電子書highlight的方法：彙整階段
-&lt;/h2&gt;&lt;p&gt;接續&lt;a class=&#34;link&#34; href=&#34;http://coding.fnsne.com/posts/e-book-is-an-amazing-invention/&#34; &gt;上一篇&lt;/a&gt;的內容&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;接續&lt;a class=&#34;link&#34; href=&#34;https://coding.fnsne.com/posts/e-book-is-an-amazing-invention/&#34; &gt;上一篇&lt;/a&gt;的內容&lt;/p&gt;
 &lt;p&gt;前面我有提到我使用readwise把highlight給同步到heptabase（筆記軟體）上面，所以當我標記完，highlight就會自動到heptabase上面了。&lt;/p&gt;
 &lt;p&gt;接下來就是整理階段，我把整理階段分成兩個階段，這篇文章會著重在第一階段，彙整。&lt;/p&gt;
 &lt;h3 id=&#34;彙整&#34;&gt;彙整
 &lt;/h3&gt;&lt;p&gt;簡單來說就是利用whiteboard和section功能，把感覺有相關概念的卡片放在附近，然後用section群組起來。最後再連結到一個萃取出來的卡片上面。&lt;/p&gt;
 &lt;p&gt;在這個階段，我會在heptabase上面新增一個whiteboard，然後把它pin到左側的tab上。我是使用閱讀資料夾來分類的用來放置我還沒有整理完的書的whiteboard&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/category-highlights/heptabase-tabs.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://coding.fnsne.com/posts/category-highlights/heptabase-tabs.png&#34;
 	width=&#34;530&#34;
 	height=&#34;378&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/category-highlights/heptabase-tabs_hu3b5ab001e6b7c43c36b681a8d32997b3_37656_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/category-highlights/heptabase-tabs_hu3b5ab001e6b7c43c36b681a8d32997b3_37656_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://coding.fnsne.com/posts/category-highlights/heptabase-tabs_hu3b5ab001e6b7c43c36b681a8d32997b3_37656_480x0_resize_box_3.png 480w, https://coding.fnsne.com/posts/category-highlights/heptabase-tabs_hu3b5ab001e6b7c43c36b681a8d32997b3_37656_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;我heptabase左側的tabs&#34;
@@ -458,10 +458,10 @@
 &lt;/ol&gt;
 &lt;p&gt;(這是我閱讀&lt;a class=&#34;link&#34; href=&#34;https://r10.to/hkN4Lh&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;《專注力協定》&lt;/a&gt;的時候做的whiteboard。)
-&lt;img src=&#34;http://coding.fnsne.com/posts/category-highlights/group-by-section.png&#34;
+&lt;img src=&#34;https://coding.fnsne.com/posts/category-highlights/group-by-section.png&#34;
 	width=&#34;1584&#34;
 	height=&#34;1282&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/category-highlights/group-by-section_huecc40670c9dae1b3bbef18b6f459c23a_305939_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/category-highlights/group-by-section_huecc40670c9dae1b3bbef18b6f459c23a_305939_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://coding.fnsne.com/posts/category-highlights/group-by-section_huecc40670c9dae1b3bbef18b6f459c23a_305939_480x0_resize_box_3.png 480w, https://coding.fnsne.com/posts/category-highlights/group-by-section_huecc40670c9dae1b3bbef18b6f459c23a_305939_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;範例圖&#34;
@@ -478,10 +478,10 @@
 &lt;ol&gt;
 &lt;li&gt;打開whiteboard的右邊側欄，點Table Of Content&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/category-highlights/whiteboard-table-of-content.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://coding.fnsne.com/posts/category-highlights/whiteboard-table-of-content.png&#34;
 	width=&#34;2506&#34;
 	height=&#34;1264&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/category-highlights/whiteboard-table-of-content_hu4b8f3469276b36b52cb34fdb905dbdee_588919_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/category-highlights/whiteboard-table-of-content_hu4b8f3469276b36b52cb34fdb905dbdee_588919_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://coding.fnsne.com/posts/category-highlights/whiteboard-table-of-content_hu4b8f3469276b36b52cb34fdb905dbdee_588919_480x0_resize_box_3.png 480w, https://coding.fnsne.com/posts/category-highlights/whiteboard-table-of-content_hu4b8f3469276b36b52cb34fdb905dbdee_588919_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;whiteboard-table-of-content&#34;
@@ -504,10 +504,10 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;到了這一步，畫面應該會長這樣&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/category-highlights/extract-knowledge-draft.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://coding.fnsne.com/posts/category-highlights/extract-knowledge-draft.png&#34;
 	width=&#34;1048&#34;
 	height=&#34;1060&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/category-highlights/extract-knowledge-draft_hu66667b5a6af6fdab3a95da0adb3e3775_279590_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/category-highlights/extract-knowledge-draft_hu66667b5a6af6fdab3a95da0adb3e3775_279590_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://coding.fnsne.com/posts/category-highlights/extract-knowledge-draft_hu66667b5a6af6fdab3a95da0adb3e3775_279590_480x0_resize_box_3.png 480w, https://coding.fnsne.com/posts/category-highlights/extract-knowledge-draft_hu66667b5a6af6fdab3a95da0adb3e3775_279590_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;彙整出來的筆記粗稿&#34;
@@ -522,10 +522,10 @@
 &lt;li&gt;在知識點卡片上，加上屬於知識點卡片的tag，我是使用reference。藉由這個讓我下一階段時，能只篩選出知識點卡片。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;在這樣整理之後，我就可以把各種知識切成一塊塊小組，然後再下一階段的時候，利用碎片時間萃取了。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/category-highlights/whiteboard-example.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://coding.fnsne.com/posts/category-highlights/whiteboard-example.png&#34;
 	width=&#34;2326&#34;
 	height=&#34;1362&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/category-highlights/whiteboard-example_hu866c797137e3631e2eb4b717172e1227_576673_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/category-highlights/whiteboard-example_hu866c797137e3631e2eb4b717172e1227_576673_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://coding.fnsne.com/posts/category-highlights/whiteboard-example_hu866c797137e3631e2eb4b717172e1227_576673_480x0_resize_box_3.png 480w, https://coding.fnsne.com/posts/category-highlights/whiteboard-example_hu866c797137e3631e2eb4b717172e1227_576673_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;白板上的知識點卡片&#34;
@@ -549,10 +549,10 @@
         </item>
         <item>
         <title>電子書真的是劃時代的發明</title>
-        <link>http://coding.fnsne.com/posts/e-book-is-an-amazing-invention/</link>
+        <link>https://coding.fnsne.com/posts/e-book-is-an-amazing-invention/</link>
         <pubDate>Fri, 08 Nov 2024 22:41:41 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/e-book-is-an-amazing-invention/</guid>
+        <guid>https://coding.fnsne.com/posts/e-book-is-an-amazing-invention/</guid>
         <description>&lt;h1 id=&#34;我覺得電子書真的是劃時代的發明&#34;&gt;我覺得電子書真的是劃時代的發明
 &lt;/h1&gt;&lt;p&gt;接下來幾天，我會分享我最近發現到，很好閱讀電子書的方式，今天先來分享閱讀電子書的好處。&lt;/p&gt;
 &lt;p&gt;電子書的highlight功能真的是劃時代的設計，因為現今大部分的電子書都有提供把highlights給匯出的功能。&lt;/p&gt;
@@ -653,10 +653,10 @@
         </item>
         <item>
         <title>Asynchronous Request</title>
-        <link>http://coding.fnsne.com/posts/asynchronous-request/</link>
+        <link>https://coding.fnsne.com/posts/asynchronous-request/</link>
         <pubDate>Thu, 07 Nov 2024 20:59:16 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/asynchronous-request/</guid>
+        <guid>https://coding.fnsne.com/posts/asynchronous-request/</guid>
         <description>&lt;h1 id=&#34;關於asynchronous-request&#34;&gt;關於Asynchronous Request
 &lt;/h1&gt;&lt;p&gt;Asynchronous Request（非同步請求），就是讓server收到請求後，馬上回應使用者有接收到了，但結果會等到執行完後再通知使用者。&lt;/p&gt;
 &lt;p&gt;就像寄信一樣，寄出後我們就不用一直在郵局等，等到信件寄到目的地後，才能離開郵局。我們只要做了寄信的動作，就可以離開郵局做其它事情，郵局自然會把信件送達到目的地。
@@ -680,10 +680,10 @@
         </item>
         <item>
         <title>PREP輸出框架</title>
-        <link>http://coding.fnsne.com/posts/prep-output-framework/</link>
+        <link>https://coding.fnsne.com/posts/prep-output-framework/</link>
         <pubDate>Tue, 05 Nov 2024 22:13:15 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/prep-output-framework/</guid>
+        <guid>https://coding.fnsne.com/posts/prep-output-framework/</guid>
         <description>&lt;h1 id=&#34;prep輸出框架&#34;&gt;PREP輸出框架
 &lt;/h1&gt;&lt;p&gt;PREP框架是一種輸出框架，它能夠協助我們快速的整理出一個有邏輯，又很好理解的文章。&lt;/p&gt;
 &lt;p&gt;PREP分別是Point（結論）、Reason（理由）、Example（範例）、Point（再次重複結論）。也就是說，一開始的時候就先點題，把結論給寫出來。再來開始開始說明下這個結論的理由是什麼，然後舉例子。最終再次重複結論。在使用這樣的結構下，能夠很快速的讓人理解結論是什麼。
@@ -693,10 +693,10 @@
         </item>
         <item>
         <title>GeoJSON</title>
-        <link>http://coding.fnsne.com/posts/geo-json/</link>
+        <link>https://coding.fnsne.com/posts/geo-json/</link>
         <pubDate>Mon, 04 Nov 2024 21:28:29 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/geo-json/</guid>
+        <guid>https://coding.fnsne.com/posts/geo-json/</guid>
         <description>&lt;h1 id=&#34;關於geojson&#34;&gt;關於GeoJSON
 &lt;/h1&gt;&lt;p&gt;GeoJSON是一種基於JSON的地理空間數據交換格式，它定義了幾種類型JSON對象以及它們組合在一起的方法，以表示有關地理要素、屬性和它們的空間範圍的數據。
 一個GeoJSON對象可以是&lt;code&gt;Geometry&lt;/code&gt;, &lt;code&gt;Feature&lt;/code&gt;或者&lt;code&gt;FeatureCollection&lt;/code&gt;&lt;/p&gt;
@@ -779,10 +779,10 @@ Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon 和 G
         </item>
         <item>
         <title>關於裝飾器模式和責任鏈模式</title>
-        <link>http://coding.fnsne.com/posts/decorator-vs-chain-of-responsibility/</link>
+        <link>https://coding.fnsne.com/posts/decorator-vs-chain-of-responsibility/</link>
         <pubDate>Sun, 03 Nov 2024 21:37:26 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/decorator-vs-chain-of-responsibility/</guid>
+        <guid>https://coding.fnsne.com/posts/decorator-vs-chain-of-responsibility/</guid>
         <description>&lt;h1 id=&#34;淺談責任鏈chain-of-responsibility和裝飾器decorator模式的差別&#34;&gt;淺談責任鏈（Chain of Responsibility）和裝飾器（Decorator）模式的差別
 &lt;/h1&gt;&lt;p&gt;裝飾器模式和責任鍊模式，都是很常見用來把程式碼邏輯切開，讓不同元件能更明確用code表達其負責的邏輯的方法。&lt;/p&gt;
 &lt;p&gt;以下先簡單介紹一下這兩種模式&lt;/p&gt;
@@ -961,10 +961,10 @@ Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon 和 G
         </item>
         <item>
         <title>關於Golang的泛型</title>
-        <link>http://coding.fnsne.com/posts/golang-generic/</link>
+        <link>https://coding.fnsne.com/posts/golang-generic/</link>
         <pubDate>Sat, 02 Nov 2024 22:59:36 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/golang-generic/</guid>
+        <guid>https://coding.fnsne.com/posts/golang-generic/</guid>
         <description>&lt;h1 id=&#34;淺談golang-generic-泛型&#34;&gt;淺談Golang Generic 泛型
 &lt;/h1&gt;&lt;h2 id=&#34;什麼是泛型&#34;&gt;什麼是泛型？
 &lt;/h2&gt;&lt;p&gt;泛型（Generic）是一種用來協助製作通用function、struct用的功能。
@@ -1026,10 +1026,10 @@ Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon 和 G
         </item>
         <item>
         <title>探討在Golang_gorm上使用樂觀鎖的做法</title>
-        <link>http://coding.fnsne.com/posts/golang-gorm-optimistic-lock/</link>
+        <link>https://coding.fnsne.com/posts/golang-gorm-optimistic-lock/</link>
         <pubDate>Fri, 01 Nov 2024 13:42:30 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/golang-gorm-optimistic-lock/</guid>
+        <guid>https://coding.fnsne.com/posts/golang-gorm-optimistic-lock/</guid>
         <description>&lt;h1 id=&#34;探討在golang_gorm上使用樂觀鎖的做法&#34;&gt;探討在Golang_gorm上使用樂觀鎖的做法
 &lt;/h1&gt;&lt;p&gt;在&lt;a class=&#34;link&#34; href=&#34;https://gorm.io/docs/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Gorm&lt;/a&gt;上如果要使用Optimistic locking的話，使用&lt;a class=&#34;link&#34; href=&#34;https://github.com/go-gorm/optimisticlock&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;

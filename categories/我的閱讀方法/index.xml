@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>我的閱讀方法 on fnsne&#39;s coding world</title>
-        <link>http://coding.fnsne.com/categories/%E6%88%91%E7%9A%84%E9%96%B1%E8%AE%80%E6%96%B9%E6%B3%95/</link>
+        <link>https://coding.fnsne.com/categories/%E6%88%91%E7%9A%84%E9%96%B1%E8%AE%80%E6%96%B9%E6%B3%95/</link>
         <description>Recent content in 我的閱讀方法 on fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Thu, 14 Nov 2024 00:49:22 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/categories/%E6%88%91%E7%9A%84%E9%96%B1%E8%AE%80%E6%96%B9%E6%B3%95/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 14 Nov 2024 00:49:22 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/categories/%E6%88%91%E7%9A%84%E9%96%B1%E8%AE%80%E6%96%B9%E6%B3%95/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>我整理電子書Highlight的方法：萃取階段</title>
-        <link>http://coding.fnsne.com/posts/extract-highlight/</link>
+        <link>https://coding.fnsne.com/posts/extract-highlight/</link>
         <pubDate>Thu, 14 Nov 2024 00:49:22 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/extract-highlight/</guid>
+        <guid>https://coding.fnsne.com/posts/extract-highlight/</guid>
         <description>&lt;h1 id=&#34;我整理電子書highlight的方法萃取階段&#34;&gt;我整理電子書highlight的方法：萃取階段
 &lt;/h1&gt;&lt;p&gt;接續[上一篇]/posts/category-highlights/的內容
 其實到了這個階段，就只剩下很簡單的行為了：就是利用碎片時間慢慢整理之前彙整好的知識點卡片了。&lt;/p&gt;
@@ -28,10 +28,10 @@
 &lt;/h2&gt;&lt;p&gt;要做到這點其實很簡單，只要再多加上一個&lt;code&gt;消化完成&lt;/code&gt;的tag來區分是否消化完成。就可以在Card Library上設定篩選器。&lt;/p&gt;
 &lt;p&gt;也就是設定有&lt;code&gt;reference&lt;/code&gt; tag，但不要有&lt;code&gt;消化完成&lt;/code&gt;tag的卡片就可以了。&lt;/p&gt;
 &lt;p&gt;設定如下圖：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/extract-highlight/filter-setting.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://coding.fnsne.com/posts/extract-highlight/filter-setting.png&#34;
 	width=&#34;1176&#34;
 	height=&#34;354&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/extract-highlight/filter-setting_hube9fec22f1a96163f7f1fa65b9119be3_60662_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/extract-highlight/filter-setting_hube9fec22f1a96163f7f1fa65b9119be3_60662_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://coding.fnsne.com/posts/extract-highlight/filter-setting_hube9fec22f1a96163f7f1fa65b9119be3_60662_480x0_resize_box_3.png 480w, https://coding.fnsne.com/posts/extract-highlight/filter-setting_hube9fec22f1a96163f7f1fa65b9119be3_60662_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;篩選器設定&#34;
@@ -46,10 +46,10 @@
 &lt;/h2&gt;&lt;p&gt;因為知識點卡片上面通常已經彙整了不少相關的資訊在上面了，在這個時候開始整理大多情況都會變得很快速順暢。&lt;/p&gt;
 &lt;p&gt;可以從下圖看到，此時內容已經很充足，能讓我快速整理出通順內容了。（highlight來源：&lt;a class=&#34;link&#34; href=&#34;https://r10.to/hkt6Zc&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;雜訊時代的高效資料整理術&lt;/a&gt;）&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/extract-highlight/knowledge-rough-card.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://coding.fnsne.com/posts/extract-highlight/knowledge-rough-card.png&#34;
 	width=&#34;1736&#34;
 	height=&#34;1580&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/extract-highlight/knowledge-rough-card_hu914b54b9f008ec602a694be050db91a1_867499_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/extract-highlight/knowledge-rough-card_hu914b54b9f008ec602a694be050db91a1_867499_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://coding.fnsne.com/posts/extract-highlight/knowledge-rough-card_hu914b54b9f008ec602a694be050db91a1_867499_480x0_resize_box_3.png 480w, https://coding.fnsne.com/posts/extract-highlight/knowledge-rough-card_hu914b54b9f008ec602a694be050db91a1_867499_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;知識點卡片&#34;
@@ -76,10 +76,10 @@
 &lt;ol&gt;
 &lt;li&gt;&lt;code&gt;Ctrl+O&lt;/code&gt; 全局搜尋&lt;code&gt;我的主題分類&lt;/code&gt;，來找到主題分類的卡片&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/extract-highlight/search-topic.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://coding.fnsne.com/posts/extract-highlight/search-topic.png&#34;
 	width=&#34;834&#34;
 	height=&#34;480&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/extract-highlight/search-topic_hub70d470acbbabf0bb544acfeab3d2af8_56982_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/extract-highlight/search-topic_hub70d470acbbabf0bb544acfeab3d2af8_56982_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://coding.fnsne.com/posts/extract-highlight/search-topic_hub70d470acbbabf0bb544acfeab3d2af8_56982_480x0_resize_box_3.png 480w, https://coding.fnsne.com/posts/extract-highlight/search-topic_hub70d470acbbabf0bb544acfeab3d2af8_56982_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;全局搜尋&#34;
@@ -95,10 +95,10 @@
 直到找到有類似的知識點卡片鏈接，在它旁邊加上這張知識點卡片的鏈接。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;例如下圖這是我的主題分類 → 生產力&amp;amp;時間管理主題的部分內容&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/extract-highlight/topic-category-sample.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://coding.fnsne.com/posts/extract-highlight/topic-category-sample.png&#34;
 	width=&#34;1750&#34;
 	height=&#34;1430&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/extract-highlight/topic-category-sample_hu346b76393ca7964a24a6e529841be2b8_357647_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/extract-highlight/topic-category-sample_hu346b76393ca7964a24a6e529841be2b8_357647_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://coding.fnsne.com/posts/extract-highlight/topic-category-sample_hu346b76393ca7964a24a6e529841be2b8_357647_480x0_resize_box_3.png 480w, https://coding.fnsne.com/posts/extract-highlight/topic-category-sample_hu346b76393ca7964a24a6e529841be2b8_357647_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;主題分類&#34;
@@ -113,21 +113,21 @@
         </item>
         <item>
         <title>我整理電子書Highlight的方法：彙整階段</title>
-        <link>http://coding.fnsne.com/posts/category-highlights/</link>
+        <link>https://coding.fnsne.com/posts/category-highlights/</link>
         <pubDate>Mon, 11 Nov 2024 00:23:33 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/category-highlights/</guid>
+        <guid>https://coding.fnsne.com/posts/category-highlights/</guid>
         <description>&lt;h2 id=&#34;我整理電子書highlight的方法彙整階段&#34;&gt;我整理電子書highlight的方法：彙整階段
-&lt;/h2&gt;&lt;p&gt;接續&lt;a class=&#34;link&#34; href=&#34;http://coding.fnsne.com/posts/e-book-is-an-amazing-invention/&#34; &gt;上一篇&lt;/a&gt;的內容&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;接續&lt;a class=&#34;link&#34; href=&#34;https://coding.fnsne.com/posts/e-book-is-an-amazing-invention/&#34; &gt;上一篇&lt;/a&gt;的內容&lt;/p&gt;
 &lt;p&gt;前面我有提到我使用readwise把highlight給同步到heptabase（筆記軟體）上面，所以當我標記完，highlight就會自動到heptabase上面了。&lt;/p&gt;
 &lt;p&gt;接下來就是整理階段，我把整理階段分成兩個階段，這篇文章會著重在第一階段，彙整。&lt;/p&gt;
 &lt;h3 id=&#34;彙整&#34;&gt;彙整
 &lt;/h3&gt;&lt;p&gt;簡單來說就是利用whiteboard和section功能，把感覺有相關概念的卡片放在附近，然後用section群組起來。最後再連結到一個萃取出來的卡片上面。&lt;/p&gt;
 &lt;p&gt;在這個階段，我會在heptabase上面新增一個whiteboard，然後把它pin到左側的tab上。我是使用閱讀資料夾來分類的用來放置我還沒有整理完的書的whiteboard&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/category-highlights/heptabase-tabs.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://coding.fnsne.com/posts/category-highlights/heptabase-tabs.png&#34;
 	width=&#34;530&#34;
 	height=&#34;378&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/category-highlights/heptabase-tabs_hu3b5ab001e6b7c43c36b681a8d32997b3_37656_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/category-highlights/heptabase-tabs_hu3b5ab001e6b7c43c36b681a8d32997b3_37656_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://coding.fnsne.com/posts/category-highlights/heptabase-tabs_hu3b5ab001e6b7c43c36b681a8d32997b3_37656_480x0_resize_box_3.png 480w, https://coding.fnsne.com/posts/category-highlights/heptabase-tabs_hu3b5ab001e6b7c43c36b681a8d32997b3_37656_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;我heptabase左側的tabs&#34;
@@ -153,10 +153,10 @@
 &lt;/ol&gt;
 &lt;p&gt;(這是我閱讀&lt;a class=&#34;link&#34; href=&#34;https://r10.to/hkN4Lh&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;《專注力協定》&lt;/a&gt;的時候做的whiteboard。)
-&lt;img src=&#34;http://coding.fnsne.com/posts/category-highlights/group-by-section.png&#34;
+&lt;img src=&#34;https://coding.fnsne.com/posts/category-highlights/group-by-section.png&#34;
 	width=&#34;1584&#34;
 	height=&#34;1282&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/category-highlights/group-by-section_huecc40670c9dae1b3bbef18b6f459c23a_305939_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/category-highlights/group-by-section_huecc40670c9dae1b3bbef18b6f459c23a_305939_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://coding.fnsne.com/posts/category-highlights/group-by-section_huecc40670c9dae1b3bbef18b6f459c23a_305939_480x0_resize_box_3.png 480w, https://coding.fnsne.com/posts/category-highlights/group-by-section_huecc40670c9dae1b3bbef18b6f459c23a_305939_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;範例圖&#34;
@@ -173,10 +173,10 @@
 &lt;ol&gt;
 &lt;li&gt;打開whiteboard的右邊側欄，點Table Of Content&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/category-highlights/whiteboard-table-of-content.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://coding.fnsne.com/posts/category-highlights/whiteboard-table-of-content.png&#34;
 	width=&#34;2506&#34;
 	height=&#34;1264&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/category-highlights/whiteboard-table-of-content_hu4b8f3469276b36b52cb34fdb905dbdee_588919_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/category-highlights/whiteboard-table-of-content_hu4b8f3469276b36b52cb34fdb905dbdee_588919_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://coding.fnsne.com/posts/category-highlights/whiteboard-table-of-content_hu4b8f3469276b36b52cb34fdb905dbdee_588919_480x0_resize_box_3.png 480w, https://coding.fnsne.com/posts/category-highlights/whiteboard-table-of-content_hu4b8f3469276b36b52cb34fdb905dbdee_588919_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;whiteboard-table-of-content&#34;
@@ -199,10 +199,10 @@
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;到了這一步，畫面應該會長這樣&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/category-highlights/extract-knowledge-draft.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://coding.fnsne.com/posts/category-highlights/extract-knowledge-draft.png&#34;
 	width=&#34;1048&#34;
 	height=&#34;1060&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/category-highlights/extract-knowledge-draft_hu66667b5a6af6fdab3a95da0adb3e3775_279590_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/category-highlights/extract-knowledge-draft_hu66667b5a6af6fdab3a95da0adb3e3775_279590_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://coding.fnsne.com/posts/category-highlights/extract-knowledge-draft_hu66667b5a6af6fdab3a95da0adb3e3775_279590_480x0_resize_box_3.png 480w, https://coding.fnsne.com/posts/category-highlights/extract-knowledge-draft_hu66667b5a6af6fdab3a95da0adb3e3775_279590_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;彙整出來的筆記粗稿&#34;
@@ -217,10 +217,10 @@
 &lt;li&gt;在知識點卡片上，加上屬於知識點卡片的tag，我是使用reference。藉由這個讓我下一階段時，能只篩選出知識點卡片。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;在這樣整理之後，我就可以把各種知識切成一塊塊小組，然後再下一階段的時候，利用碎片時間萃取了。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://coding.fnsne.com/posts/category-highlights/whiteboard-example.png&#34;
+&lt;p&gt;&lt;img src=&#34;https://coding.fnsne.com/posts/category-highlights/whiteboard-example.png&#34;
 	width=&#34;2326&#34;
 	height=&#34;1362&#34;
-	srcset=&#34;http://coding.fnsne.com/posts/category-highlights/whiteboard-example_hu866c797137e3631e2eb4b717172e1227_576673_480x0_resize_box_3.png 480w, http://coding.fnsne.com/posts/category-highlights/whiteboard-example_hu866c797137e3631e2eb4b717172e1227_576673_1024x0_resize_box_3.png 1024w&#34;
+	srcset=&#34;https://coding.fnsne.com/posts/category-highlights/whiteboard-example_hu866c797137e3631e2eb4b717172e1227_576673_480x0_resize_box_3.png 480w, https://coding.fnsne.com/posts/category-highlights/whiteboard-example_hu866c797137e3631e2eb4b717172e1227_576673_1024x0_resize_box_3.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;白板上的知識點卡片&#34;
@@ -244,10 +244,10 @@
         </item>
         <item>
         <title>電子書真的是劃時代的發明</title>
-        <link>http://coding.fnsne.com/posts/e-book-is-an-amazing-invention/</link>
+        <link>https://coding.fnsne.com/posts/e-book-is-an-amazing-invention/</link>
         <pubDate>Fri, 08 Nov 2024 22:41:41 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/e-book-is-an-amazing-invention/</guid>
+        <guid>https://coding.fnsne.com/posts/e-book-is-an-amazing-invention/</guid>
         <description>&lt;h1 id=&#34;我覺得電子書真的是劃時代的發明&#34;&gt;我覺得電子書真的是劃時代的發明
 &lt;/h1&gt;&lt;p&gt;接下來幾天，我會分享我最近發現到，很好閱讀電子書的方式，今天先來分享閱讀電子書的好處。&lt;/p&gt;
 &lt;p&gt;電子書的highlight功能真的是劃時代的設計，因為現今大部分的電子書都有提供把highlights給匯出的功能。&lt;/p&gt;

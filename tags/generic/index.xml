@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Generic on fnsne&#39;s coding world</title>
-        <link>http://coding.fnsne.com/tags/generic/</link>
+        <link>https://coding.fnsne.com/tags/generic/</link>
         <description>Recent content in Generic on fnsne&#39;s coding world</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Sat, 02 Nov 2024 22:59:36 +0800</lastBuildDate><atom:link href="http://coding.fnsne.com/tags/generic/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 02 Nov 2024 22:59:36 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/tags/generic/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>關於Golang的泛型</title>
-        <link>http://coding.fnsne.com/posts/golang-generic/</link>
+        <link>https://coding.fnsne.com/posts/golang-generic/</link>
         <pubDate>Sat, 02 Nov 2024 22:59:36 +0800</pubDate>
         
-        <guid>http://coding.fnsne.com/posts/golang-generic/</guid>
+        <guid>https://coding.fnsne.com/posts/golang-generic/</guid>
         <description>&lt;h1 id=&#34;淺談golang-generic-泛型&#34;&gt;淺談Golang Generic 泛型
 &lt;/h1&gt;&lt;h2 id=&#34;什麼是泛型&#34;&gt;什麼是泛型？
 &lt;/h2&gt;&lt;p&gt;泛型（Generic）是一種用來協助製作通用function、struct用的功能。

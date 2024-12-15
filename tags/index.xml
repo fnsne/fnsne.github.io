@@ -7,7 +7,15 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Mon, 09 Dec 2024 21:18:19 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 15 Dec 2024 12:14:30 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Interstitial Journaling</title>
+        <link>https://coding.fnsne.com/tags/interstitial-journaling/</link>
+        <pubDate>Sun, 15 Dec 2024 12:14:30 +0800</pubDate>
+        
+        <guid>https://coding.fnsne.com/tags/interstitial-journaling/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Hand-Writing</title>
         <link>https://coding.fnsne.com/tags/hand-writing/</link>
         <pubDate>Mon, 09 Dec 2024 21:18:19 +0800</pubDate>
@@ -157,14 +165,6 @@
         <pubDate>Sun, 03 Nov 2024 21:37:26 +0800</pubDate>
         
         <guid>https://coding.fnsne.com/tags/decorator-pattern/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Design Pattern</title>
-        <link>https://coding.fnsne.com/tags/design-pattern/</link>
-        <pubDate>Sun, 03 Nov 2024 21:37:26 +0800</pubDate>
-        
-        <guid>https://coding.fnsne.com/tags/design-pattern/</guid>
         <description></description>
         </item>
         

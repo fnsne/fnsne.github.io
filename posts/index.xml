@@ -7,7 +7,107 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Mon, 09 Dec 2024 21:18:19 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 15 Dec 2024 12:14:30 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>朱騏覆盤直播心得</title>
+        <link>https://coding.fnsne.com/posts/retrospective/</link>
+        <pubDate>Sun, 15 Dec 2024 12:14:30 +0800</pubDate>
+        
+        <guid>https://coding.fnsne.com/posts/retrospective/</guid>
+        <description>&lt;h1 id=&#34;朱騏覆盤直播心得&#34;&gt;朱騏覆盤直播心得
+&lt;/h1&gt;&lt;p&gt;早期我覆盤的方式，都只是在察覺到哪邊做的不好，可能有更好的方法可以做的更好的時候，才會開始規劃、思考如何優化。所以PDCA的迴圈啟動的頻率是非常低的。&lt;/p&gt;
+&lt;p&gt;後來在看了Ali Abdaal的影片後，知道了每日日記加上感謝、肯定，能讓人對於生活的滿足感增加，所以我才開始了每天晚上的日記，在日記上面列出以下三個問題的解答&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;感謝：感謝今天的什麼事情&lt;/li&gt;
+&lt;li&gt;肯定：肯定今天做了什麼事情&lt;/li&gt;
+&lt;li&gt;反省：今天有什麼事情是可以做的更好的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;但時間一長，失去了一開始的那個勁之後，就會發現到這很難持續下去。
+因為我每次回顧的時間都是晚上的時候，但是在回顧的時候，總是要花上20~30分鐘的時間，其中有絕大多數時間，都花在回想做了什麼事情。&lt;/p&gt;
+&lt;p&gt;在看完這場直播後，才知道可以利用間歇式日記記錄，並且把它用在每天的回顧上面。
+在這樣做之後，每日回顧時花費的時間，甚至可以被縮短到5~10分鐘，讓回顧的難度降低許多。&lt;/p&gt;
+&lt;h2 id=&#34;間歇式日記&#34;&gt;間歇式日記
+&lt;/h2&gt;&lt;p&gt;間歇式日記是Medium的CEO——&lt;a class=&#34;link&#34; href=&#34;https://coachtony.medium.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Tony Stubblebin&lt;/a&gt;所提出來的一個筆記技巧。&lt;/p&gt;
+&lt;p&gt;簡單來說，就是在每個工作段落之間，留一小段時間做以下三件事情：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;記錄剛剛做了什麼&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;寫下腦中的想法&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;稍微思考接下來可以做什麼，怎麼做。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以，使用間歇式日記可以獲得以下三個好處：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;獲得一整天做了什麼事情的記錄&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在進入下個階段工作之前，把腦中的雜訊清空、放下。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;雜訊可能會是：對於上個任務的焦慮、突然想到的idea、甚至突然浮現的不相干的想法。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在下次開始這個工作的時候，已經有了第一步要做的事情了&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;那麼，實際上該怎麼做呢？&lt;/p&gt;
+&lt;p&gt;很簡單，只要記得在每個工作告一段落的時候（例如結束一個番茄鐘後，那個5分鐘的休息時間）
+寫下以下的4個東西：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;時間戳記（我偏好記錄時間的開頭和結尾）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;剛剛完成了什麼&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;腦中浮現的想法&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;覺得可以做的下一步&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;這樣就完成了。&lt;/p&gt;
+&lt;p&gt;把&lt;code&gt;腦中浮現的想法&lt;/code&gt;記錄下來，可以讓大腦對於前一個任務的焦慮清空、放下；
+而寫下&lt;code&gt;覺得可以做的下一步&lt;/code&gt;，可以讓我們在下一次繼續推進的時候，
+能夠馬上知道要做什麼，而更快的進入狀況。&lt;/p&gt;
+&lt;p&gt;我的例子：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;09:00~09:34：整理&amp;amp;分析朱騏直播課的內容，還有我可以做哪些調整。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;我覺得可以增加做的事情：
+&lt;ul&gt;
+&lt;li&gt;用間歇式日記記錄、並且用它來回答每日問題&lt;/li&gt;
+&lt;li&gt;每週日安排一個時間來做覆盤-反思：每週反思&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;lt;朱騏的直播課上面，是如何使用間歇式日記的&amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;主要是用到了間歇式日記的記錄過去的功能，來幫助自己回顧過去的一天。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ps&#34;&gt;P.S.
+&lt;/h2&gt;&lt;p&gt;其實我以前在看了電腦玩物站長Esor介紹後，就開始有在工作的時候寫這個，
+從workflowy轉換到notion，再到現在Heptabase上，都沒有間斷過。
+只是我只有用在專案等級的項目而已，並沒有像朱騏一樣，記錄更多事情。
+並且也沒有想到可以用在每日回顧上面。&lt;/p&gt;
+&lt;p&gt;感覺好像打通了任督二脈一樣！&lt;/p&gt;
+&lt;h2 id=&#34;ref&#34;&gt;ref
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://betterhumans.pub/replace-your-to-do-list-with-interstitial-journaling-to-increase-productivity-4e43109d15ef&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://betterhumans.pub/replace-your-to-do-list-with-interstitial-journaling-to-increase-productivity-4e43109d15ef&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.projectup.net/article/view/id/16832&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.projectup.net/article/view/id/16832&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>The Power of Hand Writing</title>
         <link>https://coding.fnsne.com/posts/the-power-of-hand-writing/</link>
         <pubDate>Mon, 09 Dec 2024 21:18:19 +0800</pubDate>
@@ -1717,139 +1817,6 @@ Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon 和 G
 &lt;/ul&gt;
 &lt;h2 id=&#34;結論&#34;&gt;結論
 &lt;/h2&gt;&lt;p&gt;鎖的概念就是為了要保護有限的資源，不要被無限的取用。例如可以利用鎖來保護對同一個檔案的更改，讓這個檔案一次只能被一個process更新，防止檔案內資料變得亂七八糟的。&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>資料庫的同步</title>
-        <link>https://coding.fnsne.com/posts/how-database-sync/</link>
-        <pubDate>Wed, 14 Sep 2022 16:22:17 +0800</pubDate>
-        
-        <guid>https://coding.fnsne.com/posts/how-database-sync/</guid>
-        <description>&lt;h2 id=&#34;網路上查到簡單說明transaction的例子常常都是用轉賬來說明但其實還有很多東西需要注意&#34;&gt;網路上查到簡單說明transaction的例子，常常都是用轉賬來說明，但其實還有很多東西需要注意
-&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;帳戶轉賬，因為race condition的緣故，導致操作欄位的值被改錯。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;A有100，B有40。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;A轉100元給B，B轉20元給A，由兩個不同的client來處理操作。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;順序正確時：A會是減掉80&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;但是當順序不正確，則數字會錯掉，例如A很早取得現在的餘額（100），但是更新數字0慢了，導致A最終變成0元，因為在B轉完帳後才更新值。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;以上的這個問題很明顯的是race condition。所謂的race condition是結果必須依賴與某種特定的順序，但是順序又並不是固定的，因此偶爾會出現錯誤。&lt;/p&gt;
-&lt;h2 id=&#34;解決race-condition的方法&#34;&gt;解決race condition的方法
-&lt;/h2&gt;&lt;p&gt;為了要解決race condition，必須得要讓操作依照我們期望的順序才操作，才能預防不對的順序導致的錯誤。為了要達到這個目標，資料庫本身有提供兩種方法：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;atomic update：資料庫提供的一個，對於單一欄位數值做相依於原本值的操作指令。這個操作過程會是atomic的，也就是不會操作到一半值被改掉而導致結果出錯。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;update&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;products&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;quantity&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;quantity&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;where&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;優點：因為只是對於欄位做簡單的數字運算並馬上更新上去，所以對於欄位的佔用時間相較下面的select for update較短，且資料庫會將這類atomic操作做優化，所以效能會比較好。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;缺點：只支援對於數值的簡單操作後更新，並不能做太複雜的運算。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;select for update：這個操作被限制在transaction開起來的時候才能使用，使用時實際上就是將指定的欄位上一個更新的lock，此時直到commit之前，沒有其他client可以對這個欄位做任何更新。所以就能夠限制欄位更新的順序了。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;Begin&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;select&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;quantity&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;into&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;q&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;from&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;products&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;where&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;update&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;update&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;products&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;quantity&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;err&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;q&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;Commit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;優點：因為有上鎖了，所以幾乎可以用各種邏輯運算來更新欄位的值。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;缺點：因為會在欄位上面上鎖，並且持續到commit位置，所以對於效能會有很大的影響。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;version scheme ：在table上面多新增一個欄位叫做version，來確定現在更新時的version，是否從拿值的時候到現在還沒有被更新過。程式可以藉由資料庫回傳的訊息，&lt;code&gt;是否有更改到任何row&lt;/code&gt;來判斷是否更新成功。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;old_ver&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;select&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;money&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;from&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bank&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;where&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;update&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;bank&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;money&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;30&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;where&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;A&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;and&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;k&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;old_ver&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;優點：能夠不使用任何鎖的時候實現。（或者還有其他我想不到的優點）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;缺點：可能會很浪費時間，尤其是當更新的頻率特別高的時候，可能很難可以得到把值更新下去的機會。並且失敗後得要重頭來過。可能會造成鎖的飢餓效應。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id=&#34;一開始提到的例子裡面真正用到transaction功能的地方&#34;&gt;一開始提到的例子裡面真正用到transaction功能的地方
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;利用transaction遇到錯誤時會rollback的特性，來在餘額小於0的時候，復原到還未轉賬之前的狀態。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;如何檢查餘額小於0，並在此時丟出錯誤呢？&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;利用select for update鎖住欄位更新，在此時檢查，通過且做完操作後commit，釋放鎖。就可以避免此時有其他操作更動到這個帳戶的餘額。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;優點：可以實作各種複雜的檢查邏輯&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;缺點：必須為這個帳戶的餘額上鎖，此時沒有其他人可以操作（也就是沒有其他人可以轉賬給他、領錢等操作），會導致效能低下。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;利用&lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/questions/21503658/prevent-less-than-zero-values-in-postgresql&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;check constraint&lt;/a&gt; 來讓資料庫在欄位不符合規範的時候丟出錯誤。此時就可以配合transaction來rollback復原了。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;優點：因為check constraint是資料庫提供可以給欄位增加規範的設定，檢查會在更新的時候做，所以即使背後有使用鎖，所花費的時間會比用select for update還要少。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;缺點：只能依照資料庫提供的有限constraint來設定，並不一定能夠做到想要的規範。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;結論&#34;&gt;結論
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;遇到需要注意順序的操作，先試著能不能使用atomic update的方式來完成需求，沒有辦法的時候才會使用select for update的方式來限制進到這個transaction後，必須要操作完這邊的指令後，才能換別人改值。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;遇到需要檢查數值符不符合規範，先試著用check constraint來限制欄位，真的沒有辦法，才會採用select for update的方式來將欄位上鎖，來做檢查。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;參考資料&#34;&gt;參考資料
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://medium.com/interviewnoodle/how-to-avoid-the-race-condition-and-the-negative-value-3f397b2b08e4&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;How to avoid the race condition and the negative value&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/questions/21503658/prevent-less-than-zero-values-in-postgresql&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;check constraint&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/143866444&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;select for update 詳解&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://stackoverflow.com/questions/21503658/prevent-less-than-zero-values-in-postgresql&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;check constraint&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
 </description>
         </item>
         

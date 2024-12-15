@@ -7,7 +7,107 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Mon, 09 Dec 2024 21:18:19 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 15 Dec 2024 12:14:30 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>朱騏覆盤直播心得</title>
+        <link>https://coding.fnsne.com/posts/retrospective/</link>
+        <pubDate>Sun, 15 Dec 2024 12:14:30 +0800</pubDate>
+        
+        <guid>https://coding.fnsne.com/posts/retrospective/</guid>
+        <description>&lt;h1 id=&#34;朱騏覆盤直播心得&#34;&gt;朱騏覆盤直播心得
+&lt;/h1&gt;&lt;p&gt;早期我覆盤的方式，都只是在察覺到哪邊做的不好，可能有更好的方法可以做的更好的時候，才會開始規劃、思考如何優化。所以PDCA的迴圈啟動的頻率是非常低的。&lt;/p&gt;
+&lt;p&gt;後來在看了Ali Abdaal的影片後，知道了每日日記加上感謝、肯定，能讓人對於生活的滿足感增加，所以我才開始了每天晚上的日記，在日記上面列出以下三個問題的解答&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;感謝：感謝今天的什麼事情&lt;/li&gt;
+&lt;li&gt;肯定：肯定今天做了什麼事情&lt;/li&gt;
+&lt;li&gt;反省：今天有什麼事情是可以做的更好的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;但時間一長，失去了一開始的那個勁之後，就會發現到這很難持續下去。
+因為我每次回顧的時間都是晚上的時候，但是在回顧的時候，總是要花上20~30分鐘的時間，其中有絕大多數時間，都花在回想做了什麼事情。&lt;/p&gt;
+&lt;p&gt;在看完這場直播後，才知道可以利用間歇式日記記錄，並且把它用在每天的回顧上面。
+在這樣做之後，每日回顧時花費的時間，甚至可以被縮短到5~10分鐘，讓回顧的難度降低許多。&lt;/p&gt;
+&lt;h2 id=&#34;間歇式日記&#34;&gt;間歇式日記
+&lt;/h2&gt;&lt;p&gt;間歇式日記是Medium的CEO——&lt;a class=&#34;link&#34; href=&#34;https://coachtony.medium.com/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Tony Stubblebin&lt;/a&gt;所提出來的一個筆記技巧。&lt;/p&gt;
+&lt;p&gt;簡單來說，就是在每個工作段落之間，留一小段時間做以下三件事情：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;記錄剛剛做了什麼&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;寫下腦中的想法&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;稍微思考接下來可以做什麼，怎麼做。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;所以，使用間歇式日記可以獲得以下三個好處：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;獲得一整天做了什麼事情的記錄&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在進入下個階段工作之前，把腦中的雜訊清空、放下。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;雜訊可能會是：對於上個任務的焦慮、突然想到的idea、甚至突然浮現的不相干的想法。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在下次開始這個工作的時候，已經有了第一步要做的事情了&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;那麼，實際上該怎麼做呢？&lt;/p&gt;
+&lt;p&gt;很簡單，只要記得在每個工作告一段落的時候（例如結束一個番茄鐘後，那個5分鐘的休息時間）
+寫下以下的4個東西：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;時間戳記（我偏好記錄時間的開頭和結尾）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;剛剛完成了什麼&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;腦中浮現的想法&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;覺得可以做的下一步&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;這樣就完成了。&lt;/p&gt;
+&lt;p&gt;把&lt;code&gt;腦中浮現的想法&lt;/code&gt;記錄下來，可以讓大腦對於前一個任務的焦慮清空、放下；
+而寫下&lt;code&gt;覺得可以做的下一步&lt;/code&gt;，可以讓我們在下一次繼續推進的時候，
+能夠馬上知道要做什麼，而更快的進入狀況。&lt;/p&gt;
+&lt;p&gt;我的例子：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;09:00~09:34：整理&amp;amp;分析朱騏直播課的內容，還有我可以做哪些調整。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;我覺得可以增加做的事情：
+&lt;ul&gt;
+&lt;li&gt;用間歇式日記記錄、並且用它來回答每日問題&lt;/li&gt;
+&lt;li&gt;每週日安排一個時間來做覆盤-反思：每週反思&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&amp;lt;朱騏的直播課上面，是如何使用間歇式日記的&amp;gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;主要是用到了間歇式日記的記錄過去的功能，來幫助自己回顧過去的一天。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ps&#34;&gt;P.S.
+&lt;/h2&gt;&lt;p&gt;其實我以前在看了電腦玩物站長Esor介紹後，就開始有在工作的時候寫這個，
+從workflowy轉換到notion，再到現在Heptabase上，都沒有間斷過。
+只是我只有用在專案等級的項目而已，並沒有像朱騏一樣，記錄更多事情。
+並且也沒有想到可以用在每日回顧上面。&lt;/p&gt;
+&lt;p&gt;感覺好像打通了任督二脈一樣！&lt;/p&gt;
+&lt;h2 id=&#34;ref&#34;&gt;ref
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://betterhumans.pub/replace-your-to-do-list-with-interstitial-journaling-to-increase-productivity-4e43109d15ef&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://betterhumans.pub/replace-your-to-do-list-with-interstitial-journaling-to-increase-productivity-4e43109d15ef&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.projectup.net/article/view/id/16832&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.projectup.net/article/view/id/16832&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>The Power of Hand Writing</title>
         <link>https://coding.fnsne.com/posts/the-power-of-hand-writing/</link>
         <pubDate>Mon, 09 Dec 2024 21:18:19 +0800</pubDate>
@@ -1639,93 +1739,6 @@ Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon 和 G
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;volumeBindingMode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;WaitForFirstConsumer&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;reclaimPolicy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Retain&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-        </item>
-        <item>
-        <title>關於鎖</title>
-        <link>https://coding.fnsne.com/posts/operating_system_lock/</link>
-        <pubDate>Tue, 20 Sep 2022 16:35:44 +0800</pubDate>
-        
-        <guid>https://coding.fnsne.com/posts/operating_system_lock/</guid>
-        <description>&lt;h1 id=&#34;關於鎖lock&#34;&gt;關於鎖(lock)
-&lt;/h1&gt;&lt;p&gt;畢業後，太久沒有用到相關的東西，概念開始和資料庫的transaction有點混淆了，所以拿出恐龍本讀回來。順便做一篇筆記&lt;/p&gt;
-&lt;h2 id=&#34;一些專有名詞&#34;&gt;一些專有名詞
-&lt;/h2&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名稱&lt;/th&gt;
-&lt;th&gt;說明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;cooperation process （協作行程）&lt;/td&gt;
-&lt;td&gt;會操作到共同資源的不同process&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;critical section&lt;/td&gt;
-&lt;td&gt;在各種cooperation process 裡面會操作到共同資源的code區塊&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;鎖想解決的問題&#34;&gt;鎖想解決的問題
-&lt;/h2&gt;&lt;p&gt;在多核心多執行序問世之前的單核心的時代，是一個核心切換來切換去的做不同事，在時間區間上每個時間點都只有一個process正在被cpu執行，如下圖。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://coding.fnsne.com/posts/operating_system_lock/single-core.jpg&#34;
-	width=&#34;1255&#34;
-	height=&#34;759&#34;
-	srcset=&#34;https://coding.fnsne.com/posts/operating_system_lock/single-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_77858_480x0_resize_q75_box.jpg 480w, https://coding.fnsne.com/posts/operating_system_lock/single-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_77858_1024x0_resize_q75_box.jpg 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;單核心運作示意圖&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;165&#34;
-		data-flex-basis=&#34;396px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;而在多核心問世以後開始會出現一些問題，如下圖。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://coding.fnsne.com/posts/operating_system_lock/multi-core.jpg&#34;
-	width=&#34;1255&#34;
-	height=&#34;713&#34;
-	srcset=&#34;https://coding.fnsne.com/posts/operating_system_lock/multi-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_78620_480x0_resize_q75_box.jpg 480w, https://coding.fnsne.com/posts/operating_system_lock/multi-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_78620_1024x0_resize_q75_box.jpg 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;多核心的運作示意圖&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;176&#34;
-		data-flex-basis=&#34;422px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;開始會發生圖上，兩個核心會同時執行不同的process ，這個時候可能會發生互相改到資料的問題。例如process B和D是要在印表機上面印出現在電腦的時間，就有可能會發生一下的輸出：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;假設兩個核心在執行processB和D的時間點是&lt;code&gt;15:38&lt;/code&gt;和&lt;code&gt;15:40&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;15:153:840
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;這是因為兩個核心互相搶著輸出到印表機，但是順序亂掉的緣故。為了解決這個問題，鎖的概念被提了出來。&lt;/p&gt;
-&lt;h2 id=&#34;鎖的用途&#34;&gt;鎖的用途
-&lt;/h2&gt;&lt;p&gt;用來保護注critical section（以上面的例子來看，是Process B和Process D裡面，執行輸出資料到印表機的code block）。強制這兩個critical section，在同一個時間裡面，頂多只能有一個執行，另一個想要執行，得要等到另一個結束後，才能開始動作。&lt;/p&gt;
-&lt;h2 id=&#34;鎖的種類&#34;&gt;鎖的種類
-&lt;/h2&gt;&lt;h3 id=&#34;mutex-lock互斥鎖&#34;&gt;mutex lock（互斥鎖）
-&lt;/h3&gt;&lt;p&gt;又稱自旋鎖，會讓這個process一直卡在loop裡面，直到能夠存取資料後，才跳出迴圈，開始執行這個critical section。&lt;/p&gt;
-&lt;p&gt;因為實際上是一直在執行loop的狀態下做等待資源釋放的，所以它不需要使用到context switch，在獲得資源後的切換速度很快。所以常常被使用在共用資源都只會被佔用短短時間的情境下使用。&lt;/p&gt;
-&lt;p&gt;mutex lock的概念是一個被相同mutex lock保護起來的多個critical section，一個時間裡只能有一個被執行，其他都得要等待它mutex lock釋放後，才能繼續搶，搶到的才能執行。&lt;/p&gt;
-&lt;h3 id=&#34;semaphore-lock號誌鎖&#34;&gt;semaphore lock（號誌鎖）
-&lt;/h3&gt;&lt;p&gt;和mutex lock不同，可以設定資源同一時間下，最多可以有&lt;code&gt;S&lt;/code&gt;個process同時執行，當同時執行的critical section數目大於&lt;code&gt;S&lt;/code&gt;時，會被停下來，等待到同時執行的critical section小於S時，才能繼續搶進去執行。&lt;/p&gt;
-&lt;p&gt;如果要用mutex lock的方式執行，會讓很多process一直在執行loop，對於資源的浪費太大了，所以在semaphore lock的時候，會採用將process 暫停，將address存到lock &lt;code&gt;S&lt;/code&gt; 的list裡面。等到有process把&lt;code&gt;S&lt;/code&gt;給釋放，此時CPU會將S裡面的list，取出一個process出來執行。&lt;/p&gt;
-&lt;h2 id=&#34;我混淆的概念釐清&#34;&gt;我混淆的概念釐清
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;鎖不是鎖住cpu，而是鎖住其他一樣需要這個鎖的process，讓同一個鎖保護的同一個（或者不同個）critical section ，一次最多只能有1（或者semaphore lock設定的數字）個process存取。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;被鎖保護住的critical section，只要裡面有存取某個共用資源的code，就能讓這項資源被鎖給保護，不被濫用。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;結論&#34;&gt;結論
-&lt;/h2&gt;&lt;p&gt;鎖的概念就是為了要保護有限的資源，不要被無限的取用。例如可以利用鎖來保護對同一個檔案的更改，讓這個檔案一次只能被一個process更新，防止檔案內資料變得亂七八糟的。&lt;/p&gt;
-</description>
         </item>
         
     </channel>

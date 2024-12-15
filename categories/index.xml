@@ -7,13 +7,21 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Mon, 09 Dec 2024 21:18:19 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 15 Dec 2024 12:14:30 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/categories/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Golang</title>
         <link>https://coding.fnsne.com/categories/golang/</link>
         <pubDate>Sun, 03 Nov 2024 21:37:26 +0800</pubDate>
         
         <guid>https://coding.fnsne.com/categories/golang/</guid>
         <description>&lt;img src="https://coding.fnsne.com/categories/golang/Go-Logo_LightBlue.svg" alt="Featured image of post Golang" /&gt;</description>
+        </item>
+        <item>
+        <title>Productivity</title>
+        <link>https://coding.fnsne.com/categories/productivity/</link>
+        <pubDate>Sun, 15 Dec 2024 12:14:30 +0800</pubDate>
+        
+        <guid>https://coding.fnsne.com/categories/productivity/</guid>
+        <description></description>
         </item>
         <item>
         <title>Thinking</title>
@@ -157,14 +165,6 @@
         <pubDate>Thu, 01 Sep 2022 17:01:39 +0800</pubDate>
         
         <guid>https://coding.fnsne.com/categories/cloudflare/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Coding</title>
-        <link>https://coding.fnsne.com/categories/coding/</link>
-        <pubDate>Tue, 02 Aug 2022 20:01:59 +0800</pubDate>
-        
-        <guid>https://coding.fnsne.com/categories/coding/</guid>
         <description></description>
         </item>
         

@@ -7,7 +7,72 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Sun, 15 Dec 2024 12:14:30 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 26 Dec 2024 22:39:42 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>一日清單</title>
+        <link>https://coding.fnsne.com/posts/today-list/</link>
+        <pubDate>Thu, 26 Dec 2024 22:39:42 +0800</pubDate>
+        
+        <guid>https://coding.fnsne.com/posts/today-list/</guid>
+        <description>&lt;h1 id=&#34;一日清單&#34;&gt;一日清單
+&lt;/h1&gt;&lt;p&gt;分享一個會讓一整天過得充實、有產能的簡單做法&lt;/p&gt;
+&lt;p&gt;那就是把今天要做的事情，安排成一日清單&lt;/p&gt;
+&lt;p&gt;我目前是使用&lt;a class=&#34;link&#34; href=&#34;https://r10.to/h5zKFE&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;《上線時間管理術》&lt;/a&gt;提到的一日清單的變體。&lt;/p&gt;
+&lt;p&gt;那就是從今天期望要做的事情上面，找出&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1件最重要最緊急的事情&lt;/li&gt;
+&lt;li&gt;6件次重要的事情&lt;/li&gt;
+&lt;li&gt;其它雜務&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;就這樣&lt;/p&gt;
+&lt;p&gt;非常簡單&lt;/p&gt;
+&lt;p&gt;有了清單，就等於擁有了一個框架，一個今天要怎麼過的框架&lt;/p&gt;
+&lt;p&gt;接下來就是很簡單的照著這個框架下去執行&lt;/p&gt;
+&lt;p&gt;在有了這個清單後，接下來一整天就會過得非常的有目標、有方向。&lt;/p&gt;
+&lt;p&gt;執行起來也會變得沒有阻力&lt;/p&gt;
+&lt;p&gt;另外，還有一個地方需要注意，就是最重要的那件事情，要儘量切成能在半天內完成的等級。
+如果沒有這樣做，就會有可能因為這件事情太大，而導致整天都在做這件事情。
+甚至會感覺到這一整天什麼事情都沒有做。&lt;/p&gt;
+&lt;p&gt;在開始嘗試把項目切小，儘量切成當天可以完成的程度後，
+就會發現，它開始可以驅動其它任務的執行。&lt;/p&gt;
+&lt;p&gt;什麼意思呢？&lt;/p&gt;
+&lt;p&gt;就是當我完成了最重要的那件事情後，我就會獲得了一個成就感，
+這個成就感就會驅動我有信心去做下一件事情，不論它是相關和完全不相關的任務。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;心得&#34;&gt;心得
+&lt;/h2&gt;&lt;p&gt;有這樣做和沒有這樣做，對我來說，真的會是兩個不同的一天。
+甚至越早這麼做，一整天的效率就會越好。&lt;/p&gt;
+&lt;p&gt;這個是我有時候因為忙碌偷懶，沒有先寫當天的待辦清單，發現到的差別。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;補充我實際的做法&#34;&gt;補充：我實際的做法
+&lt;/h2&gt;&lt;p&gt;事先準備：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;在todoist上面，建立&lt;code&gt;top priority&lt;/code&gt;、&lt;code&gt;other priority&lt;/code&gt;兩個tag。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在todoist上面，建立兩個filter，
+分別是&lt;code&gt;今天 &amp;amp; @top priority&lt;/code&gt;、&lt;code&gt;今天 &amp;amp; @other priority&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;接下來就是每天要做的：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;打開todoist，看看今天要做的事情、之前拖延下來的事情有哪些&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;從中找出最重要的事情，標上&lt;code&gt;top priority&lt;/code&gt;的tag&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;再找出6件次重要的事情，標上&lt;code&gt;other priority&lt;/code&gt;的tag&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;開始做 &lt;code&gt;top priority&lt;/code&gt;的事情&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
         <title>朱騏覆盤直播心得</title>
         <link>https://coding.fnsne.com/posts/retrospective/</link>
         <pubDate>Sun, 15 Dec 2024 12:14:30 +0800</pubDate>
@@ -1627,118 +1692,6 @@ Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon 和 G
 &lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubeadm token create --print-join-command
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-        </item>
-        <item>
-        <title>Local Path Provisioner</title>
-        <link>https://coding.fnsne.com/posts/k8s_local_path_provisioner/</link>
-        <pubDate>Thu, 27 Apr 2023 09:30:27 +0800</pubDate>
-        
-        <guid>https://coding.fnsne.com/posts/k8s_local_path_provisioner/</guid>
-        <description>&lt;h1 id=&#34;local-path-provisioner&#34;&gt;Local Path Provisioner
-&lt;/h1&gt;&lt;p&gt;是一個 &lt;code&gt;Container Storage Interface (CSI)&lt;/code&gt;，也就是用來提供k8s環境下建立&lt;code&gt;Persistent Volume (PV)&lt;/code&gt;的插件&lt;/p&gt;
-&lt;h2 id=&#34;安裝&#34;&gt;安裝
-&lt;/h2&gt;&lt;p&gt;command&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/v0.0.24/deploy/local-path-storage.yaml
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;會建立&lt;code&gt;local-path-storage&lt;/code&gt;這個namespace，要查看運行狀態，可以到裡面看log&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  kubectl -n local-path-storage logs pods/local-path-provisioner-7f8667b75c-hjrrb
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;使用configmap來給予設定&#34;&gt;使用configmap來給予設定
-&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;kind&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;ConfigMap&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;apiVersion&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;v1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;metadata&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;local-path-config&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;namespace&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;local-path-storage&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;config.json&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;|-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;        {
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;                &amp;#34;nodePathMap&amp;#34;:[
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;                {
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;                        &amp;#34;node&amp;#34;:&amp;#34;DEFAULT_PATH_FOR_NON_LISTED_NODES&amp;#34;,
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;                        &amp;#34;paths&amp;#34;:[&amp;#34;/opt/local-path-provisioner&amp;#34;]
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;                },
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;                {
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;                        &amp;#34;node&amp;#34;:&amp;#34;yasker-lp-dev1&amp;#34;,
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;                        &amp;#34;paths&amp;#34;:[&amp;#34;/opt/local-path-provisioner&amp;#34;, &amp;#34;/data1&amp;#34;]
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;                },
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;                {
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;                        &amp;#34;node&amp;#34;:&amp;#34;yasker-lp-dev3&amp;#34;,
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;                        &amp;#34;paths&amp;#34;:[]
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;                }
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;                ]
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;        }&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;setup&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;|-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;        #!/bin/sh
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;        set -eu
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;        mkdir -m 0777 -p &amp;#34;$VOL_DIR&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;teardown&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;|-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;        #!/bin/sh
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;        set -eu
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;        rm -rf &amp;#34;$VOL_DIR&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;helperPod.yaml&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;|-&lt;/span&gt;&lt;span class=&#34;sd&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;        apiVersion: v1
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;        kind: Pod
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;        metadata:
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;          name: helper-pod
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;        spec:
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;          containers:
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;          - name: helper-pod
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;sd&#34;&gt;            image: busybox&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;configjson說明&#34;&gt;config.json說明
-&lt;/h3&gt;&lt;h4 id=&#34;nodepathmap&#34;&gt;nodePathMap
-&lt;/h4&gt;&lt;p&gt;用來表示在各自的Node上，存資料的位置，規則如下&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;沒有設定path的node會套用&lt;code&gt;DEFAULT_PATH_FOR_NON_LISTED_NODES&lt;/code&gt;的設定&lt;/li&gt;
-&lt;li&gt;如果有列出來，但path是空的，代表這個Node不會允許用local-path-provisioner來建pv&lt;/li&gt;
-&lt;li&gt;每個node的path可以給好幾個位置，當裡面超過一個位置，每次建的時候會隨機選一個來用。&lt;/li&gt;
-&lt;li&gt;path一定要是絕對路徑&lt;/li&gt;
-&lt;li&gt;在同個node裡面，同一個path不能重複列。&lt;/li&gt;
-&lt;li&gt;同一個node不能重複列出來。&lt;/li&gt;
-&lt;li&gt;不允許使用&lt;code&gt;/&lt;/code&gt; 根目錄&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;sharedfilesystempath&#34;&gt;sharedFileSystemPath
-&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;假如有一個file system有被mount在所有的Node上時，可以使用這個設定來指定，指定都用同一個位置。&lt;/li&gt;
-&lt;li&gt;和nodePathMap互斥，所以當有使用&lt;code&gt;sharedFileSystemPath&lt;/code&gt;時，&lt;code&gt;nodePathMap&lt;/code&gt;一定要是&lt;code&gt;[]&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;只有使用了&lt;code&gt;sharedFileSystemPath&lt;/code&gt;時，才會支援&lt;code&gt;ReadOnlyMany&lt;/code&gt;、&lt;code&gt;ReadWriteMany&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h4 id=&#34;setup&#34;&gt;setup
-&lt;/h4&gt;&lt;p&gt;每個volume在建立之前會先做的script，用來準備node上volume資料夾用。&lt;/p&gt;
-&lt;h4 id=&#34;teardown&#34;&gt;teardown
-&lt;/h4&gt;&lt;p&gt;每個volume在被刪掉後會做的script，用來清掉node上volume資料夾用。&lt;/p&gt;
-&lt;h4 id=&#34;helperpodyaml&#34;&gt;helperPod.yaml
-&lt;/h4&gt;&lt;p&gt;用來執行setup和teardown的pod template&lt;/p&gt;
-&lt;h4 id=&#34;setup和teardown上面可以使用的環境變數&#34;&gt;setup和teardown上面可以使用的環境變數
-&lt;/h4&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;環境變數&lt;/th&gt;
-&lt;th&gt;說明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;VOL_DIR&lt;/td&gt;
-&lt;td&gt;放置volume的路徑（nodePath寫的）&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;VOL_MODE&lt;/td&gt;
-&lt;td&gt;The PersistentVolume mode (Block or Filesystem).&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;VOL_SIZE_BYTES&lt;/td&gt;
-&lt;td&gt;Requested volume size in bytes.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;設定storageclass來驅動local-path-provisioner&#34;&gt;設定storageClass來驅動local-path-provisioner
-&lt;/h2&gt;&lt;p&gt;provisioner欄位，官方Github寫的&lt;code&gt;cluster.local/local-path-provisioner&lt;/code&gt;沒有用，反而要用rancher.io/local-path才有用。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;apiVersion&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;storage.k8s.io/v1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;kind&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;StorageClass&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;metadata&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;incloud-lvm&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;provisioner&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;rancher.io/local-path &lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;volumeBindingMode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;WaitForFirstConsumer&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;reclaimPolicy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Retain&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
         </item>
         
     </channel>

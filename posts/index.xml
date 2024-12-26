@@ -7,7 +7,72 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Sun, 15 Dec 2024 12:14:30 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 26 Dec 2024 22:39:42 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>一日清單</title>
+        <link>https://coding.fnsne.com/posts/today-list/</link>
+        <pubDate>Thu, 26 Dec 2024 22:39:42 +0800</pubDate>
+        
+        <guid>https://coding.fnsne.com/posts/today-list/</guid>
+        <description>&lt;h1 id=&#34;一日清單&#34;&gt;一日清單
+&lt;/h1&gt;&lt;p&gt;分享一個會讓一整天過得充實、有產能的簡單做法&lt;/p&gt;
+&lt;p&gt;那就是把今天要做的事情，安排成一日清單&lt;/p&gt;
+&lt;p&gt;我目前是使用&lt;a class=&#34;link&#34; href=&#34;https://r10.to/h5zKFE&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;《上線時間管理術》&lt;/a&gt;提到的一日清單的變體。&lt;/p&gt;
+&lt;p&gt;那就是從今天期望要做的事情上面，找出&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1件最重要最緊急的事情&lt;/li&gt;
+&lt;li&gt;6件次重要的事情&lt;/li&gt;
+&lt;li&gt;其它雜務&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;就這樣&lt;/p&gt;
+&lt;p&gt;非常簡單&lt;/p&gt;
+&lt;p&gt;有了清單，就等於擁有了一個框架，一個今天要怎麼過的框架&lt;/p&gt;
+&lt;p&gt;接下來就是很簡單的照著這個框架下去執行&lt;/p&gt;
+&lt;p&gt;在有了這個清單後，接下來一整天就會過得非常的有目標、有方向。&lt;/p&gt;
+&lt;p&gt;執行起來也會變得沒有阻力&lt;/p&gt;
+&lt;p&gt;另外，還有一個地方需要注意，就是最重要的那件事情，要儘量切成能在半天內完成的等級。
+如果沒有這樣做，就會有可能因為這件事情太大，而導致整天都在做這件事情。
+甚至會感覺到這一整天什麼事情都沒有做。&lt;/p&gt;
+&lt;p&gt;在開始嘗試把項目切小，儘量切成當天可以完成的程度後，
+就會發現，它開始可以驅動其它任務的執行。&lt;/p&gt;
+&lt;p&gt;什麼意思呢？&lt;/p&gt;
+&lt;p&gt;就是當我完成了最重要的那件事情後，我就會獲得了一個成就感，
+這個成就感就會驅動我有信心去做下一件事情，不論它是相關和完全不相關的任務。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;心得&#34;&gt;心得
+&lt;/h2&gt;&lt;p&gt;有這樣做和沒有這樣做，對我來說，真的會是兩個不同的一天。
+甚至越早這麼做，一整天的效率就會越好。&lt;/p&gt;
+&lt;p&gt;這個是我有時候因為忙碌偷懶，沒有先寫當天的待辦清單，發現到的差別。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;補充我實際的做法&#34;&gt;補充：我實際的做法
+&lt;/h2&gt;&lt;p&gt;事先準備：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;在todoist上面，建立&lt;code&gt;top priority&lt;/code&gt;、&lt;code&gt;other priority&lt;/code&gt;兩個tag。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在todoist上面，建立兩個filter，
+分別是&lt;code&gt;今天 &amp;amp; @top priority&lt;/code&gt;、&lt;code&gt;今天 &amp;amp; @other priority&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;接下來就是每天要做的：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;打開todoist，看看今天要做的事情、之前拖延下來的事情有哪些&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;從中找出最重要的事情，標上&lt;code&gt;top priority&lt;/code&gt;的tag&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;再找出6件次重要的事情，標上&lt;code&gt;other priority&lt;/code&gt;的tag&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;開始做 &lt;code&gt;top priority&lt;/code&gt;的事情&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
         <title>朱騏覆盤直播心得</title>
         <link>https://coding.fnsne.com/posts/retrospective/</link>
         <pubDate>Sun, 15 Dec 2024 12:14:30 +0800</pubDate>
@@ -1731,93 +1796,6 @@ Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon 和 G
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;volumeBindingMode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;WaitForFirstConsumer&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;reclaimPolicy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;Retain&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-        </item>
-        <item>
-        <title>關於鎖</title>
-        <link>https://coding.fnsne.com/posts/operating_system_lock/</link>
-        <pubDate>Tue, 20 Sep 2022 16:35:44 +0800</pubDate>
-        
-        <guid>https://coding.fnsne.com/posts/operating_system_lock/</guid>
-        <description>&lt;h1 id=&#34;關於鎖lock&#34;&gt;關於鎖(lock)
-&lt;/h1&gt;&lt;p&gt;畢業後，太久沒有用到相關的東西，概念開始和資料庫的transaction有點混淆了，所以拿出恐龍本讀回來。順便做一篇筆記&lt;/p&gt;
-&lt;h2 id=&#34;一些專有名詞&#34;&gt;一些專有名詞
-&lt;/h2&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;名稱&lt;/th&gt;
-&lt;th&gt;說明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;cooperation process （協作行程）&lt;/td&gt;
-&lt;td&gt;會操作到共同資源的不同process&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;critical section&lt;/td&gt;
-&lt;td&gt;在各種cooperation process 裡面會操作到共同資源的code區塊&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;鎖想解決的問題&#34;&gt;鎖想解決的問題
-&lt;/h2&gt;&lt;p&gt;在多核心多執行序問世之前的單核心的時代，是一個核心切換來切換去的做不同事，在時間區間上每個時間點都只有一個process正在被cpu執行，如下圖。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://coding.fnsne.com/posts/operating_system_lock/single-core.jpg&#34;
-	width=&#34;1255&#34;
-	height=&#34;759&#34;
-	srcset=&#34;https://coding.fnsne.com/posts/operating_system_lock/single-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_77858_480x0_resize_q75_box.jpg 480w, https://coding.fnsne.com/posts/operating_system_lock/single-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_77858_1024x0_resize_q75_box.jpg 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;單核心運作示意圖&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;165&#34;
-		data-flex-basis=&#34;396px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;而在多核心問世以後開始會出現一些問題，如下圖。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://coding.fnsne.com/posts/operating_system_lock/multi-core.jpg&#34;
-	width=&#34;1255&#34;
-	height=&#34;713&#34;
-	srcset=&#34;https://coding.fnsne.com/posts/operating_system_lock/multi-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_78620_480x0_resize_q75_box.jpg 480w, https://coding.fnsne.com/posts/operating_system_lock/multi-core_huaf8f8d9afbbf12ddd7a02df886fbcd51_78620_1024x0_resize_q75_box.jpg 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;多核心的運作示意圖&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;176&#34;
-		data-flex-basis=&#34;422px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;開始會發生圖上，兩個核心會同時執行不同的process ，這個時候可能會發生互相改到資料的問題。例如process B和D是要在印表機上面印出現在電腦的時間，就有可能會發生一下的輸出：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;假設兩個核心在執行processB和D的時間點是&lt;code&gt;15:38&lt;/code&gt;和&lt;code&gt;15:40&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;15:153:840
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;這是因為兩個核心互相搶著輸出到印表機，但是順序亂掉的緣故。為了解決這個問題，鎖的概念被提了出來。&lt;/p&gt;
-&lt;h2 id=&#34;鎖的用途&#34;&gt;鎖的用途
-&lt;/h2&gt;&lt;p&gt;用來保護注critical section（以上面的例子來看，是Process B和Process D裡面，執行輸出資料到印表機的code block）。強制這兩個critical section，在同一個時間裡面，頂多只能有一個執行，另一個想要執行，得要等到另一個結束後，才能開始動作。&lt;/p&gt;
-&lt;h2 id=&#34;鎖的種類&#34;&gt;鎖的種類
-&lt;/h2&gt;&lt;h3 id=&#34;mutex-lock互斥鎖&#34;&gt;mutex lock（互斥鎖）
-&lt;/h3&gt;&lt;p&gt;又稱自旋鎖，會讓這個process一直卡在loop裡面，直到能夠存取資料後，才跳出迴圈，開始執行這個critical section。&lt;/p&gt;
-&lt;p&gt;因為實際上是一直在執行loop的狀態下做等待資源釋放的，所以它不需要使用到context switch，在獲得資源後的切換速度很快。所以常常被使用在共用資源都只會被佔用短短時間的情境下使用。&lt;/p&gt;
-&lt;p&gt;mutex lock的概念是一個被相同mutex lock保護起來的多個critical section，一個時間裡只能有一個被執行，其他都得要等待它mutex lock釋放後，才能繼續搶，搶到的才能執行。&lt;/p&gt;
-&lt;h3 id=&#34;semaphore-lock號誌鎖&#34;&gt;semaphore lock（號誌鎖）
-&lt;/h3&gt;&lt;p&gt;和mutex lock不同，可以設定資源同一時間下，最多可以有&lt;code&gt;S&lt;/code&gt;個process同時執行，當同時執行的critical section數目大於&lt;code&gt;S&lt;/code&gt;時，會被停下來，等待到同時執行的critical section小於S時，才能繼續搶進去執行。&lt;/p&gt;
-&lt;p&gt;如果要用mutex lock的方式執行，會讓很多process一直在執行loop，對於資源的浪費太大了，所以在semaphore lock的時候，會採用將process 暫停，將address存到lock &lt;code&gt;S&lt;/code&gt; 的list裡面。等到有process把&lt;code&gt;S&lt;/code&gt;給釋放，此時CPU會將S裡面的list，取出一個process出來執行。&lt;/p&gt;
-&lt;h2 id=&#34;我混淆的概念釐清&#34;&gt;我混淆的概念釐清
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;鎖不是鎖住cpu，而是鎖住其他一樣需要這個鎖的process，讓同一個鎖保護的同一個（或者不同個）critical section ，一次最多只能有1（或者semaphore lock設定的數字）個process存取。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;被鎖保護住的critical section，只要裡面有存取某個共用資源的code，就能讓這項資源被鎖給保護，不被濫用。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;結論&#34;&gt;結論
-&lt;/h2&gt;&lt;p&gt;鎖的概念就是為了要保護有限的資源，不要被無限的取用。例如可以利用鎖來保護對同一個檔案的更改，讓這個檔案一次只能被一個process更新，防止檔案內資料變得亂七八糟的。&lt;/p&gt;
-</description>
         </item>
         
     </channel>

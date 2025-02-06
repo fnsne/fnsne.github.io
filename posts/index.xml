@@ -7,7 +7,69 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Fri, 17 Jan 2025 21:36:06 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 06 Feb 2025 21:58:58 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>神奇的Kobo帳號生態</title>
+        <link>https://coding.fnsne.com/posts/magical-kobo-account-ecosystem/</link>
+        <pubDate>Thu, 06 Feb 2025 21:58:58 +0800</pubDate>
+        
+        <guid>https://coding.fnsne.com/posts/magical-kobo-account-ecosystem/</guid>
+        <description>&lt;h2 id=&#34;先下結論要用什麼功能就得要用那個關聯帳號來登入&#34;&gt;先下結論：要用什麼功能，就得要用那個關聯帳號來登入
+&lt;/h2&gt;&lt;p&gt;例如要使用樂天點數，就得要用Rakuten帳號登入kobo。&lt;/p&gt;
+&lt;h2 id=&#34;前情提要&#34;&gt;前情提要
+&lt;/h2&gt;&lt;p&gt;幾天前在檢查email的時候，發現有一封pchome通知P點即將到期的信件。&lt;/p&gt;
+&lt;p&gt;原本它應該會跟以往一樣，被我用強大的自制力（指打開pchome劃了30分鐘）&lt;/p&gt;
+&lt;p&gt;繼續放著，直到點數消失，不花一毛錢。&lt;/p&gt;
+&lt;p&gt;但我最近正好又對水彩產生了好奇，所以開始找尋有沒有動畫、漫畫風格的水彩教學書。&lt;/p&gt;
+&lt;p&gt;結果正好找到一本&lt;a class=&#34;link&#34; href=&#34;https://r10.to/hPxfx6&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;《蘿莉塔風格的描繪技法：基本六色篇》&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;一看試閱，唉，這樣的效果居然可以用6色畫出來。&lt;/p&gt;
+&lt;p&gt;再看一看，居然有電子書。趕緊到kobo上面查，還真的查到了。&lt;/p&gt;
+&lt;p&gt;原本下一步就是直接在kobo上面刷卡買書了。
+但突然想到開工那天，和同事閒聊的時候，聽到他都是用pchome來買kobo的書的。&lt;/p&gt;
+&lt;p&gt;所以我有了猜想，是不是可以用P點來買書呢，可以的話，就省了快一半耶。&lt;/p&gt;
+&lt;p&gt;然後就開始來研究怎麼把pchome帳號和kobo帳號關聯起來。&lt;/p&gt;
+&lt;h2 id=&#34;pchome帳號要用pchome帳號登入kobo&#34;&gt;pchome帳號要用pchome帳號登入kobo
+&lt;/h2&gt;&lt;p&gt;原本我是打算直接在Kobo賬戶設定頁面上，新增pchome帳號即可。&lt;/p&gt;
+&lt;p&gt;但kobo的程式不知道是怎麼寫的，不管我怎麼在kobo的賬戶設定上，使用pchome登入，每次最後都只會跳到出403頁面。&lt;/p&gt;
+&lt;p&gt;最後google到有人提到，kobo要鏈接pchome，得要&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;登出&lt;/li&gt;
+&lt;li&gt;選擇其它登入方式&lt;/li&gt;
+&lt;li&gt;選擇pchome登入&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;我猜，應該是賬戶設定頁面的關聯其它帳號，沒有寫好。
+甚至pchome登入，只是關聯起來，但事實上現在登入的帳號，
+還是pchome帳號，只是在kobo網站，會顯示關聯的kobo帳號的資訊而已，
+但主題還是pchome帳號。&lt;/p&gt;
+&lt;p&gt;至少，最後我是成功把kobo帳號和pchome帳號關聯起來。
+在pchome上面買的kobo書，也成功進入到kobo書庫上了。&lt;/p&gt;
+&lt;h2 id=&#34;樂天點數要使用rakuten帳號登入才行&#34;&gt;樂天點數，要使用Rakuten帳號登入才行
+&lt;/h2&gt;&lt;p&gt;然後在今天，準備要買其它書時，
+眼睛剛好瞄到，怎麼好像少了什麼，少了顯示這次會給多少回饋樂天點數了。&lt;/p&gt;
+&lt;p&gt;看了上面原本呈現我還有多少點數還沒用的地方，怎麼變成「不適用」了呢？&lt;/p&gt;
+&lt;p&gt;不行啊，我還有過年買書的點數還沒到帳，還沒花啊。&lt;/p&gt;
+&lt;p&gt;冷靜下來，想到了幾天前的經驗，我在想，
+會不會是因為現在是使用pchome登入，所以失去了這個功能？&lt;/p&gt;
+&lt;p&gt;所以趕緊登出帳號，用Rakuten帳號登入。&lt;/p&gt;
+&lt;p&gt;結果還真的是這樣，我的樂天點數重新顯示出來了！&lt;/p&gt;
+&lt;h2 id=&#34;其它意外&#34;&gt;其它意外
+&lt;/h2&gt;&lt;p&gt;原本我登入都是使用Kobo帳號登入的，但不知道是關聯了pchome，
+還是在&lt;a class=&#34;link&#34; href=&#34;#%e6%a8%82%e5%a4%a9%e9%bb%9e%e6%95%b8%e8%a6%81%e4%bd%bf%e7%94%a8rakuten%e5%b8%b3%e8%99%9f%e7%99%bb%e5%85%a5%e6%89%8d%e8%a1%8c&#34; &gt;重新登入樂天帳號&lt;/a&gt;時，
+為了省事，我用了Google登入。&lt;/p&gt;
+&lt;p&gt;結果導致我的Kobo帳號，變得無法用kobo帳號登入，
+只能用google/pchome/Rakuten帳號來登入……&lt;/p&gt;
+&lt;p&gt;好險最後用了kobo的忘記密碼功能，重新填上密碼，這才恢復了kobo帳號登入的功能。&lt;/p&gt;
+&lt;p&gt;看來在用Google登入來關聯Kobo帳號的時候，Kobo可能把Kobo密碼洗掉了。
+所以才會變得無法用原本的密碼登入……&lt;/p&gt;
+&lt;p&gt;真的好神奇啊……Kobo……&lt;/p&gt;
+&lt;h2 id=&#34;threads&#34;&gt;threads
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.threads.net/@fnsne/post/DFu8DC2vASU&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.threads.net/@fnsne/post/DFu8DC2vASU&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>我對於Error Log的看法</title>
         <link>https://coding.fnsne.com/posts/about-error-log/</link>
         <pubDate>Fri, 17 Jan 2025 21:36:06 +0800</pubDate>
@@ -1568,184 +1630,6 @@ Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon 和 G
 &lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        </item>
-        <item>
-        <title>在乾淨環境建立k8s環境</title>
-        <link>https://coding.fnsne.com/posts/install_k8s_environment/</link>
-        <pubDate>Thu, 29 Jun 2023 09:34:49 +0800</pubDate>
-        
-        <guid>https://coding.fnsne.com/posts/install_k8s_environment/</guid>
-        <description>&lt;h1 id=&#34;在乾淨環境建立k8s環境&#34;&gt;在乾淨環境建立k8s環境
-&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;使用k8sadmin架設k8s環境&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;linux環境設定&#34;&gt;linux環境設定
-&lt;/h2&gt;&lt;p&gt;在開始安裝之前，需要先把host給設定好，所以會先說明要做哪些動作。&lt;/p&gt;
-&lt;h3 id=&#34;關閉swap功能&#34;&gt;關閉swap功能
-&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;關閉swap&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;swapoff -a
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;編輯 &lt;code&gt;/etc/fstab&lt;/code&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vim /etc/fstab
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;把檔案裡面 &lt;code&gt;/swapfile &lt;/code&gt;開頭的這行註解掉&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://coding.fnsne.com/posts/install_k8s_environment/edit-swap.png&#34;
-	width=&#34;718&#34;
-	height=&#34;177&#34;
-	srcset=&#34;https://coding.fnsne.com/posts/install_k8s_environment/edit-swap_hu9c81197473fbd2c64ac565bd0078aaf2_104429_480x0_resize_box_3.png 480w, https://coding.fnsne.com/posts/install_k8s_environment/edit-swap_hu9c81197473fbd2c64ac565bd0078aaf2_104429_1024x0_resize_box_3.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;編輯swap的畫面.png&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;405&#34;
-		data-flex-basis=&#34;973px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h3 id=&#34;安裝docker&#34;&gt;安裝docker
-&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;安裝所需的工具&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install ca-certificates curl gnupg lsb-release
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;下載docker並新增官方的GPG key&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mkdir&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;m&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0755&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;etc&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;apt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;keyrings&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;curl&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fsSL&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;https&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;download&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;docker&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;com&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;linux&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ubuntu&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;gpg&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gpg&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dearmor&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;o&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;etc&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;apt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;keyrings&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;docker&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;gpg&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;設定放docker的repository&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&amp;#34;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;|&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tee&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;etc&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;apt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sources&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;docker&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;list&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dev&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;null&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;安裝docker engine&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;5&#34;&gt;
-&lt;li&gt;測試有沒有成功安裝docker engine&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo docker run hello-world
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;6&#34;&gt;
-&lt;li&gt;調整權限，這樣以後就不需要每個docker command前面還要加sudo了。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo usermod -aG docker &lt;span class=&#34;nv&#34;&gt;$USER&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;安裝apt-transport-httpsca-certificatescurl&#34;&gt;安裝apt-transport-https、ca-certificates、curl
-&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get update
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;apt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;get&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;install&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;y&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;apt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;transport&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;https&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ca&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;certificates&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;curl&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h3 id=&#34;加上-kubernetes-apt-的repo&#34;&gt;加上 Kubernetes &lt;code&gt;apt&lt;/code&gt; 的repo
-&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;下載google cloud public signing key&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;加上 &lt;code&gt;apt&lt;/code&gt; 的repo&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sudo tee /etc/apt/sources.list.d/kubernetes.list
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;安裝k8s環境執行用的工具&#34;&gt;安裝k8s環境執行用的工具
-&lt;/h2&gt;&lt;h3 id=&#34;更新apt並安裝kubeadm-kubectl-kubelet並鎖定版本&#34;&gt;更新apt並安裝kubeadm, kubectl, kubelet，並鎖定版本
-&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install -y kubelet kubeadm kubectl &amp;amp;&amp;amp; sudo apt-mark hold kubelet kubeadm kubectl
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;安裝cri-dockerd&#34;&gt;安裝cri-dockerd
-&lt;/h3&gt;&lt;blockquote&gt;
-&lt;p&gt;Container Runtime Interface (CRI)：Kubelet會使用CRI 界面來建立container。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;到cri-dockerd的&lt;a class=&#34;link&#34; href=&#34;https://github.com/Mirantis/cri-dockerd&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;repo&lt;/a&gt;上面，release找到對應的版本。複製下載鏈接，使用wget在機器上面下載下來&lt;/p&gt;
-&lt;p&gt;例如ubuntu的&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;wget&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;https&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;github&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;com&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Mirantis&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cri&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dockerd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;releases&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;download&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;v0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;3.1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cri&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dockerd_0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;3.1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ubuntu&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;jammy_amd64&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;deb&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dpkg&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cri&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dockerd_0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;3.1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ubuntu&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;jammy_amd64&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;deb&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;檢查有沒有安裝成功並跑起來&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;systemctl&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;status&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;cri&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;docker&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;socket&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;啟動k8s-cluster&#34;&gt;啟動k8s cluster
-&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;如果有需要的話，可以使用&lt;code&gt;kubeadm init -h&lt;/code&gt;看看，上面有更多資訊可以看&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ol&gt;
-&lt;li&gt;使用kubeadm建立cluster&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo kubeadm init {options}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;常見的options有&#34;&gt;常見的options有
-&lt;/h3&gt;&lt;h4 id=&#34;--pod-network-cidr&#34;&gt;&amp;ndash;pod-network-cidr
-&lt;/h4&gt;&lt;p&gt;希望給pod的網段例如：&lt;code&gt;10.244.0.0/16&lt;/code&gt;。要注意，如果和要使用的CNI的預設不一樣，到時候得要在CNI上面設定一下。&lt;/p&gt;
-&lt;h4 id=&#34;--apiserver-advertise-address&#34;&gt;&amp;ndash;apiserver-advertise-address
-&lt;/h4&gt;&lt;p&gt;來指定api server的網址，如果沒有設定，會使用預設的$網路$ 界面。&lt;/p&gt;
-&lt;h4 id=&#34;--apiserver-bind-port&#34;&gt;&amp;ndash;apiserver-bind-port
-&lt;/h4&gt;&lt;p&gt;apiserver的port，預設是6443&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;-apiserver-bind-port int32     Default: 6443Port for the API Server to bind to. (&lt;a class=&#34;link&#34; href=&#34;https://read.readwise.io/read/01gz07qkqeenq6zpg7adj1agf2&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;View Source&lt;/a&gt;)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&#34;--service-cidr&#34;&gt;&amp;ndash;service-cidr
-&lt;/h4&gt;&lt;p&gt;來指定service到時候被產生出來的virtual ip的range&lt;/p&gt;
-&lt;h3 id=&#34;可以使用--cri-socketcri的socket指定特定的cri&#34;&gt;可以使用&lt;code&gt;--cri-socket={CRI的socket}&lt;/code&gt;指定特定的cri
-&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;例子&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;sudo&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;kubeadm&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;init&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pod&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;network&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cidr&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;192.167&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;0.0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;16&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cri&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;socket&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unix&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;var&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;run&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cri&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dockerd&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sock&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;service&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cidr&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;192.168&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;mf&#34;&gt;192.0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;18&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;做錯了可以使用kubeadm reset來關閉剛剛啟動（或者失敗）的k8s cluster。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;讓現在的帳號可以使用kubectl&#34;&gt;讓現在的帳號可以使用kubectl
-&lt;/h3&gt;&lt;p&gt;最後為了讓現在的帳號可以使用kubectl，而不是使用root帳號，需要做以下的操作&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir -p $HOME/.kube
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo chown $(id -u):$(id -g) $HOME/.kube/config
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;安裝cni&#34;&gt;安裝CNI
-&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;Container Network Interface(CNI)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;功能：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;負責container之間、還有對外的各種溝通&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;負責創建、回收container時，用到的Network的功能。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;常見的cni&#34;&gt;常見的CNI
-&lt;/h3&gt;&lt;h4 id=&#34;flannel已停止維護&#34;&gt;&lt;code&gt;Flannel&lt;/code&gt;(已停止維護)、
-&lt;/h4&gt;&lt;p&gt;安裝Flannel的方法：&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;calico&#34;&gt;&lt;code&gt;Calico&lt;/code&gt;。
-&lt;/h4&gt;&lt;p&gt;安裝Calico的方法：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;下載yaml檔&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget https://raw.githubusercontent.com/projectcalico/calico/v3.24.1/manifests/calico.yaml
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;安裝並啟動&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;kubectl&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;apply&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;f&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;calico&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;yaml&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;以上就完成了在Linux上架好一個k8s環境的controller plane (k8s叢集的master)了。但是這個時候還沒辦法在k8s環境裡面，在預設的情況下，controller plane所在的host會有設定一個汙點（類似tag的東西），不讓任何非系統運行是所需的Pod（k8s運行的基本單位）被啟動起來。所以還需要再把其它機器加進來k8s cluster中，才能正常運作。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;把其它臺機器加入這個k8s-cluster&#34;&gt;把其它臺機器加入這個k8s cluster
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;和controller prlane一樣，也要先設定好環境：&lt;a class=&#34;link&#34; href=&#34;#linux%e7%92%b0%e5%a2%83%e8%a8%ad%e5%ae%9a&#34; &gt;linux環境設定&lt;/a&gt;和&lt;a class=&#34;link&#34; href=&#34;#%e5%ae%89%e8%a3%9dk8s%e7%92%b0%e5%a2%83%e5%9f%b7%e8%a1%8c%e7%94%a8%e7%9a%84%e5%b7%a5%e5%85%b7&#34; &gt;安裝k8s環境執行用的工具&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;使用上面在建立cluster時，最後在畫面上顯示的join命令。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;kubeadm&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;koin&lt;/span&gt;  &lt;span class=&#34;o&#34;&gt;--&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;token&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;cluster產生的token&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;要注意的是，token只有24小時的有效期限。過期了需要回到controller plane產生新的token&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubeadm token create --print-join-command
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
         </item>
         
     </channel>

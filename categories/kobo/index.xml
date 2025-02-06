@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Kobo on fnsne&#39;s coding world</title>
+        <link>https://coding.fnsne.com/categories/kobo/</link>
+        <description>Recent content in Kobo on fnsne&#39;s coding world</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-TW</language>
+        <copyright>fnsne</copyright>
+        <lastBuildDate>Thu, 06 Feb 2025 21:58:58 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/categories/kobo/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>神奇的Kobo帳號生態</title>
+        <link>https://coding.fnsne.com/posts/magical-kobo-account-ecosystem/</link>
+        <pubDate>Thu, 06 Feb 2025 21:58:58 +0800</pubDate>
+        
+        <guid>https://coding.fnsne.com/posts/magical-kobo-account-ecosystem/</guid>
+        <description>&lt;h2 id=&#34;先下結論要用什麼功能就得要用那個關聯帳號來登入&#34;&gt;先下結論：要用什麼功能，就得要用那個關聯帳號來登入
+&lt;/h2&gt;&lt;p&gt;例如要使用樂天點數，就得要用Rakuten帳號登入kobo。&lt;/p&gt;
+&lt;h2 id=&#34;前情提要&#34;&gt;前情提要
+&lt;/h2&gt;&lt;p&gt;幾天前在檢查email的時候，發現有一封pchome通知P點即將到期的信件。&lt;/p&gt;
+&lt;p&gt;原本它應該會跟以往一樣，被我用強大的自制力（指打開pchome劃了30分鐘）&lt;/p&gt;
+&lt;p&gt;繼續放著，直到點數消失，不花一毛錢。&lt;/p&gt;
+&lt;p&gt;但我最近正好又對水彩產生了好奇，所以開始找尋有沒有動畫、漫畫風格的水彩教學書。&lt;/p&gt;
+&lt;p&gt;結果正好找到一本&lt;a class=&#34;link&#34; href=&#34;https://r10.to/hPxfx6&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;《蘿莉塔風格的描繪技法：基本六色篇》&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;一看試閱，唉，這樣的效果居然可以用6色畫出來。&lt;/p&gt;
+&lt;p&gt;再看一看，居然有電子書。趕緊到kobo上面查，還真的查到了。&lt;/p&gt;
+&lt;p&gt;原本下一步就是直接在kobo上面刷卡買書了。
+但突然想到開工那天，和同事閒聊的時候，聽到他都是用pchome來買kobo的書的。&lt;/p&gt;
+&lt;p&gt;所以我有了猜想，是不是可以用P點來買書呢，可以的話，就省了快一半耶。&lt;/p&gt;
+&lt;p&gt;然後就開始來研究怎麼把pchome帳號和kobo帳號關聯起來。&lt;/p&gt;
+&lt;h2 id=&#34;pchome帳號要用pchome帳號登入kobo&#34;&gt;pchome帳號要用pchome帳號登入kobo
+&lt;/h2&gt;&lt;p&gt;原本我是打算直接在Kobo賬戶設定頁面上，新增pchome帳號即可。&lt;/p&gt;
+&lt;p&gt;但kobo的程式不知道是怎麼寫的，不管我怎麼在kobo的賬戶設定上，使用pchome登入，每次最後都只會跳到出403頁面。&lt;/p&gt;
+&lt;p&gt;最後google到有人提到，kobo要鏈接pchome，得要&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;登出&lt;/li&gt;
+&lt;li&gt;選擇其它登入方式&lt;/li&gt;
+&lt;li&gt;選擇pchome登入&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;我猜，應該是賬戶設定頁面的關聯其它帳號，沒有寫好。
+甚至pchome登入，只是關聯起來，但事實上現在登入的帳號，
+還是pchome帳號，只是在kobo網站，會顯示關聯的kobo帳號的資訊而已，
+但主題還是pchome帳號。&lt;/p&gt;
+&lt;p&gt;至少，最後我是成功把kobo帳號和pchome帳號關聯起來。
+在pchome上面買的kobo書，也成功進入到kobo書庫上了。&lt;/p&gt;
+&lt;h2 id=&#34;樂天點數要使用rakuten帳號登入才行&#34;&gt;樂天點數，要使用Rakuten帳號登入才行
+&lt;/h2&gt;&lt;p&gt;然後在今天，準備要買其它書時，
+眼睛剛好瞄到，怎麼好像少了什麼，少了顯示這次會給多少回饋樂天點數了。&lt;/p&gt;
+&lt;p&gt;看了上面原本呈現我還有多少點數還沒用的地方，怎麼變成「不適用」了呢？&lt;/p&gt;
+&lt;p&gt;不行啊，我還有過年買書的點數還沒到帳，還沒花啊。&lt;/p&gt;
+&lt;p&gt;冷靜下來，想到了幾天前的經驗，我在想，
+會不會是因為現在是使用pchome登入，所以失去了這個功能？&lt;/p&gt;
+&lt;p&gt;所以趕緊登出帳號，用Rakuten帳號登入。&lt;/p&gt;
+&lt;p&gt;結果還真的是這樣，我的樂天點數重新顯示出來了！&lt;/p&gt;
+&lt;h2 id=&#34;其它意外&#34;&gt;其它意外
+&lt;/h2&gt;&lt;p&gt;原本我登入都是使用Kobo帳號登入的，但不知道是關聯了pchome，
+還是在&lt;a class=&#34;link&#34; href=&#34;#%e6%a8%82%e5%a4%a9%e9%bb%9e%e6%95%b8%e8%a6%81%e4%bd%bf%e7%94%a8rakuten%e5%b8%b3%e8%99%9f%e7%99%bb%e5%85%a5%e6%89%8d%e8%a1%8c&#34; &gt;重新登入樂天帳號&lt;/a&gt;時，
+為了省事，我用了Google登入。&lt;/p&gt;
+&lt;p&gt;結果導致我的Kobo帳號，變得無法用kobo帳號登入，
+只能用google/pchome/Rakuten帳號來登入……&lt;/p&gt;
+&lt;p&gt;好險最後用了kobo的忘記密碼功能，重新填上密碼，這才恢復了kobo帳號登入的功能。&lt;/p&gt;
+&lt;p&gt;看來在用Google登入來關聯Kobo帳號的時候，Kobo可能把Kobo密碼洗掉了。
+所以才會變得無法用原本的密碼登入……&lt;/p&gt;
+&lt;p&gt;真的好神奇啊……Kobo……&lt;/p&gt;
+&lt;h2 id=&#34;threads&#34;&gt;threads
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.threads.net/@fnsne/post/DFu8DC2vASU&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.threads.net/@fnsne/post/DFu8DC2vASU&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

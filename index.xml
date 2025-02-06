@@ -7,7 +7,69 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Fri, 17 Jan 2025 21:36:06 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 06 Feb 2025 21:58:58 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>神奇的Kobo帳號生態</title>
+        <link>https://coding.fnsne.com/posts/magical-kobo-account-ecosystem/</link>
+        <pubDate>Thu, 06 Feb 2025 21:58:58 +0800</pubDate>
+        
+        <guid>https://coding.fnsne.com/posts/magical-kobo-account-ecosystem/</guid>
+        <description>&lt;h2 id=&#34;先下結論要用什麼功能就得要用那個關聯帳號來登入&#34;&gt;先下結論：要用什麼功能，就得要用那個關聯帳號來登入
+&lt;/h2&gt;&lt;p&gt;例如要使用樂天點數，就得要用Rakuten帳號登入kobo。&lt;/p&gt;
+&lt;h2 id=&#34;前情提要&#34;&gt;前情提要
+&lt;/h2&gt;&lt;p&gt;幾天前在檢查email的時候，發現有一封pchome通知P點即將到期的信件。&lt;/p&gt;
+&lt;p&gt;原本它應該會跟以往一樣，被我用強大的自制力（指打開pchome劃了30分鐘）&lt;/p&gt;
+&lt;p&gt;繼續放著，直到點數消失，不花一毛錢。&lt;/p&gt;
+&lt;p&gt;但我最近正好又對水彩產生了好奇，所以開始找尋有沒有動畫、漫畫風格的水彩教學書。&lt;/p&gt;
+&lt;p&gt;結果正好找到一本&lt;a class=&#34;link&#34; href=&#34;https://r10.to/hPxfx6&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;《蘿莉塔風格的描繪技法：基本六色篇》&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;一看試閱，唉，這樣的效果居然可以用6色畫出來。&lt;/p&gt;
+&lt;p&gt;再看一看，居然有電子書。趕緊到kobo上面查，還真的查到了。&lt;/p&gt;
+&lt;p&gt;原本下一步就是直接在kobo上面刷卡買書了。
+但突然想到開工那天，和同事閒聊的時候，聽到他都是用pchome來買kobo的書的。&lt;/p&gt;
+&lt;p&gt;所以我有了猜想，是不是可以用P點來買書呢，可以的話，就省了快一半耶。&lt;/p&gt;
+&lt;p&gt;然後就開始來研究怎麼把pchome帳號和kobo帳號關聯起來。&lt;/p&gt;
+&lt;h2 id=&#34;pchome帳號要用pchome帳號登入kobo&#34;&gt;pchome帳號要用pchome帳號登入kobo
+&lt;/h2&gt;&lt;p&gt;原本我是打算直接在Kobo賬戶設定頁面上，新增pchome帳號即可。&lt;/p&gt;
+&lt;p&gt;但kobo的程式不知道是怎麼寫的，不管我怎麼在kobo的賬戶設定上，使用pchome登入，每次最後都只會跳到出403頁面。&lt;/p&gt;
+&lt;p&gt;最後google到有人提到，kobo要鏈接pchome，得要&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;登出&lt;/li&gt;
+&lt;li&gt;選擇其它登入方式&lt;/li&gt;
+&lt;li&gt;選擇pchome登入&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;我猜，應該是賬戶設定頁面的關聯其它帳號，沒有寫好。
+甚至pchome登入，只是關聯起來，但事實上現在登入的帳號，
+還是pchome帳號，只是在kobo網站，會顯示關聯的kobo帳號的資訊而已，
+但主題還是pchome帳號。&lt;/p&gt;
+&lt;p&gt;至少，最後我是成功把kobo帳號和pchome帳號關聯起來。
+在pchome上面買的kobo書，也成功進入到kobo書庫上了。&lt;/p&gt;
+&lt;h2 id=&#34;樂天點數要使用rakuten帳號登入才行&#34;&gt;樂天點數，要使用Rakuten帳號登入才行
+&lt;/h2&gt;&lt;p&gt;然後在今天，準備要買其它書時，
+眼睛剛好瞄到，怎麼好像少了什麼，少了顯示這次會給多少回饋樂天點數了。&lt;/p&gt;
+&lt;p&gt;看了上面原本呈現我還有多少點數還沒用的地方，怎麼變成「不適用」了呢？&lt;/p&gt;
+&lt;p&gt;不行啊，我還有過年買書的點數還沒到帳，還沒花啊。&lt;/p&gt;
+&lt;p&gt;冷靜下來，想到了幾天前的經驗，我在想，
+會不會是因為現在是使用pchome登入，所以失去了這個功能？&lt;/p&gt;
+&lt;p&gt;所以趕緊登出帳號，用Rakuten帳號登入。&lt;/p&gt;
+&lt;p&gt;結果還真的是這樣，我的樂天點數重新顯示出來了！&lt;/p&gt;
+&lt;h2 id=&#34;其它意外&#34;&gt;其它意外
+&lt;/h2&gt;&lt;p&gt;原本我登入都是使用Kobo帳號登入的，但不知道是關聯了pchome，
+還是在&lt;a class=&#34;link&#34; href=&#34;#%e6%a8%82%e5%a4%a9%e9%bb%9e%e6%95%b8%e8%a6%81%e4%bd%bf%e7%94%a8rakuten%e5%b8%b3%e8%99%9f%e7%99%bb%e5%85%a5%e6%89%8d%e8%a1%8c&#34; &gt;重新登入樂天帳號&lt;/a&gt;時，
+為了省事，我用了Google登入。&lt;/p&gt;
+&lt;p&gt;結果導致我的Kobo帳號，變得無法用kobo帳號登入，
+只能用google/pchome/Rakuten帳號來登入……&lt;/p&gt;
+&lt;p&gt;好險最後用了kobo的忘記密碼功能，重新填上密碼，這才恢復了kobo帳號登入的功能。&lt;/p&gt;
+&lt;p&gt;看來在用Google登入來關聯Kobo帳號的時候，Kobo可能把Kobo密碼洗掉了。
+所以才會變得無法用原本的密碼登入……&lt;/p&gt;
+&lt;p&gt;真的好神奇啊……Kobo……&lt;/p&gt;
+&lt;h2 id=&#34;threads&#34;&gt;threads
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.threads.net/@fnsne/post/DFu8DC2vASU&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.threads.net/@fnsne/post/DFu8DC2vASU&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>我對於Error Log的看法</title>
         <link>https://coding.fnsne.com/posts/about-error-log/</link>
         <pubDate>Fri, 17 Jan 2025 21:36:06 +0800</pubDate>
@@ -1446,136 +1508,6 @@ Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon 和 G
         
         <guid>https://coding.fnsne.com/page/archives/</guid>
         <description></description>
-        </item>
-        <item>
-        <title>如何用certbot申請 Let’s Encrypt 的憑證</title>
-        <link>https://coding.fnsne.com/posts/certbot_auto_gen_ssl_certificate/</link>
-        <pubDate>Thu, 04 Jul 2024 21:09:08 +0800</pubDate>
-        
-        <guid>https://coding.fnsne.com/posts/certbot_auto_gen_ssl_certificate/</guid>
-        <description>&lt;h2 id=&#34;1-安裝certbot&#34;&gt;1. 安裝certbot
-&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install certbot
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-使用certbot申請ssl憑證&#34;&gt;2. 使用certbot申請SSL憑證
-&lt;/h2&gt;&lt;h3 id=&#34;手動驗證manual&#34;&gt;手動驗證（manual)
-&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo certbot certonly -d &amp;lt;DOMAINNAME&amp;gt; --manual
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;certonly&lt;/code&gt;：表示只需要申請憑證即可。certbot還有支援一些常見的server替換SSL的功能，如apache、nginx等&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;--manual&lt;/code&gt;：表示要使用互動界面來申請憑證。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;注意：使用&amp;ndash;manual的方式申請的憑證，除非有配合使用其它驗證插件，否則無法自動renew。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;這個方式申請的憑證有提供兩種預設方式驗證&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;會產生一個challenge檔案，然後讓我們放到要使用這個憑證的機器（至少是這個domain name會連到的機器）的根目錄下指定的資料夾，讓ACME驗證可以使用申請的domain name加上給定的ACME資料夾，拿到申請的檔案。&lt;/li&gt;
-&lt;li&gt;直接會在目標機器上加上一個短暫的server，做到在指定的網址回傳上述的challenge檔案。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;另外certbot其實還提供了其它的驗證方式，例如DNS&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo certbot certonly -d &amp;lt;DOMAINNAME&amp;gt; --preferred-challenges dns --manual
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;certbot會在申請的互動界面，產生一個申請憑證網域的challenge key和value，申請人要到DNS託管服務，例如GoDaddy、AWS Route53等服務上，對要申請憑證的網域使用certbot產出的key value來建立一筆TXT設定，讓Let’s Encrypt確定要申請的網域是屬於你的。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;使用route53插件驗證&#34;&gt;使用Route53插件驗證
-&lt;/h3&gt;&lt;p&gt;其實就是藉由Route53的API，讓插件替我們做完把ACME Chellenge TXT設定到DNS Server上的這段流程。所以需要設定AWS的access client到申請憑證的機器上。&lt;/p&gt;
-&lt;h4 id=&#34;1-安裝certbot-dns-route53&#34;&gt;1. 安裝certbot-dns-route53
-&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; sudo apt install python3-certbot-dns-route53
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;其它plugin的名稱也是使用相同的pattern: &lt;code&gt;python3-certbot-dns-&amp;lt;PLUGIN&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&#34;2-設定aws的access-client&#34;&gt;2. 設定AWS的access client
-&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;到AWS設定一個Policy&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Version&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2012-10-17&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;Id&amp;#34;: &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;certbot-dns-route53 sample policy&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;Statement&amp;#34;: &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;{&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;Effect&amp;#34;: &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Allow&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;Action&amp;#34;: &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;route53:ListHostedZones&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;route53:GetChange&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;Resource&amp;#34;: &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;*&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;}&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;{&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Effect&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Allow&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Action&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;route53:ChangeResourceRecordSets&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Resource&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;arn:aws:route53:::hostedzone/YOURHOSTEDZONEID&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;}&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;}&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;Version&lt;/code&gt;的值不能改，這是告訴AWS要用這版的規則來看這個Policy&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;YOURHOSTEDZONEID&lt;/code&gt;：去Route53點選要設定的domain name，就會寫出它的host zone ID（託管區域ID）了。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;
-&lt;p&gt;建立一個IAM account，並且授予它上面的policy權限&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;在要執行certbot的機器上建立一個config檔，叫~/.aws/config內容如下&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[default]
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;aws_access_key_id=&amp;lt;IAM的ID&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;aws_secret_access_key=&amp;lt;IAM的secret key&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;注意，如果執行certbot需要使用sudo來執行，這個config必須改放到&lt;code&gt;/root/.aws/config&lt;/code&gt;。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;執行certbot&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo certbot certonly --dns-route53 -d rd2.team.araliadata.io
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;如果有要申請wildcard網域，需要多加上*.rd2.team.araliadata.io才需要有這段&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;—-post-hook&lt;/code&gt;：當certbot完成執行後，會在本地執行的動作。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;設定排程執行&lt;code&gt;sudo certbot renew&lt;/code&gt;，它會自行檢查是否有憑證快要到期了，如果快要到期才會真的再次申請新的憑證下來。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo certbot renew --cert-name &amp;lt;憑證名稱&amp;gt; --post-hook &amp;#34;docker compose -f /home/bigobject/data-planet-testbed/ambrose/docker-compose.yml down &amp;amp; /home/bigobject/data-planet-testbed/ambrose/docker-compose.yml up -d&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;憑證名稱：可以使用certbot certificates來查看&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;certbot renew&lt;/code&gt;：當憑證會在30天內到期時，真的去申請新的憑證，還未到期不會真的去申請新的憑證。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;ex: 每週一檢查一次&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;#sudo crontab -e
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;0 0 * * 1 sudo certbot renew --cert-name rd2.team.araliadata.io --post-hook &amp;#34;docker compose -f /home/bigobject/data-planet-testbed/ambrose/docker-compose.yml down &amp;amp; /home/bigobject/data-planet-testbed/ambrose/docker-compose.yml up -d&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;提醒&#34;&gt;提醒
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;可以先加上 &lt;code&gt;--dry-run&lt;/code&gt; ，用來測試server申請憑證是否能成功，以防操作太多次，超過額度，不給申請。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;使用&lt;code&gt;--manual&lt;/code&gt;的憑證申請，不能使用renew功能，除非有加上authentication hook，例如上面提到的route-53 plugin。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;route-53 plugin其實就是用script連到route-53服務，新增對應的ACME challenge TXT。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;ACME的驗證（&lt;code&gt;--preferred-challenges&lt;/code&gt;），如果選擇使用DNS的方式驗證，需要使用&lt;code&gt;--manual&lt;/code&gt;才能做。除非加上DNS插件驗證（如route53）。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</description>
         </item>
         
     </channel>

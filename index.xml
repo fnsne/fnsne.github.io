@@ -7,7 +7,71 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Thu, 06 Feb 2025 21:58:58 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 20 Feb 2025 22:02:49 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>英文不好的我_如何在1個月理解國外團隊維護的產品</title>
+        <link>https://coding.fnsne.com/posts/how-i-fast-understand-new-project/</link>
+        <pubDate>Thu, 20 Feb 2025 22:02:49 +0800</pubDate>
+        
+        <guid>https://coding.fnsne.com/posts/how-i-fast-understand-new-project/</guid>
+        <description>&lt;p&gt;到現在，換新工作一段時間了，來分享一下，我是如何適應並且慢慢理解產品是怎麼寫的
+主要就兩個步驟：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;分析並假設&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;驗證，獲得回饋&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;分析並假設&#34;&gt;分析並假設
+&lt;/h2&gt;&lt;p&gt;我是用heptabase的白板來分析的&lt;/p&gt;
+&lt;p&gt;流程簡單來說，就是去讀code，然後：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;建立理解的骨架&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;遇到「名詞」、「模組」、「function」、「class」的時候，&lt;/p&gt;
+&lt;p&gt;就建立一張卡片，&lt;/p&gt;
+&lt;p&gt;一張標題為那個東西的卡片，&lt;/p&gt;
+&lt;p&gt;並寫上我目前對它的理解。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;填充新發現的理解&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在每次靈感來臨、&lt;/p&gt;
+&lt;p&gt;突然理解某個東西的時候，&lt;/p&gt;
+&lt;p&gt;就到對應的那張卡片上面做筆記。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;就這樣，分析的部分就這麼簡單，但對於初步理解很好用。&lt;/p&gt;
+&lt;h2 id=&#34;驗證獲得回饋&#34;&gt;驗證，獲得回饋
+&lt;/h2&gt;&lt;p&gt;也很簡單，就是每次找到小發現後，就&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;趕快去code的其他地方，驗證看看我的理解是否正確。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;詢問國外同事，我的理解是否正確。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;嘗試接一些和小發現相關的任務，像我就膽大的接了一張明顯很複雜的重構單。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;（雖然我還沒處理完，但很明顯的，在研究分析並重構這份code的時候，我理解到了非常多這個產品相關的內容。）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;就這樣，我藉由這套方法，讓我在沒有太大心理阻力，並且要和國外同事用英文溝通的情況下，快速理解產品的內容，還有要怎麼寫。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;我真的覺得接了一張複雜重構單，是我一個進公司以來做過最正確的一件事。&lt;/p&gt;
+&lt;p&gt;反正即使失敗，我也獲得了失敗的經驗，&lt;/p&gt;
+&lt;p&gt;這些經驗會化為未來成功的踏腳石。&lt;/p&gt;
+&lt;p&gt;所有的嘗試都是有意義的，&lt;/p&gt;
+&lt;p&gt;他們會在未來給予我們幫助，&lt;/p&gt;
+&lt;p&gt;所以要多嘗試、並且紀錄下來。&lt;/p&gt;
+&lt;p&gt;P.S. 感謝現在有ChatGPT的存在，讓我的英文能以更好讀的形式發出去。不然我連問問題可能都很難溝通啊。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>神奇的Kobo帳號生態</title>
         <link>https://coding.fnsne.com/posts/magical-kobo-account-ecosystem/</link>
         <pubDate>Thu, 06 Feb 2025 21:58:58 +0800</pubDate>
@@ -1500,14 +1564,6 @@ Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon 和 G
 &lt;li&gt;如果要在Gorm上使用樂觀鎖，這個時候使用樂觀鎖套件會比較好，因為不論是哪種自己實作的樂觀鎖，都會需要多加一些檢查的條件，但在使用樂觀鎖套件的時候，只需要在Model上加上&lt;code&gt;optimisticlock.Version&lt;/code&gt;，剩下的就是照常的使用Gorm的方法就好了。&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        </item>
-        <item>
-        <title>Archives</title>
-        <link>https://coding.fnsne.com/page/archives/</link>
-        <pubDate>Fri, 02 Aug 2024 00:00:00 +0000</pubDate>
-        
-        <guid>https://coding.fnsne.com/page/archives/</guid>
-        <description></description>
         </item>
         
     </channel>

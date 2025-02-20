@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="zh-TW" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="到現在，換新工作一段時間了，來分享一下，我是如何適應並且慢慢理解產品是怎麼寫的 主要就兩個步驟： 分析並假設 驗證，獲得回饋 分析並假設 我是用heptabase的白板來分析的 流程簡單來說，就是去讀code，然後： 建立理解的骨架 遇到「名詞」、「模組」、「function」、「class」的時候， 就建立一張卡片， 一張標題為那個東西的卡片， 並寫上我目前對它的理解。 填充新發現的理解 在每次靈感來臨、 突然理解某個東西的時候， 就到對應的那張卡片上面做筆記。 就這樣，分析的部分就這麼簡單，但對於初步理解很好用。 驗證，獲得回饋 也很簡單，就是每次找到小發現後，就 趕快去code的其他地方，驗證看看我的理解是否正確。 詢問國外同事，我的理解是否正確。 嘗試接一些和小發現相關的任務，像我就膽大的接了一張明顯很複雜的重構單。 （雖然我還沒處理完，但很明顯的，在研究分析並重構這份code的時候，我理解到了非常多這個產品相關的內容。） 就這樣，我藉由這套方法，讓我在沒有太大心理阻力，並且要和國外同事用英文溝通的情況下，快速理解產品的內容，還有要怎麼寫。 我真的覺得接了一張複雜重構單，是我一個進公司以來做過最正確的一件事。 反正即使失敗，我也獲得了失敗的經驗， 這些經驗會化為未來成功的踏腳石。 所有的嘗試都是有意義的， 他們會在未來給予我們幫助， 所以要多嘗試、並且紀錄下來。 P.S. 感謝現在有ChatGPT的存在，讓我的英文能以更好讀的形式發出去。不然我連問問題可能都很難溝通啊。">
+<title>英文不好的我_如何在1個月理解國外團隊維護的產品</title>
+
+<link rel='canonical' href='https://coding.fnsne.com/posts/how-i-fast-understand-new-project/'>
+
+<link rel="stylesheet" href="/scss/style.min.50dda404ea8b9660810f3a10315639e714c500ecbdb77ec8cce81a2b2bff252e.css"><meta property='og:title' content="英文不好的我_如何在1個月理解國外團隊維護的產品">
+<meta property='og:description' content="到現在，換新工作一段時間了，來分享一下，我是如何適應並且慢慢理解產品是怎麼寫的 主要就兩個步驟： 分析並假設 驗證，獲得回饋 分析並假設 我是用heptabase的白板來分析的 流程簡單來說，就是去讀code，然後： 建立理解的骨架 遇到「名詞」、「模組」、「function」、「class」的時候， 就建立一張卡片， 一張標題為那個東西的卡片， 並寫上我目前對它的理解。 填充新發現的理解 在每次靈感來臨、 突然理解某個東西的時候， 就到對應的那張卡片上面做筆記。 就這樣，分析的部分就這麼簡單，但對於初步理解很好用。 驗證，獲得回饋 也很簡單，就是每次找到小發現後，就 趕快去code的其他地方，驗證看看我的理解是否正確。 詢問國外同事，我的理解是否正確。 嘗試接一些和小發現相關的任務，像我就膽大的接了一張明顯很複雜的重構單。 （雖然我還沒處理完，但很明顯的，在研究分析並重構這份code的時候，我理解到了非常多這個產品相關的內容。） 就這樣，我藉由這套方法，讓我在沒有太大心理阻力，並且要和國外同事用英文溝通的情況下，快速理解產品的內容，還有要怎麼寫。 我真的覺得接了一張複雜重構單，是我一個進公司以來做過最正確的一件事。 反正即使失敗，我也獲得了失敗的經驗， 這些經驗會化為未來成功的踏腳石。 所有的嘗試都是有意義的， 他們會在未來給予我們幫助， 所以要多嘗試、並且紀錄下來。 P.S. 感謝現在有ChatGPT的存在，讓我的英文能以更好讀的形式發出去。不然我連問問題可能都很難溝通啊。">
+<meta property='og:url' content='https://coding.fnsne.com/posts/how-i-fast-understand-new-project/'>
+<meta property='og:site_name' content='fnsne&#39;s coding world'>
+<meta property='og:type' content='article'><meta property='article:section' content='Posts' /><meta property='article:tag' content='heptabase' /><meta property='article:published_time' content='2025-02-20T22:02:49&#43;08:00'/><meta property='article:modified_time' content='2025-02-20T22:02:49&#43;08:00'/>
+<meta name="twitter:title" content="英文不好的我_如何在1個月理解國外團隊維護的產品">
+<meta name="twitter:description" content="到現在，換新工作一段時間了，來分享一下，我是如何適應並且慢慢理解產品是怎麼寫的 主要就兩個步驟： 分析並假設 驗證，獲得回饋 分析並假設 我是用heptabase的白板來分析的 流程簡單來說，就是去讀code，然後： 建立理解的骨架 遇到「名詞」、「模組」、「function」、「class」的時候， 就建立一張卡片， 一張標題為那個東西的卡片， 並寫上我目前對它的理解。 填充新發現的理解 在每次靈感來臨、 突然理解某個東西的時候， 就到對應的那張卡片上面做筆記。 就這樣，分析的部分就這麼簡單，但對於初步理解很好用。 驗證，獲得回饋 也很簡單，就是每次找到小發現後，就 趕快去code的其他地方，驗證看看我的理解是否正確。 詢問國外同事，我的理解是否正確。 嘗試接一些和小發現相關的任務，像我就膽大的接了一張明顯很複雜的重構單。 （雖然我還沒處理完，但很明顯的，在研究分析並重構這份code的時候，我理解到了非常多這個產品相關的內容。） 就這樣，我藉由這套方法，讓我在沒有太大心理阻力，並且要和國外同事用英文溝通的情況下，快速理解產品的內容，還有要怎麼寫。 我真的覺得接了一張複雜重構單，是我一個進公司以來做過最正確的一件事。 反正即使失敗，我也獲得了失敗的經驗， 這些經驗會化為未來成功的踏腳石。 所有的嘗試都是有意義的， 他們會在未來給予我們幫助， 所以要多嘗試、並且紀錄下來。 P.S. 感謝現在有ChatGPT的存在，讓我的英文能以更好讀的形式發出去。不然我連問問題可能都很難溝通啊。">
+    <link rel="shortcut icon" href="/favicon.svg" />
+
+  
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-X543DHTVL2"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-X543DHTVL2');
+        }
+      </script>
+    
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/avatar_hua68e4532ac30c2aafc07cde884358a82_1922083_300x0_resize_q75_box.jpg" width="300"
+                            height="235" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">fnsne&#39;s coding world</a></h1>
+            <h2 class="site-description">this is subtitle</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/fnsne/'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.linkedin.com/in/fnsne/'
+                        target="_blank"
+                        title="LinkedIn"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="#00abfb" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+    <path d="M8 11l0 5" />
+    <path d="M8 8l0 .01" />
+    <path d="M12 16l0 -5" />
+    <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>About Me</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#分析並假設">分析並假設</a></li>
+    <li><a href="#驗證獲得回饋">驗證，獲得回饋</a></li>
+  </ul>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/heptabase/" >
+                Heptabase
+            </a>
+        
+            <a href="/categories/coding/" >
+                Coding
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/posts/how-i-fast-understand-new-project/">英文不好的我_如何在1個月理解國外團隊維護的產品</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 20, 2025</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <p>到現在，換新工作一段時間了，來分享一下，我是如何適應並且慢慢理解產品是怎麼寫的
+主要就兩個步驟：</p>
+<ul>
+<li>
+<p>分析並假設</p>
+</li>
+<li>
+<p>驗證，獲得回饋</p>
+</li>
+</ul>
+<h2 id="分析並假設">分析並假設
+</h2><p>我是用heptabase的白板來分析的</p>
+<p>流程簡單來說，就是去讀code，然後：</p>
+<ul>
+<li>建立理解的骨架</li>
+</ul>
+<blockquote>
+<p>遇到「名詞」、「模組」、「function」、「class」的時候，</p>
+<p>就建立一張卡片，</p>
+<p>一張標題為那個東西的卡片，</p>
+<p>並寫上我目前對它的理解。</p>
+</blockquote>
+<ul>
+<li>填充新發現的理解</li>
+</ul>
+<blockquote>
+<p>在每次靈感來臨、</p>
+<p>突然理解某個東西的時候，</p>
+<p>就到對應的那張卡片上面做筆記。</p>
+</blockquote>
+<p>就這樣，分析的部分就這麼簡單，但對於初步理解很好用。</p>
+<h2 id="驗證獲得回饋">驗證，獲得回饋
+</h2><p>也很簡單，就是每次找到小發現後，就</p>
+<ul>
+<li>
+<p>趕快去code的其他地方，驗證看看我的理解是否正確。</p>
+</li>
+<li>
+<p>詢問國外同事，我的理解是否正確。</p>
+</li>
+<li>
+<p>嘗試接一些和小發現相關的任務，像我就膽大的接了一張明顯很複雜的重構單。</p>
+<blockquote>
+<p>（雖然我還沒處理完，但很明顯的，在研究分析並重構這份code的時候，我理解到了非常多這個產品相關的內容。）</p>
+</blockquote>
+</li>
+</ul>
+<p>就這樣，我藉由這套方法，讓我在沒有太大心理阻力，並且要和國外同事用英文溝通的情況下，快速理解產品的內容，還有要怎麼寫。</p>
+<hr>
+<p>我真的覺得接了一張複雜重構單，是我一個進公司以來做過最正確的一件事。</p>
+<p>反正即使失敗，我也獲得了失敗的經驗，</p>
+<p>這些經驗會化為未來成功的踏腳石。</p>
+<p>所有的嘗試都是有意義的，</p>
+<p>他們會在未來給予我們幫助，</p>
+<p>所以要多嘗試、並且紀錄下來。</p>
+<p>P.S. 感謝現在有ChatGPT的存在，讓我的英文能以更好讀的形式發出去。不然我連問問題可能都很難溝通啊。</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/heptabase/">Heptabase</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+        renderMathInElement(document.body, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">Related content</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/posts/zetelkasten_in_heptabase_2022/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">我用heptabase來實作卡片盒筆記的方式</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "fnsnes-coding-world" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2022 - 
+        
+        2025 fnsne
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200..900&display=swap" rel="stylesheet">
+
+    </body>
+</html>

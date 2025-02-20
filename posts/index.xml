@@ -7,7 +7,71 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Thu, 06 Feb 2025 21:58:58 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 20 Feb 2025 22:02:49 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>英文不好的我_如何在1個月理解國外團隊維護的產品</title>
+        <link>https://coding.fnsne.com/posts/how-i-fast-understand-new-project/</link>
+        <pubDate>Thu, 20 Feb 2025 22:02:49 +0800</pubDate>
+        
+        <guid>https://coding.fnsne.com/posts/how-i-fast-understand-new-project/</guid>
+        <description>&lt;p&gt;到現在，換新工作一段時間了，來分享一下，我是如何適應並且慢慢理解產品是怎麼寫的
+主要就兩個步驟：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;分析並假設&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;驗證，獲得回饋&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;分析並假設&#34;&gt;分析並假設
+&lt;/h2&gt;&lt;p&gt;我是用heptabase的白板來分析的&lt;/p&gt;
+&lt;p&gt;流程簡單來說，就是去讀code，然後：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;建立理解的骨架&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;遇到「名詞」、「模組」、「function」、「class」的時候，&lt;/p&gt;
+&lt;p&gt;就建立一張卡片，&lt;/p&gt;
+&lt;p&gt;一張標題為那個東西的卡片，&lt;/p&gt;
+&lt;p&gt;並寫上我目前對它的理解。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;填充新發現的理解&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在每次靈感來臨、&lt;/p&gt;
+&lt;p&gt;突然理解某個東西的時候，&lt;/p&gt;
+&lt;p&gt;就到對應的那張卡片上面做筆記。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;就這樣，分析的部分就這麼簡單，但對於初步理解很好用。&lt;/p&gt;
+&lt;h2 id=&#34;驗證獲得回饋&#34;&gt;驗證，獲得回饋
+&lt;/h2&gt;&lt;p&gt;也很簡單，就是每次找到小發現後，就&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;趕快去code的其他地方，驗證看看我的理解是否正確。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;詢問國外同事，我的理解是否正確。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;嘗試接一些和小發現相關的任務，像我就膽大的接了一張明顯很複雜的重構單。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;（雖然我還沒處理完，但很明顯的，在研究分析並重構這份code的時候，我理解到了非常多這個產品相關的內容。）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;就這樣，我藉由這套方法，讓我在沒有太大心理阻力，並且要和國外同事用英文溝通的情況下，快速理解產品的內容，還有要怎麼寫。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;我真的覺得接了一張複雜重構單，是我一個進公司以來做過最正確的一件事。&lt;/p&gt;
+&lt;p&gt;反正即使失敗，我也獲得了失敗的經驗，&lt;/p&gt;
+&lt;p&gt;這些經驗會化為未來成功的踏腳石。&lt;/p&gt;
+&lt;p&gt;所有的嘗試都是有意義的，&lt;/p&gt;
+&lt;p&gt;他們會在未來給予我們幫助，&lt;/p&gt;
+&lt;p&gt;所以要多嘗試、並且紀錄下來。&lt;/p&gt;
+&lt;p&gt;P.S. 感謝現在有ChatGPT的存在，讓我的英文能以更好讀的形式發出去。不然我連問問題可能都很難溝通啊。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>神奇的Kobo帳號生態</title>
         <link>https://coding.fnsne.com/posts/magical-kobo-account-ecosystem/</link>
         <pubDate>Thu, 06 Feb 2025 21:58:58 +0800</pubDate>
@@ -1498,136 +1562,6 @@ Point、LineString、Polygon、MultiPoint、MultiLineString、MultiPolygon 和 G
 &lt;li&gt;使用Atomic Update的方式，速度最快，但不一定適用於所有的情況。&lt;/li&gt;
 &lt;li&gt;使用Lock的方式，能夠避免race condition的發生，但因為要取得、釋放lock，所以每個request執行所需要的時間會比較長一些。當然，在更新頻率較高的情況下，多等一下下，總是比全部重新來過還要快。&lt;/li&gt;
 &lt;li&gt;如果要在Gorm上使用樂觀鎖，這個時候使用樂觀鎖套件會比較好，因為不論是哪種自己實作的樂觀鎖，都會需要多加一些檢查的條件，但在使用樂觀鎖套件的時候，只需要在Model上加上&lt;code&gt;optimisticlock.Version&lt;/code&gt;，剩下的就是照常的使用Gorm的方法就好了。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        </item>
-        <item>
-        <title>如何用certbot申請 Let’s Encrypt 的憑證</title>
-        <link>https://coding.fnsne.com/posts/certbot_auto_gen_ssl_certificate/</link>
-        <pubDate>Thu, 04 Jul 2024 21:09:08 +0800</pubDate>
-        
-        <guid>https://coding.fnsne.com/posts/certbot_auto_gen_ssl_certificate/</guid>
-        <description>&lt;h2 id=&#34;1-安裝certbot&#34;&gt;1. 安裝certbot
-&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt install certbot
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-使用certbot申請ssl憑證&#34;&gt;2. 使用certbot申請SSL憑證
-&lt;/h2&gt;&lt;h3 id=&#34;手動驗證manual&#34;&gt;手動驗證（manual)
-&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo certbot certonly -d &amp;lt;DOMAINNAME&amp;gt; --manual
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;certonly&lt;/code&gt;：表示只需要申請憑證即可。certbot還有支援一些常見的server替換SSL的功能，如apache、nginx等&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;--manual&lt;/code&gt;：表示要使用互動界面來申請憑證。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;注意：使用&amp;ndash;manual的方式申請的憑證，除非有配合使用其它驗證插件，否則無法自動renew。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;這個方式申請的憑證有提供兩種預設方式驗證&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;會產生一個challenge檔案，然後讓我們放到要使用這個憑證的機器（至少是這個domain name會連到的機器）的根目錄下指定的資料夾，讓ACME驗證可以使用申請的domain name加上給定的ACME資料夾，拿到申請的檔案。&lt;/li&gt;
-&lt;li&gt;直接會在目標機器上加上一個短暫的server，做到在指定的網址回傳上述的challenge檔案。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;另外certbot其實還提供了其它的驗證方式，例如DNS&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo certbot certonly -d &amp;lt;DOMAINNAME&amp;gt; --preferred-challenges dns --manual
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;certbot會在申請的互動界面，產生一個申請憑證網域的challenge key和value，申請人要到DNS託管服務，例如GoDaddy、AWS Route53等服務上，對要申請憑證的網域使用certbot產出的key value來建立一筆TXT設定，讓Let’s Encrypt確定要申請的網域是屬於你的。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;使用route53插件驗證&#34;&gt;使用Route53插件驗證
-&lt;/h3&gt;&lt;p&gt;其實就是藉由Route53的API，讓插件替我們做完把ACME Chellenge TXT設定到DNS Server上的這段流程。所以需要設定AWS的access client到申請憑證的機器上。&lt;/p&gt;
-&lt;h4 id=&#34;1-安裝certbot-dns-route53&#34;&gt;1. 安裝certbot-dns-route53
-&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; sudo apt install python3-certbot-dns-route53
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;其它plugin的名稱也是使用相同的pattern: &lt;code&gt;python3-certbot-dns-&amp;lt;PLUGIN&amp;gt;&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h4 id=&#34;2-設定aws的access-client&#34;&gt;2. 設定AWS的access client
-&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;到AWS設定一個Policy&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Version&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;2012-10-17&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;Id&amp;#34;: &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;certbot-dns-route53 sample policy&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;Statement&amp;#34;: &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;{&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;Effect&amp;#34;: &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Allow&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;Action&amp;#34;: &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;route53:ListHostedZones&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;route53:GetChange&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;&amp;#34;Resource&amp;#34;: &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;*&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;}&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;{&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Effect&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Allow&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Action&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;route53:ChangeResourceRecordSets&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;],&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Resource&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;arn:aws:route53:::hostedzone/YOURHOSTEDZONEID&amp;#34;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;}&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;}&lt;span class=&#34;w&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;Version&lt;/code&gt;的值不能改，這是告訴AWS要用這版的規則來看這個Policy&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;YOURHOSTEDZONEID&lt;/code&gt;：去Route53點選要設定的domain name，就會寫出它的host zone ID（託管區域ID）了。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;2&#34;&gt;
-&lt;li&gt;
-&lt;p&gt;建立一個IAM account，並且授予它上面的policy權限&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;在要執行certbot的機器上建立一個config檔，叫~/.aws/config內容如下&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[default]
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;aws_access_key_id=&amp;lt;IAM的ID&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;aws_secret_access_key=&amp;lt;IAM的secret key&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;注意，如果執行certbot需要使用sudo來執行，這個config必須改放到&lt;code&gt;/root/.aws/config&lt;/code&gt;。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ol start=&#34;3&#34;&gt;
-&lt;li&gt;執行certbot&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo certbot certonly --dns-route53 -d rd2.team.araliadata.io
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;如果有要申請wildcard網域，需要多加上*.rd2.team.araliadata.io才需要有這段&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;—-post-hook&lt;/code&gt;：當certbot完成執行後，會在本地執行的動作。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ol start=&#34;4&#34;&gt;
-&lt;li&gt;設定排程執行&lt;code&gt;sudo certbot renew&lt;/code&gt;，它會自行檢查是否有憑證快要到期了，如果快要到期才會真的再次申請新的憑證下來。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo certbot renew --cert-name &amp;lt;憑證名稱&amp;gt; --post-hook &amp;#34;docker compose -f /home/bigobject/data-planet-testbed/ambrose/docker-compose.yml down &amp;amp; /home/bigobject/data-planet-testbed/ambrose/docker-compose.yml up -d&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;憑證名稱：可以使用certbot certificates來查看&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;certbot renew&lt;/code&gt;：當憑證會在30天內到期時，真的去申請新的憑證，還未到期不會真的去申請新的憑證。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;ex: 每週一檢查一次&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;#sudo crontab -e
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;0 0 * * 1 sudo certbot renew --cert-name rd2.team.araliadata.io --post-hook &amp;#34;docker compose -f /home/bigobject/data-planet-testbed/ambrose/docker-compose.yml down &amp;amp; /home/bigobject/data-planet-testbed/ambrose/docker-compose.yml up -d&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;提醒&#34;&gt;提醒
-&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;可以先加上 &lt;code&gt;--dry-run&lt;/code&gt; ，用來測試server申請憑證是否能成功，以防操作太多次，超過額度，不給申請。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;使用&lt;code&gt;--manual&lt;/code&gt;的憑證申請，不能使用renew功能，除非有加上authentication hook，例如上面提到的route-53 plugin。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;route-53 plugin其實就是用script連到route-53服務，新增對應的ACME challenge TXT。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;ACME的驗證（&lt;code&gt;--preferred-challenges&lt;/code&gt;），如果選擇使用DNS的方式驗證，需要使用&lt;code&gt;--manual&lt;/code&gt;才能做。除非加上DNS插件驗證（如route53）。&lt;/p&gt;
-&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         </item>

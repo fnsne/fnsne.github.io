@@ -7,7 +7,15 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-TW</language>
         <copyright>fnsne</copyright>
-        <lastBuildDate>Thu, 20 Feb 2025 22:02:49 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 20 Apr 2025 00:03:33 +0800</lastBuildDate><atom:link href="https://coding.fnsne.com/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Time-Management</title>
+        <link>https://coding.fnsne.com/tags/time-management/</link>
+        <pubDate>Sun, 20 Apr 2025 00:03:33 +0800</pubDate>
+        
+        <guid>https://coding.fnsne.com/tags/time-management/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Heptabase</title>
         <link>https://coding.fnsne.com/tags/heptabase/</link>
         <pubDate>Thu, 20 Feb 2025 22:02:49 +0800</pubDate>
@@ -157,14 +165,6 @@
         <pubDate>Fri, 08 Nov 2024 22:41:41 +0800</pubDate>
         
         <guid>https://coding.fnsne.com/tags/kindle/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>Asynchronous-Request</title>
-        <link>https://coding.fnsne.com/tags/asynchronous-request/</link>
-        <pubDate>Thu, 07 Nov 2024 20:59:16 +0800</pubDate>
-        
-        <guid>https://coding.fnsne.com/tags/asynchronous-request/</guid>
         <description></description>
         </item>
         
